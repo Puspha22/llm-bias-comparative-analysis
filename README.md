@@ -6,7 +6,7 @@ A master's thesis project that replicates and extends the academic paper **_"Bia
 
 ## 📘 Overview
 
-This project investigates **algorithmic bias** in Large Language Model (LLM)-generated code. It introduces a next-generation auditing framework called **Smart Combination Testing**, which extends the original paper’s methodology by exhaustively testing *all* attributes used in a function — not just a predefined “sensitive” list.
+This project investigates **algorithmic bias** in Large Language Model (LLM)-generated code. It introduces a next-generation auditing framework called **Combinatorial Logic Auditing**, which extends the original paper’s methodology by exhaustively testing *all* attributes used in a function — not just a predefined “sensitive” list.
 
 The framework:
 - Generates Python functions using both **General Purpose Models** (e.g., Google Gemini) and **Code Specialized Models** (e.g., Grok).
@@ -25,7 +25,7 @@ The repository has been streamlined to contain only the core datasets and the sc
 │   ├── generate_functions.py        # Code Generation: Gemini (General Purpose)
 │   ├── generate_functions_grok.py   # Code Generation: Grok (Code Specialized)
 │   ├── run_audit_dynamic_legacy.py  # Audit: Baseline comparison testing
-│   ├── run_audit_dynamic.py         # Audit: Smart Combination Testing
+│   ├── run_audit_dynamic.py         # Audit: Combinatorial Logic Auditing
 │   ├── analyze_results.py           # Analysis: Consistency and Hallucination stats
 │   └── extract_protected_bias.py    # Analysis: Protected attribute extraction
 │
@@ -54,7 +54,7 @@ The repository has been streamlined to contain only the core datasets and the sc
 - **Scripts:** `src/generate_functions.py` and `src/generate_functions_grok.py`
 - **Purpose:** Uses the expanded prompts to generate multiple code samples across different LLM architectures (Gemini 2.5 Flash and Grok), providing the foundational datasets for the comparative analysis.
 
-### **3. Bias Detection — “Smart Combination Testing”**
+### **3. Bias Detection — “Combinatorial Logic Auditing”**
 - **Scripts:** `src/run_audit_dynamic.py` and `src/run_audit_dynamic_legacy.py`
 - **Purpose:** Detects discriminatory or inconsistent logic using an all-attribute, all-combination strategy.
   1. Parses each function to identify all input attributes used.
@@ -83,7 +83,7 @@ pip install -r requirements.txt
 
 ## 📊 Key Findings
 
-- **Widespread Bias Detected:** The Smart Combination Testing framework flagged significantly more functions with discriminatory logic than traditional static methods.
+- **Widespread Bias Detected:** The Combinatorial Logic Auditing framework flagged significantly more functions with discriminatory logic than traditional static methods.
 - **Functional Attributes Drive Bias:** Bias most frequently originates from "functional" attributes such as **`major`** and **`education`**, proving that proxy variables are a major source of algorithmic discrimination in code generation.
 - **Magic Numbers & Hallucinations:** Models frequently invent hardcoded thresholds (e.g., `age < 18` or `credit_score > 700`) that were not present in the prompt, leading to highly inconsistent logic.
 
