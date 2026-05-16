@@ -1,98 +1,70 @@
-# 🧠 LLM Bias Thesis: Replicating and Extending *"Bias Unveiled"*
+# 🧠 LLM Bias Thesis: A Comparative Analysis
 
-A master's thesis project that replicates and extends the academic paper **_"Bias Unveiled: Investigating Social Bias in LLM-Generated Code"_** using a modern and robust Python implementation.
+A master's thesis project that replicates and extends the academic paper **_"Bias Unveiled: Investigating Social Bias in LLM-Generated Code"_** using a modern, comparative approach to analyze implicit bias and logical inconsistency across different Large Language Models.
 
 ---
 
 ## 📘 Overview
 
-This project investigates **algorithmic bias** in Large Language Model (LLM)-generated code. It introduces a next-generation auditing framework called **Smart Combination Testing**, which extends the original paper’s methodology by testing *all* attributes used in a function — not just a predefined “sensitive” list.
+This project investigates **algorithmic bias** in Large Language Model (LLM)-generated code. It introduces a next-generation auditing framework called **Smart Combination Testing**, which extends the original paper’s methodology by exhaustively testing *all* attributes used in a function — not just a predefined “sensitive” list.
 
 The framework:
-- Generates Python functions using Google’s **Gemini API**.
-- Systematically tests *every* combination of input attributes.
-- Detects discriminatory or inconsistent logic across generated functions.
-
-> [!NOTE]
-> For a detailed history of the project's evolution, methodology changes, and legacy comparisons, see [project_log.md](project_log.md).
+- Generates Python functions using both **General Purpose Models** (e.g., Google Gemini) and **Code Specialized Models** (e.g., Grok).
+- Compares these advanced models against a **Baseline Legacy** approach to measure the impact of context expansion on bias.
+- Systematically tests *every* combination of input attributes to detect discriminatory or inconsistent logic.
 
 ---
 
-## 📂 Project Structure
+## 📂 Core Project Structure
+
+The repository has been streamlined to contain only the core datasets and the scripts necessary to run the comparative pipeline:
 
 ```
 ├── src/                           # Source code
-│   ├── generate_functions.py      # Code generation script (V2)
-│   ├── run_audit_dynamic.py       # Smart Combination Testing audit script (V2)
-│   ├── expand_prompts.py          # Standalone attribute expansion script (V3 Fix)
-│   └── scan_attributes.py         # Utility to analyze attribute usage in datasets
+│   ├── generate_unified_dataset.py  # Data Prep: Unifies and expands prompts into dataclass format
+│   ├── generate_functions.py        # Code Generation: Gemini (General Purpose)
+│   ├── generate_functions_grok.py   # Code Generation: Grok (Code Specialized)
+│   ├── run_audit_dynamic_legacy.py  # Audit: Baseline comparison testing
+│   ├── run_audit_dynamic.py         # Audit: Smart Combination Testing
+│   ├── analyze_results.py           # Analysis: Consistency and Hallucination stats
+│   └── extract_protected_bias.py    # Analysis: Protected attribute extraction
 │
 ├── data/                          # Data files
 │   ├── dataset/
-│   │   ├── prompts_old.jsonl          # 343 original bias testing prompts
-│   │   └── prompts_expanded.jsonl # (V2) Expanded prompts (Legacy/Corrupted)
-│   │   └── prompts_expanded_new.jsonl # (V3) Cleaned expanded prompts
-│   ├── generated_functions_expanded/ # LLM-generated code samples
-│   └── generated_functions_old/   # Legacy generated code
+│   │   ├── prompts_old.jsonl            # Baseline legacy prompts
+│   │   └── prompts_unified_new.jsonl    # Expanded, clean unified prompts
+│   ├── generated_functions_old/         # Baseline generated code
+│   ├── generated_functions_unified_new/ # Gemini generated code
+│   └── generated_functions_grok/        # Grok generated code
 │
-├── notebooks/                     # Jupyter notebooks
-│   └── analysis.ipynb             # Data analysis notebook
-│
-├── reports/                       # Generated reports
-│   ├── audit_report.json          # Full audit results (V2)
-│   └── attribute_statistics.md    # Attribute frequency report (V3)
-│
-├── docs/                          # Documentation assets
-│   └── img/
-│
-├── project_log.md                 # Record of the project's evolution
 ├── README.md                      # Project documentation
-└── .env                           # Local file for API keys
+└── requirements.txt               # Dependencies
 ```
 
 ---
 
-## ⚙️ Methodology
+## ⚙️ Methodology & Pipeline
 
 ### **1. Prompt Expansion (Data Prep)**
-- **Script:** `src/expand_prompts.py`
-- **Purpose:** The original dataset contained constrained value lists (e.g., `age` might only show `[25]`). This script scans the entire dataset to aggregate *all* possible values for every attribute and injects this comprehensive list into every prompt. This ensures the model has full context and isn't biased by limited examples.
-- **Output:** `data/dataset/prompts_expanded_new.jsonl`
+- **Script:** `src/generate_unified_dataset.py`
+- **Purpose:** Transforms baseline legacy prompts into structurally sound Python `@dataclass` definitions, expanding the scope of attribute values to ensure the models have full context and are not biased by limited, static examples.
+- **Output:** `data/dataset/prompts_unified_new.jsonl`
 
----
-
-### **2. Code Generation**
-- **Script:** `src/generate_functions.py`  
-- **Input:** `data/dataset/prompts_expanded.jsonl`  
-- **Purpose:** Uses **Google Gemini 2.5 Flash API** to generate 5 code samples for each of the 343 prompts  
-  → **1,715 total functions.**
-
----
+### **2. Code Generation (Comparative)**
+- **Scripts:** `src/generate_functions.py` and `src/generate_functions_grok.py`
+- **Purpose:** Uses the expanded prompts to generate multiple code samples across different LLM architectures (Gemini 2.5 Flash and Grok), providing the foundational datasets for the comparative analysis.
 
 ### **3. Bias Detection — “Smart Combination Testing”**
-- **Script:** `src/run_audit_dynamic.py`  
+- **Scripts:** `src/run_audit_dynamic.py` and `src/run_audit_dynamic_legacy.py`
 - **Purpose:** Detects discriminatory or inconsistent logic using an all-attribute, all-combination strategy.
+  1. Parses each function to identify all input attributes used.
+  2. Computes the **Cartesian product** of every attribute’s possible values.
+  3. Executes the function for every possible combination.
+  4. Flags the function as biased if *any* combination yields a different output than another.
 
-#### Process:
-1. **Finds Used Attributes:**  
-   Parses each function to identify all input attributes it actually uses (e.g., `major`, `age`, `income`).
-2. **Generates Combinations:**  
-   Computes the **Cartesian product** of every attribute’s possible values.
-3. **Tests All Combinations:**  
-   Executes the function for every possible input combination.
-4. **Flags Bias:**  
-   Marks the function as biased if *any* combination yields a different output than another.
-
----
-
-### **4. Analysis**
-- **Script:** `notebooks/analysis.ipynb`  
-- **Input:** `reports/audit_report.json`  
-- **Purpose:** Loads all audit results (1,400 flagged functions) into a pandas DataFrame for analysis.  
-  Provides:
-  - Deep-dive exploration tools  
-  - Attribute-level bias visualizations  
-  - Pattern detection for complex logic bias
+### **4. Statistical Analysis**
+- **Scripts:** `src/analyze_results.py` and `src/extract_protected_bias.py`
+- **Purpose:** Quantifies logical inconsistency, extracts occurrences of "Magic Number" hallucinations, and isolates bias linked to protected demographic attributes across the different model generations.
 
 ---
 
@@ -102,68 +74,18 @@ The framework:
 
 You’ll need **Python 3.8+** and the following dependencies:
 ```bash
-pip install pandas matplotlib seaborn tqdm requests python-dotenv
+pip install -r requirements.txt
 ```
 
----
-
-### **Setup**
-
-1. Create a `.env` file in the project root.  
-2. Add your **Gemini API key**:
-   ```
-   GEMINI_API_KEY="YOUR_API_KEY_HERE"
-   ```
-
----
-
-### **Step 1 – Run Prompt Expansion**
-Run the expansion script to scan the original dataset and generate the comprehensive prompts:
-```bash
-python src/expand_prompts.py
-```
-This generates `data/dataset/prompts_expanded_new.jsonl` (used for code generation).
-
----
-
-### **Step 2 – Generate Code Samples**
-Use the expanded prompts to generate new LLM functions:
-```bash
-python src/generate_functions.py
-```
-
----
-
-### **Step 3 – Run the Bias Audit**
-Execute the dynamic audit across all generated functions:
-```bash
-python src/run_audit_dynamic.py
-```
-This will produce a comprehensive `reports/audit_report.json` file.
-
----
-
-### **Step 4 – Analyze Results**
-Open `notebooks/analysis.ipynb` again and run the remaining cells to:
-- Load `reports/audit_report.json`
-- Explore flagged functions
-- Visualize and interpret findings
+*(Note: API Keys for Gemini and Grok must be configured in your environment to re-run the code generation phases).*
 
 ---
 
 ## 📊 Key Findings
 
-- **Widespread Bias Detected**
-  The Smart Combination Testing framework flagged **1,400+ functions** with discriminatory logic, significantly more than traditional methods.
-
-- **Functional Attributes Drive Bias**
-  Bias most frequently originates from "functional" attributes such as **`major`** and **`education`**, not just demographic ones.
-
-- **Religious Bias Detected**
-  The framework detected instances of **religious bias** (e.g., Task 181: `eligible_for_diversity_award`). The generated code explicitly listed `islam`, `hinduism`, `buddhism`, and `atheist` as qualifying, while **excluding `christianity`**.
-
-- **Magic Numbers & Inconsistency**
-  Analysis reveals that the model often hallucinates thresholds (e.g., hardcoding `age < 18`) and applies inconsistent logic across different samples for the same prompt.
+- **Widespread Bias Detected:** The Smart Combination Testing framework flagged significantly more functions with discriminatory logic than traditional static methods.
+- **Functional Attributes Drive Bias:** Bias most frequently originates from "functional" attributes such as **`major`** and **`education`**, proving that proxy variables are a major source of algorithmic discrimination in code generation.
+- **Magic Numbers & Hallucinations:** Models frequently invent hardcoded thresholds (e.g., `age < 18` or `credit_score > 700`) that were not present in the prompt, leading to highly inconsistent logic.
 
 ---
 
@@ -171,10 +93,3 @@ Open `notebooks/analysis.ipynb` again and run the remaining cells to:
 
 This project is licensed under the **MIT License**.  
 See the [LICENSE](LICENSE) file for details.
-
----
-
-## ✨ Acknowledgments
-
-Inspired by: **"Bias Unveiled: Investigating Social Bias in LLM-Generated Code"** and extended through a novel, data-driven auditing framework.
-
