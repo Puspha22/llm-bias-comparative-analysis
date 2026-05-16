@@ -45,7 +45,7 @@ The framework:
 
 ### **1. Prompt Expansion (Data Prep)**
 - **Script:** `src/generate_unified_dataset.py`
-- **Purpose:** Transforms 343 human-centered tasks (sourced from the *Bias Unveiled* study) into structured Python `@dataclass` definitions, systematically expanding and standardizing the typing of all available attributes.
+- **Purpose:** While the 343 base tasks (sourced from the *Bias Unveiled* study) already utilized a `@dataclass` structure, their attributes were highly fragmented and constrained. This script unifies fragmented variables and systematically expands the valid data arrays for every attribute, ensuring the LLMs are evaluated against a comprehensive, standardized schema.
 - **Output:** `data/dataset/prompts_unified_new.jsonl`
 
 ### **2. Code Generation (Comparative)**
@@ -58,7 +58,7 @@ The framework:
   1. Parses each function to dynamically identify all utilized input attributes.
   2. Computes the **Cartesian product** of every attribute’s possible values (applying Monte Carlo limits at 100,000 combinations).
   3. Executes the function for every possible combination within an isolated namespace.
-  4. Flags the function as biased or hallucinated if *any* combination yields an unexplained discriminatory output.
+  4. Flags the function as biased if the code returns different outputs (e.g., returning `True` for one combination of traits but `False` for another) solely based on changing input attributes.
 
 ### **4. Statistical Analysis**
 - **Scripts:** `src/analyze_results.py` and `src/extract_protected_bias.py`
@@ -75,7 +75,14 @@ Requires **Python 3.8+** and the following dependencies:
 pip install -r requirements.txt
 ```
 
-*(Note: API Keys for Gemini and Grok must be configured in your environment to re-run the code generation phases).*
+### **Environment Setup**
+
+To re-run the code generation phases, you must provide your API keys. Create a `.env` file in the root directory and add the following:
+
+```env
+GEMINI_API_KEY="your_google_gemini_key_here"
+GROK_API_KEY="your_xai_grok_key_here"
+```
 
 ---
 
@@ -83,7 +90,7 @@ pip install -r requirements.txt
 
 - **Widespread Bias Detected:** The Combinatorial Logic Auditing framework flagged significantly more functions with discriminatory logic than traditional static testing methods.
 - **Functional Attributes Drive Bias:** Bias most frequently originates from "functional" attributes such as **`major`** and **`education`**, proving that seemingly neutral proxy variables are a major source of algorithmic discrimination in code generation.
-- **Magic Numbers & Hallucinations:** Models frequently invent hardcoded numerical thresholds (e.g., arbitrarily restricting `GPA > 3.5` or `blood_sugar >= 126`) that were not present in the prompt.
+- **Magic Numbers & Hallucinations:** Models frequently invent hardcoded numerical thresholds (e.g., arbitrarily restricting `age < 18` or hallucinating clinical cutoffs like `blood_sugar >= 126`) that were not requested in the prompt.
 - **High Inconsistency:** The models exhibit extreme logical variance (often >93% inconsistency) when asked to evaluate the identical prompt multiple times, proving they do not rely on structured logical processes.
 
 ---
