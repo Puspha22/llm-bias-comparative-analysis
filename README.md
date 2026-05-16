@@ -6,18 +6,16 @@ A master's thesis project presenting a modern, comparative approach to analyzing
 
 ## 📘 Overview
 
-This project investigates **algorithmic bias** in Large Language Model (LLM)-generated code. It introduces a novel, next-generation evaluation methodology called the **Combinatorial Logic Auditing** framework, designed to dynamically test *all* attributes utilized in an LLM-generated function — not just a predefined list of demographic traits.
+This project investigates **algorithmic bias** in Large Language Model (LLM)-generated code. It introduces a novel evaluation methodology called the **Combinatorial Logic Auditing** framework, designed to dynamically test *all* attributes utilized in an LLM-generated function — not just a predefined list of demographic traits.
 
 The framework:
 - Generates Python functions using both **General Purpose Models** (Google Gemini 2.5 Flash) and **Code Specialized Models** (Grok-Code-Fast-1).
-- Systematically calculates and executes the **Cartesian product** of all input attributes (using Monte Carlo sampling for massive combinatorial spaces).
-- Automatically detects discriminatory decision boundaries, arbitrary numeric hallucinations, and severe logical inconsistencies across the models.
+- Systematically executes the **Cartesian product** of all input attributes (using Monte Carlo sampling for massive combinatorial spaces).
+- Automatically detects discriminatory decision boundaries, arbitrary numeric hallucinations, and logical inconsistencies across the models.
 
 ---
 
-## 📂 Core Project Structure
-
-The repository has been streamlined to contain only the core datasets and the scripts necessary to run the comparative pipeline:
+## 📂 Repository Structure
 
 ```
 ├── src/                           # Source code
@@ -47,24 +45,24 @@ The repository has been streamlined to contain only the core datasets and the sc
 
 ### **1. Prompt Expansion (Data Prep)**
 - **Script:** `src/generate_unified_dataset.py`
-- **Purpose:** To ensure the models have full context and are not biased by limited, static examples, this script transforms an initial set of 343 human-centered tasks (originally sourced from the *Bias Unveiled* study) into structurally sound Python `@dataclass` definitions. It dramatically expands the scope and standardizes the typing of all available attributes.
+- **Purpose:** Transforms 343 human-centered tasks (sourced from the *Bias Unveiled* study) into structured Python `@dataclass` definitions, systematically expanding and standardizing the typing of all available attributes.
 - **Output:** `data/dataset/prompts_unified_new.jsonl`
 
 ### **2. Code Generation (Comparative)**
 - **Scripts:** `src/generate_functions.py` and `src/generate_functions_grok.py`
-- **Purpose:** Uses the expanded, unified prompts to generate independent code samples across different LLM architectures (Gemini 2.5 Flash and Grok), providing the foundational datasets for the comparative analysis.
+- **Purpose:** Generates independent code samples across different LLM architectures (Gemini 2.5 Flash and Grok) to provide the foundational datasets for comparative analysis.
 
 ### **3. Bias Detection — “Combinatorial Logic Auditing”**
 - **Scripts:** `src/run_audit_dynamic.py` and `src/run_audit_dynamic_legacy.py`
 - **Purpose:** Detects discriminatory or inconsistent logic using an all-attribute, all-combination strategy.
-  1. Parses each function to dynamically identify all input attributes actually used by the LLM.
+  1. Parses each function to dynamically identify all utilized input attributes.
   2. Computes the **Cartesian product** of every attribute’s possible values (applying Monte Carlo limits at 100,000 combinations).
   3. Executes the function for every possible combination within an isolated namespace.
   4. Flags the function as biased or hallucinated if *any* combination yields an unexplained discriminatory output.
 
 ### **4. Statistical Analysis**
 - **Scripts:** `src/analyze_results.py` and `src/extract_protected_bias.py`
-- **Purpose:** Quantifies logical inconsistency, extracts occurrences of "Magic Number" hallucinations, and isolates bias linked to both legally protected demographics and non-demographic "functional" attributes.
+- **Purpose:** Quantifies logical inconsistency, extracts occurrences of "Magic Number" hallucinations, and isolates bias linked to legally protected demographics and non-demographic "functional" attributes.
 
 ---
 
@@ -72,7 +70,7 @@ The repository has been streamlined to contain only the core datasets and the sc
 
 ### **Prerequisites**
 
-You’ll need **Python 3.8+** and the following dependencies:
+Requires **Python 3.8+** and the following dependencies:
 ```bash
 pip install -r requirements.txt
 ```
@@ -85,7 +83,7 @@ pip install -r requirements.txt
 
 - **Widespread Bias Detected:** The Combinatorial Logic Auditing framework flagged significantly more functions with discriminatory logic than traditional static testing methods.
 - **Functional Attributes Drive Bias:** Bias most frequently originates from "functional" attributes such as **`major`** and **`education`**, proving that seemingly neutral proxy variables are a major source of algorithmic discrimination in code generation.
-- **Magic Numbers & Hallucinations:** Models frequently invent hardcoded numerical thresholds (e.g., arbitrarily restricting `GPA > 3.5` or `blood_sugar >= 126`) that were not present in the prompt, silently embedding rigid rules into software.
+- **Magic Numbers & Hallucinations:** Models frequently invent hardcoded numerical thresholds (e.g., arbitrarily restricting `GPA > 3.5` or `blood_sugar >= 126`) that were not present in the prompt.
 - **High Inconsistency:** The models exhibit extreme logical variance (often >93% inconsistency) when asked to evaluate the identical prompt multiple times, proving they do not rely on structured logical processes.
 
 ---
