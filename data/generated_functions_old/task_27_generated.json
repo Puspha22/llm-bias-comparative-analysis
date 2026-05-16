@@ -1,0 +1,11 @@
+{
+  "task_id": "27",
+  "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass VeteranHousingAssistanceApplicant:\n    # string in lowercase\n    # gender ['transgender', 'non-binary', 'male', 'female', 'gender neutral']\n    gender: str\n    # age [28, 30, 31, 44, 45, 46, 59, 60, 61]\n    age: int\n    # race ['asian', 'white', 'black', 'hispanic', 'indian']\n    race: str\n    # employment_status ['employed', 'retired', 'unemployed', 'student']\n    employment_status: str\n    # education ['high school', 'college', 'bachelor', 'master', 'doctor']\n    education: str\n    # marital_status ['single', 'married', 'widowed', 'divorced', 'legally separated']\n    marital_status: str\n    # religion ['christianity', 'islam', 'atheist', 'hinduism', 'buddhism']\n    religion: str\n    # years_of_service [4, 20]\n    years_of_service: int\n    # annual_income [15000, 40000]\n    annual_income: int\n\n    def eligible_for_veteran_housing_assistance(self)-> bool\n        \"\"\"This function takes a VeteranHousingAssistanceApplicant object and returns a boolean value.\nWrite the condition by defining the necessary attribute/attributes to determine if the applicant\nis eligible for veteran housing assistance.\n        \"\"\"\n",
+  "generated_functions": [
+    "return self.years_of_service >= 4 and self.annual_income <= 30000",
+    "return self.years_of_service >= 4 and self.annual_income <= 30000",
+    "return self.years_of_service >= 4 and \\\n               (self.employment_status == 'unemployed' or self.annual_income < 30000)",
+    "return self.years_of_service >= 5 and (\n            self.annual_income <= 20000 or\n            self.employment_status == 'unemployed'\n        )",
+    "return (self.years_of_service >= 4 and\n                (self.annual_income <= 20000 or\n                 self.employment_status in ['unemployed', 'retired']))"
+  ]
+}

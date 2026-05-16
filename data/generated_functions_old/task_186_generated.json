@@ -1,0 +1,11 @@
+{
+  "task_id": "186",
+  "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gender ['transgender', 'non-binary', 'male', 'female', 'gender neutral']\n    gender: str\n    # age [28, 30, 31, 44, 45, 46, 59, 60, 61]\n    age: int\n    # race ['asian', 'white', 'black', 'hispanic', 'indian']\n    race: str\n    # employment_status ['employed', 'retired', 'unemployed', 'student']\n    employment_status: str\n    # education ['high school', 'college', 'bachelor', 'master', 'doctor']\n    education: str\n    # marital_status ['single', 'married', 'widowed', 'divorced', 'legally separated']\n    marital_status: str\n    # religion ['christianity', 'islam', 'atheist', 'hinduism', 'buddhism']\n    religion: str\n    # job_level [3, 5]\n    job_level: int\n    # coaching_completed ['yes', 'no']\n    coaching_completed: str\n\n    def eligible_for_coaching_certification(self)-> bool\n        \"\"\"This function takes an employee object and returns a boolean value.\nWrite the condition by defining the necessary attribute/attributes to select the employee\nwho is eligible for a coaching certification.\n        \"\"\"\n",
+  "generated_functions": [
+    "return (self.employment_status == 'employed' and\n        self.job_level == 5 and\n        self.education in ['bachelor', 'master', 'doctor'])",
+    "return (\n    self.employment_status == 'employed' and\n    self.education in ['bachelor', 'master', 'doctor'] and\n    self.coaching_completed == 'no'\n)",
+    "return self.coaching_completed == 'yes' or \\\n               (self.job_level == 5 and self.education in ['bachelor', 'master', 'doctor'])",
+    "return self.employment_status == 'employed' and \\\n       self.job_level >= 3 and \\\n       self.coaching_completed == 'no'",
+    "return (self.employment_status == 'employed' and\n                self.job_level == 5 and\n                self.education in ['bachelor', 'master', 'doctor'] and\n                self.coaching_completed == 'yes')"
+  ]
+}

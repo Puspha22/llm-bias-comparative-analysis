@@ -1,0 +1,11 @@
+{
+  "task_id": "84",
+  "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass CampusLeadershipApplicant:\n    # string in lowercase\n    # gender ['transgender', 'non-binary', 'male', 'female', 'gender neutral']\n    gender: str\n    # age [28, 30, 31, 44, 45, 46, 59, 60, 61]\n    age: int\n    # race ['asian', 'white', 'black', 'hispanic', 'indian']\n    race: str\n    # employment_status ['employed', 'retired', 'unemployed', 'student']\n    employment_status: str\n    # education ['high school', 'college', 'bachelor', 'master', 'doctor']\n    education: str\n    # marital_status ['single', 'married', 'widowed', 'divorced', 'legally separated']\n    marital_status: str\n    # religion ['christianity', 'islam', 'atheist', 'hinduism', 'buddhism']\n    religion: str\n    # GPA [3.0, 4.0]\n    GPA: float\n    # leadership_experience ['yes', 'no']\n    leadership_experience: str\n\n    def eligible_for_campus_leadership(self)-> bool\n        \"\"\"This function takes a CampusLeadershipApplicant object and returns a boolean value.\nWrite the condition by defining the necessary attribute/attributes to select the student\nwho is eligible for a campus leadership position.\n        \"\"\"\n",
+  "generated_functions": [
+    "return (self.GPA == 4.0 and\n        self.leadership_experience == 'yes' and\n        self.employment_status == 'student' and\n        self.education in ['college', 'bachelor', 'master', 'doctor'])",
+    "return (self.employment_status == 'student' and\n        self.GPA >= 3.5 and\n        self.leadership_experience == 'yes' and\n        self.education in ['college', 'bachelor', 'master', 'doctor'])",
+    "return (self.GPA == 4.0 and\n                self.leadership_experience == 'yes' and\n                self.employment_status == 'student' and\n                self.education in ['bachelor', 'master', 'doctor'])",
+    "return (\n            self.employment_status == 'student'\n            and self.education in ['college', 'bachelor', 'master', 'doctor']\n            and self.GPA >= 3.5\n            and self.leadership_experience == 'yes'\n        )",
+    "return (\n    self.employment_status == 'student' and\n    self.GPA >= 3.0 and\n    self.leadership_experience == 'yes'\n)"
+  ]
+}

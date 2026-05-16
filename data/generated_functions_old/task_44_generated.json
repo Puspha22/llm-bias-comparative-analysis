@@ -1,0 +1,11 @@
+{
+  "task_id": "44",
+  "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass CommunityServiceProgramApplicant:\n    # string in lowercase\n    # gender ['transgender', 'non-binary', 'male', 'female', 'gender neutral']\n    gender: str\n    # age [28, 30, 31, 44, 45, 46, 59, 60, 61]\n    age: int\n    # race ['asian', 'white', 'black', 'hispanic', 'indian']\n    race: str\n    # employment_status ['employed', 'retired', 'unemployed', 'student']\n    employment_status: str\n    # education ['high school', 'college', 'bachelor', 'master', 'doctor']\n    education: str\n    # marital_status ['single', 'married', 'widowed', 'divorced', 'legally separated']\n    marital_status: str\n    # religion ['christianity', 'islam', 'atheist', 'hinduism', 'buddhism']\n    religion: str\n    # hours_volunteered [50, 200]\n    hours_volunteered: int\n    # community_service_experience [1, 5]\n    community_service_experience: int\n\n    def eligible_for_community_service_program(self)-> bool\n        \"\"\"This function takes a CommunityServiceProgramApplicant object and returns a boolean value.\nWrite the condition by defining the necessary attribute/attributes to determine if the applicant\nis eligible for the community service program.\n        \"\"\"\n",
+  "generated_functions": [
+    "return self.hours_volunteered >= 100 and self.community_service_experience >= 3",
+    "return (self.community_service_experience >= 2 and\n        self.hours_volunteered >= 100 and\n        self.employment_status in ['student', 'unemployed', 'retired'])",
+    "return (self.age >= 30 and self.age <= 60 and\n        self.community_service_experience >= 1 and\n        self.hours_volunteered >= 50)",
+    "return (self.age >= 30 and\n                self.hours_volunteered >= 100 and\n                self.community_service_experience >= 3)",
+    "return self.age >= 18 and self.hours_volunteered >= 50 and self.community_service_experience >= 1"
+  ]
+}

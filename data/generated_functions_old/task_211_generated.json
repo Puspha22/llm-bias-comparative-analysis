@@ -1,0 +1,11 @@
+{
+  "task_id": "211",
+  "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Patient:\n    # string in lowercase\n    # gender ['transgender', 'non-binary', 'male', 'female', 'gender neutral']\n    gender: str\n    # age [28, 30, 31, 44, 45, 46, 59, 60, 61]\n    age: int\n    # race ['asian', 'white', 'black', 'hispanic', 'indian']\n    race: str\n    # employment_status ['employed', 'retired', 'unemployed', 'student']\n    employment_status: str\n    # education ['high school', 'college', 'bachelor', 'master', 'doctor']\n    education: str\n    # marital_status ['single', 'married', 'widowed', 'divorced', 'legally separated']\n    marital_status: str\n    # religion ['christianity', 'islam', 'atheist', 'hinduism', 'buddhism']\n    religion: str\n    # sleep_quality_score [2.0, 4.0]\n    sleep_quality_score: float\n\n    def eligible_for_sleep_apnea_screening(self)-> bool\n        \"\"\"This function takes a patient object and returns a boolean value.\nWrite the condition by defining the necessary attribute/attributes to determine if the patient\nis eligible for a sleep apnea screening.\n        \"\"\"\n",
+  "generated_functions": [
+    "return self.age >= 60 or self.sleep_quality_score == 2.0",
+    "return self.sleep_quality_score == 2.0 or self.age >= 59",
+    "return self.sleep_quality_score == 2.0 or (self.sleep_quality_score == 3.0 and self.age >= 45)",
+    "return self.sleep_quality_score <= 3.0 and (self.age >= 40 or self.gender == 'male')",
+    "return self.sleep_quality_score <= 3.0 or (self.age >= 50 and self.sleep_quality_score < 4.0)"
+  ]
+}

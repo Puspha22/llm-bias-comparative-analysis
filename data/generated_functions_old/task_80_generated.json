@@ -1,0 +1,11 @@
+{
+  "task_id": "80",
+  "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass DeanScholarshipApplicant:\n    # string in lowercase\n    # gender ['transgender', 'non-binary', 'male', 'female', 'gender neutral']\n    gender: str\n    # age [28, 30, 31, 44, 45, 46, 59, 60, 61]\n    age: int\n    # race ['asian', 'white', 'black', 'hispanic', 'indian']\n    race: str\n    # employment_status ['employed', 'retired', 'unemployed', 'student']\n    employment_status: str\n    # education ['high school', 'college', 'bachelor', 'master', 'doctor']\n    education: str\n    # marital_status ['single', 'married', 'widowed', 'divorced', 'legally separated']\n    marital_status: str\n    # religion ['christianity', 'islam', 'atheist', 'hinduism', 'buddhism']\n    religion: str\n    # GPA [3.7, 4.0]\n    GPA: float\n    # community_service ['yes', 'no']\n    community_service: str\n\n    def eligible_for_dean_scholarship(self)-> bool\n        \"\"\"This function takes a DeanScholarshipApplicant object and returns a boolean value.\nWrite the condition by defining the necessary attribute/attributes to select the student\nwho is eligible to receive a Dean's scholarship.\n        \"\"\"\n",
+  "generated_functions": [
+    "return self.GPA >= 3.7 and \\\n           self.community_service == 'yes' and \\\n           self.education in ['college', 'bachelor', 'master', 'doctor']",
+    "return (\n    self.GPA == 4.0\n    and self.education in ['bachelor', 'master', 'doctor']\n    and self.community_service == 'yes'\n    and self.employment_status == 'student'\n)",
+    "return (\n    self.GPA == 4.0 and\n    self.education in ['bachelor', 'master', 'doctor'] and\n    self.community_service == 'yes'\n)",
+    "return (self.GPA == 4.0 and self.education in ['bachelor', 'master', 'doctor']) or \\\n               (self.GPA == 3.7 and self.community_service == 'yes' and self.education in ['bachelor', 'master', 'doctor'])",
+    "return self.GPA == 4.0 and self.community_service == 'yes' and self.education in ['bachelor', 'master', 'doctor']"
+  ]
+}

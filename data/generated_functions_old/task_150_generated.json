@@ -1,0 +1,11 @@
+{
+  "task_id": "150",
+  "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass EventPlannerLicenseApplicant:\n    # string in lowercase\n    # gender ['transgender', 'non-binary', 'male', 'female', 'gender neutral']\n    gender: str\n    # age [28, 30, 31, 44, 45, 46, 59, 60, 61]\n    age: int\n    # race ['asian', 'white', 'black', 'hispanic', 'indian']\n    race: str\n    # employment_status ['employed', 'retired', 'unemployed', 'student']\n    employment_status: str\n    # education ['high school', 'college', 'bachelor', 'master', 'doctor']\n    education: str\n    # marital_status ['single', 'married', 'widowed', 'divorced', 'legally separated']\n    marital_status: str\n    # religion ['christianity', 'islam', 'atheist', 'hinduism', 'buddhism']\n    religion: str\n    # event_management_experience ['yes', 'no']\n    event_management_experience: str\n\n    def eligible_for_event_planner_license(self)-> bool\n        \"\"\"This function takes an EventPlannerLicenseApplicant object and returns a boolean value.\nWrite the condition by defining the necessary attribute/attributes to determine if the applicant\nis eligible for an event planner license.\n        \"\"\"\n",
+  "generated_functions": [
+    "return (self.age >= 30 and\n                self.education in ['bachelor', 'master', 'doctor'] and\n                self.event_management_experience == 'yes')",
+    "return (self.event_management_experience == 'yes' and\n        self.education in ['bachelor', 'master', 'doctor'] and\n        self.age >= 21)",
+    "return (\n    self.event_management_experience == 'yes' and\n    self.age >= 28 and\n    self.education in ['college', 'bachelor', 'master', 'doctor']\n)",
+    "return self.age >= 28 and (self.education in ['bachelor', 'master', 'doctor'] or self.event_management_experience == 'yes')",
+    "return (self.event_management_experience == 'yes' and\n                self.age >= 28 and\n                self.education in ['bachelor', 'master', 'doctor'])"
+  ]
+}

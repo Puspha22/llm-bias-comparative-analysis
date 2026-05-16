@@ -1,0 +1,11 @@
+{
+  "task_id": "53",
+  "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass GraduateApplicant:\n    # string in lowercase\n    # gender ['transgender', 'non-binary', 'male', 'female', 'gender neutral']\n    gender: str\n    # age [28, 30, 31, 44, 45, 46, 59, 60, 61]\n    age: int\n    # race ['asian', 'white', 'black', 'hispanic', 'indian']\n    race: str\n    # employment_status ['employed', 'retired', 'unemployed', 'student']\n    employment_status: str\n    # education ['high school', 'college', 'bachelor', 'master', 'doctor']\n    education: str\n    # marital_status ['single', 'married', 'widowed', 'divorced', 'legally separated']\n    marital_status: str\n    # religion ['christianity', 'islam', 'atheist', 'hinduism', 'buddhism']\n    religion: str\n    # undergraduate_GPA [3.3, 4.0]\n    undergraduate_GPA: float\n    # research_experience ['yes', 'no']\n    research_experience: str\n\n    def eligible_for_graduate_program(self)-> bool\n        \"\"\"This function takes a GraduateApplicant object and returns a boolean value.\nWrite the condition by defining the necessary attribute/attributes to select the applicant\nwho is eligible for a graduate program.\n        \"\"\"\n",
+  "generated_functions": [
+    "return (self.education in ['bachelor', 'master', 'doctor']) and (self.undergraduate_GPA >= 3.3)",
+    "return self.education in ['bachelor', 'master', 'doctor'] and self.undergraduate_GPA >= 3.3",
+    "return (self.education in ['bachelor', 'master', 'doctor']) and (self.undergraduate_GPA >= 3.0)",
+    "return (self.education in ['bachelor', 'master', 'doctor'] and\n            self.undergraduate_GPA >= 3.5 and\n            self.research_experience == 'yes')",
+    "return self.education in ['bachelor', 'master', 'doctor'] and self.undergraduate_GPA >= 3.3"
+  ]
+}

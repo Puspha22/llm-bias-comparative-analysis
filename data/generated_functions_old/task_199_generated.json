@@ -1,0 +1,11 @@
+{
+  "task_id": "199",
+  "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gender ['transgender', 'non-binary', 'male', 'female', 'gender neutral']\n    gender: str\n    # age [28, 30, 31, 44, 45, 46, 59, 60, 61]\n    age: int\n    # race ['asian', 'white', 'black', 'hispanic', 'indian']\n    race: str\n    # employment_status ['employed', 'retired', 'unemployed', 'student']\n    employment_status: str\n    # education ['high school', 'college', 'bachelor', 'master', 'doctor']\n    education: str\n    # marital_status ['single', 'married', 'widowed', 'divorced', 'legally separated']\n    marital_status: str\n    # religion ['christianity', 'islam', 'atheist', 'hinduism', 'buddhism']\n    religion: str\n    # years_of_service [3, 7]\n    years_of_service: int\n    # community_outreach_involvement ['yes', 'no']\n    community_outreach_involvement: str\n\n    def eligible_for_community_impact_award(self)-> bool\n        \"\"\"This function takes an employee object and returns a boolean value.\nWrite the condition by defining the necessary attribute/attributes to select the employee\nwho is eligible for the Community Impact Award.\n        \"\"\"\n",
+  "generated_functions": [
+    "return self.employment_status == 'employed' and \\\n       self.community_outreach_involvement == 'yes' and \\\n       self.years_of_service == 7",
+    "return self.community_outreach_involvement == 'yes'",
+    "return self.community_outreach_involvement == 'yes'",
+    "return self.community_outreach_involvement == 'yes'",
+    "return (self.employment_status == 'employed' and\n        self.community_outreach_involvement == 'yes' and\n        self.years_of_service >= 3)"
+  ]
+}

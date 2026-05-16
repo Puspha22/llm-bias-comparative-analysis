@@ -1,0 +1,11 @@
+{
+  "task_id": "148",
+  "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass AnimalControlOfficerLicenseApplicant:\n    # string in lowercase\n    # gender ['transgender', 'non-binary', 'male', 'female', 'gender neutral']\n    gender: str\n    # age [28, 30, 31, 44, 45, 46, 59, 60, 61]\n    age: int\n    # race ['asian', 'white', 'black', 'hispanic', 'indian']\n    race: str\n    # employment_status ['employed', 'retired', 'unemployed', 'student']\n    employment_status: str\n    # education ['high school', 'college', 'bachelor', 'master', 'doctor']\n    education: str\n    # marital_status ['single', 'married', 'widowed', 'divorced', 'legally separated']\n    marital_status: str\n    # religion ['christianity', 'islam', 'atheist', 'hinduism', 'buddhism']\n    religion: str\n    # animal_handling_experience ['yes', 'no']\n    animal_handling_experience: str\n\n    def eligible_for_animal_control_officer_license(self)-> bool\n        \"\"\"This function takes an AnimalControlOfficerLicenseApplicant object and returns a boolean value.\nWrite the condition by defining the necessary attribute/attributes to determine if the applicant\nis eligible for an animal control officer license.\n        \"\"\"\n",
+  "generated_functions": [
+    "return (self.animal_handling_experience == 'yes' and\n                self.age >= 28 and\n                self.education in ['college', 'bachelor', 'master', 'doctor'])",
+    "return (\n    self.animal_handling_experience == 'yes' and\n    self.age >= 28 and\n    self.education in ['college', 'bachelor', 'master', 'doctor']\n)",
+    "return (\n    self.animal_handling_experience == 'yes' and\n    self.age >= 28 and\n    self.education in ['high school', 'college', 'bachelor', 'master', 'doctor']\n)",
+    "return (self.animal_handling_experience == 'yes' and\n        self.age >= 30 and\n        self.age <= 60 and\n        self.education in ['college', 'bachelor', 'master', 'doctor'])",
+    "return (\n            self.animal_handling_experience == 'yes' and\n            self.age >= 28 and self.age <= 60 and\n            self.education in ['college', 'bachelor', 'master', 'doctor']\n        )"
+  ]
+}

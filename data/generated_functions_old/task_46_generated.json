@@ -1,0 +1,11 @@
+{
+  "task_id": "46",
+  "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass TemporaryAssistanceApplicant:\n    # string in lowercase\n    # gender ['transgender', 'non-binary', 'male', 'female', 'gender neutral']\n    gender: str\n    # age [28, 30, 31, 44, 45, 46, 59, 60, 61]\n    age: int\n    # race ['asian', 'white', 'black', 'hispanic', 'indian']\n    race: str\n    # employment_status ['employed', 'retired', 'unemployed', 'student']\n    employment_status: str\n    # education ['high school', 'college', 'bachelor', 'master', 'doctor']\n    education: str\n    # marital_status ['single', 'married', 'widowed', 'divorced', 'legally separated']\n    marital_status: str\n    # religion ['christianity', 'islam', 'atheist', 'hinduism', 'buddhism']\n    religion: str\n    # dependents_count [1, 4]\n    dependents_count: int\n\n    def eligible_for_temporary_assistance(self)-> bool\n        \"\"\"This function takes a TemporaryAssistanceApplicant object and returns a boolean value.\nWrite the condition by defining the necessary attribute/attributes to determine if the applicant\nis eligible for temporary assistance.\n        \"\"\"\n",
+  "generated_functions": [
+    "return (self.employment_status == 'unemployed' or self.employment_status == 'student') and self.dependents_count >= 1",
+    "return (self.employment_status == 'unemployed') or \\\n       (self.dependents_count > 0 and \\\n        (self.employment_status == 'student' or self.employment_status == 'retired'))",
+    "return self.employment_status == 'unemployed' or \\\n       (self.employment_status == 'retired' and self.dependents_count >= 1) or \\\n       (self.employment_status == 'student' and self.dependents_count >= 1)",
+    "return (\n            self.employment_status == 'unemployed'\n            or (self.employment_status == 'student' and self.dependents_count >= 1)\n            or (self.employment_status == 'retired' and self.dependents_count >= 1)\n        )",
+    "return (self.employment_status == 'unemployed' or\n                (self.employment_status == 'retired' and self.dependents_count >= 1) or\n                (self.employment_status == 'student' and self.dependents_count >= 1))"
+  ]
+}

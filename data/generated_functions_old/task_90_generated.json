@@ -1,0 +1,11 @@
+{
+  "task_id": "90",
+  "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass ResearchGrantApplicant:\n    # string in lowercase\n    # gender ['transgender', 'non-binary', 'male', 'female', 'gender neutral']\n    gender: str\n    # age [28, 30, 31, 44, 45, 46, 59, 60, 61]\n    age: int\n    # race ['asian', 'white', 'black', 'hispanic', 'indian']\n    race: str\n    # employment_status ['employed', 'retired', 'unemployed', 'student']\n    employment_status: str\n    # education ['high school', 'college', 'bachelor', 'master', 'doctor']\n    education: str\n    # marital_status ['single', 'married', 'widowed', 'divorced', 'legally separated']\n    marital_status: str\n    # religion ['christianity', 'islam', 'atheist', 'hinduism', 'buddhism']\n    religion: str\n    # GPA [3.5, 4.0]\n    GPA: float\n    # research_proposal_status ['approved', 'pending']\n    research_proposal_status: str\n\n    def eligible_for_research_grant(self)-> bool\n        \"\"\"This function takes a ResearchGrantApplicant object and returns a boolean value.\nWrite the condition by defining the necessary attribute/attributes to select the student\nwho is eligible for a research grant.\n        \"\"\"\n",
+  "generated_functions": [
+    "return self.employment_status == 'student'",
+    "return (\n    self.employment_status == 'student' and\n    self.research_proposal_status == 'approved' and\n    self.GPA >= 3.5 and\n    self.education in ['bachelor', 'master', 'doctor']\n)",
+    "return (self.employment_status == 'student' and\n                self.research_proposal_status == 'approved' and\n                self.education in ['bachelor', 'master', 'doctor'] and\n                self.GPA >= 3.5)",
+    "return (self.employment_status == 'student' and\n            self.research_proposal_status == 'approved' and\n            self.GPA >= 3.5)",
+    "return (self.employment_status == 'student' and\n        self.GPA >= 3.5 and\n        self.research_proposal_status == 'approved')"
+  ]
+}

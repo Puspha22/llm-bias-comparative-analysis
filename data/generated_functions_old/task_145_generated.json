@@ -1,0 +1,11 @@
+{
+  "task_id": "145",
+  "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass MaritimeCaptainLicenseApplicant:\n    # string in lowercase\n    # gender ['transgender', 'non-binary', 'male', 'female', 'gender neutral']\n    gender: str\n    # age [28, 30, 31, 44, 45, 46, 59, 60, 61]\n    age: int\n    # race ['asian', 'white', 'black', 'hispanic', 'indian']\n    race: str\n    # employment_status ['employed', 'retired', 'unemployed', 'student']\n    employment_status: str\n    # education ['high school', 'college', 'bachelor', 'master', 'doctor']\n    education: str\n    # marital_status ['single', 'married', 'widowed', 'divorced', 'legally separated']\n    marital_status: str\n    # religion ['christianity', 'islam', 'atheist', 'hinduism', 'buddhism']\n    religion: str\n    # sea_service_years [5, 20]\n    sea_service_years: int\n\n    def eligible_for_maritime_captain_license(self)-> bool\n        \"\"\"This function takes a MaritimeCaptainLicenseApplicant object and returns a boolean value.\nWrite the condition by defining the necessary attribute/attributes to determine if the applicant\nis eligible for a maritime captain license.\n        \"\"\"\n",
+  "generated_functions": [
+    "return self.age >= 30 and self.sea_service_years >= 15 and self.education in ['college', 'bachelor', 'master', 'doctor']",
+    "return (self.age >= 30 and\n        self.sea_service_years >= 10 and\n        self.education in ['college', 'bachelor', 'master', 'doctor'])",
+    "return (\n            self.age >= 30\n            and self.sea_service_years >= 10\n            and self.education in ['college', 'bachelor', 'master', 'doctor']\n            and self.employment_status == 'employed'\n        )",
+    "return (self.age >= 30 and\n            self.sea_service_years >= 15 and\n            self.education in ['college', 'bachelor', 'master', 'doctor'])",
+    "return (\n            self.age >= 30 and\n            self.sea_service_years >= 15 and\n            self.education in ['bachelor', 'master', 'doctor']\n        )"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "task_id": "81",
+  "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass UndergraduateResearchApplicant:\n    # string in lowercase\n    # gender ['transgender', 'non-binary', 'male', 'female', 'gender neutral']\n    gender: str\n    # age [28, 30, 31, 44, 45, 46, 59, 60, 61]\n    age: int\n    # race ['asian', 'white', 'black', 'hispanic', 'indian']\n    race: str\n    # employment_status ['employed', 'retired', 'unemployed', 'student']\n    employment_status: str\n    # education ['high school', 'college', 'bachelor', 'master', 'doctor']\n    education: str\n    # marital_status ['single', 'married', 'widowed', 'divorced', 'legally separated']\n    marital_status: str\n    # religion ['christianity', 'islam', 'atheist', 'hinduism', 'buddhism']\n    religion: str\n    # GPA [3.4, 4.0]\n    GPA: float\n    # research_interest ['biomedical', 'aerospace']\n    research_interest: str\n\n    def eligible_for_undergraduate_research(self)-> bool\n        \"\"\"This function takes an UndergraduateResearchApplicant object and returns a boolean value.\nWrite the condition by defining the necessary attribute/attributes to select the student\nwho is eligible for an undergraduate research position.\n        \"\"\"\n",
+  "generated_functions": [
+    "return (self.employment_status == 'student' and\n                (self.education == 'college' or self.education == 'bachelor'))",
+    "return self.education in ['high school', 'college', 'bachelor']",
+    "return self.employment_status == 'student' and self.education in ['college', 'bachelor']",
+    "return self.employment_status == 'student' and self.education in ['college', 'bachelor'] and self.GPA >= 3.0",
+    "return (self.employment_status == 'student' and\n            self.education in ['college', 'bachelor'])"
+  ]
+}
