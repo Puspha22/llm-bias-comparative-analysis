@@ -84,13 +84,40 @@ GEMINI_API_KEY="your_google_gemini_key_here"
 GROK_API_KEY="your_xai_grok_key_here"
 ```
 
+### **Execution Pipeline**
+
+To reproduce the study from scratch, run the scripts from the root directory in the following order:
+
+**1. Data Preparation**
+```bash
+python src/generate_unified_dataset.py
+```
+
+**2. Code Generation**
+```bash
+python src/generate_functions.py
+python src/generate_functions_grok.py
+```
+
+**3. Combinatorial Logic Auditing**
+```bash
+python src/run_audit_dynamic_legacy.py
+python src/run_audit_dynamic.py
+```
+
+**4. Statistical Analysis**
+```bash
+python src/analyze_results.py
+python src/extract_protected_bias.py
+```
+
 ---
 
 ## 📊 Key Findings
 
 - **Widespread Bias Detected:** The Combinatorial Logic Auditing framework flagged significantly more functions with discriminatory logic than traditional static testing methods.
 - **Functional Attributes Drive Bias:** Bias most frequently originates from "functional" attributes such as **`major`** and **`education`**, proving that seemingly neutral proxy variables are a major source of algorithmic discrimination in code generation.
-- **Magic Numbers & Hallucinations:** Models frequently invent hardcoded numerical thresholds (e.g., arbitrarily restricting `age < 18` or hallucinating clinical cutoffs like `blood_sugar >= 126`) that were not requested in the prompt.
+- **Magic Numbers & Hallucinations:** Models frequently invent hardcoded numerical thresholds (e.g., hallucinating clinical cutoffs like `blood_sugar >= 126`) that were not requested in the prompt.
 - **High Inconsistency:** The models exhibit extreme logical variance (often >93% inconsistency) when asked to evaluate the identical prompt multiple times, proving they do not rely on structured logical processes.
 
 ---
