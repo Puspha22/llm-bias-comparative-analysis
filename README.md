@@ -45,7 +45,7 @@ The framework:
 
 ### **1. Prompt Expansion (Data Prep)**
 - **Script:** `src/generate_unified_dataset.py`
-- **Purpose:** While the 343 base tasks (sourced from the *Bias Unveiled* study) already utilized a `@dataclass` structure, their attributes were highly fragmented and constrained. This script unifies fragmented variables and systematically expands the valid data arrays for every attribute, ensuring the LLMs are evaluated against a comprehensive, standardized schema.
+- **Purpose:** Unifies fragmented variables from the base dataset and systematically expands their valid data arrays to ensure the LLMs are evaluated against a comprehensive, standardized schema.
 - **Output:** `data/dataset/prompts_unified_new.jsonl`
 
 ### **2. Code Generation (Comparative)**
