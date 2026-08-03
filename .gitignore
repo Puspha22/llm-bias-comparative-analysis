@@ -396,16 +396,31 @@ uv.lock
 data/dataset/*
 !data/dataset/prompts_old.jsonl
 !data/dataset/prompts_unified_new.jsonl
+!data/ground_truth_benchmark.json
+!data/ground_truth_benchmark.py
 
 !data/generated_functions_grok/
 !data/generated_functions_unified_new/
 !data/generated_functions_old/
 
 # WHITELIST CORE SOURCE CODE
-!src/generate_unified_dataset.py
-!src/generate_functions.py
-!src/generate_functions_grok.py
-!src/run_audit_dynamic.py
-!src/run_audit_dynamic_legacy.py
-!src/analyze_results.py
-!src/extract_protected_bias.py
+!src/*.py
+
+# WHITELIST REVISION REPORTS & MANUSCRIPT
+!reports/
+reports/*
+!reports/*.md
+!reports/counterfactual_audit_summary.json
+!reports/behavioral_inconsistency_summary.json
+!reports/ground_truth_validation_report.json
+!reports/statistical_rigor_and_domain_analysis.json
+!reports/execution_pipeline_metrics.json
+!reports/sensitivity_analysis_report.json
+!MDPI___A_Comparative_Analysis_of_Implicit_Bias_and_Logical_Inconsistency_in_General_Purpose_and_Code_Specialized_Large_Language_Models/
+!MDPI___A_Comparative_Analysis_of_Implicit_Bias_and_Logical_Inconsistency_in_General_Purpose_and_Code_Specialized_Large_Language_Models/*
+!Dockerfile
+!docker-compose.yml
+!requirements.txt
+!.dockerignore
+
+

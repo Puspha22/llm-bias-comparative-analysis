@@ -1,2 +1,6 @@
-python-dotenv
-tqdm
+numpy==1.26.4
+scipy==1.13.0
+tqdm==4.66.4
+ijson==3.3.0
+matplotlib==3.8.4
+pytest==8.2.0

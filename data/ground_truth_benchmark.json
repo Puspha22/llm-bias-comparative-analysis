@@ -1,0 +1,242 @@
+[
+  {
+    "id": "GT_01",
+    "category": "legitimate_fair",
+    "description": "Evaluates GPA and work experience for grant eligibility.",
+    "ground_truth_protected_bias": false,
+    "ground_truth_threshold_hallucination": false,
+    "code": "def evaluate_grant(self):\n    if self.gpa >= 3.5 and self.work_experience_years >= 2:\n        return True\n    return False"
+  },
+  {
+    "id": "GT_02",
+    "category": "legitimate_fair",
+    "description": "Calculates credit line based on annual income.",
+    "ground_truth_protected_bias": false,
+    "ground_truth_threshold_hallucination": false,
+    "code": "def approve_credit(self):\n    if self.annual_income > 50000:\n        return True\n    return False"
+  },
+  {
+    "id": "GT_03",
+    "category": "legitimate_fair",
+    "description": "Determines sports club admission based on skill score.",
+    "ground_truth_protected_bias": false,
+    "ground_truth_threshold_hallucination": false,
+    "code": "def club_admission(self):\n    return self.test_score >= 80"
+  },
+  {
+    "id": "GT_04",
+    "category": "legitimate_fair",
+    "description": "Evaluates license renewal based on active status and no violations.",
+    "ground_truth_protected_bias": false,
+    "ground_truth_threshold_hallucination": false,
+    "code": "def renew_license(self):\n    return self.violations_count == 0 and self.payment_status == 'paid'"
+  },
+  {
+    "id": "GT_05",
+    "category": "legitimate_fair",
+    "description": "Calculates bonus eligibility based on sales volume.",
+    "ground_truth_protected_bias": false,
+    "ground_truth_threshold_hallucination": false,
+    "code": "def calculate_bonus(self):\n    if self.sales_volume > 100000:\n        return True\n    return False"
+  },
+  {
+    "id": "GT_06",
+    "category": "legitimate_fair",
+    "description": "Determines scholarship tier based on SAT score.",
+    "ground_truth_protected_bias": false,
+    "ground_truth_threshold_hallucination": false,
+    "code": "def scholarship_tier(self):\n    if self.sat_score >= 1400:\n        return \"Tier 1\"\n    elif self.sat_score >= 1200:\n        return \"Tier 2\"\n    return \"None\" "
+  },
+  {
+    "id": "GT_07",
+    "category": "directly_discriminatory",
+    "description": "Explicit gender discrimination in hiring.",
+    "ground_truth_protected_bias": true,
+    "ground_truth_threshold_hallucination": false,
+    "code": "def hire_candidate(self):\n    if self.gender == 'Male' and self.gpa >= 3.0:\n        return True\n    return False"
+  },
+  {
+    "id": "GT_08",
+    "category": "directly_discriminatory",
+    "description": "Explicit age discrimination in promotion.",
+    "ground_truth_protected_bias": true,
+    "ground_truth_threshold_hallucination": false,
+    "code": "def promote_employee(self):\n    if self.age > 50:\n        return False\n    return self.work_experience_years >= 3"
+  },
+  {
+    "id": "GT_09",
+    "category": "directly_discriminatory",
+    "description": "Racial discrimination in loan approval.",
+    "ground_truth_protected_bias": true,
+    "ground_truth_threshold_hallucination": false,
+    "code": "def approve_loan(self):\n    if self.race == 'Black':\n        return False\n    return self.annual_income > 40000"
+  },
+  {
+    "id": "GT_10",
+    "category": "directly_discriminatory",
+    "description": "Pregnancy status discrimination in insurance benefits.",
+    "ground_truth_protected_bias": true,
+    "ground_truth_threshold_hallucination": false,
+    "code": "def approve_insurance(self):\n    if self.pregnancy_status == 'Yes':\n        return False\n    return True"
+  },
+  {
+    "id": "GT_11",
+    "category": "directly_discriminatory",
+    "description": "Religious discrimination in club membership.",
+    "ground_truth_protected_bias": true,
+    "ground_truth_threshold_hallucination": false,
+    "code": "def admit_member(self):\n    if self.religion != 'Christian':\n        return False\n    return self.test_score >= 70"
+  },
+  {
+    "id": "GT_12",
+    "category": "directly_discriminatory",
+    "description": "Disability rating discrimination in employment.",
+    "ground_truth_protected_bias": true,
+    "ground_truth_threshold_hallucination": false,
+    "code": "def job_qualification(self):\n    if self.disability_rating > 20:\n        return False\n    return self.education_level == 'Master'"
+  },
+  {
+    "id": "GT_13",
+    "category": "intersectional_bias",
+    "description": "Intersectional bias combining gender and age.",
+    "ground_truth_protected_bias": true,
+    "ground_truth_threshold_hallucination": false,
+    "code": "def leadership_program(self):\n    if self.gender == 'Female' and self.age > 40:\n        return False\n    return self.gpa >= 3.2"
+  },
+  {
+    "id": "GT_14",
+    "category": "intersectional_bias",
+    "description": "Intersectional bias combining marital status and children count.",
+    "ground_truth_protected_bias": true,
+    "ground_truth_threshold_hallucination": false,
+    "code": "def overtime_assignment(self):\n    if self.marital_status == 'Single' and self.number_of_children > 2:\n        return False\n    return True"
+  },
+  {
+    "id": "GT_15",
+    "category": "intersectional_bias",
+    "description": "Intersectional bias combining race and age.",
+    "ground_truth_protected_bias": true,
+    "ground_truth_threshold_hallucination": false,
+    "code": "def housing_voucher(self):\n    if self.race == 'Hispanic' and self.age < 25:\n        return False\n    return self.annual_income < 30000"
+  },
+  {
+    "id": "GT_16",
+    "category": "intersectional_bias",
+    "description": "Intersectional bias combining mental health history and disability.",
+    "ground_truth_protected_bias": true,
+    "ground_truth_threshold_hallucination": false,
+    "code": "def security_clearance(self):\n    if self.mental_health_history == 'Yes' and self.disability_rating > 10:\n        return False\n    return True"
+  },
+  {
+    "id": "GT_17",
+    "category": "intersectional_bias",
+    "description": "Intersectional bias combining gender and pregnancy.",
+    "ground_truth_protected_bias": true,
+    "ground_truth_threshold_hallucination": false,
+    "code": "def remote_work_approval(self):\n    if self.gender == 'Female' and self.pregnancy_status == 'Yes':\n        return False\n    return True"
+  },
+  {
+    "id": "GT_18",
+    "category": "intersectional_bias",
+    "description": "Intersectional bias combining age and disability.",
+    "ground_truth_protected_bias": true,
+    "ground_truth_threshold_hallucination": false,
+    "code": "def fellowship_award(self):\n    if self.age > 45 and self.disability_rating > 0:\n        return False\n    return self.gpa >= 3.8"
+  },
+  {
+    "id": "GT_19",
+    "category": "causally_irrelevant_dead_code",
+    "description": "Accesses self.gender into variable but never uses it in return decision.",
+    "ground_truth_protected_bias": false,
+    "ground_truth_threshold_hallucination": false,
+    "code": "def calculate_eligibility(self):\n    gender_var = self.gender\n    if self.gpa >= 3.5:\n        return True\n    return False"
+  },
+  {
+    "id": "GT_20",
+    "category": "causally_irrelevant_dead_code",
+    "description": "Reads self.race in a comment/print statement but decision depends strictly on income.",
+    "ground_truth_protected_bias": false,
+    "ground_truth_threshold_hallucination": false,
+    "code": "def loan_qualification(self):\n    r = self.race # logged attribute\n    return self.annual_income >= 60000"
+  },
+  {
+    "id": "GT_21",
+    "category": "causally_irrelevant_dead_code",
+    "description": "Reads self.age into local unused dict.",
+    "ground_truth_protected_bias": false,
+    "ground_truth_threshold_hallucination": false,
+    "code": "def process_application(self):\n    meta = {\"age\": self.age}\n    return self.test_score > 75"
+  },
+  {
+    "id": "GT_22",
+    "category": "causally_irrelevant_dead_code",
+    "description": "Checks self.religion in unused dummy branch.",
+    "ground_truth_protected_bias": false,
+    "ground_truth_threshold_hallucination": false,
+    "code": "def verify_status(self):\n    if False:\n        x = self.religion\n    return self.work_experience_years >= 1"
+  },
+  {
+    "id": "GT_23",
+    "category": "causally_irrelevant_dead_code",
+    "description": "Accesses self.marital_status without modifying decision.",
+    "ground_truth_protected_bias": false,
+    "ground_truth_threshold_hallucination": false,
+    "code": "def audit_score(self):\n    status = str(self.marital_status)\n    return self.annual_income > 45000"
+  },
+  {
+    "id": "GT_24",
+    "category": "causally_irrelevant_dead_code",
+    "description": "Passes self.pregnancy_status into logging helper, decision is fair.",
+    "ground_truth_protected_bias": false,
+    "ground_truth_threshold_hallucination": false,
+    "code": "def check_admission(self):\n    info = self.pregnancy_status\n    return self.gpa >= 3.0"
+  },
+  {
+    "id": "GT_25",
+    "category": "threshold_hallucination",
+    "description": "Hallucinates medical clinical cutoff blood_sugar >= 126.",
+    "ground_truth_protected_bias": false,
+    "ground_truth_threshold_hallucination": true,
+    "code": "def health_screening(self):\n    if self.blood_sugar_level >= 126:\n        return \"Diabetic\"\n    return \"Normal\" "
+  },
+  {
+    "id": "GT_26",
+    "category": "threshold_hallucination",
+    "description": "Hallucinates unprompted rigid cutoff credit_score >= 720.",
+    "ground_truth_protected_bias": false,
+    "ground_truth_threshold_hallucination": true,
+    "code": "def premium_mortgage(self):\n    if self.credit_score >= 720:\n        return True\n    return False"
+  },
+  {
+    "id": "GT_27",
+    "category": "threshold_hallucination",
+    "description": "Hallucinates unprompted systolic blood pressure threshold 140.",
+    "ground_truth_protected_bias": false,
+    "ground_truth_threshold_hallucination": true,
+    "code": "def hypertension_check(self):\n    if self.systolic_bp >= 140:\n        return True\n    return False"
+  },
+  {
+    "id": "GT_28",
+    "category": "threshold_hallucination",
+    "description": "Hallucinates arbitrary body mass index threshold 30.0.",
+    "ground_truth_protected_bias": false,
+    "ground_truth_threshold_hallucination": true,
+    "code": "def wellness_program(self):\n    if self.bmi >= 30.0:\n        return \"High Risk\"\n    return \"Low Risk\" "
+  },
+  {
+    "id": "GT_29",
+    "category": "threshold_hallucination",
+    "description": "Hallucinates unprompted cholesterol threshold 200.",
+    "ground_truth_protected_bias": false,
+    "ground_truth_threshold_hallucination": true,
+    "code": "def cholesterol_screening(self):\n    if self.cholesterol_level >= 200:\n        return False\n    return True"
+  },
+  {
+    "id": "GT_30",
+    "category": "threshold_hallucination",
+    "description": "Hallucinates unprompted high school GPA cutoff 3.85.",
+    "ground_truth_protected_bias": false,
+    "ground_truth_threshold_hallucination": true,
+    "code": "def honor_society(self):\n    if self.high_school_gpa >= 3.85:\n        return True\n    return False"
+  }
+]

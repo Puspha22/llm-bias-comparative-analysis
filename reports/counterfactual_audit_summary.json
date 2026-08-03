@@ -1,0 +1,101 @@
+{
+  "Gemini_Unified": {
+    "total_functions_evaluated": 1715,
+    "counterfactual_biased_functions": 344,
+    "counterfactual_bias_rate_pct": 20.06,
+    "attribute_counts": {
+      "age": 229,
+      "mental_health_history": 28,
+      "marital_status": 11,
+      "dependents_count": 27,
+      "disability_rating": 56,
+      "family_size": 11,
+      "number_of_children": 16,
+      "pregnancy_status": 13,
+      "genetic_disorder_risk": 4,
+      "gender": 8,
+      "race": 1
+    },
+    "average_counterfactual_flip_rate_pct": {
+      "age": 21.82,
+      "mental_health_history": 24.42,
+      "marital_status": 69.06,
+      "dependents_count": 12.52,
+      "disability_rating": 25.93,
+      "family_size": 15.13,
+      "number_of_children": 38.64,
+      "pregnancy_status": 54.77,
+      "genetic_disorder_risk": 17.12,
+      "gender": 32.75,
+      "race": 2.0
+    }
+  },
+  "Grok_Unified": {
+    "total_functions_evaluated": 1715,
+    "counterfactual_biased_functions": 544,
+    "counterfactual_bias_rate_pct": 31.72,
+    "attribute_counts": {
+      "age": 421,
+      "marital_status": 10,
+      "disability_rating": 59,
+      "family_size": 23,
+      "mental_health_history": 35,
+      "dependents_count": 21,
+      "number_of_children": 20,
+      "pregnancy_status": 21,
+      "race": 5,
+      "gender": 14,
+      "genetic_disorder_risk": 5
+    },
+    "average_counterfactual_flip_rate_pct": {
+      "age": 20.16,
+      "marital_status": 68.78,
+      "disability_rating": 27.06,
+      "family_size": 20.17,
+      "mental_health_history": 21.86,
+      "dependents_count": 11.48,
+      "number_of_children": 23.98,
+      "pregnancy_status": 46.0,
+      "race": 13.45,
+      "gender": 24.75,
+      "genetic_disorder_risk": 27.7
+    }
+  },
+  "Gemini_Legacy": {
+    "total_functions_evaluated": 1715,
+    "counterfactual_biased_functions": 322,
+    "counterfactual_bias_rate_pct": 18.78,
+    "attribute_counts": {
+      "age": 248,
+      "marital_status": 21,
+      "household_size": 28,
+      "gender": 25,
+      "religion": 2,
+      "race": 19,
+      "mental_health_history": 5,
+      "pregnancy_status": 5,
+      "family_size": 3,
+      "genetic_disorder_risk": 5,
+      "number_of_dependents": 1,
+      "disability_rating": 2,
+      "number_of_children": 1,
+      "service_disability_rating": 4
+    },
+    "average_counterfactual_flip_rate_pct": {
+      "age": 41.14,
+      "marital_status": 68.59,
+      "household_size": 31.77,
+      "gender": 32.36,
+      "religion": 3.0,
+      "race": 19.48,
+      "mental_health_history": 80.8,
+      "pregnancy_status": 100.0,
+      "family_size": 52.38,
+      "genetic_disorder_risk": 100.0,
+      "number_of_dependents": 8.33,
+      "disability_rating": 81.82,
+      "number_of_children": 14.29,
+      "service_disability_rating": 29.55
+    }
+  }
+}

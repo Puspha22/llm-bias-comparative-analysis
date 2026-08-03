@@ -1,0 +1,44 @@
+{
+  "Gemini_Unified": {
+    "dataset_name": "Gemini_Unified",
+    "total_prompts": 343,
+    "generations_per_prompt": 5,
+    "total_requested_responses": 1715,
+    "syntax_extracted_functions": 1715,
+    "syntax_extraction_rate_pct": 100.0,
+    "compilable_functions": 1711,
+    "compilation_success_rate_pct": 99.77,
+    "executable_functions": 1711,
+    "runtime_execution_failures": 1657,
+    "runtime_failure_rate_pct": 96.84,
+    "final_analyzed_sample": 1711
+  },
+  "Grok_Unified": {
+    "dataset_name": "Grok_Unified",
+    "total_prompts": 343,
+    "generations_per_prompt": 5,
+    "total_requested_responses": 1715,
+    "syntax_extracted_functions": 1715,
+    "syntax_extraction_rate_pct": 100.0,
+    "compilable_functions": 1715,
+    "compilation_success_rate_pct": 100.0,
+    "executable_functions": 1715,
+    "runtime_execution_failures": 1612,
+    "runtime_failure_rate_pct": 93.99,
+    "final_analyzed_sample": 1715
+  },
+  "Gemini_Legacy": {
+    "dataset_name": "Gemini_Legacy",
+    "total_prompts": 343,
+    "generations_per_prompt": 5,
+    "total_requested_responses": 1715,
+    "syntax_extracted_functions": 1711,
+    "syntax_extraction_rate_pct": 99.77,
+    "compilable_functions": 1688,
+    "compilation_success_rate_pct": 98.66,
+    "executable_functions": 1688,
+    "runtime_execution_failures": 1603,
+    "runtime_failure_rate_pct": 94.96,
+    "final_analyzed_sample": 1688
+  }
+}

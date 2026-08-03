@@ -1,0 +1,1676 @@
+{
+  "complex_functions_evaluated": 15,
+  "sample_budgets_tested": [
+    1000,
+    5000,
+    10000,
+    50000,
+    100000,
+    200000
+  ],
+  "seeds_tested": [
+    42,
+    123,
+    999
+  ],
+  "detailed_evaluations": [
+    {
+      "task_id": "0",
+      "func_name": "qualified_for_financial_aid",
+      "total_combos": 1148400,
+      "attributes_count": 6,
+      "budget_evaluations": {
+        "1000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "5000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "10000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "50000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "100000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "200000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        }
+      }
+    },
+    {
+      "task_id": "100",
+      "func_name": "eligible_for_community_scholarship",
+      "total_combos": 2678528160,
+      "attributes_count": 9,
+      "budget_evaluations": {
+        "1000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "5000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "10000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "50000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "100000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "200000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        }
+      }
+    },
+    {
+      "task_id": "100",
+      "func_name": "eligible_for_community_scholarship",
+      "total_combos": 13194720,
+      "attributes_count": 8,
+      "budget_evaluations": {
+        "1000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "5000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "10000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "50000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "100000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "200000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        }
+      }
+    },
+    {
+      "task_id": "100",
+      "func_name": "eligible_for_community_scholarship",
+      "total_combos": 74998788480,
+      "attributes_count": 11,
+      "budget_evaluations": {
+        "1000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "5000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "10000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "50000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "100000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "200000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        }
+      }
+    },
+    {
+      "task_id": "101",
+      "func_name": "eligible_for_academic_mentor_position",
+      "total_combos": 33586560,
+      "attributes_count": 9,
+      "budget_evaluations": {
+        "1000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "5000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": false
+        },
+        "10000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": false
+        },
+        "50000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "100000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "200000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        }
+      }
+    },
+    {
+      "task_id": "101",
+      "func_name": "eligible_for_academic_mentor_position",
+      "total_combos": 4146912,
+      "attributes_count": 7,
+      "budget_evaluations": {
+        "1000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": false
+        },
+        "5000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "10000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "50000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "100000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "200000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        }
+      }
+    },
+    {
+      "task_id": "101",
+      "func_name": "eligible_for_academic_mentor_position",
+      "total_combos": 20734560,
+      "attributes_count": 8,
+      "budget_evaluations": {
+        "1000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "5000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "10000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "50000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "100000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "200000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        }
+      }
+    },
+    {
+      "task_id": "102",
+      "func_name": "eligible_for_driving_license",
+      "total_combos": 164656800,
+      "attributes_count": 7,
+      "budget_evaluations": {
+        "1000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "5000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "10000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "50000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "100000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "200000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        }
+      }
+    },
+    {
+      "task_id": "102",
+      "func_name": "eligible_for_driving_license",
+      "total_combos": 3586225104000,
+      "attributes_count": 11,
+      "budget_evaluations": {
+        "1000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "5000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "10000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "50000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "100000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "200000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        }
+      }
+    },
+    {
+      "task_id": "102",
+      "func_name": "eligible_for_driving_license",
+      "total_combos": 44182293281280000,
+      "attributes_count": 18,
+      "budget_evaluations": {
+        "1000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": false
+        },
+        "5000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": false
+        },
+        "10000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "50000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "100000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "200000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        }
+      }
+    },
+    {
+      "task_id": "102",
+      "func_name": "eligible_for_driving_license",
+      "total_combos": 5082000,
+      "attributes_count": 8,
+      "budget_evaluations": {
+        "1000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "5000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "10000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "50000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "100000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "200000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        }
+      }
+    },
+    {
+      "task_id": "104",
+      "func_name": "eligible_for_hunting_license",
+      "total_combos": 83635200,
+      "attributes_count": 10,
+      "budget_evaluations": {
+        "1000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "5000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "10000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "50000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "100000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "200000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        }
+      }
+    },
+    {
+      "task_id": "105",
+      "func_name": "eligible_for_pilot_license",
+      "total_combos": 30987488735723520000,
+      "attributes_count": 22,
+      "budget_evaluations": {
+        "1000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "5000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "10000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "50000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "100000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "200000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        }
+      }
+    },
+    {
+      "task_id": "105",
+      "func_name": "eligible_for_pilot_license",
+      "total_combos": 2237576140800000,
+      "attributes_count": 17,
+      "budget_evaluations": {
+        "1000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "5000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "10000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "50000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "100000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": false
+        },
+        "200000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": false
+        }
+      }
+    },
+    {
+      "task_id": "105",
+      "func_name": "eligible_for_pilot_license",
+      "total_combos": 1594579714471231488000000,
+      "attributes_count": 29,
+      "budget_evaluations": {
+        "1000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "5000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "10000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "50000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "100000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "200000": {
+          "seed_outcomes": [
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ],
+            [
+              false,
+              1
+            ]
+          ],
+          "seed_agreement": true
+        }
+      }
+    }
+  ],
+  "stability_by_sample_budget_pct": {
+    "1000": 86.67,
+    "5000": 86.67,
+    "10000": 93.33,
+    "50000": 100.0,
+    "100000": 93.33,
+    "200000": 93.33
+  }
+}
