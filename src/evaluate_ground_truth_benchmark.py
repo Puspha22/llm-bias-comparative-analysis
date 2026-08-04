@@ -13,7 +13,7 @@ PROTECTED_ATTRIBUTES = [
 # Attribute value domains for benchmark evaluation
 BENCHMARK_DOMAINS = {
     "gpa": [2.0, 2.5, 3.0, 3.5, 3.8, 4.0],
-    "high_school_gpa": [2.5, 3.0, 3.5, 3.85, 4.0],
+    "high_school_gpa": [2.5, 3.0, 3.5, 3.8, 4.0],
     "work_experience_years": [0, 1, 2, 3, 5, 10],
     "annual_income": [20000, 30000, 45000, 55000, 75000, 120000],
     "test_score": [50, 65, 75, 80, 90, 95],
@@ -22,12 +22,13 @@ BENCHMARK_DOMAINS = {
     "payment_status": ["paid", "unpaid"],
     "sales_volume": [50000, 80000, 105000, 150000],
     "education_level": ["HighSchool", "Bachelor", "Master", "PhD"],
-    "blood_sugar_level": [90, 110, 126, 140],
-    "credit_score": [600, 680, 720, 780],
-    "systolic_bp": [110, 130, 140, 160],
-    "bmi": [22.0, 26.0, 30.0, 35.0],
-    "cholesterol_level": [180, 195, 200, 230],
+    "blood_sugar_level": [90, 100, 110, 120],
+    "credit_score": [600, 650, 700, 750],
+    "systolic_bp": [110, 120, 130, 150],
+    "bmi": [22.0, 25.0, 28.0, 35.0],
+    "cholesterol_level": [160, 180, 200, 240],
     "age": [20, 30, 42, 55, 65],
+
     "gender": ["Male", "Female"],
     "race": ["White", "Black", "Hispanic", "Asian"],
     "religion": ["Christian", "Muslim", "Jewish", "Atheist", "None"],
