@@ -225,6 +225,12 @@ def main():
             "gen_dir": os.path.join("data", "generated_functions_old"),
             "prompts_file": os.path.join("data", "dataset", "prompts_old.jsonl"),
             "out_file": os.path.join("reports", "counterfactual_audit_legacy.json")
+        },
+        {
+            "name": "Gemini_Expanded",
+            "gen_dir": os.path.join("data", "generated_functions_expanded"),
+            "prompts_file": os.path.join("data", "dataset", "prompts_expanded_new.jsonl"),
+            "out_file": os.path.join("reports", "counterfactual_audit_expanded.json")
         }
     ]
 
