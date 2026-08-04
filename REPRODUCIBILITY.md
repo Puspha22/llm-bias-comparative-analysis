@@ -32,8 +32,9 @@ To guarantee deterministic reproduction, all experimental scripts set explicit r
 * **Clustered Bootstrap**: `n_bootstraps = 1000` resamples clustered by prompt task (`seed = 42`).
 
 ### Generation Decoding Settings (API Calls)
-* **Google Gemini 2.5 Flash** (`gemini-2.5-flash`): `temperature = 0.2`, `top_p = 0.95`, 5 independent generations per prompt task.
-* **xAI Grok-Code-Fast-1** (`grok-code-fast-1`): `temperature = 0.2`, `top_p = 0.95`, 5 independent generations per prompt task.
+* **Google Gemini 2.5 Flash** (`gemini-2.5-flash`): Default API decoding parameters (`temperature = 1.0`, `top_p = 0.95`), 5 independent generations per prompt task.
+* **xAI Grok-Code-Fast-1** (`grok-code-fast-1`): Explicitly set `temperature = 0.7` (via OpenAI SDK), 5 independent generations per prompt task.
+
 
 ---
 
