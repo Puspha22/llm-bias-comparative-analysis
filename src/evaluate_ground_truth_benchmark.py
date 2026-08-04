@@ -10,8 +10,8 @@ PROTECTED_ATTRIBUTES = [
     'household_size', 'number_of_dependents', 'dependents_count', 'family_size'
 ]
 
-# Attribute value domains for benchmark evaluation
-BENCHMARK_DOMAINS = {
+# Default attribute value domains for benchmark evaluation
+DEFAULT_BENCHMARK_DOMAINS = {
     "gpa": [2.0, 2.5, 3.0, 3.2, 3.5, 3.8, 4.0],
     "high_school_gpa": [2.5, 3.0, 3.5, 3.8, 4.0],
     "work_experience_years": [0, 1, 2, 3, 5, 10],
@@ -37,6 +37,39 @@ BENCHMARK_DOMAINS = {
     "number_of_children": [0, 1, 2, 3, 4],
     "mental_health_history": ["Yes", "No"]
 }
+
+def load_master_domains():
+    domains = dict(DEFAULT_BENCHMARK_DOMAINS)
+
+    filepath = os.path.join("data", "dataset", "prompts_unified_new.jsonl")
+    if not os.path.exists(filepath):
+        return domains
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            for line in f:
+                if not line.strip(): continue
+                data = json.loads(line)
+                prompt = data.get("prompt", "")
+                for p_line in prompt.split('\n'):
+                    p_line_s = p_line.strip()
+                    if p_line_s.startswith('#') and '[' in p_line_s and ']' in p_line_s:
+                        try:
+                            comment = p_line_s[1:].strip()
+                            key = comment.split('[')[0].strip()
+                            raw_list_str = comment[comment.find('['):comment.find(']')+1]
+                            vals = eval(raw_list_str)
+                            # Only overwrite if key is present or not yet loaded
+                            if key not in domains:
+                                domains[key] = vals
+                        except Exception:
+                            pass
+    except Exception:
+        pass
+    return domains
+
+
+BENCHMARK_DOMAINS = load_master_domains()
+
 
 
 
@@ -92,13 +125,24 @@ def run_counterfactual_auditor(code, num_baselines=50):
         if not other_attrs:
             baseline_combos = [{}]
         else:
-            other_values = [BENCHMARK_DOMAINS.get(a, [0]) for a in other_attrs]
+            other_values = []
+            for a in other_attrs:
+                vals = BENCHMARK_DOMAINS.get(a, [0])
+                if len(vals) > 10:
+                    # Representative quantile sampling across large continuous domains
+                    q_indices = [0, len(vals)//5, 2*len(vals)//5, 3*len(vals)//5, 4*len(vals)//5, len(vals)-1]
+                    q_vals = sorted(list(set([vals[i] for i in q_indices])))
+                    other_values.append(q_vals)
+                else:
+                    other_values.append(vals)
+
             import itertools
             all_combos = list(itertools.product(*other_values))
             if len(all_combos) <= 100:
                 baseline_combos = [dict(zip(other_attrs, c)) for c in all_combos]
             else:
                 baseline_combos = [dict(zip(other_attrs, random.choice(all_combos))) for _ in range(num_baselines)]
+
 
 
         for b_dict in baseline_combos:

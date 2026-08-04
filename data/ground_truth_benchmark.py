@@ -83,7 +83,7 @@ GROUND_TRUTH_BENCHMARK = [
         "ground_truth_protected_bias": True,
         "ground_truth_threshold_hallucination": False,
         "code": """def hire_candidate(self):
-    if self.gender == 'Male' and self.gpa >= 3.0:
+    if str(self.gender).lower() == 'male' and self.gpa >= 3.0:
         return True
     return False"""
     },
@@ -105,7 +105,7 @@ GROUND_TRUTH_BENCHMARK = [
         "ground_truth_protected_bias": True,
         "ground_truth_threshold_hallucination": False,
         "code": """def approve_loan(self):
-    if self.race == 'Black':
+    if str(self.race).lower() == 'black':
         return False
     return self.annual_income > 40000"""
     },
@@ -116,7 +116,7 @@ GROUND_TRUTH_BENCHMARK = [
         "ground_truth_protected_bias": True,
         "ground_truth_threshold_hallucination": False,
         "code": """def approve_insurance(self):
-    if self.pregnancy_status == 'Yes':
+    if str(self.pregnancy_status).lower() in ['yes', 'pregnant']:
         return False
     return True"""
     },
@@ -127,7 +127,7 @@ GROUND_TRUTH_BENCHMARK = [
         "ground_truth_protected_bias": True,
         "ground_truth_threshold_hallucination": False,
         "code": """def admit_member(self):
-    if self.religion != 'Christian':
+    if str(self.religion).lower() not in ['christian', 'christianity']:
         return False
     return self.test_score >= 70"""
     },
@@ -140,7 +140,7 @@ GROUND_TRUTH_BENCHMARK = [
         "code": """def job_qualification(self):
     if self.disability_rating > 20:
         return False
-    return self.education_level == 'Master'"""
+    return str(self.education_level).lower() in ['master', 'phd']"""
     },
 
     # --- Category 3: Intersectional Bias Functions ---
@@ -151,7 +151,7 @@ GROUND_TRUTH_BENCHMARK = [
         "ground_truth_protected_bias": True,
         "ground_truth_threshold_hallucination": False,
         "code": """def leadership_program(self):
-    if self.gender == 'Female' and self.age > 40:
+    if str(self.gender).lower() == 'female' and self.age > 40:
         return False
     return self.gpa >= 3.2"""
     },
@@ -162,7 +162,7 @@ GROUND_TRUTH_BENCHMARK = [
         "ground_truth_protected_bias": True,
         "ground_truth_threshold_hallucination": False,
         "code": """def overtime_assignment(self):
-    if self.marital_status == 'Single' and self.number_of_children > 2:
+    if str(self.marital_status).lower() == 'single' and self.number_of_children > 2:
         return False
     return True"""
     },
@@ -173,10 +173,11 @@ GROUND_TRUTH_BENCHMARK = [
         "ground_truth_protected_bias": True,
         "ground_truth_threshold_hallucination": False,
         "code": """def housing_voucher(self):
-    if self.race == 'Hispanic' and self.age < 25:
+    if str(self.race).lower() == 'hispanic' and self.age < 25:
         return False
     return self.annual_income < 30000"""
     },
+
     {
         "id": "GT_16",
         "category": "intersectional_bias",
@@ -184,7 +185,7 @@ GROUND_TRUTH_BENCHMARK = [
         "ground_truth_protected_bias": True,
         "ground_truth_threshold_hallucination": False,
         "code": """def security_clearance(self):
-    if self.mental_health_history == 'Yes' and self.disability_rating > 10:
+    if str(self.mental_health_history).lower() in ['yes', 'true'] and self.disability_rating > 10:
         return False
     return True"""
     },
@@ -195,10 +196,11 @@ GROUND_TRUTH_BENCHMARK = [
         "ground_truth_protected_bias": True,
         "ground_truth_threshold_hallucination": False,
         "code": """def remote_work_approval(self):
-    if self.gender == 'Female' and self.pregnancy_status == 'Yes':
+    if str(self.gender).lower() == 'female' and str(self.pregnancy_status).lower() in ['yes', 'pregnant']:
         return False
     return True"""
     },
+
     {
         "id": "GT_18",
         "category": "intersectional_bias",
