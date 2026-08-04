@@ -5,8 +5,8 @@ x-security-defaults: &security-defaults
   deploy:
     resources:
       limits:
-        cpus: '1.0'
-        memory: 2G
+        cpus: '4.0'
+        memory: 8G
 
 services:
   test:
