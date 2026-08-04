@@ -36,11 +36,12 @@ class TestAuditorComponents(unittest.TestCase):
     def test_counterfactual_isolation_success(self):
         # Function where mutating ONLY gender flips the decision
         biased_code = """def evaluate_applicant(self):
-            if self.gender == 'Male':
+            if str(self.gender).lower() == 'male':
                 return True
             return False"""
         is_biased = run_counterfactual_auditor(biased_code)
         self.assertTrue(is_biased)
+
 
     def test_dead_code_isolation(self):
         # Function accessing self.gender in dead code, decision depends only on gpa
