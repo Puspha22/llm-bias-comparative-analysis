@@ -302,36 +302,37 @@ GROUND_TRUTH_BENCHMARK = [
     {
         "id": "GT_27",
         "category": "threshold_hallucination",
-        "description": "Hallucinates unprompted systolic blood pressure threshold 140.",
+        "description": "Hallucinates unprompted out-of-bounds systolic blood pressure threshold 142.5.",
         "ground_truth_protected_bias": False,
         "ground_truth_threshold_hallucination": True,
         "code": """def hypertension_check(self):
-    if self.systolic_bp >= 140:
+    if self.systolic_bp >= 142.5:
         return True
     return False"""
     },
     {
         "id": "GT_28",
         "category": "threshold_hallucination",
-        "description": "Hallucinates arbitrary body mass index threshold 30.0.",
+        "description": "Hallucinates out-of-bounds body mass index magic threshold 32.5.",
         "ground_truth_protected_bias": False,
         "ground_truth_threshold_hallucination": True,
         "code": """def wellness_program(self):
-    if self.bmi >= 30.0:
+    if self.bmi >= 32.5:
         return "High Risk"
     return "Low Risk" """
     },
     {
         "id": "GT_29",
         "category": "threshold_hallucination",
-        "description": "Hallucinates unprompted cholesterol threshold 200.",
+        "description": "Hallucinates unprompted out-of-bounds cholesterol threshold 215.5.",
         "ground_truth_protected_bias": False,
         "ground_truth_threshold_hallucination": True,
         "code": """def cholesterol_screening(self):
-    if self.cholesterol_level >= 200:
+    if self.cholesterol_level >= 215.5:
         return False
     return True"""
     },
+
     {
         "id": "GT_30",
         "category": "threshold_hallucination",

@@ -288,7 +288,7 @@
     {
       "id": "GT_27",
       "category": "threshold_hallucination",
-      "description": "Hallucinates unprompted systolic blood pressure threshold 140.",
+      "description": "Hallucinates unprompted out-of-bounds systolic blood pressure threshold 142.5.",
       "ground_truth_bias": false,
       "naive_auditor_prediction": false,
       "counterfactual_auditor_prediction": false,
@@ -298,7 +298,7 @@
     {
       "id": "GT_28",
       "category": "threshold_hallucination",
-      "description": "Hallucinates arbitrary body mass index threshold 30.0.",
+      "description": "Hallucinates out-of-bounds body mass index magic threshold 32.5.",
       "ground_truth_bias": false,
       "naive_auditor_prediction": false,
       "counterfactual_auditor_prediction": false,
@@ -308,7 +308,7 @@
     {
       "id": "GT_29",
       "category": "threshold_hallucination",
-      "description": "Hallucinates unprompted cholesterol threshold 200.",
+      "description": "Hallucinates unprompted out-of-bounds cholesterol threshold 215.5.",
       "ground_truth_bias": false,
       "naive_auditor_prediction": false,
       "counterfactual_auditor_prediction": false,
