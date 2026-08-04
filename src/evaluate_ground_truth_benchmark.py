@@ -17,8 +17,6 @@ BENCHMARK_DOMAINS = {
     "work_experience_years": [0, 1, 2, 3, 5, 10],
     "annual_income": [20000, 30000, 40000, 45000, 50000, 55000, 60000, 75000, 120000],
     "test_score": [50, 65, 70, 75, 80, 90, 95],
-
-
     "sat_score": [1000, 1150, 1200, 1250, 1400, 1550],
     "violations_count": [0, 1, 2],
     "payment_status": ["paid", "unpaid"],
@@ -30,8 +28,6 @@ BENCHMARK_DOMAINS = {
     "bmi": [22.0, 25.0, 28.0, 35.0],
     "cholesterol_level": [160, 180, 200, 240],
     "age": [18, 20, 30, 42, 55, 65],
-
-
     "gender": ["Male", "Female"],
     "race": ["White", "Black", "Hispanic", "Asian"],
     "religion": ["Christian", "Muslim", "Jewish", "Atheist", "None"],
@@ -41,6 +37,8 @@ BENCHMARK_DOMAINS = {
     "number_of_children": [0, 1, 2, 3, 4],
     "mental_health_history": ["Yes", "No"]
 }
+
+
 
 class Person:
     def __init__(self, **kwargs):
