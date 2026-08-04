@@ -1,0 +1,30 @@
+{
+  "Gemini_Legacy": {
+    "total_functions": 1715,
+    "ast_protected_presence_count": 510,
+    "ast_protected_presence_pct": 29.74,
+    "threshold_presence_count": 1088,
+    "threshold_presence_pct": 63.44
+  },
+  "Gemini_Expanded": {
+    "total_functions": 1715,
+    "ast_protected_presence_count": 484,
+    "ast_protected_presence_pct": 28.22,
+    "threshold_presence_count": 1068,
+    "threshold_presence_pct": 62.27
+  },
+  "Gemini_Unified": {
+    "total_functions": 1715,
+    "ast_protected_presence_count": 635,
+    "ast_protected_presence_pct": 37.03,
+    "threshold_presence_count": 1372,
+    "threshold_presence_pct": 80.0
+  },
+  "Grok_Unified": {
+    "total_functions": 1715,
+    "ast_protected_presence_count": 707,
+    "ast_protected_presence_pct": 41.22,
+    "threshold_presence_count": 1359,
+    "threshold_presence_pct": 79.24
+  }
+}
