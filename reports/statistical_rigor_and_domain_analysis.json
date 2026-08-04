@@ -13,14 +13,14 @@
   },
   "behavioral_inconsistency_bootstrap_ci": {
     "Gemini_Unified": {
-      "mean_pct": 88.92,
-      "ci_95_lower_pct": 85.42,
-      "ci_95_upper_pct": 92.42
+      "mean_pct": 89.5,
+      "ci_95_lower_pct": 86.01,
+      "ci_95_upper_pct": 92.71
     },
     "Grok_Unified": {
-      "mean_pct": 92.42,
-      "ci_95_lower_pct": 89.5,
-      "ci_95_upper_pct": 95.04
+      "mean_pct": 93.29,
+      "ci_95_lower_pct": 90.67,
+      "ci_95_upper_pct": 95.63
     }
   },
   "paired_mcnemar_tests": {
@@ -32,10 +32,10 @@
       "statistically_significant": true
     },
     "behavioral_inconsistency_gemini_vs_grok": {
-      "b_grok_only": 34,
-      "c_gemini_only": 22,
-      "chi2_statistic": 2.1607,
-      "p_value": 0.14157886335523973,
+      "b_grok_only": 30,
+      "c_gemini_only": 17,
+      "chi2_statistic": 3.0638,
+      "p_value": 0.08005278235757973,
       "statistically_significant": false
     }
   },
@@ -47,7 +47,7 @@
         "Grok": 86.27
       },
       "behavioral_inconsistency_pct": {
-        "Gemini": 96.08,
+        "Gemini": 94.12,
         "Grok": 98.04
       }
     },
@@ -58,8 +58,8 @@
         "Grok": 21.57
       },
       "behavioral_inconsistency_pct": {
-        "Gemini": 90.2,
-        "Grok": 90.2
+        "Gemini": 92.16,
+        "Grok": 96.08
       }
     },
     "Employee Development and Benefits": {
@@ -69,7 +69,7 @@
         "Grok": 96.08
       },
       "behavioral_inconsistency_pct": {
-        "Gemini": 84.31,
+        "Gemini": 86.27,
         "Grok": 98.04
       }
     },
@@ -80,7 +80,7 @@
         "Grok": 13.33
       },
       "behavioral_inconsistency_pct": {
-        "Gemini": 93.33,
+        "Gemini": 91.67,
         "Grok": 96.67
       }
     },
@@ -91,7 +91,7 @@
         "Grok": 74.0
       },
       "behavioral_inconsistency_pct": {
-        "Gemini": 78.0,
+        "Gemini": 80.0,
         "Grok": 96.0
       }
     },
@@ -113,7 +113,7 @@
         "Grok": 2.0
       },
       "behavioral_inconsistency_pct": {
-        "Gemini": 84.0,
+        "Gemini": 86.0,
         "Grok": 72.0
       }
     }

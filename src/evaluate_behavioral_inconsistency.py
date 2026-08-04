@@ -74,7 +74,7 @@ def evaluate_behavioral_inconsistency(dataset_name, gen_dir, prompts_file, num_p
     random.seed(seed)
     prompt_schemas = build_prompt_schema_map(prompts_file)
     
-    files = [f for f in os.listdir(gen_dir) if f.endswith('.json')]
+    files = sorted([f for f in os.listdir(gen_dir) if f.endswith('.json')])
     
     task_results = []
     
@@ -128,7 +128,13 @@ def evaluate_behavioral_inconsistency(dataset_name, gen_dir, prompts_file, num_p
 
         total_tasks_evaluated += 1
 
-        # Generate shared test profiles
+        # Generate shared test profiles with per-task deterministic seed
+        try:
+            task_seed = seed + int(t_id)
+        except:
+            task_seed = seed
+        random.seed(task_seed)
+
         all_keys = list(master_map.keys())
         test_profiles = []
         if all_keys:
@@ -142,6 +148,7 @@ def evaluate_behavioral_inconsistency(dataset_name, gen_dir, prompts_file, num_p
                 test_profiles.append(Person(**prof))
         else:
             test_profiles.append(Person())
+
 
         # Collect output vectors per function
         func_outputs = []
