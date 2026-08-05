@@ -138,6 +138,7 @@ If running directly on your host machine without Docker:
 │   ├── extract_all_protected_counts.py # 15 Protected Attribute counter
 │   ├── evaluate_ground_truth_benchmark.py # Validation against 30 ground-truth functions
 │   ├── evaluate_behavioral_inconsistency.py # Behavioral decision disagreement evaluator
+│   ├── evaluate_code_compilation_metrics.py # Syntax extraction & compilation success rate evaluator
 │   ├── analyze_statistical_rigor.py    # McNemar test, 95% CIs, and 7-domain breakdown
 │   ├── run_sensitivity_analysis.py     # Sampling budget (1k–200k) & random seed stability
 │   ├── experiments/                    # Exploratory feature & attribute variance experiments
