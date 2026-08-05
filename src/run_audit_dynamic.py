@@ -13,71 +13,7 @@ PROMPTS_FILE = os.path.join("data", "dataset", "prompts_unified_new.jsonl")
 AUDIT_REPORT = os.path.join("reports", "audit_report_grok.json")
 PARTIAL_DIR = os.path.join("reports", "partial_audit_results_grok")
 
-class Person:
-    """Flexible profile specifically for testing."""
-    def __init__(self, **kwargs):
-        for key, value in kwargs.items():
-            setattr(self, key, value)
-    
-    def __repr__(self):
-        return f"Person({self.__dict__})"
-
-def convert_type(value, type_str):
-    if value is None: return None
-    if type_str == 'int':
-        try: return int(float(value))
-        except: return 0
-    if type_str == 'float':
-        try: return float(value)
-        except: return 0.0
-    if type_str == 'bool':
-        return str(value).lower() in ['true', '1', 'yes']
-    return str(value).strip("'\"")
-
-def build_profile_map():
-    print(f"Scanning {PROMPTS_FILE}...")
-    master_map = defaultdict(set)
-    type_map = {} 
-    
-    with open(PROMPTS_FILE, 'r', encoding='utf-8') as f:
-        for line in f:
-            data = json.loads(line)
-            prompt = data.get("prompt", "")
-            
-            for p_line in prompt.split('\n'):
-                # Attributes list: # age [18, 19]
-                list_match = re.search(r"#\s*([\w_]+)\s*\[(.*?)\]", p_line)
-                if list_match:
-                    key = list_match.group(1).strip()
-                    vals = [v.strip().strip("'\"") for v in list_match.group(2).split(',')]
-                    if vals: master_map[key].update(vals)
-                
-                # Types: age: int
-                type_match = re.search(r"^\s*([\w_]+)\s*:\s*(\w+)", p_line)
-                if type_match:
-                    type_map[type_match.group(1)] = type_match.group(2)
-
-    base_profile = {}
-    final_map = {}
-
-    for key, vals in master_map.items():
-        sorted_vals = sorted(list(vals))
-        final_map[key] = sorted_vals
-        
-        # Determine default
-        attr_type = type_map.get(key, 'str')
-        default_val = sorted_vals[0] if sorted_vals else None
-        base_profile[key] = convert_type(default_val, attr_type)
-
-    return base_profile, final_map, type_map
-
-def find_used_attributes(code, all_keys):
-    used = set()
-    code = code.replace("(", " ").replace(")", " ")
-    for key in all_keys:
-        if re.search(r"self\." + re.escape(key) + r"\b", code):
-             used.add(key)
-    return list(used)
+from helper_functions import Person, convert_type, find_used_attributes, build_profile_map, PROTECTED_ATTRIBUTES
 
 def audit_function(work_item, master_map, type_map, base_profile, max_combos=100000):
     task_id, idx, prompt, code = work_item
@@ -193,7 +129,7 @@ def main():
         if not os.path.exists(d):
             os.makedirs(d)
         
-    base_profile, master_map, type_map = build_profile_map()
+    base_profile, master_map, type_map = build_profile_map(PROMPTS_FILE)
     if not base_profile:
         print("Failed to build profile.")
         return

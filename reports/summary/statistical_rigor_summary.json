@@ -1,14 +1,14 @@
 {
   "function_level_protected_bias_bootstrap_ci": {
     "Gemini_Unified": {
-      "mean_pct": 20.87,
-      "ci_95_lower_pct": 18.95,
-      "ci_95_upper_pct": 22.79
+      "mean_pct": 37.03,
+      "ci_95_lower_pct": 34.75,
+      "ci_95_upper_pct": 39.31
     },
     "Grok_Unified": {
-      "mean_pct": 31.55,
-      "ci_95_lower_pct": 29.33,
-      "ci_95_upper_pct": 33.77
+      "mean_pct": 41.22,
+      "ci_95_lower_pct": 38.89,
+      "ci_95_upper_pct": 43.55
     }
   },
   "behavioral_inconsistency_bootstrap_ci": {

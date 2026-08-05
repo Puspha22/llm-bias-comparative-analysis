@@ -1,10 +1,5 @@
 x-security-defaults: &security-defaults
   network_mode: none
-  deploy:
-    resources:
-      limits:
-        cpus: '4.0'
-        memory: 8G
 
 services:
   test:
@@ -16,17 +11,17 @@ services:
   auditor:
     <<: *security-defaults
     build: .
-    container_name: llm_bias_counterfactual_auditor
+    container_name: llm_bias_combinatorial_auditor
     volumes:
-      - ./reports:/app/reports
-    command: python src/run_counterfactual_audit.py
+      - .:/app
+    command: python src/run_audit_dynamic.py
 
   benchmark:
     <<: *security-defaults
     build: .
     container_name: llm_bias_ground_truth_benchmark
     volumes:
-      - ./reports:/app/reports
+      - .:/app
     command: python src/evaluate_ground_truth_benchmark.py
 
   inconsistency:
@@ -34,7 +29,7 @@ services:
     build: .
     container_name: llm_bias_behavioral_inconsistency
     volumes:
-      - ./reports:/app/reports
+      - .:/app
     command: python src/evaluate_behavioral_inconsistency.py
 
   statistical:
@@ -42,7 +37,7 @@ services:
     build: .
     container_name: llm_bias_statistical_rigor
     volumes:
-      - ./reports:/app/reports
+      - .:/app
     command: python src/analyze_statistical_rigor.py
 
   sensitivity:
@@ -50,5 +45,5 @@ services:
     build: .
     container_name: llm_bias_sensitivity_analysis
     volumes:
-      - ./reports:/app/reports
+      - .:/app
     command: python src/run_sensitivity_analysis.py

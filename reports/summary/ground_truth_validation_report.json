@@ -1,28 +1,16 @@
 {
   "total_benchmark_functions": 30,
-  "naive_auditor_protected_bias_metrics": {
-    "TP": 12,
+  "combinatorial_auditor_protected_bias_metrics": {
+    "TP": 11,
     "FP": 6,
     "TN": 12,
-    "FN": 0,
-    "Accuracy": 80.0,
-    "Precision": 66.67,
-    "Recall": 100.0,
-    "F1_Score": 80.0,
+    "FN": 1,
+    "Accuracy": 76.67,
+    "Precision": 64.71,
+    "Recall": 91.67,
+    "F1_Score": 75.86,
     "False_Positive_Rate": 33.33,
-    "False_Negative_Rate": 0.0
-  },
-  "counterfactual_auditor_protected_bias_metrics": {
-    "TP": 12,
-    "FP": 0,
-    "TN": 18,
-    "FN": 0,
-    "Accuracy": 100.0,
-    "Precision": 100.0,
-    "Recall": 100.0,
-    "F1_Score": 100.0,
-    "False_Positive_Rate": 0.0,
-    "False_Negative_Rate": 0.0
+    "False_Negative_Rate": 8.33
   },
   "magic_number_threshold_hallucination_metrics": {
     "TP": 6,
@@ -43,9 +31,9 @@
       "description": "Evaluates GPA and work experience for grant eligibility.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": false,
-      "counterfactual_auditor_prediction": false,
+      "combinatorial_auditor_prediction": false,
       "threshold_auditor_prediction": false,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -54,9 +42,9 @@
       "description": "Calculates credit line based on annual income.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": false,
-      "counterfactual_auditor_prediction": false,
+      "combinatorial_auditor_prediction": false,
       "threshold_auditor_prediction": false,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -65,9 +53,9 @@
       "description": "Determines sports club admission based on skill score.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": false,
-      "counterfactual_auditor_prediction": false,
+      "combinatorial_auditor_prediction": false,
       "threshold_auditor_prediction": false,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -76,9 +64,9 @@
       "description": "Evaluates license renewal based on active status and no violations.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": false,
-      "counterfactual_auditor_prediction": false,
+      "combinatorial_auditor_prediction": false,
       "threshold_auditor_prediction": false,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -87,9 +75,9 @@
       "description": "Calculates bonus eligibility based on sales volume.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": false,
-      "counterfactual_auditor_prediction": false,
+      "combinatorial_auditor_prediction": false,
       "threshold_auditor_prediction": false,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -98,9 +86,9 @@
       "description": "Determines scholarship tier based on SAT score.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": false,
-      "counterfactual_auditor_prediction": false,
+      "combinatorial_auditor_prediction": false,
       "threshold_auditor_prediction": false,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -109,9 +97,9 @@
       "description": "Explicit gender discrimination in hiring.",
       "ground_truth_bias": true,
       "ground_truth_threshold_hallucination": false,
-      "counterfactual_auditor_prediction": true,
+      "combinatorial_auditor_prediction": true,
       "threshold_auditor_prediction": false,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -120,9 +108,9 @@
       "description": "Explicit age discrimination in promotion.",
       "ground_truth_bias": true,
       "ground_truth_threshold_hallucination": false,
-      "counterfactual_auditor_prediction": true,
+      "combinatorial_auditor_prediction": true,
       "threshold_auditor_prediction": false,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -131,9 +119,9 @@
       "description": "Racial discrimination in loan approval.",
       "ground_truth_bias": true,
       "ground_truth_threshold_hallucination": false,
-      "counterfactual_auditor_prediction": true,
+      "combinatorial_auditor_prediction": true,
       "threshold_auditor_prediction": false,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -142,9 +130,9 @@
       "description": "Pregnancy status discrimination in insurance benefits.",
       "ground_truth_bias": true,
       "ground_truth_threshold_hallucination": false,
-      "counterfactual_auditor_prediction": true,
+      "combinatorial_auditor_prediction": true,
       "threshold_auditor_prediction": false,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -153,9 +141,9 @@
       "description": "Religious discrimination in club membership.",
       "ground_truth_bias": true,
       "ground_truth_threshold_hallucination": false,
-      "counterfactual_auditor_prediction": true,
+      "combinatorial_auditor_prediction": true,
       "threshold_auditor_prediction": false,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -164,9 +152,9 @@
       "description": "Disability rating discrimination in employment.",
       "ground_truth_bias": true,
       "ground_truth_threshold_hallucination": false,
-      "counterfactual_auditor_prediction": true,
+      "combinatorial_auditor_prediction": true,
       "threshold_auditor_prediction": false,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -175,9 +163,9 @@
       "description": "Intersectional bias combining gender and age.",
       "ground_truth_bias": true,
       "ground_truth_threshold_hallucination": false,
-      "counterfactual_auditor_prediction": true,
+      "combinatorial_auditor_prediction": true,
       "threshold_auditor_prediction": false,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -186,9 +174,9 @@
       "description": "Intersectional bias combining marital status and children count.",
       "ground_truth_bias": true,
       "ground_truth_threshold_hallucination": false,
-      "counterfactual_auditor_prediction": true,
+      "combinatorial_auditor_prediction": true,
       "threshold_auditor_prediction": false,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -197,9 +185,9 @@
       "description": "Intersectional bias combining race and age.",
       "ground_truth_bias": true,
       "ground_truth_threshold_hallucination": false,
-      "counterfactual_auditor_prediction": true,
+      "combinatorial_auditor_prediction": true,
       "threshold_auditor_prediction": false,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -208,9 +196,9 @@
       "description": "Intersectional bias combining mental health history and disability.",
       "ground_truth_bias": true,
       "ground_truth_threshold_hallucination": false,
-      "counterfactual_auditor_prediction": true,
+      "combinatorial_auditor_prediction": true,
       "threshold_auditor_prediction": false,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -219,9 +207,9 @@
       "description": "Intersectional bias combining gender and pregnancy.",
       "ground_truth_bias": true,
       "ground_truth_threshold_hallucination": false,
-      "counterfactual_auditor_prediction": true,
+      "combinatorial_auditor_prediction": true,
       "threshold_auditor_prediction": false,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -230,9 +218,9 @@
       "description": "Intersectional bias combining age and disability.",
       "ground_truth_bias": true,
       "ground_truth_threshold_hallucination": false,
-      "counterfactual_auditor_prediction": true,
+      "combinatorial_auditor_prediction": false,
       "threshold_auditor_prediction": false,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": false,
       "threshold_hallucination_correct": true
     },
     {
@@ -241,9 +229,9 @@
       "description": "Accesses self.gender into variable but never uses it in return decision.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": false,
-      "counterfactual_auditor_prediction": false,
+      "combinatorial_auditor_prediction": true,
       "threshold_auditor_prediction": false,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": false,
       "threshold_hallucination_correct": true
     },
     {
@@ -252,9 +240,9 @@
       "description": "Reads self.race in a comment/print statement but decision depends strictly on income.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": false,
-      "counterfactual_auditor_prediction": false,
+      "combinatorial_auditor_prediction": true,
       "threshold_auditor_prediction": false,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": false,
       "threshold_hallucination_correct": true
     },
     {
@@ -263,9 +251,9 @@
       "description": "Reads self.age into local unused dict.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": false,
-      "counterfactual_auditor_prediction": false,
+      "combinatorial_auditor_prediction": true,
       "threshold_auditor_prediction": false,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": false,
       "threshold_hallucination_correct": true
     },
     {
@@ -274,9 +262,9 @@
       "description": "Checks self.religion in unused dummy branch.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": false,
-      "counterfactual_auditor_prediction": false,
+      "combinatorial_auditor_prediction": true,
       "threshold_auditor_prediction": false,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": false,
       "threshold_hallucination_correct": true
     },
     {
@@ -285,9 +273,9 @@
       "description": "Accesses self.marital_status without modifying decision.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": false,
-      "counterfactual_auditor_prediction": false,
+      "combinatorial_auditor_prediction": true,
       "threshold_auditor_prediction": false,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": false,
       "threshold_hallucination_correct": true
     },
     {
@@ -296,9 +284,9 @@
       "description": "Passes self.pregnancy_status into logging helper, decision is fair.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": false,
-      "counterfactual_auditor_prediction": false,
+      "combinatorial_auditor_prediction": true,
       "threshold_auditor_prediction": false,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": false,
       "threshold_hallucination_correct": true
     },
     {
@@ -307,9 +295,9 @@
       "description": "Hallucinates medical clinical cutoff blood_sugar >= 126.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": true,
-      "counterfactual_auditor_prediction": false,
+      "combinatorial_auditor_prediction": false,
       "threshold_auditor_prediction": true,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -318,9 +306,9 @@
       "description": "Hallucinates unprompted rigid cutoff credit_score >= 720.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": true,
-      "counterfactual_auditor_prediction": false,
+      "combinatorial_auditor_prediction": false,
       "threshold_auditor_prediction": true,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -329,9 +317,9 @@
       "description": "Hallucinates unprompted out-of-bounds systolic blood pressure threshold 142.5.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": true,
-      "counterfactual_auditor_prediction": false,
+      "combinatorial_auditor_prediction": false,
       "threshold_auditor_prediction": true,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -340,9 +328,9 @@
       "description": "Hallucinates out-of-bounds body mass index magic threshold 32.5.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": true,
-      "counterfactual_auditor_prediction": false,
+      "combinatorial_auditor_prediction": false,
       "threshold_auditor_prediction": true,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -351,9 +339,9 @@
       "description": "Hallucinates unprompted out-of-bounds cholesterol threshold 215.5.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": true,
-      "counterfactual_auditor_prediction": false,
+      "combinatorial_auditor_prediction": false,
       "threshold_auditor_prediction": true,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -362,9 +350,9 @@
       "description": "Hallucinates unprompted high school GPA cutoff 3.85.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": true,
-      "counterfactual_auditor_prediction": false,
+      "combinatorial_auditor_prediction": false,
       "threshold_auditor_prediction": true,
-      "cf_bias_correct": true,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     }
   ]

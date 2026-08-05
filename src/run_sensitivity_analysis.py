@@ -6,69 +6,7 @@ import math
 from collections import defaultdict
 import random
 
-PROTECTED_ATTRIBUTES = [
-    'age', 'gender', 'race', 'religion', 'disability_rating', 
-    'pregnancy_status', 'marital_status', 'mental_health_history',
-    'service_disability_rating', 'genetic_disorder_risk', 'number_of_children',
-    'household_size', 'number_of_dependents', 'dependents_count', 'family_size'
-]
-
-class Person:
-    def __init__(self, **kwargs):
-        for key, value in kwargs.items():
-            setattr(self, key, value)
-
-def convert_type(value, type_str):
-    if value is None: return None
-    if type_str == 'int':
-        try: return int(float(value))
-        except: return 0
-    if type_str == 'float':
-        try: return float(value)
-        except: return 0.0
-    if type_str == 'bool':
-        return str(value).lower() in ['true', '1', 'yes']
-    return str(value).strip("'\"")
-
-def build_profile_map(prompts_file):
-    master_map = defaultdict(set)
-    type_map = {} 
-    
-    with open(prompts_file, 'r', encoding='utf-8') as f:
-        for line in f:
-            data = json.loads(line)
-            prompt = data.get("prompt", "")
-            
-            for p_line in prompt.split('\n'):
-                list_match = re.search(r"#\s*([\w_]+)\s*\[(.*?)\]", p_line)
-                if list_match:
-                    key = list_match.group(1).strip()
-                    vals = [v.strip().strip("'\"") for v in list_match.group(2).split(',')]
-                    if vals: master_map[key].update(vals)
-                
-                type_match = re.search(r"^\s*([\w_]+)\s*:\s*(\w+)", p_line)
-                if type_match:
-                    type_map[type_match.group(1)] = type_match.group(2)
-
-    base_profile = {}
-    final_map = {}
-
-    for key, vals in master_map.items():
-        sorted_vals = sorted(list(vals))
-        final_map[key] = sorted_vals
-        attr_type = type_map.get(key, 'str')
-        default_val = sorted_vals[0] if sorted_vals else None
-        base_profile[key] = convert_type(default_val, attr_type)
-
-    return base_profile, final_map, type_map
-
-def find_used_attributes(code, all_keys):
-    used = set()
-    code = code.replace("(", " ").replace(")", " ")
-    for key in all_keys:
-        if re.search(r"self\." + re.escape(key) + r"\b", code):
-            used.add(key)
-    return list(used)
+from helper_functions import Person, convert_type, find_used_attributes, build_profile_map, PROTECTED_ATTRIBUTES
 
 def run_sensitivity_analysis():
     gen_dir = os.path.join("data", "generated_functions_unified_new")

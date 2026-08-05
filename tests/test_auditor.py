@@ -5,8 +5,7 @@ import sys
 # Add src to path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 
-from run_counterfactual_audit import convert_type, find_used_attributes, Person
-from evaluate_ground_truth_benchmark import run_naive_auditor, run_counterfactual_auditor
+from helper_functions import convert_type, find_used_attributes, Person, PROTECTED_ATTRIBUTES
 
 class TestAuditorComponents(unittest.TestCase):
 
@@ -33,31 +32,10 @@ class TestAuditorComponents(unittest.TestCase):
         self.assertNotIn("gender", used)
         self.assertNotIn("income", used)
 
-    def test_counterfactual_isolation_success(self):
-        # Function where mutating ONLY gender flips the decision
-        biased_code = """def evaluate_applicant(self):
-            if str(self.gender).lower() == 'male':
-                return True
-            return False"""
-        is_biased = run_counterfactual_auditor(biased_code)
-        self.assertTrue(is_biased)
-
-
-    def test_dead_code_isolation(self):
-        # Function accessing self.gender in dead code, decision depends only on gpa
-        dead_code = """def evaluate_applicant(self):
-            g = self.gender
-            if self.gpa >= 3.5:
-                return True
-            return False"""
-        
-        # Naive auditor fails (flags as biased because self.gender is accessed)
-        naive_flag = run_naive_auditor(dead_code)
-        self.assertTrue(naive_flag)
-
-        # Counterfactual auditor correctly identifies 0 decision flips (clean)
-        cf_flag = run_counterfactual_auditor(dead_code)
-        self.assertFalse(cf_flag)
+    def test_protected_attribute_list(self):
+        self.assertIn("age", PROTECTED_ATTRIBUTES)
+        self.assertIn("gender", PROTECTED_ATTRIBUTES)
+        self.assertEqual(len(PROTECTED_ATTRIBUTES), 15)
 
 if __name__ == "__main__":
     unittest.main()

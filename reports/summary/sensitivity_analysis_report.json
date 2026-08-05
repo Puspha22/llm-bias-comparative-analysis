@@ -471,11 +471,11 @@
               1
             ],
             [
-              false,
-              1
+              true,
+              2
             ]
           ],
-          "seed_agreement": true
+          "seed_agreement": false
         },
         "5000": {
           "seed_outcomes": [
@@ -497,8 +497,8 @@
         "10000": {
           "seed_outcomes": [
             [
-              false,
-              1
+              true,
+              2
             ],
             [
               true,
@@ -509,7 +509,7 @@
               2
             ]
           ],
-          "seed_agreement": false
+          "seed_agreement": true
         },
         "50000": {
           "seed_outcomes": [
@@ -573,8 +573,8 @@
         "1000": {
           "seed_outcomes": [
             [
-              false,
-              1
+              true,
+              2
             ],
             [
               true,
@@ -1013,12 +1013,12 @@
         "1000": {
           "seed_outcomes": [
             [
-              true,
-              2
-            ],
-            [
               false,
               1
+            ],
+            [
+              true,
+              2
             ],
             [
               false,
@@ -1055,11 +1055,11 @@
               2
             ],
             [
-              true,
-              2
+              false,
+              1
             ]
           ],
-          "seed_agreement": true
+          "seed_agreement": false
         },
         "50000": {
           "seed_outcomes": [
@@ -1521,12 +1521,12 @@
         "100000": {
           "seed_outcomes": [
             [
-              false,
-              1
-            ],
-            [
               true,
               2
+            ],
+            [
+              false,
+              1
             ],
             [
               false,
@@ -1538,12 +1538,12 @@
         "200000": {
           "seed_outcomes": [
             [
-              false,
-              1
-            ],
-            [
               true,
               2
+            ],
+            [
+              false,
+              1
             ],
             [
               false,
@@ -1666,7 +1666,7 @@
     }
   ],
   "stability_by_sample_budget_pct": {
-    "1000": 86.67,
+    "1000": 80.0,
     "5000": 86.67,
     "10000": 93.33,
     "50000": 100.0,

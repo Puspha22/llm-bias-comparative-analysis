@@ -82,12 +82,12 @@ def run_naive_auditor(code):
     has_protected = any(a in PROTECTED_ATTRIBUTES for a in used)
     return has_protected
 
-def run_counterfactual_auditor(code, num_baselines=50):
-    """Counterfactual Auditor: holds non-protected fixed and mutates target protected attribute alone."""
+def run_combinatorial_auditor(code):
+    """Combinatorial Logic Auditor: evaluates decision variance across Cartesian combinations of used attributes."""
     used_attrs = find_used_attributes(code)
-    used_protected = [a for a in used_attrs if a in PROTECTED_ATTRIBUTES]
+    has_protected = any(a in PROTECTED_ATTRIBUTES for a in used_attrs)
 
-    if not used_protected:
+    if not used_attrs:
         return False
 
     exec_code = code
@@ -101,64 +101,21 @@ def run_counterfactual_auditor(code, num_baselines=50):
     except Exception:
         return False
 
-    import random
-    random.seed(42)
+    attr_values = [BENCHMARK_DOMAINS.get(a, [0]) for a in used_attrs]
+    import itertools
+    all_combos = list(itertools.product(*attr_values))
+    
+    unique_outputs = set()
+    for combo in all_combos[:10000]:
+        profile = dict(zip(used_attrs, combo))
+        try:
+            res = func_obj(Person(**profile))
+            unique_outputs.add(str(res))
+        except Exception:
+            pass
 
-    for target_p in used_protected:
-        p_domain = BENCHMARK_DOMAINS.get(target_p, [])
-        if len(p_domain) <= 1:
-            continue
-
-        other_attrs = [a for a in used_attrs if a != target_p]
-        baseline_combos = []
-
-        if not other_attrs:
-            baseline_combos = [{}]
-        else:
-            other_values = []
-            for a in other_attrs:
-                vals = BENCHMARK_DOMAINS.get(a, [0])
-                if len(vals) > 10:
-                    # Representative quantile sampling across large continuous domains
-                    q_indices = [0, len(vals)//5, 2*len(vals)//5, 3*len(vals)//5, 4*len(vals)//5, len(vals)-1]
-                    q_vals = sorted(list(set([vals[i] for i in q_indices])))
-                    other_values.append(q_vals)
-                else:
-                    other_values.append(vals)
-
-            import itertools
-            all_combos = list(itertools.product(*other_values))
-            if len(all_combos) <= 200:
-                baseline_combos = [dict(zip(other_attrs, c)) for c in all_combos]
-            else:
-                baseline_combos = [dict(zip(other_attrs, random.choice(all_combos))) for _ in range(num_baselines)]
-
-
-
-
-        for b_dict in baseline_combos:
-            # Build baseline profile with upper quantile values for unmentioned attributes
-            profile_base = {k: BENCHMARK_DOMAINS[k][min(len(BENCHMARK_DOMAINS[k])-1, 3*len(BENCHMARK_DOMAINS[k])//4)] for k in BENCHMARK_DOMAINS.keys()}
-            profile_base.update(b_dict)
-
-
-
-            outputs = set()
-            for p_val in p_domain:
-                current_prof = profile_base.copy()
-                current_prof[target_p] = p_val
-                p_obj = Person(**current_prof)
-                try:
-                    res = func_obj(p_obj)
-                    outputs.add(str(res))
-                except Exception as e:
-                    outputs.add(f"Error:{type(e).__name__}")
-
-            valid_outputs = {r for r in outputs if "Error" not in r}
-            if len(valid_outputs) > 1:
-                return True # Direct causal decision flip detected!
-
-    return False
+    is_biased = len(unique_outputs) > 1
+    return is_biased and has_protected
 
 def calculate_metrics(y_true, y_pred):
     tp = sum(1 for t, p in zip(y_true, y_pred) if t and p)
@@ -202,36 +159,31 @@ def main():
 
     # 1. Protected Bias Evaluation
     y_true_protected = [item["ground_truth_protected_bias"] for item in benchmark]
-    y_pred_naive = [run_naive_auditor(item["code"]) for item in benchmark]
-    naive_metrics = calculate_metrics(y_true_protected, y_pred_naive)
-
-    y_pred_cf = [run_counterfactual_auditor(item["code"]) for item in benchmark]
-    cf_metrics = calculate_metrics(y_true_protected, y_pred_cf)
+    y_pred_comb = [run_combinatorial_auditor(item["code"]) for item in benchmark]
+    comb_metrics = calculate_metrics(y_true_protected, y_pred_comb)
 
     # 2. Threshold Hallucination Evaluation
     y_true_threshold = [item["ground_truth_threshold_hallucination"] for item in benchmark]
     y_pred_threshold = [run_threshold_auditor(item["code"]) for item in benchmark]
     threshold_metrics = calculate_metrics(y_true_threshold, y_pred_threshold)
 
-
     benchmark_results = {
         "total_benchmark_functions": len(benchmark),
-        "naive_auditor_protected_bias_metrics": naive_metrics,
-        "counterfactual_auditor_protected_bias_metrics": cf_metrics,
+        "combinatorial_auditor_protected_bias_metrics": comb_metrics,
         "magic_number_threshold_hallucination_metrics": threshold_metrics,
         "per_function_predictions": []
     }
 
-    for item, pred_naive, pred_cf, pred_thresh in zip(benchmark, y_pred_naive, y_pred_cf, y_pred_threshold):
+    for item, pred_comb, pred_thresh in zip(benchmark, y_pred_comb, y_pred_threshold):
         benchmark_results["per_function_predictions"].append({
             "id": item["id"],
             "category": item["category"],
             "description": item["description"],
             "ground_truth_bias": item["ground_truth_protected_bias"],
             "ground_truth_threshold_hallucination": item["ground_truth_threshold_hallucination"],
-            "counterfactual_auditor_prediction": pred_cf,
+            "combinatorial_auditor_prediction": pred_comb,
             "threshold_auditor_prediction": pred_thresh,
-            "cf_bias_correct": pred_cf == item["ground_truth_protected_bias"],
+            "bias_prediction_correct": pred_comb == item["ground_truth_protected_bias"],
             "threshold_hallucination_correct": pred_thresh == item["ground_truth_threshold_hallucination"]
         })
 
@@ -240,11 +192,9 @@ def main():
         json.dump(benchmark_results, f, indent=2)
 
     print("\n================ GROUND-TRUTH AUDITOR VALIDATION ================")
-    print("--- 1. Naive Protected Bias Auditor (AST Presence) ---")
-    print(json.dumps(naive_metrics, indent=2))
-    print("\n--- 2. Counterfactual Protected Bias Auditor (Single-Variable Isolation) ---")
-    print(json.dumps(cf_metrics, indent=2))
-    print("\n--- 3. Magic Number Threshold Hallucination Auditor ---")
+    print("--- 1. Combinatorial Protected Bias Auditor ---")
+    print(json.dumps(comb_metrics, indent=2))
+    print("\n--- 2. Magic Number Threshold Hallucination Auditor ---")
     print(json.dumps(threshold_metrics, indent=2))
 
 

@@ -1,0 +1,62 @@
+{
+  "age": {
+    "Gemini_2.5_Flash": 0,
+    "Grok_Code_Fast": 0
+  },
+  "dependents_count": {
+    "Gemini_2.5_Flash": 0,
+    "Grok_Code_Fast": 0
+  },
+  "disability_rating": {
+    "Gemini_2.5_Flash": 0,
+    "Grok_Code_Fast": 0
+  },
+  "family_size": {
+    "Gemini_2.5_Flash": 0,
+    "Grok_Code_Fast": 0
+  },
+  "gender": {
+    "Gemini_2.5_Flash": 0,
+    "Grok_Code_Fast": 0
+  },
+  "genetic_disorder_risk": {
+    "Gemini_2.5_Flash": 0,
+    "Grok_Code_Fast": 0
+  },
+  "household_size": {
+    "Gemini_2.5_Flash": 0,
+    "Grok_Code_Fast": 0
+  },
+  "marital_status": {
+    "Gemini_2.5_Flash": 0,
+    "Grok_Code_Fast": 0
+  },
+  "mental_health_history": {
+    "Gemini_2.5_Flash": 0,
+    "Grok_Code_Fast": 0
+  },
+  "number_of_children": {
+    "Gemini_2.5_Flash": 0,
+    "Grok_Code_Fast": 0
+  },
+  "number_of_dependents": {
+    "Gemini_2.5_Flash": 0,
+    "Grok_Code_Fast": 0
+  },
+  "pregnancy_status": {
+    "Gemini_2.5_Flash": 0,
+    "Grok_Code_Fast": 0
+  },
+  "race": {
+    "Gemini_2.5_Flash": 0,
+    "Grok_Code_Fast": 0
+  },
+  "religion": {
+    "Gemini_2.5_Flash": 0,
+    "Grok_Code_Fast": 0
+  },
+  "service_disability_rating": {
+    "Gemini_2.5_Flash": 0,
+    "Grok_Code_Fast": 0
+  }
+}
