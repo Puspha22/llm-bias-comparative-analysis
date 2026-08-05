@@ -135,7 +135,7 @@ If running directly on your host machine without Docker:
 ├── src/                                # Core auditing and analysis scripts
 │   ├── helper_functions.py             # Shared Person, type conversion, and prompt parser module
 │   ├── run_audit_dynamic.py            # Primary Combinatorial Logic Auditor
-│   ├── extract_all_protected_counts.py # 15 Protected Attribute counter
+│   ├── extract_attribute_wise_protected_bias.py # 15 Protected Attribute-wise bias counter
 │   ├── evaluate_ground_truth_benchmark.py # Validation against 30 ground-truth functions
 │   ├── evaluate_behavioral_inconsistency.py # Behavioral decision disagreement evaluator
 │   ├── evaluate_code_compilation_metrics.py # Syntax extraction & compilation success rate evaluator
