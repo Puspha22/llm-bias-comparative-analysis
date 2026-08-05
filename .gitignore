@@ -33,6 +33,8 @@ reports/protected_bias_audit_*.json
 reports/partial_audit_results*
 scratch/
 data/dataset/prompts_unified.jsonl
+data/generated_functions_unified/
+data/generated_functions_unified_test/
 
 # Ignore manuscript & thesis latex source directories & working notes
 siuethesis/

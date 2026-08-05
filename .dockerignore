@@ -11,6 +11,8 @@ reports/protected_bias_audit_*.json
 reports/partial_audit_results*
 scratch/
 data/dataset/prompts_unified.jsonl
+data/generated_functions_unified/
+data/generated_functions_unified_test/
 tmp_output*.txt
 reports/manuscript_notes
 src/temp_find_bias.py
