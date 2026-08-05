@@ -32,6 +32,7 @@ reports/audit_report_*.json
 reports/protected_bias_audit_*.json
 reports/partial_audit_results*
 scratch/
+data/dataset/prompts_unified.jsonl
 
 # Ignore manuscript & thesis latex source directories & working notes
 siuethesis/
