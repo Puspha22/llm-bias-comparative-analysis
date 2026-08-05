@@ -11,3 +11,15 @@ reports/protected_bias_audit_*.json
 reports/partial_audit_results*
 scratch/
 tmp_output*.txt
+reports/manuscript_notes
+src/temp_find_bias.py
+src/temp_legacy_stats.py
+src/debug_legacy.py
+src/run_audit_dynamic_legacy.py
+src/run_audit_single.py
+src/analyze_results.py
+src/audit_remaining_samples.py
+src/retry_failed_audits.py
+src/check_prompt_types.py
+src/scan_attributes.py
+src/get_audit_stats.py

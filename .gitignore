@@ -38,6 +38,19 @@ siuethesis/
 MDPI___A_Comparative_Analysis_of_Implicit_Bias_and_Logical_Inconsistency_in_General_Purpose_and_Code_Specialized_Large_Language_Models/
 reports/manuscript_notes/
 
+# Obsolete / One-off local scripts
+src/temp_find_bias.py
+src/temp_legacy_stats.py
+src/debug_legacy.py
+src/run_audit_dynamic_legacy.py
+src/run_audit_single.py
+src/analyze_results.py
+src/audit_remaining_samples.py
+src/retry_failed_audits.py
+src/check_prompt_types.py
+src/scan_attributes.py
+src/get_audit_stats.py
+
 # Whitelist core files and documentation
 !README.md
 !LICENSE
