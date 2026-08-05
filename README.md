@@ -1,128 +1,138 @@
 # 🧠 Algorithmic Bias and Logical Inconsistency in LLM-Generated Code
 
-A master's thesis project presenting a modern, comparative approach to analyzing implicit bias and logical inconsistency across different Large Language Models.
+A master's thesis research project presenting a modern, comparative approach to analyzing implicit bias and logical inconsistency across Large Language Models (**Google Gemini 2.5 Flash** and **xAI Grok-Code-Fast-1**).
 
 ---
 
 ## 📘 Overview
 
-This project investigates **algorithmic bias** in Large Language Model (LLM)-generated code. It introduces a novel evaluation methodology called the **Combinatorial Logic Auditing** framework, designed to dynamically test *all* attributes utilized in an LLM-generated function — not just a predefined list of demographic traits.
+This repository provides the complete dataset, source code, ground-truth benchmark suite, and statistical auditing framework for evaluating LLM-generated decision code.
 
-The framework:
-- Generates Python functions using both **General Purpose Models** (Google Gemini 2.5 Flash) and **Code Specialized Models** (Grok-Code-Fast-1).
-- Systematically executes the **Cartesian product** of all input attributes (using Monte Carlo sampling for massive combinatorial spaces).
-- Automatically detects discriminatory decision boundaries, arbitrary numeric hallucinations, and logical inconsistencies across the models.
+Key Methodology:
+- **Combinatorial Logic & Counterfactual Auditing**: Single-variable isolation testing holding non-protected traits constant to detect true decision flips.
+- **Threshold Hallucination Detection**: Dynamic checking of numeric thresholds against master prompt value ranges.
+- **Behavioral Inconsistency Evaluation**: Uniform testing of generated function sets across shared applicant profiles.
+- **Statistical Rigor**: Clustered bootstrap 95% Confidence Intervals and paired McNemar statistical significance tests ($p < 0.001$).
+- **Docker-First Containerization**: Zero-setup, isolated execution environment (4 CPUs, 8GB RAM, `network_mode: none`).
+
+---
+
+## 🚀 Quick Start (Docker Environment)
+
+Docker Compose is the **primary, zero-configuration reproduction method**. All dependencies and environment settings are handled automatically inside isolated containers.
+
+### Prerequisites
+* Docker 20.10+ and Docker Compose 2.0+
+
+### Execution Commands
+
+* **Run Automated Unit Tests**:
+  ```bash
+  docker compose run test
+  ```
+
+* **Run Counterfactual Protected Bias Audit**:
+  ```bash
+  docker compose run auditor
+  ```
+
+* **Run Ground-Truth Benchmark Validation**:
+  ```bash
+  docker compose run benchmark
+  ```
+
+* **Run Behavioral Inconsistency Evaluation**:
+  ```bash
+  docker compose run inconsistency
+  ```
+
+* **Run Statistical Significance & Domain Analysis**:
+  ```bash
+  docker compose run statistical
+  ```
+
+* **Run Sampling Budget Sensitivity Analysis**:
+  ```bash
+  docker compose run sensitivity
+  ```
+
+---
+
+## 🐍 Alternative Setup (Native Python)
+
+If running directly on your host machine without Docker:
+
+1. Requires **Python 3.11+**. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. Run any script from the root directory:
+   ```bash
+   python -m unittest tests/test_auditor.py
+   python src/run_counterfactual_audit.py
+   python src/evaluate_ground_truth_benchmark.py
+   python src/evaluate_behavioral_inconsistency.py
+   python src/analyze_statistical_rigor.py
+   python src/run_sensitivity_analysis.py
+   ```
 
 ---
 
 ## 📂 Repository Structure
 
 ```
-├── src/                           # Source code
-│   ├── generate_unified_dataset.py  # Data Prep: Unifies and expands prompts into dataclass format
-│   ├── generate_functions.py        # Code Generation: Gemini (General Purpose)
-│   ├── generate_functions_grok.py   # Code Generation: Grok (Code Specialized)
-│   ├── run_audit_dynamic_legacy.py  # Audit: Baseline comparison testing
-│   ├── run_audit_dynamic.py         # Audit: Combinatorial Logic Auditing
-│   ├── analyze_results.py           # Analysis: Consistency and Hallucination stats
-│   └── extract_protected_bias.py    # Analysis: Protected attribute extraction
-│
-├── data/                          # Data files
+├── data/                               # Master prompt datasets and generated code
 │   ├── dataset/
-│   │   ├── prompts_old.jsonl            # Baseline legacy prompts
-│   │   └── prompts_unified_new.jsonl    # Expanded, clean unified prompts
-│   ├── generated_functions_old/         # Baseline generated code
-│   ├── generated_functions_unified_new/ # Gemini generated code
-│   └── generated_functions_grok/        # Grok generated code
+│   │   ├── prompts_old.jsonl           # Baseline legacy prompts
+│   │   └── prompts_unified_new.jsonl   # Standardized dataclass prompts (343 tasks, 206 master attributes)
+│   ├── generated_functions_unified_new/# 1,715 Python code samples (Gemini 2.5 Flash)
+│   ├── generated_functions_grok/       # 1,715 Python code samples (Grok-Code-Fast-1)
+│   ├── generated_functions_old/        # 1,715 Legacy baseline code samples
+│   ├── ground_truth_benchmark.json     # 30 synthetic functions with known ground truth
+│   └── ground_truth_benchmark.py       # Generator for ground-truth benchmark suite
 │
-├── README.md                      # Project documentation
-└── requirements.txt               # Dependencies
+├── src/                                # Core auditing and analysis scripts
+│   ├── run_counterfactual_audit.py     # Counterfactual protected bias auditor
+│   ├── evaluate_ground_truth_benchmark.py # Validation against 30 ground-truth functions
+│   ├── evaluate_behavioral_inconsistency.py # Behavioral decision disagreement evaluator
+│   ├── analyze_statistical_rigor.py    # McNemar test, 95% CIs, and 7-domain breakdown
+│   ├── run_sensitivity_analysis.py    # Sampling budget (1k–200k) & random seed stability
+│   └── plot_combinatorial_growth.py    # Figure generation scripts
+│
+├── tests/
+│   └── test_auditor.py                 # Automated unit tests for auditor components
+│
+├── reports/                            # Summary JSON reports and figures
+│   ├── counterfactual_audit_summary.json
+│   ├── behavioral_inconsistency_summary.json
+│   ├── ground_truth_validation_report.json
+│   ├── statistical_rigor_summary.json
+│   └── prompt_condition_comparison_summary.json
+│
+├── Dockerfile                          # Container environment specification
+├── docker-compose.yml                  # Docker Compose service limits (4 CPUs, 8GB RAM, no network)
+├── requirements.txt                    # Pinned Python package dependencies
+├── LICENSE                             # Open-source MIT License
+└── README.md                           # Master repository documentation
 ```
 
 ---
 
-## ⚙️ Methodology & Pipeline
+## 🔬 Experimental Parameters & Random Seeds
 
-### **1. Prompt Expansion (Data Prep)**
-- **Script:** `src/generate_unified_dataset.py`
-- **Purpose:** Unifies fragmented variables from the base dataset and systematically expands their valid data arrays to ensure the LLMs are evaluated against a comprehensive, standardized schema.
-- **Output:** `data/dataset/prompts_unified_new.jsonl`
-
-### **2. Code Generation (Comparative)**
-- **Scripts:** `src/generate_functions.py` and `src/generate_functions_grok.py`
-- **Purpose:** Generates independent code samples across different LLM architectures (Gemini 2.5 Flash and Grok) to provide the foundational datasets for comparative analysis.
-
-### **3. Bias Detection — “Combinatorial Logic Auditing”**
-- **Scripts:** `src/run_audit_dynamic.py` and `src/run_audit_dynamic_legacy.py`
-- **Purpose:** Detects discriminatory or inconsistent logic using an all-attribute, all-combination strategy.
-  1. Parses each function to dynamically identify all utilized input attributes.
-  2. Computes the **Cartesian product** of every attribute’s possible values (applying Monte Carlo limits at 100,000 combinations).
-  3. Executes the function for every possible combination within an isolated namespace.
-  4. Flags the function as biased if the code returns different outputs (e.g., returning `True` for one combination of traits but `False` for another) solely based on changing input attributes.
-
-### **4. Statistical Analysis**
-- **Scripts:** `src/analyze_results.py` and `src/extract_protected_bias.py`
-- **Purpose:** Quantifies logical inconsistency, extracts occurrences of "Magic Number" hallucinations, and isolates bias linked to legally protected demographics and non-demographic "functional" attributes.
+To guarantee deterministic reproduction, all experimental scripts set explicit random seeds:
+* **Primary Seed**: `seed = 42` (used across counterfactual audits, baseline profile generation, and ground-truth benchmark runs).
+* **Sensitivity Analysis Seeds**: `seeds = [42, 123, 999]` (used to verify cross-seed stability across Monte Carlo sampling budgets).
+* **Clustered Bootstrap**: `n_bootstraps = 1000` resamples clustered by prompt task (`seed = 42`).
+* **Decoding Parameters**:
+  * **Gemini 2.5 Flash**: `temperature = 1.0`, `top_p = 0.95`.
+  * **Grok Code Fast**: `temperature = 0.7`.
 
 ---
 
-## 🚀 Usage
+## 📜 Citation & References
 
-### **Prerequisites**
-
-Requires **Python 3.8+** and the following dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-### **Environment Setup**
-
-To re-run the code generation phases, you must provide your API keys. Create a `.env` file in the root directory and add the following:
-
-```env
-GEMINI_API_KEY="your_google_gemini_key_here"
-GROK_API_KEY="your_xai_grok_key_here"
-```
-
-### **Execution Pipeline**
-
-To reproduce the study from scratch, run the scripts from the root directory in the following order:
-
-**1. Data Preparation**
-```bash
-python src/generate_unified_dataset.py
-```
-
-**2. Code Generation**
-```bash
-python src/generate_functions.py
-python src/generate_functions_grok.py
-```
-
-**3. Combinatorial Logic Auditing**
-```bash
-python src/run_audit_dynamic_legacy.py
-python src/run_audit_dynamic.py
-```
-
-**4. Statistical Analysis**
-```bash
-python src/analyze_results.py
-python src/extract_protected_bias.py
-```
-
----
-
-## 📊 Key Findings
-
-- **Widespread Bias Detected:** The Combinatorial Logic Auditing framework flagged significantly more functions with discriminatory logic than traditional static testing methods.
-- **Functional Attributes Drive Bias:** Bias most frequently originates from "functional" attributes such as **`major`** and **`education`**, proving that seemingly neutral proxy variables are a major source of algorithmic discrimination in code generation.
-- **Magic Numbers & Hallucinations:** Models frequently invent hardcoded numerical thresholds (e.g., hallucinating clinical cutoffs like `blood_sugar >= 126`) that were not requested in the prompt.
-- **High Inconsistency:** The models exhibit extreme logical variance (often >93% inconsistency) when asked to evaluate the identical prompt multiple times, proving they do not rely on structured logical processes.
-
----
-
-## 🧾 License
-
-This project is licensed under the **MIT License**.  
-See the [LICENSE](LICENSE) file for details.
+If using this dataset, benchmark suite, or auditing framework, please cite:
+* **AAAI 2025 Benchmark Base**: Ling et al., *"Bias Unveiled: Investigating Social Bias in LLM-Generated Code"*, AAAI 2025.
+* **Git Release Tag**: [`v1.1-revision`](https://github.com/Puspha22/llm-bias-comparative-analysis/tree/v1.1-revision).

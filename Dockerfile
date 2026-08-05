@@ -16,7 +16,7 @@ COPY src/ ./src/
 COPY data/ ./data/
 COPY reports/ ./reports/
 COPY tests/ ./tests/
-COPY REPRODUCIBILITY.md .
+COPY README.md LICENSE ./
 
-# Default command runs unit tests and counterfactual audit
-CMD ["python", "src/run_counterfactual_audit.py"]
+# Default command runs unit tests
+CMD ["python", "-m", "unittest", "tests/test_auditor.py"]
