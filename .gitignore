@@ -33,8 +33,9 @@ reports/protected_bias_audit_*.json
 reports/partial_audit_results*
 scratch/
 
-# Ignore thesis latex source directory
+# Ignore manuscript & thesis latex source directories
 siuethesis/
+MDPI___A_Comparative_Analysis_of_Implicit_Bias_and_Logical_Inconsistency_in_General_Purpose_and_Code_Specialized_Large_Language_Models/
 
 # Whitelist core files and documentation
 !README.md
@@ -76,6 +77,3 @@ siuethesis/
 !reports/*.csv
 !reports/figures/
 !reports/figures/*
-
-!MDPI___A_Comparative_Analysis_of_Implicit_Bias_and_Logical_Inconsistency_in_General_Purpose_and_Code_Specialized_Large_Language_Models/
-!MDPI___A_Comparative_Analysis_of_Implicit_Bias_and_Logical_Inconsistency_in_General_Purpose_and_Code_Specialized_Large_Language_Models/*
