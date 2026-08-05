@@ -31,7 +31,7 @@ def process_file(filepath, out_comp, out_freq):
     with open(out_freq, 'w') as f:
         json.dump(top_freq, f)
 
-process_file('reports/audit_report_legacy.json', 'reports/complexity_legacy.json', 'reports/frequency_legacy.json')
-process_file('reports/audit_report_unified_new.json', 'reports/complexity_gemini.json', 'reports/frequency_gemini.json')
-process_file('reports/audit_report_grok.json', 'reports/complexity_grok.json', 'reports/frequency_grok.json')
+process_file('reports/audit_report_legacy.json', "reports/feature_metrics/complexity_legacy.json", "reports/feature_metrics/frequency_legacy.json")
+process_file('reports/audit_report_unified_new.json', "reports/feature_metrics/complexity_gemini.json", "reports/feature_metrics/frequency_gemini.json")
+process_file('reports/audit_report_grok.json', "reports/feature_metrics/complexity_grok.json", "reports/feature_metrics/frequency_grok.json")
 print("Done!")

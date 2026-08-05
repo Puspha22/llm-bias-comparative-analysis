@@ -177,7 +177,7 @@ def main():
         print(f" - {attr}: {count} times")
 
     # Save details
-    with open("reports/exp_magic_numbers_results_legacy.json", "w") as f:
+    with open("reports/feature_metrics/exp_magic_numbers_results_legacy.json", "w") as f:
         json.dump(magic_details, f, indent=2)
     print("\nDetailed results saved to reports/exp_magic_numbers_results_legacy.json")
 
@@ -199,7 +199,7 @@ def main():
             plt.ylabel('Frequency')
             plt.xticks(rotation=45)
             plt.tight_layout()
-            plt.savefig('reports/magic_numbers_chart_grok.png')
+            plt.savefig("reports/figures/magic_numbers_chart_grok.png")
             print("Chart saved to reports/magic_numbers_chart_grok.png")
     except ImportError:
         print("Matplotlib/Pandas not installed. skipping chart.")

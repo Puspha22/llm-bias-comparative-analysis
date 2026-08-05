@@ -67,7 +67,7 @@ def main():
     print(f"Chart saved to {OUTPUT_IMG}")
     
     # Save JSON details
-    with open("reports/exp_protected_bias_results_grok.json", "w") as f:
+    with open("reports/feature_metrics/exp_protected_bias_results_grok.json", "w") as f:
         json.dump(dict(protected_counts), f, indent=2)
     print("Detailed JSON saved to reports/exp_protected_bias_results_grok.json")
     

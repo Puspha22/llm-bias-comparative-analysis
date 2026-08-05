@@ -66,8 +66,8 @@ def create_grouped_bar_chart(gemini_json, grok_json, title, ylabel, output_path)
 
 # Protected Bias
 create_grouped_bar_chart(
-    'reports/exp_protected_bias_results_new.json',
-    'reports/exp_protected_bias_results_grok.json',
+    "reports/feature_metrics/exp_protected_bias_results_new.json",
+    "reports/feature_metrics/exp_protected_bias_results_grok.json",
     'Bias Frequency on Protected Attributes (Gemini vs Grok)',
     'Number of Biased Functions',
     'siuethesis/Assets/protected_bias_chart_combined.pdf'
@@ -75,8 +75,8 @@ create_grouped_bar_chart(
 
 # Magic Numbers
 create_grouped_bar_chart(
-    'reports/exp_magic_numbers_results_new.json',
-    'reports/exp_magic_numbers_results_grok.json',
+    "reports/feature_metrics/exp_magic_numbers_results_new.json",
+    "reports/feature_metrics/exp_magic_numbers_results_grok.json",
     'Arbitrary Numeric Threshold Hallucinations (Gemini vs Grok)',
     'Number of Hallucinated Thresholds',
     'siuethesis/Assets/magic_numbers_chart_combined.pdf'

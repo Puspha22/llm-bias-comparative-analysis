@@ -19,5 +19,5 @@ def calc(p):
         counts[val] += 1
     return counts
 
-json.dump(calc('reports/audit_report_unified_new.json'), open('reports/consistency_gemini.json', 'w'))
-json.dump(calc('reports/audit_report_grok.json'), open('reports/consistency_grok.json', 'w'))
+json.dump(calc('reports/audit_report_unified_new.json'), open("reports/feature_metrics/consistency_gemini.json", 'w'))
+json.dump(calc('reports/audit_report_grok.json'), open("reports/feature_metrics/consistency_grok.json", 'w'))
