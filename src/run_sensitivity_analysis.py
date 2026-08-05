@@ -31,12 +31,12 @@ def run_sensitivity_analysis():
                 total_combos = math.prod(len(c) for c in combos)
                 if total_combos > 1000000:
                     complex_functions.append((t_id, i, prompt, clean_code, used_attrs, combos, total_combos))
-                    if len(complex_functions) >= 15:
+                    if len(complex_functions) >= 10:
                         break
-        if len(complex_functions) >= 15:
+        if len(complex_functions) >= 10:
             break
 
-    sample_budgets = [1000, 5000, 10000, 50000, 100000, 200000]
+    sample_budgets = [1000, 5000, 10000, 25000, 50000, 75000, 100000, 150000, 200000]
     seeds = [42, 123, 999]
 
     sensitivity_results = {
@@ -47,6 +47,7 @@ def run_sensitivity_analysis():
     }
 
     stability_by_budget = defaultdict(list)
+    cumulative_failures_by_budget = defaultdict(list)
 
     for item in complex_functions:
         t_id, idx, prompt, clean_code, used_attrs, combos, total_combos = item
@@ -69,53 +70,80 @@ def run_sensitivity_analysis():
             "budget_evaluations": {}
         }
 
-        for budget in sample_budgets:
-            seed_outcomes = []
-            for seed in seeds:
-                random.seed(seed)
-                outputs = set()
-                
-                for _ in range(budget):
+        # Track outputs and unique failure patterns (combos triggering True) per seed
+        for seed in seeds:
+            random.seed(seed)
+            discovered_failure_modes = set()
+            outputs = set()
+            p_obj = Person(**base_profile)
+            
+            curr_sample_idx = 0
+            for budget in sample_budgets:
+                needed = budget - curr_sample_idx
+                for _ in range(needed):
                     combo = tuple(random.choice(c) for c in combos)
-                    profile = base_profile.copy()
                     for k_idx, key in enumerate(used_attrs):
-                        profile[key] = convert_type(combo[k_idx], type_map.get(key, 'str'))
-                    p_obj = Person(**profile)
+                        setattr(p_obj, key, convert_type(combo[k_idx], type_map.get(key, 'str')))
                     try:
                         res = func_obj(p_obj)
                         outputs.add(str(res))
+                        if res is True or str(res) == "True":
+                            # Record failure sub-tuple pattern (combination of decision attributes triggering True)
+                            discovered_failure_modes.add(combo)
                     except Exception as e:
                         outputs.add(f"Error:{type(e).__name__}")
+                        discovered_failure_modes.add(combo)
+
+                curr_sample_idx = budget
+                k_count = len(discovered_failure_modes)
+                cumulative_failures_by_budget[budget].append(k_count)
 
                 valid_outputs = {r for r in outputs if "Error" not in r}
                 is_biased = len(valid_outputs) > 1
-                seed_outcomes.append((is_biased, len(valid_outputs)))
+                
+                if str(budget) not in func_sensitivity["budget_evaluations"]:
+                    func_sensitivity["budget_evaluations"][str(budget)] = {"seed_outcomes": []}
+                func_sensitivity["budget_evaluations"][str(budget)]["seed_outcomes"].append((is_biased, len(valid_outputs)))
 
-            # Check seed agreement
-            all_biased_flags = [so[0] for so in seed_outcomes]
-            seed_agreement = len(set(all_biased_flags)) == 1
-
-            func_sensitivity["budget_evaluations"][str(budget)] = {
-                "seed_outcomes": seed_outcomes,
-                "seed_agreement": seed_agreement
-            }
-
+        for budget in sample_budgets:
+            seed_outcomes = func_sensitivity["budget_evaluations"][str(budget)]["seed_outcomes"]
+            seed_agreement = len(set(so[0] for so in seed_outcomes)) == 1
+            func_sensitivity["budget_evaluations"][str(budget)]["seed_agreement"] = seed_agreement
             stability_by_budget[budget].append(1.0 if seed_agreement else 0.0)
 
         sensitivity_results["detailed_evaluations"].append(func_sensitivity)
 
+    # Compute Budget Stability Summary
     budget_stability_summary = {}
     for b, stabs in stability_by_budget.items():
         budget_stability_summary[str(b)] = round((sum(stabs) / len(stabs)) * 100, 2) if stabs else 100.0
 
+    # Compute Discovery Velocity K(N) Summary
+    discovery_velocity_summary = {}
+    prev_k = 0
+    prev_n = 0
+    for b in sample_budgets:
+        avg_k = sum(cumulative_failures_by_budget[b]) / len(cumulative_failures_by_budget[b]) if cumulative_failures_by_budget[b] else 0.0
+        delta_k = avg_k - prev_k
+        delta_n = b - prev_n
+        velocity = (delta_k / delta_n) if delta_n > 0 else 0.0
+        
+        discovery_velocity_summary[str(b)] = {
+            "cumulative_failure_modes_K": round(avg_k, 2),
+            "discovery_velocity_dK_dN": round(velocity, 6)
+        }
+        prev_k = avg_k
+        prev_n = b
+
     sensitivity_results["stability_by_sample_budget_pct"] = budget_stability_summary
+    sensitivity_results["discovery_velocity_summary"] = discovery_velocity_summary
 
     out_file = os.path.join("reports", "summary", "sensitivity_analysis_report.json")
     with open(out_file, 'w', encoding='utf-8') as f:
         json.dump(sensitivity_results, f, indent=2)
 
-    print("\n================ SENSITIVITY ANALYSIS REPORT ================")
-    print(json.dumps(budget_stability_summary, indent=2))
+    print("\n================ SENSITIVITY ANALYSIS & DISCOVERY VELOCITY REPORT ================")
+    print(json.dumps(discovery_velocity_summary, indent=2))
 
 if __name__ == "__main__":
     run_sensitivity_analysis()

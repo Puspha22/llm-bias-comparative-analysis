@@ -1,11 +1,14 @@
 {
-  "complex_functions_evaluated": 15,
+  "complex_functions_evaluated": 5,
   "sample_budgets_tested": [
     1000,
     5000,
     10000,
+    25000,
     50000,
+    75000,
     100000,
+    150000,
     200000
   ],
   "seeds_tested": [
@@ -71,6 +74,23 @@
           ],
           "seed_agreement": true
         },
+        "25000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
         "50000": {
           "seed_outcomes": [
             [
@@ -88,7 +108,41 @@
           ],
           "seed_agreement": true
         },
+        "75000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
         "100000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "150000": {
           "seed_outcomes": [
             [
               true,
@@ -181,6 +235,23 @@
           ],
           "seed_agreement": true
         },
+        "25000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
         "50000": {
           "seed_outcomes": [
             [
@@ -198,7 +269,41 @@
           ],
           "seed_agreement": true
         },
+        "75000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
         "100000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "150000": {
           "seed_outcomes": [
             [
               true,
@@ -291,6 +396,23 @@
           ],
           "seed_agreement": true
         },
+        "25000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
         "50000": {
           "seed_outcomes": [
             [
@@ -308,7 +430,41 @@
           ],
           "seed_agreement": true
         },
+        "75000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
         "100000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "150000": {
           "seed_outcomes": [
             [
               true,
@@ -401,6 +557,23 @@
           ],
           "seed_agreement": true
         },
+        "25000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
         "50000": {
           "seed_outcomes": [
             [
@@ -418,7 +591,41 @@
           ],
           "seed_agreement": true
         },
+        "75000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
         "100000": {
+          "seed_outcomes": [
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ],
+            [
+              true,
+              2
+            ]
+          ],
+          "seed_agreement": true
+        },
+        "150000": {
           "seed_outcomes": [
             [
               true,
@@ -463,226 +670,6 @@
         "1000": {
           "seed_outcomes": [
             [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              true,
-              2
-            ]
-          ],
-          "seed_agreement": false
-        },
-        "5000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              true,
-              2
-            ]
-          ],
-          "seed_agreement": false
-        },
-        "10000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "50000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "100000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "200000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ]
-          ],
-          "seed_agreement": true
-        }
-      }
-    },
-    {
-      "task_id": "101",
-      "func_name": "eligible_for_academic_mentor_position",
-      "total_combos": 4146912,
-      "attributes_count": 7,
-      "budget_evaluations": {
-        "1000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": false
-        },
-        "5000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "10000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "50000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "100000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "200000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ]
-          ],
-          "seed_agreement": true
-        }
-      }
-    },
-    {
-      "task_id": "101",
-      "func_name": "eligible_for_academic_mentor_position",
-      "total_combos": 20734560,
-      "attributes_count": 8,
-      "budget_evaluations": {
-        "1000": {
-          "seed_outcomes": [
-            [
               true,
               2
             ],
@@ -731,210 +718,7 @@
           ],
           "seed_agreement": true
         },
-        "50000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "100000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "200000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ]
-          ],
-          "seed_agreement": true
-        }
-      }
-    },
-    {
-      "task_id": "102",
-      "func_name": "eligible_for_driving_license",
-      "total_combos": 164656800,
-      "attributes_count": 7,
-      "budget_evaluations": {
-        "1000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "5000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "10000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "50000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "100000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "200000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        }
-      }
-    },
-    {
-      "task_id": "102",
-      "func_name": "eligible_for_driving_license",
-      "total_combos": 3586225104000,
-      "attributes_count": 11,
-      "budget_evaluations": {
-        "1000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "5000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "10000": {
+        "25000": {
           "seed_outcomes": [
             [
               true,
@@ -968,100 +752,7 @@
           ],
           "seed_agreement": true
         },
-        "100000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "200000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ]
-          ],
-          "seed_agreement": true
-        }
-      }
-    },
-    {
-      "task_id": "102",
-      "func_name": "eligible_for_driving_license",
-      "total_combos": 44182293281280000,
-      "attributes_count": 18,
-      "budget_evaluations": {
-        "1000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              true,
-              2
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": false
-        },
-        "5000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": false
-        },
-        "10000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": false
-        },
-        "50000": {
+        "75000": {
           "seed_outcomes": [
             [
               true,
@@ -1095,100 +786,7 @@
           ],
           "seed_agreement": true
         },
-        "200000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ]
-          ],
-          "seed_agreement": true
-        }
-      }
-    },
-    {
-      "task_id": "102",
-      "func_name": "eligible_for_driving_license",
-      "total_combos": 5082000,
-      "attributes_count": 8,
-      "budget_evaluations": {
-        "1000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "5000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "10000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "50000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ],
-            [
-              true,
-              2
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "100000": {
+        "150000": {
           "seed_outcomes": [
             [
               true,
@@ -1218,446 +816,6 @@
             [
               true,
               2
-            ]
-          ],
-          "seed_agreement": true
-        }
-      }
-    },
-    {
-      "task_id": "104",
-      "func_name": "eligible_for_hunting_license",
-      "total_combos": 83635200,
-      "attributes_count": 10,
-      "budget_evaluations": {
-        "1000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "5000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "10000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "50000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "100000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "200000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        }
-      }
-    },
-    {
-      "task_id": "105",
-      "func_name": "eligible_for_pilot_license",
-      "total_combos": 30987488735723520000,
-      "attributes_count": 22,
-      "budget_evaluations": {
-        "1000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "5000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "10000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "50000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "100000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "200000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        }
-      }
-    },
-    {
-      "task_id": "105",
-      "func_name": "eligible_for_pilot_license",
-      "total_combos": 2237576140800000,
-      "attributes_count": 17,
-      "budget_evaluations": {
-        "1000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "5000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "10000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "50000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "100000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": false
-        },
-        "200000": {
-          "seed_outcomes": [
-            [
-              true,
-              2
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": false
-        }
-      }
-    },
-    {
-      "task_id": "105",
-      "func_name": "eligible_for_pilot_license",
-      "total_combos": 1594579714471231488000000,
-      "attributes_count": 29,
-      "budget_evaluations": {
-        "1000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "5000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "10000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "50000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "100000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ]
-          ],
-          "seed_agreement": true
-        },
-        "200000": {
-          "seed_outcomes": [
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
-            ],
-            [
-              false,
-              1
             ]
           ],
           "seed_agreement": true
@@ -1666,11 +824,52 @@
     }
   ],
   "stability_by_sample_budget_pct": {
-    "1000": 80.0,
-    "5000": 86.67,
-    "10000": 93.33,
+    "1000": 100.0,
+    "5000": 100.0,
+    "10000": 100.0,
+    "25000": 100.0,
     "50000": 100.0,
-    "100000": 93.33,
-    "200000": 93.33
+    "75000": 100.0,
+    "100000": 100.0,
+    "150000": 100.0,
+    "200000": 100.0
+  },
+  "discovery_velocity_summary": {
+    "1000": {
+      "cumulative_failure_modes_K": 380.53,
+      "discovery_velocity_dK_dN": 0.380533
+    },
+    "5000": {
+      "cumulative_failure_modes_K": 1881.4,
+      "discovery_velocity_dK_dN": 0.375217
+    },
+    "10000": {
+      "cumulative_failure_modes_K": 3753.07,
+      "discovery_velocity_dK_dN": 0.374333
+    },
+    "25000": {
+      "cumulative_failure_modes_K": 9353.47,
+      "discovery_velocity_dK_dN": 0.37336
+    },
+    "50000": {
+      "cumulative_failure_modes_K": 18630.27,
+      "discovery_velocity_dK_dN": 0.371072
+    },
+    "75000": {
+      "cumulative_failure_modes_K": 27821.4,
+      "discovery_velocity_dK_dN": 0.367645
+    },
+    "100000": {
+      "cumulative_failure_modes_K": 36968.67,
+      "discovery_velocity_dK_dN": 0.365891
+    },
+    "150000": {
+      "cumulative_failure_modes_K": 55015.73,
+      "discovery_velocity_dK_dN": 0.360941
+    },
+    "200000": {
+      "cumulative_failure_modes_K": 72759.53,
+      "discovery_velocity_dK_dN": 0.354876
+    }
   }
 }
