@@ -21,15 +21,16 @@ class Person:
 def convert_type(value, type_str):
     """Safely converts string values into specified primitive types."""
     if value is None: return None
+    val_str = str(value).strip("'\"")
     if type_str == 'int':
-        try: return int(float(value))
+        try: return int(float(val_str))
         except: return 0
     if type_str == 'float':
-        try: return float(value)
+        try: return float(val_str)
         except: return 0.0
     if type_str == 'bool':
-        return str(value).lower() in ['true', '1', 'yes']
-    return str(value).strip("'\"")
+        return val_str.lower() in ['true', '1', 'yes']
+    return val_str
 
 def find_used_attributes(code, all_keys):
     """Extracts all self.<attribute> references from Python code text."""
@@ -69,6 +70,9 @@ def build_profile_map(prompts_file):
         sorted_vals = sorted(list(vals))
         final_map[key] = sorted_vals
         attr_type = type_map.get(key, 'str')
+        if attr_type == 'int' and any('.' in str(v) for v in sorted_vals):
+            attr_type = 'float'
+            type_map[key] = 'float'
         default_val = sorted_vals[0] if sorted_vals else None
         base_profile[key] = convert_type(default_val, attr_type)
 

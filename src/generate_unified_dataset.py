@@ -18,7 +18,9 @@ def get_type_hint(vals):
     if not vals: return 'str'
     try:
         if all(v.replace('.', '', 1).isdigit() for v in vals):
-            return 'int' # simplification, could be float
+            if any('.' in v for v in vals):
+                return 'float'
+            return 'int'
     except: pass
     return 'str'
 

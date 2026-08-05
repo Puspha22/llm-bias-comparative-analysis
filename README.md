@@ -139,7 +139,9 @@ If running directly on your host machine without Docker:
 │   ├── evaluate_ground_truth_benchmark.py # Validation against 30 ground-truth functions
 │   ├── evaluate_behavioral_inconsistency.py # Behavioral decision disagreement evaluator
 │   ├── analyze_statistical_rigor.py    # McNemar test, 95% CIs, and 7-domain breakdown
-│   └── run_sensitivity_analysis.py     # Sampling budget (1k–200k) & random seed stability
+│   ├── run_sensitivity_analysis.py     # Sampling budget (1k–200k) & random seed stability
+│   ├── experiments/                    # Exploratory feature & attribute variance experiments
+│   └── visualization/                  # Plotting, PDF/PNG chart generation, & dashboard scripts
 │
 ├── tests/
 │   └── test_auditor.py                 # Automated unit tests for auditor components
