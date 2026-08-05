@@ -254,7 +254,7 @@ def main():
         else:
             print(f"Skipping {ds['name']} (files not found)")
 
-    summary_file = os.path.join("reports", "counterfactual_audit_summary.json")
+    summary_file = os.path.join("reports", "summary", "counterfactual_audit_summary.json")
     with open(summary_file, 'w', encoding='utf-8') as f:
         json.dump(summary, f, indent=2)
         

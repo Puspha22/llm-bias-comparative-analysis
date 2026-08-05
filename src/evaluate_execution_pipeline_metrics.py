@@ -107,7 +107,7 @@ def main():
             res = audit_execution_pipeline(ds["name"], ds["gen_dir"])
             pipeline_report[ds["name"]] = res
 
-    out_file = os.path.join("reports", "execution_pipeline_metrics.json")
+    out_file = os.path.join("reports", "summary", "execution_pipeline_metrics.json")
     with open(out_file, 'w', encoding='utf-8') as f:
         json.dump(pipeline_report, f, indent=2)
 

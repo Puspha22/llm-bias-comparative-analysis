@@ -172,7 +172,7 @@ def run_sensitivity_analysis():
 
     sensitivity_results["stability_by_sample_budget_pct"] = budget_stability_summary
 
-    out_file = os.path.join("reports", "sensitivity_analysis_report.json")
+    out_file = os.path.join("reports", "summary", "sensitivity_analysis_report.json")
     with open(out_file, 'w', encoding='utf-8') as f:
         json.dump(sensitivity_results, f, indent=2)
 

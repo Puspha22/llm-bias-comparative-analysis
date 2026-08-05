@@ -1,8 +1,8 @@
 import json
 import os
 
-DATA_FILE = os.path.join("reports", "dashboard_data.json")
-OUTPUT_HTML = os.path.join("reports", "dashboard.html")
+DATA_FILE = os.path.join("reports", "feature_metrics", "dashboard_data.json")
+OUTPUT_HTML = os.path.join("reports", "feature_metrics", "dashboard.html")
 
 def generate_html():
     if not os.path.exists(DATA_FILE):

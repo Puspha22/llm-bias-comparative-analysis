@@ -235,7 +235,7 @@ def main():
             "threshold_hallucination_correct": pred_thresh == item["ground_truth_threshold_hallucination"]
         })
 
-    out_path = os.path.join("reports", "ground_truth_validation_report.json")
+    out_path = os.path.join("reports", "summary", "ground_truth_validation_report.json")
     with open(out_path, 'w', encoding='utf-8') as f:
         json.dump(benchmark_results, f, indent=2)
 

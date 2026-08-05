@@ -5,8 +5,8 @@ from collections import defaultdict
 
 GENERATED_DIR = os.path.join("data", "generated_functions_grok")
 PROMPTS_FILE = os.path.join("data", "dataset", "prompts_unified_new.jsonl")
-OUTPUT_JSON = os.path.join("reports", "exp_attribute_variance_results_grok.json")
-CHART_FILE = os.path.join("reports", "attribute_variance_chart_grok.png")
+OUTPUT_JSON = os.path.join("reports", "feature_metrics", "exp_attribute_variance_results_grok.json")
+CHART_FILE = os.path.join("reports", "figures", "attribute_variance_chart_grok.png")
 
 def find_used_attributes(code):
     """Simple regex/string match to find usages of 'self.attribute'."""

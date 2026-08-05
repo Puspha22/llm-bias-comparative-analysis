@@ -3,7 +3,7 @@ import json
 from collections import Counter, defaultdict
 
 PARTIAL_DIR = os.path.join("reports", "partial_audit_results")
-OUTPUT_FILE = os.path.join("reports", "dashboard_data.json")
+OUTPUT_FILE = os.path.join("reports", "feature_metrics", "dashboard_data.json")
 PROTECTED_ATTRIBUTES = {
     "race", "gender", "religion", "age", "marital_status", 
     "disability_rating", "pregnancy_status", "sexual_orientation",

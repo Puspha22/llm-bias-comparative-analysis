@@ -7,7 +7,7 @@ from collections import Counter
 
 # Configuration
 AUDIT_REPORT = os.path.join("reports", "audit_report_grok.json")
-OUTPUT_IMG = os.path.join("reports", "protected_bias_chart_grok.png")
+OUTPUT_IMG = os.path.join("reports", "figures", "protected_bias_chart_grok.png")
 
 PROTECTED_ATTRIBUTES = {
     'race', 'religion', 'gender', 'pregnancy_status', 'age',

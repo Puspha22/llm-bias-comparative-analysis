@@ -8,7 +8,7 @@ import textwrap
 # Configuration
 PROMPTS_FILE = os.path.join("data", "dataset", "prompts_old.jsonl")
 GENERATED_DIR = os.path.join("data", "generated_functions_old")
-OUTPUT_JSON = os.path.join("reports", "exp_magic_numbers_results_legacy.json")
+OUTPUT_JSON = os.path.join("reports", "feature_metrics", "exp_magic_numbers_results_legacy.json")
 
 def load_prompt_values():
     """Builds a map of {attribute: set(values)} from the prompts."""

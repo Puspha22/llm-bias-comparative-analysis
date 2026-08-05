@@ -251,7 +251,7 @@ def main():
                 "major_disagreement_tasks": res["major_disagreement_tasks"]
             }
 
-    summary_file = os.path.join("reports", "behavioral_inconsistency_summary.json")
+    summary_file = os.path.join("reports", "summary", "behavioral_inconsistency_summary.json")
     with open(summary_file, 'w', encoding='utf-8') as f:
         json.dump(all_summaries, f, indent=2)
 

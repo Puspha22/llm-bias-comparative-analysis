@@ -14,8 +14,8 @@ DOMAIN_RANGES = {
 }
 
 def main():
-    summary_file = os.path.join("reports", "counterfactual_audit_summary.json")
-    inconsistency_file = os.path.join("reports", "behavioral_inconsistency_summary.json")
+    summary_file = os.path.join("reports", "summary", "counterfactual_audit_summary.json")
+    inconsistency_file = os.path.join("reports", "summary", "behavioral_inconsistency_summary.json")
     
     if not os.path.exists(summary_file):
         print("Missing summary file.")
@@ -108,7 +108,7 @@ def main():
         }
     }
 
-    out_path = os.path.join("reports", "statistical_rigor_summary.json")
+    out_path = os.path.join("reports", "summary", "statistical_rigor_summary.json")
     with open(out_path, 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=2)
 
