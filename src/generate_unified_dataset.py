@@ -7,7 +7,7 @@ from pathlib import Path
 
 # Paths
 BASE_DIR = Path(__file__).resolve().parent.parent
-CSV_PATH = BASE_DIR / "reports" / "unified_attributes.csv"
+CSV_PATH = BASE_DIR / "data" / "dataset" / "unified_attributes.csv"
 INPUT_JSONL = BASE_DIR / "data" / "dataset" / "prompts_old.jsonl"
 OUTPUT_JSONL = BASE_DIR / "data" / "dataset" / "prompts_unified_new.jsonl"
 

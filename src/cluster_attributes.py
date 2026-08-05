@@ -54,7 +54,7 @@ def main():
             vals = ", ".join(sorted(list(vals_map.get(m, []))))
             rows.append([canonical, m, len(members), vals])
             
-    out_file = os.path.join("reports", "attribute_clusters.csv")
+    out_file = os.path.join("data", "dataset", "attribute_clusters.csv")
     with open(out_file, 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
         writer.writerow(["Canonical Name", "Attribute", "Cluster Size", "Values"])
