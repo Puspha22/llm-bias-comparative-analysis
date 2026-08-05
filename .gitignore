@@ -50,6 +50,7 @@ src/retry_failed_audits.py
 src/check_prompt_types.py
 src/scan_attributes.py
 src/get_audit_stats.py
+src/cluster_attributes.py
 
 # Whitelist core files and documentation
 !README.md
