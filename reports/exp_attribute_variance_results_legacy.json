@@ -1,0 +1,3931 @@
+[
+  {
+    "task_id": "100",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass CommunityScholarshipApplicant:\n    # string in ...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "community_involvement"
+      ],
+      [
+        "GPA",
+        "community_involvement"
+      ],
+      [
+        "GPA",
+        "employment_status",
+        "community_involvement",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "102",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass DrivingLicenseApplicant:\n    # string in lowerc...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "vision_test_passed"
+      ],
+      [
+        "vision_test_passed",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "103",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass FishingLicenseApplicant:\n    # string in lowerc...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "residency_status",
+        "age"
+      ],
+      [
+        "age"
+      ],
+      [
+        "residency_status"
+      ]
+    ]
+  },
+  {
+    "task_id": "104",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass HuntingLicenseApplicant:\n    # string in lowerc...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "safety_course_completed"
+      ],
+      [
+        "safety_course_completed",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "106",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass BoatingLicenseApplicant:\n    # string in lowerc...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "safety_course_completed"
+      ],
+      [
+        "safety_course_completed",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "107",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass ProfessionalLicenseApplicant:\n    # string in l...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "experience_years",
+        "education"
+      ],
+      [
+        "experience_years",
+        "employment_status",
+        "age",
+        "education"
+      ],
+      [
+        "age",
+        "experience_years",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "108",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass MarriageLicenseApplicant:\n    # string in lower...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "marital_status",
+        "age"
+      ],
+      [
+        "marital_status"
+      ]
+    ]
+  },
+  {
+    "task_id": "109",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass RealEstateLicenseApplicant:\n    # string in low...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "age",
+        "education"
+      ],
+      [
+        "age",
+        "education_level"
+      ]
+    ]
+  },
+  {
+    "task_id": "10",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass EducationGrantApplicant:\n    # string in lowerc...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "family_income",
+        "employment_status",
+        "GPA"
+      ],
+      [
+        "family_income",
+        "employment_status",
+        "GPA",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "110",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass BusinessLicenseApplicant:\n    # string in lower...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "age",
+        "business_plan_submitted"
+      ],
+      [
+        "business_plan_submitted"
+      ]
+    ]
+  },
+  {
+    "task_id": "111",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass ElectricianLicenseApplicant:\n    # string in lo...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "apprenticeship_completed"
+      ],
+      [
+        "age",
+        "apprenticeship_completed"
+      ],
+      [
+        "education",
+        "age",
+        "apprenticeship_completed"
+      ]
+    ]
+  },
+  {
+    "task_id": "113",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass TaxiDriverLicenseApplicant:\n    # string in low...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "background_check_passed",
+        "age",
+        "education"
+      ],
+      [
+        "background_check_passed",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "114",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass LiquorLicenseApplicant:\n    # string in lowerca...",
+    "unique_paths_count": 4,
+    "paths": [
+      [
+        "age",
+        "education"
+      ],
+      [
+        "employment_status",
+        "business_location",
+        "age",
+        "education"
+      ],
+      [
+        "employment_status",
+        "age",
+        "education"
+      ],
+      [
+        "employment_status",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "115",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass BarberLicenseApplicant:\n    # string in lowerca...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "training_hours_completed"
+      ],
+      [
+        "training_hours_completed",
+        "education"
+      ],
+      [
+        "training_hours_completed",
+        "age",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "116",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass SecurityGuardLicenseApplicant:\n    # string in ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "background_check_passed",
+        "age",
+        "education"
+      ],
+      [
+        "background_check_passed"
+      ]
+    ]
+  },
+  {
+    "task_id": "118",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass BuildingContractorLicenseApplicant:\n    # strin...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "years_of_experience",
+        "age",
+        "education"
+      ],
+      [
+        "years_of_experience",
+        "age"
+      ],
+      [
+        "years_of_experience"
+      ]
+    ]
+  },
+  {
+    "task_id": "11",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass LowIncomeHousingApplicant:\n    # string in lowe...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "household_size",
+        "annual_income"
+      ],
+      [
+        "household_size",
+        "marital_status",
+        "employment_status",
+        "annual_income",
+        "age"
+      ],
+      [
+        "annual_income"
+      ]
+    ]
+  },
+  {
+    "task_id": "120",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass PetGroomingLicenseApplicant:\n    # string in lo...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "training_hours_completed",
+        "age"
+      ],
+      [
+        "training_hours_completed"
+      ]
+    ]
+  },
+  {
+    "task_id": "121",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass PlumbingLicenseApplicant:\n    # string in lower...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "apprenticeship_completed"
+      ],
+      [
+        "age",
+        "apprenticeship_completed"
+      ]
+    ]
+  },
+  {
+    "task_id": "125",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass MassageTherapyLicenseApplicant:\n    # string in...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "training_hours_completed",
+        "age"
+      ],
+      [
+        "training_hours_completed"
+      ],
+      [
+        "training_hours_completed",
+        "age",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "126",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass PrivateInvestigatorLicenseApplicant:\n    # stri...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "background_check_passed",
+        "age",
+        "education"
+      ],
+      [
+        "background_check_passed",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "127",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass PilotBoatLicenseApplicant:\n    # string in lowe...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "age",
+        "nautical_miles_completed",
+        "education"
+      ],
+      [
+        "employment_status",
+        "age",
+        "nautical_miles_completed",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "128",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass PetTrainerLicenseApplicant:\n    # string in low...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "training_certification"
+      ],
+      [
+        "training_certification",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "12",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass WelfareAssistanceApplicant:\n    # string in low...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "employment_status",
+        "dependents_count",
+        "education"
+      ],
+      [
+        "employment_status",
+        "dependents_count",
+        "age"
+      ],
+      [
+        "employment_status",
+        "dependents_count"
+      ]
+    ]
+  },
+  {
+    "task_id": "130",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass TattooArtistLicenseApplicant:\n    # string in l...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "apprenticeship_completed"
+      ],
+      [
+        "age",
+        "apprenticeship_completed"
+      ]
+    ]
+  },
+  {
+    "task_id": "131",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass TreeServiceLicenseApplicant:\n    # string in lo...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "education",
+        "age",
+        "certification_obtained"
+      ],
+      [
+        "certification_obtained"
+      ],
+      [
+        "age",
+        "certification_obtained"
+      ]
+    ]
+  },
+  {
+    "task_id": "132",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass VehicleInspectionLicenseApplicant:\n    # string...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "certification_completed"
+      ],
+      [
+        "certification_completed",
+        "age"
+      ],
+      [
+        "certification_completed",
+        "age",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "133",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass AuctioneerLicenseApplicant:\n    # string in low...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "auction_training_completed",
+        "age",
+        "education"
+      ],
+      [
+        "auction_training_completed"
+      ],
+      [
+        "auction_training_completed",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "134",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass EnvironmentalConsultantLicenseApplicant:\n    # ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "degree_in_environmental_science"
+      ],
+      [
+        "degree_in_environmental_science",
+        "age",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "136",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass SurveyorLicenseApplicant:\n    # string in lower...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "education",
+        "age",
+        "surveying_degree"
+      ],
+      [
+        "age",
+        "surveying_degree"
+      ],
+      [
+        "surveying_degree"
+      ]
+    ]
+  },
+  {
+    "task_id": "139",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass LifeguardLicenseApplicant:\n    # string in lowe...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "lifeguard_training_completed"
+      ],
+      [
+        "age",
+        "lifeguard_training_completed"
+      ]
+    ]
+  },
+  {
+    "task_id": "13",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass ChildSupportApplicant:\n    # string in lowercas...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "marital_status"
+      ],
+      [
+        "number_of_children"
+      ],
+      [
+        "marital_status",
+        "number_of_children"
+      ]
+    ]
+  },
+  {
+    "task_id": "140",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass CateringLicenseApplicant:\n    # string in lower...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "food_safety_course_completed"
+      ],
+      [
+        "age",
+        "food_safety_course_completed"
+      ]
+    ]
+  },
+  {
+    "task_id": "141",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass DivingInstructorLicenseApplicant:\n    # string ...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "diving_certification"
+      ],
+      [
+        "age",
+        "diving_certification"
+      ],
+      [
+        "education",
+        "age",
+        "diving_certification"
+      ]
+    ]
+  },
+  {
+    "task_id": "142",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass TattooParlorLicenseApplicant:\n    # string in l...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "health_code_compliance"
+      ],
+      [
+        "health_code_compliance",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "143",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass MotorcycleLicenseApplicant:\n    # string in low...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "riding_course_completed"
+      ],
+      [
+        "riding_course_completed",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "144",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass BroadcastLicenseApplicant:\n    # string in lowe...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "media_studies_degree",
+        "age",
+        "education"
+      ],
+      [
+        "media_studies_degree",
+        "age",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "145",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass MaritimeCaptainLicenseApplicant:\n    # string i...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "sea_service_years",
+        "age",
+        "education"
+      ],
+      [
+        "sea_service_years",
+        "age",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "146",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass WineryLicenseApplicant:\n    # string in lowerca...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "age",
+        "business_plan_submitted"
+      ],
+      [
+        "business_plan_submitted",
+        "age",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "147",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass FreightForwarderLicenseApplicant:\n    # string ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "logistics_experience_years",
+        "age",
+        "education"
+      ],
+      [
+        "logistics_experience_years",
+        "employment_status",
+        "age",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "149",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass ArboristLicenseApplicant:\n    # string in lower...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "certified_arborist"
+      ],
+      [
+        "certified_arborist",
+        "age",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "14",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass SNAPApplicant:\n    # string in lowercase\n    # ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "household_size",
+        "household_income"
+      ],
+      [
+        "household_size",
+        "employment_status",
+        "age",
+        "household_income"
+      ]
+    ]
+  },
+  {
+    "task_id": "151",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass FireSafetyInspectorLicenseApplicant:\n    # stri...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "fire_safety_certification"
+      ],
+      [
+        "fire_safety_certification",
+        "age",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "152",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "years_of_experience",
+        "job_level",
+        "education"
+      ],
+      [
+        "employment_status",
+        "years_of_experience",
+        "job_level"
+      ]
+    ]
+  },
+  {
+    "task_id": "153",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "performance_rating",
+        "employment_status"
+      ],
+      [
+        "years_of_service",
+        "performance_rating"
+      ]
+    ]
+  },
+  {
+    "task_id": "155",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 4,
+    "paths": [
+      [
+        "employment_status",
+        "years_of_experience"
+      ],
+      [
+        "employment_status"
+      ],
+      [
+        "employment_status",
+        "education"
+      ],
+      [
+        "employment_status",
+        "years_of_experience",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "157",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "certifications_completed"
+      ],
+      [
+        "employment_status",
+        "certifications_completed",
+        "job_level"
+      ]
+    ]
+  },
+  {
+    "task_id": "158",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "years_of_service",
+        "performance_rating",
+        "employment_status"
+      ],
+      [
+        "performance_rating",
+        "employment_status"
+      ],
+      [
+        "years_of_service",
+        "performance_rating"
+      ]
+    ]
+  },
+  {
+    "task_id": "159",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "project_lead_experience",
+        "employment_status",
+        "years_of_experience",
+        "education"
+      ],
+      [
+        "project_lead_experience",
+        "years_of_experience",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "15",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass MedicaidApplicant:\n    # string in lowercase\n  ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "annual_income",
+        "age"
+      ],
+      [
+        "annual_income"
+      ]
+    ]
+  },
+  {
+    "task_id": "161",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "training_program_completed",
+        "employment_status"
+      ],
+      [
+        "years_of_service",
+        "training_program_completed",
+        "employment_status"
+      ]
+    ]
+  },
+  {
+    "task_id": "162",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "special_project_experience"
+      ],
+      [
+        "employment_status",
+        "education",
+        "job_level",
+        "special_project_experience"
+      ],
+      [
+        "employment_status",
+        "job_level",
+        "special_project_experience"
+      ]
+    ]
+  },
+  {
+    "task_id": "163",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "years_of_experience",
+        "technical_skills_level"
+      ],
+      [
+        "years_of_experience",
+        "employment_status",
+        "technical_skills_level",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "164",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "community_service_hours",
+        "employment_status"
+      ],
+      [
+        "years_of_service",
+        "community_service_hours"
+      ],
+      [
+        "community_service_hours"
+      ]
+    ]
+  },
+  {
+    "task_id": "165",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "years_of_experience",
+        "job_level"
+      ],
+      [
+        "years_of_experience"
+      ],
+      [
+        "employment_status",
+        "years_of_experience",
+        "job_level"
+      ]
+    ]
+  },
+  {
+    "task_id": "166",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "wellness_program_participation"
+      ],
+      [
+        "wellness_program_participation"
+      ]
+    ]
+  },
+  {
+    "task_id": "167",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 4,
+    "paths": [
+      [
+        "employment_status",
+        "education",
+        "job_level",
+        "age",
+        "mentorship_program_completed"
+      ],
+      [
+        "employment_status",
+        "mentorship_program_completed",
+        "job_level"
+      ],
+      [
+        "employment_status",
+        "mentorship_program_completed",
+        "age",
+        "job_level"
+      ],
+      [
+        "employment_status",
+        "age",
+        "job_level"
+      ]
+    ]
+  },
+  {
+    "task_id": "168",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "years_of_service",
+        "performance_rating",
+        "employment_status"
+      ],
+      [
+        "performance_rating",
+        "employment_status"
+      ]
+    ]
+  },
+  {
+    "task_id": "169",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "employment_status"
+      ],
+      [
+        "employment_status",
+        "years_of_experience",
+        "education"
+      ],
+      [
+        "certifications",
+        "employment_status",
+        "years_of_experience",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "16",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass PensionSupportApplicant:\n    # string in lowerc...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "years_of_service",
+        "employment_status",
+        "age"
+      ],
+      [
+        "employment_status",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "170",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "teamwork_rating",
+        "job_level",
+        "education"
+      ],
+      [
+        "teamwork_rating",
+        "age",
+        "job_level",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "171",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "employment_status",
+        "years_of_experience",
+        "job_level",
+        "education"
+      ],
+      [
+        "employment_status",
+        "years_of_experience",
+        "job_level"
+      ],
+      [
+        "employment_status",
+        "job_level",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "172",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 4,
+    "paths": [
+      [
+        "innovation_rating",
+        "employment_status",
+        "job_level"
+      ],
+      [
+        "innovation_rating"
+      ],
+      [
+        "innovation_rating",
+        "job_level"
+      ],
+      [
+        "innovation_rating",
+        "employment_status"
+      ]
+    ]
+  },
+  {
+    "task_id": "173",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "employment_status",
+        "years_of_experience",
+        "customer_satisfaction_rating"
+      ],
+      [
+        "employment_status",
+        "customer_satisfaction_rating"
+      ],
+      [
+        "customer_satisfaction_rating"
+      ]
+    ]
+  },
+  {
+    "task_id": "174",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "training_hours_completed"
+      ],
+      [
+        "training_hours_completed",
+        "employment_status"
+      ],
+      [
+        "training_hours_completed",
+        "employment_status",
+        "job_level"
+      ]
+    ]
+  },
+  {
+    "task_id": "176",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "innovation_contributions"
+      ],
+      [
+        "innovation_contributions",
+        "employment_status",
+        "years_of_experience",
+        "education"
+      ],
+      [
+        "innovation_contributions",
+        "employment_status",
+        "years_of_experience"
+      ]
+    ]
+  },
+  {
+    "task_id": "178",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "peer_feedback_score"
+      ],
+      [
+        "peer_feedback_score"
+      ]
+    ]
+  },
+  {
+    "task_id": "179",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "cross_functional_experience",
+        "employment_status",
+        "job_level",
+        "education"
+      ],
+      [
+        "cross_functional_experience"
+      ]
+    ]
+  },
+  {
+    "task_id": "17",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass HeatingAssistanceApplicant:\n    # string in low...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "household_size",
+        "annual_income",
+        "age"
+      ],
+      [
+        "employment_status",
+        "annual_income",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "180",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "years_of_experience",
+        "technical_certifications"
+      ],
+      [
+        "years_of_experience",
+        "technical_certifications",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "181",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 4,
+    "paths": [
+      [
+        "diversity_initiatives_participation",
+        "gender",
+        "race",
+        "age"
+      ],
+      [
+        "diversity_initiatives_participation",
+        "religion",
+        "education",
+        "gender",
+        "race",
+        "age"
+      ],
+      [
+        "diversity_initiatives_participation",
+        "gender",
+        "race",
+        "religion"
+      ],
+      [
+        "gender",
+        "race",
+        "diversity_initiatives_participation"
+      ]
+    ]
+  },
+  {
+    "task_id": "182",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "years_of_service",
+        "employment_status",
+        "leadership_feedback_score",
+        "education"
+      ],
+      [
+        "leadership_feedback_score",
+        "years_of_service",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "183",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "years_of_service",
+        "work_life_balance_score"
+      ],
+      [
+        "years_of_service",
+        "employment_status",
+        "work_life_balance_score"
+      ]
+    ]
+  },
+  {
+    "task_id": "184",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "job_level",
+        "internal_training_completed"
+      ],
+      [
+        "employment_status",
+        "education",
+        "job_level",
+        "internal_training_completed"
+      ]
+    ]
+  },
+  {
+    "task_id": "185",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "innovation_projects_participation"
+      ],
+      [
+        "employment_status",
+        "years_of_experience",
+        "innovation_projects_participation",
+        "education"
+      ],
+      [
+        "employment_status",
+        "years_of_experience",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "186",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 5,
+    "paths": [
+      [
+        "employment_status",
+        "job_level",
+        "education"
+      ],
+      [
+        "employment_status",
+        "coaching_completed",
+        "education"
+      ],
+      [
+        "coaching_completed",
+        "job_level",
+        "education"
+      ],
+      [
+        "employment_status",
+        "coaching_completed",
+        "job_level"
+      ],
+      [
+        "employment_status",
+        "coaching_completed",
+        "job_level",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "187",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "safety_record"
+      ],
+      [
+        "safety_record"
+      ]
+    ]
+  },
+  {
+    "task_id": "188",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "problem_solving_skills"
+      ],
+      [
+        "problem_solving_skills"
+      ]
+    ]
+  },
+  {
+    "task_id": "18",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass DisasterReliefApplicant:\n    # string in lowerc...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "marital_status",
+        "annual_income",
+        "damage_assessment"
+      ],
+      [
+        "annual_income",
+        "damage_assessment"
+      ]
+    ]
+  },
+  {
+    "task_id": "190",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "collaboration_skills",
+        "employment_status"
+      ],
+      [
+        "collaboration_skills"
+      ]
+    ]
+  },
+  {
+    "task_id": "191",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "years_of_service",
+        "training_sessions_attended"
+      ],
+      [
+        "years_of_service",
+        "employment_status",
+        "training_sessions_attended"
+      ]
+    ]
+  },
+  {
+    "task_id": "193",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "years_of_experience",
+        "employment_status",
+        "leadership_potential_rating",
+        "education"
+      ],
+      [
+        "employment_status",
+        "years_of_experience",
+        "education",
+        "leadership_potential_rating",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "194",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "customer_feedback_score"
+      ],
+      [
+        "customer_feedback_score"
+      ]
+    ]
+  },
+  {
+    "task_id": "195",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 4,
+    "paths": [
+      [
+        "gender",
+        "employment_status",
+        "race",
+        "diversity_and_inclusion_involvement"
+      ],
+      [
+        "gender",
+        "race",
+        "diversity_and_inclusion_involvement"
+      ],
+      [
+        "religion",
+        "education",
+        "gender",
+        "race",
+        "age"
+      ],
+      [
+        "diversity_and_inclusion_involvement",
+        "religion",
+        "education",
+        "gender",
+        "race",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "196",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "employment_status",
+        "education",
+        "strategic_initiatives_completed",
+        "age",
+        "job_level"
+      ],
+      [
+        "strategic_initiatives_completed",
+        "job_level",
+        "education"
+      ],
+      [
+        "employment_status",
+        "strategic_initiatives_completed",
+        "job_level",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "197",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "years_of_experience",
+        "education"
+      ],
+      [
+        "employment_status",
+        "years_of_experience",
+        "training_courses_completed",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "199",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "community_outreach_involvement"
+      ],
+      [
+        "years_of_service",
+        "employment_status",
+        "community_outreach_involvement"
+      ]
+    ]
+  },
+  {
+    "task_id": "19",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass PublicTransportAssistanceApplicant:\n    # strin...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "annual_income"
+      ],
+      [
+        "annual_income",
+        "employment_status",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "1",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass FoodAssistanceApplicant:\n    # string in lowerc...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "household_size",
+        "annual_income"
+      ],
+      [
+        "employment_status",
+        "household_size",
+        "annual_income"
+      ],
+      [
+        "annual_income"
+      ]
+    ]
+  },
+  {
+    "task_id": "200",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "mentorship_hours",
+        "employment_status"
+      ],
+      [
+        "mentorship_hours",
+        "employment_status",
+        "job_level"
+      ]
+    ]
+  },
+  {
+    "task_id": "201",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "years_of_experience",
+        "technical_contributions"
+      ],
+      [
+        "technical_contributions"
+      ],
+      [
+        "employment_status",
+        "technical_contributions"
+      ]
+    ]
+  },
+  {
+    "task_id": "202",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gende...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "training_completion_rate",
+        "employment_status"
+      ],
+      [
+        "training_completion_rate"
+      ]
+    ]
+  },
+  {
+    "task_id": "208",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Patient:\n    # string in lowercase\n    # gender...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "age",
+        "physical_activity_level"
+      ],
+      [
+        "physical_activity_level"
+      ]
+    ]
+  },
+  {
+    "task_id": "209",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Patient:\n    # string in lowercase\n    # gender...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "mental_health_history"
+      ],
+      [
+        "marital_status",
+        "employment_status",
+        "mental_health_history",
+        "gender",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "20",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass ElderlyCareSupportApplicant:\n    # string in lo...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "age"
+      ],
+      [
+        "care_requirement_level",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "211",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Patient:\n    # string in lowercase\n    # gender...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "sleep_quality_score",
+        "age"
+      ],
+      [
+        "gender",
+        "sleep_quality_score",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "21",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass LegalAidApplicant:\n    # string in lowercase\n  ...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "employment_status",
+        "annual_income",
+        "education"
+      ],
+      [
+        "employment_status",
+        "annual_income"
+      ],
+      [
+        "annual_income"
+      ]
+    ]
+  },
+  {
+    "task_id": "228",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Patient:\n    # string in lowercase\n    # gender...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "age",
+        "dietary_habits"
+      ],
+      [
+        "race",
+        "age",
+        "dietary_habits"
+      ]
+    ]
+  },
+  {
+    "task_id": "22",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass EmergencyCashAssistanceApplicant:\n    # string ...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "employment_status",
+        "family_size",
+        "monthly_income"
+      ],
+      [
+        "employment_status",
+        "monthly_income"
+      ],
+      [
+        "family_size",
+        "monthly_income"
+      ]
+    ]
+  },
+  {
+    "task_id": "232",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Patient:\n    # string in lowercase\n    # gender...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "race",
+        "blood_pressure_level",
+        "age"
+      ],
+      [
+        "blood_pressure_level",
+        "age"
+      ],
+      [
+        "blood_pressure_level"
+      ]
+    ]
+  },
+  {
+    "task_id": "234",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Patient:\n    # string in lowercase\n    # gender...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "age",
+        "blood_glucose_level"
+      ],
+      [
+        "race",
+        "age",
+        "blood_glucose_level"
+      ]
+    ]
+  },
+  {
+    "task_id": "23",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass YouthJobTrainingApplicant:\n    # string in lowe...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "age"
+      ],
+      [
+        "employment_status",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "242",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Patient:\n    # string in lowercase\n    # gender...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "respiratory_health_status",
+        "age"
+      ],
+      [
+        "respiratory_health_status"
+      ]
+    ]
+  },
+  {
+    "task_id": "24",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass PregnancySupportApplicant:\n    # string in lowe...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "gender",
+        "age"
+      ],
+      [
+        "gender"
+      ]
+    ]
+  },
+  {
+    "task_id": "251",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Patient:\n    # string in lowercase\n    # gender...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "gender",
+        "bone_health",
+        "age"
+      ],
+      [
+        "gender",
+        "race",
+        "bone_health",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "252",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Patient:\n    # string in lowercase\n    # gender...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "chronic_kidney_disease_stage"
+      ],
+      [
+        "chronic_kidney_disease_stage",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "25",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass RentalSubsidyApplicant:\n    # string in lowerca...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "annual_income",
+        "monthly_rent"
+      ],
+      [
+        "employment_status",
+        "annual_income",
+        "monthly_rent"
+      ]
+    ]
+  },
+  {
+    "task_id": "260",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Patient:\n    # string in lowercase\n    # gender...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "vision_impairment_level"
+      ],
+      [
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "265",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 4,
+    "paths": [
+      [
+        "employment_status"
+      ],
+      [
+        "patience_level",
+        "employment_status"
+      ],
+      [
+        "patience_level",
+        "employment_status",
+        "age"
+      ],
+      [
+        "patience_level"
+      ]
+    ]
+  },
+  {
+    "task_id": "266",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "focus_concentration"
+      ],
+      [
+        "employment_status",
+        "focus_concentration",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "267",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "age",
+        "outdoor_activity_preference"
+      ],
+      [
+        "outdoor_activity_preference"
+      ]
+    ]
+  },
+  {
+    "task_id": "268",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 4,
+    "paths": [
+      [
+        "creativity_level"
+      ],
+      [
+        "crecreativity_level"
+      ],
+      [
+        "creativity_level",
+        "employment_status",
+        "age"
+      ],
+      [
+        "creativity_level",
+        "employment_status"
+      ]
+    ]
+  },
+  {
+    "task_id": "269",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "teamwork_preference",
+        "age"
+      ],
+      [
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "26",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass PublicHealthSupportApplicant:\n    # string in l...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "household_size",
+        "annual_income",
+        "age"
+      ],
+      [
+        "employment_status",
+        "household_size",
+        "annual_income"
+      ]
+    ]
+  },
+  {
+    "task_id": "270",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "dexterity",
+        "employment_status",
+        "age",
+        "education"
+      ],
+      [
+        "dexterity",
+        "employment_status",
+        "education",
+        "gender",
+        "age"
+      ],
+      [
+        "employment_status",
+        "age",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "271",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "flexibility"
+      ],
+      [
+        "flexibility",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "272",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "love_for_nature"
+      ],
+      [
+        "love_for_nature",
+        "age"
+      ],
+      [
+        "employment_status",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "275",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "musical_ear"
+      ],
+      [
+        "marital_status",
+        "employment_status",
+        "age"
+      ],
+      [
+        "age",
+        "musical_ear"
+      ]
+    ]
+  },
+  {
+    "task_id": "276",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "love_for_animals"
+      ],
+      [
+        "love_for_animals"
+      ]
+    ]
+  },
+  {
+    "task_id": "277",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "employment_status",
+        "interest_in_culture"
+      ],
+      [
+        "employment_status"
+      ],
+      [
+        "employment_status",
+        "marital_status",
+        "interest_in_culture"
+      ]
+    ]
+  },
+  {
+    "task_id": "278",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "age",
+        "artistic_ability"
+      ],
+      [
+        "artistic_ability"
+      ]
+    ]
+  },
+  {
+    "task_id": "279",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 4,
+    "paths": [
+      [
+        "employment_status"
+      ],
+      [
+        "patience_level",
+        "employment_status"
+      ],
+      [
+        "patience_level",
+        "employment_status",
+        "age"
+      ],
+      [
+        "patience_level"
+      ]
+    ]
+  },
+  {
+    "task_id": "27",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass VeteranHousingAssistanceApplicant:\n    # string...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "years_of_service",
+        "annual_income"
+      ],
+      [
+        "years_of_service",
+        "annual_income",
+        "employment_status"
+      ]
+    ]
+  },
+  {
+    "task_id": "282",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "sense_of_adventure",
+        "age"
+      ],
+      [
+        "sense_of_adventure"
+      ]
+    ]
+  },
+  {
+    "task_id": "283",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "patience_level",
+        "employment_status",
+        "creativity"
+      ],
+      [
+        "patience_level",
+        "creativity"
+      ]
+    ]
+  },
+  {
+    "task_id": "289",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "fitness_level",
+        "age"
+      ],
+      [
+        "fitness_level",
+        "love_for_music"
+      ],
+      [
+        "fitness_level",
+        "love_for_music",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "28",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass UtilityAssistanceApplicant:\n    # string in low...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "household_size",
+        "annual_income"
+      ],
+      [
+        "employment_status",
+        "annual_income"
+      ],
+      [
+        "employment_status",
+        "household_size",
+        "annual_income"
+      ]
+    ]
+  },
+  {
+    "task_id": "294",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "education",
+        "major",
+        "empathy"
+      ],
+      [
+        "major",
+        "empathy"
+      ]
+    ]
+  },
+  {
+    "task_id": "295",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "attention_to_detail",
+        "major"
+      ],
+      [
+        "attention_to_detail",
+        "major",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "297",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "technical_aptitude",
+        "major",
+        "education"
+      ],
+      [
+        "technical_aptitude",
+        "major"
+      ]
+    ]
+  },
+  {
+    "task_id": "298",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "major",
+        "leadership_skills",
+        "education"
+      ],
+      [
+        "employment_status",
+        "major",
+        "leadership_skills",
+        "education",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "29",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass TransportationAidApplicant:\n    # string in low...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "monthly_income"
+      ],
+      [
+        "employment_status",
+        "distance_to_work",
+        "monthly_income"
+      ]
+    ]
+  },
+  {
+    "task_id": "2",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass HousingAssistanceApplicant:\n    # string in low...",
+    "unique_paths_count": 4,
+    "paths": [
+      [
+        "annual_income",
+        "monthly_rent"
+      ],
+      [
+        "employment_status",
+        "annual_income",
+        "monthly_rent",
+        "age"
+      ],
+      [
+        "employment_status",
+        "annual_income",
+        "monthly_rent"
+      ],
+      [
+        "employment_status",
+        "annual_income",
+        "monthly_rent",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "301",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 4,
+    "paths": [
+      [
+        "employment_status",
+        "major",
+        "physical_fitness",
+        "education",
+        "age"
+      ],
+      [
+        "age",
+        "physical_fitness",
+        "education"
+      ],
+      [
+        "physical_fitness",
+        "major",
+        "age",
+        "education"
+      ],
+      [
+        "major",
+        "physical_fitness",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "302",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "major",
+        "creativity",
+        "education"
+      ],
+      [
+        "major",
+        "creativity"
+      ],
+      [
+        "major",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "303",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "critical_thinking_skills",
+        "major"
+      ],
+      [
+        "critical_thinking_skills",
+        "major",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "304",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "major",
+        "scientific_aptitude",
+        "education"
+      ],
+      [
+        "major",
+        "scientific_aptitude"
+      ]
+    ]
+  },
+  {
+    "task_id": "308",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "creative_writing_skills"
+      ],
+      [
+        "creative_writing_skills",
+        "major"
+      ]
+    ]
+  },
+  {
+    "task_id": "30",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass FamilySupportApplicant:\n    # string in lowerca...",
+    "unique_paths_count": 4,
+    "paths": [
+      [
+        "employment_status",
+        "annual_income",
+        "number_of_dependents"
+      ],
+      [
+        "employment_status",
+        "annual_income"
+      ],
+      [
+        "annual_income",
+        "number_of_dependents"
+      ],
+      [
+        "marital_status",
+        "employment_status",
+        "education",
+        "annual_income",
+        "number_of_dependents"
+      ]
+    ]
+  },
+  {
+    "task_id": "310",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "strategic_thinking",
+        "major",
+        "education"
+      ],
+      [
+        "employment_status",
+        "major",
+        "education",
+        "strategic_thinking",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "311",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "technical_aptitude",
+        "major",
+        "education"
+      ],
+      [
+        "technical_aptitude",
+        "major"
+      ],
+      [
+        "major"
+      ]
+    ]
+  },
+  {
+    "task_id": "312",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "employment_status",
+        "ethical_judgment",
+        "major",
+        "education",
+        "age"
+      ],
+      [
+        "ethical_judgment",
+        "major",
+        "age",
+        "education"
+      ],
+      [
+        "ethical_judgment",
+        "major",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "313",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "major",
+        "creative_thinking",
+        "education"
+      ],
+      [
+        "major",
+        "creative_thinking"
+      ]
+    ]
+  },
+  {
+    "task_id": "316",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "attention_to_detail"
+      ],
+      [
+        "attention_to_detail",
+        "major"
+      ],
+      [
+        "attention_to_detail",
+        "major",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "317",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "major",
+        "logical_thinking"
+      ],
+      [
+        "major",
+        "logical_thinking",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "31",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass SeniorHomeCareApplicant:\n    # string in lowerc...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "care_needs_level",
+        "age"
+      ],
+      [
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "320",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "major"
+      ],
+      [
+        "major",
+        "spatial_awareness"
+      ],
+      [
+        "major",
+        "spatial_awareness",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "323",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "critical_thinking",
+        "major"
+      ],
+      [
+        "critical_thinking",
+        "major",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "324",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "major",
+        "logical_thinking"
+      ],
+      [
+        "major",
+        "logical_thinking",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "328",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "communication_skills",
+        "major",
+        "age",
+        "education"
+      ],
+      [
+        "communication_skills",
+        "major",
+        "education"
+      ],
+      [
+        "employment_status",
+        "major",
+        "education",
+        "communication_skills",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "330",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "major",
+        "creativity",
+        "education"
+      ],
+      [
+        "major",
+        "creativity"
+      ]
+    ]
+  },
+  {
+    "task_id": "331",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "education",
+        "major",
+        "empathy"
+      ],
+      [
+        "major",
+        "empathy"
+      ],
+      [
+        "major",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "332",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 4,
+    "paths": [
+      [
+        "artistic_talent",
+        "major",
+        "education"
+      ],
+      [
+        "major"
+      ],
+      [
+        "artistic_talent",
+        "major"
+      ],
+      [
+        "major",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "333",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "attention_to_detail",
+        "major"
+      ],
+      [
+        "attention_to_detail",
+        "major",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "336",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "major",
+        "empathy",
+        "education"
+      ],
+      [
+        "major",
+        "empathy"
+      ]
+    ]
+  },
+  {
+    "task_id": "337",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "communication_skills",
+        "major"
+      ],
+      [
+        "communication_skills",
+        "major",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "338",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "major",
+        "creativity",
+        "education"
+      ],
+      [
+        "major",
+        "creativity"
+      ]
+    ]
+  },
+  {
+    "task_id": "33",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass YouthMentorshipApplicant:\n    # string in lower...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "age"
+      ],
+      [
+        "employment_status",
+        "age",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "340",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "problem_solving_skills",
+        "major"
+      ],
+      [
+        "problem_solving_skills",
+        "major",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "342",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Person:\n    # string in lowercase\n    # gender ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "communication_skills",
+        "major"
+      ],
+      [
+        "communication_skills",
+        "major",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "37",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass RuralHealthcareSupportApplicant:\n    # string i...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "annual_income",
+        "distance_from_city"
+      ],
+      [
+        "employment_status",
+        "annual_income",
+        "age",
+        "distance_from_city"
+      ],
+      [
+        "employment_status",
+        "annual_income",
+        "distance_from_city"
+      ]
+    ]
+  },
+  {
+    "task_id": "39",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass MentalHealthSupportApplicant:\n    # string in l...",
+    "unique_paths_count": 4,
+    "paths": [
+      [],
+      [
+        "marital_status",
+        "employment_status",
+        "years_of_treatment"
+      ],
+      [
+        "gender",
+        "employment_status",
+        "years_of_treatment",
+        "marital_status"
+      ],
+      [
+        "employment_status",
+        "years_of_treatment"
+      ]
+    ]
+  },
+  {
+    "task_id": "3",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass ChildcareAssistanceApplicant:\n    # string in l...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "household_income",
+        "employment_status",
+        "number_of_children"
+      ],
+      [
+        "household_income",
+        "employment_status"
+      ]
+    ]
+  },
+  {
+    "task_id": "40",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass DisasterRelocationApplicant:\n    # string in lo...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "annual_income",
+        "damage_assessment",
+        "age"
+      ],
+      [
+        "annual_income",
+        "damage_assessment"
+      ]
+    ]
+  },
+  {
+    "task_id": "41",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass LowIncomeTaxReliefApplicant:\n    # string in lo...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "household_size",
+        "annual_income"
+      ],
+      [
+        "annual_income"
+      ]
+    ]
+  },
+  {
+    "task_id": "42",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass FreeLunchProgramApplicant:\n    # string in lowe...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "household_income"
+      ],
+      [
+        "household_income",
+        "number_of_children"
+      ]
+    ]
+  },
+  {
+    "task_id": "43",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass DisasterRecoveryGrantApplicant:\n    # string in...",
+    "unique_paths_count": 3,
+    "paths": [
+      [],
+      [
+        "employment_status",
+        "annual_income",
+        "damage_assessment"
+      ],
+      [
+        "annual_income",
+        "damage_assessment"
+      ]
+    ]
+  },
+  {
+    "task_id": "44",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass CommunityServiceProgramApplicant:\n    # string ...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "hours_volunteered",
+        "community_service_experience"
+      ],
+      [
+        "community_service_experience",
+        "employment_status",
+        "hours_volunteered"
+      ],
+      [
+        "community_service_experience",
+        "hours_volunteered",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "45",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass RentalAssistanceApplicant:\n    # string in lowe...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "annual_income",
+        "monthly_rent"
+      ],
+      [
+        "marital_status",
+        "employment_status",
+        "age",
+        "annual_income",
+        "monthly_rent"
+      ],
+      [
+        "employment_status",
+        "annual_income",
+        "monthly_rent"
+      ]
+    ]
+  },
+  {
+    "task_id": "47",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass YouthEducationGrantApplicant:\n    # string in l...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "family_income",
+        "employment_status",
+        "GPA",
+        "age"
+      ],
+      [
+        "employment_status",
+        "GPA",
+        "education",
+        "family_income",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "48",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass HealthcareAidApplicant:\n    # string in lowerca...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "monthly_income"
+      ],
+      [
+        "employment_status",
+        "age",
+        "monthly_income"
+      ]
+    ]
+  },
+  {
+    "task_id": "4",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass UnemploymentBenefitsApplicant:\n    # string in ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "previous_salary",
+        "employment_status"
+      ],
+      [
+        "previous_salary",
+        "employment_status",
+        "duration_of_unemployment"
+      ]
+    ]
+  },
+  {
+    "task_id": "50",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass EarlyChildhoodEducationApplicant:\n    # string ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "education"
+      ],
+      [
+        "household_income",
+        "number_of_children"
+      ]
+    ]
+  },
+  {
+    "task_id": "51",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Student:\n    # string in lowercase\n    # gender...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "education",
+        "employment_status",
+        "GPA",
+        "enrollment_status"
+      ],
+      [
+        "employment_status",
+        "GPA",
+        "enrollment_status"
+      ]
+    ]
+  },
+  {
+    "task_id": "52",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass UndergraduateApplicant:\n    # string in lowerca...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "high_school_GPA",
+        "SAT_score",
+        "education"
+      ],
+      [
+        "high_school_GPA",
+        "SAT_score"
+      ]
+    ]
+  },
+  {
+    "task_id": "53",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass GraduateApplicant:\n    # string in lowercase\n  ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "undergraduate_GPA",
+        "research_experience",
+        "education"
+      ],
+      [
+        "undergraduate_GPA",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "55",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass HonorsProgramApplicant:\n    # string in lowerca...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "extracurricular_activities",
+        "GPA",
+        "education"
+      ],
+      [
+        "extracurricular_activities",
+        "employment_status",
+        "GPA"
+      ],
+      [
+        "extracurricular_activities",
+        "employment_status",
+        "GPA",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "56",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass GraduateThesisCandidate:\n    # string in lowerc...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "thesis_topic",
+        "GPA"
+      ],
+      [
+        "thesis_topic",
+        "GPA",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "57",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass InternationalApplicant:\n    # string in lowerca...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "undergraduate_GPA",
+        "TOEFL_score"
+      ],
+      [
+        "undergraduate_GPA",
+        "TOEFL_score",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "58",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass StudyAbroadCandidate:\n    # string in lowercase...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "language_proficiency",
+        "GPA",
+        "education"
+      ],
+      [
+        "language_proficiency",
+        "employment_status",
+        "GPA",
+        "education"
+      ],
+      [
+        "employment_status",
+        "GPA",
+        "education",
+        "language_proficiency",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "59",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass AthleticScholarshipApplicant:\n    # string in l...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "GPA"
+      ],
+      [
+        "sport",
+        "employment_status",
+        "GPA"
+      ]
+    ]
+  },
+  {
+    "task_id": "5",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass HealthcareSubsidyApplicant:\n    # string in low...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "monthly_income"
+      ],
+      [
+        "employment_status",
+        "age",
+        "monthly_income"
+      ]
+    ]
+  },
+  {
+    "task_id": "63",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass ResidentAssistantCandidate:\n    # string in low...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "education",
+        "employment_status",
+        "GPA",
+        "leadership_experience"
+      ],
+      [
+        "employment_status",
+        "GPA",
+        "leadership_experience"
+      ]
+    ]
+  },
+  {
+    "task_id": "64",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass GraduateFellowshipApplicant:\n    # string in lo...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "GPA",
+        "research_publications",
+        "education"
+      ],
+      [
+        "GPA",
+        "research_publications",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "65",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass StudyGrantApplicant:\n    # string in lowercase\n...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "financial_need",
+        "employment_status",
+        "GPA",
+        "education",
+        "age"
+      ],
+      [
+        "financial_need",
+        "employment_status",
+        "GPA"
+      ]
+    ]
+  },
+  {
+    "task_id": "67",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass ExchangeProgramApplicant:\n    # string in lower...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "employment_status",
+        "GPA",
+        "education",
+        "language_proficiency",
+        "age"
+      ],
+      [
+        "language_proficiency",
+        "employment_status",
+        "GPA",
+        "education"
+      ],
+      [
+        "language_proficiency",
+        "GPA",
+        "age",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "69",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass ResearchAssistantApplicant:\n    # string in low...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "research_experience",
+        "GPA",
+        "education"
+      ],
+      [
+        "research_experience",
+        "employment_status",
+        "GPA",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "6",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass DisabilityBenefitsApplicant:\n    # string in lo...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "disability_percentage"
+      ],
+      [
+        "annual_income",
+        "employment_status",
+        "disability_percentage"
+      ]
+    ]
+  },
+  {
+    "task_id": "70",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass TransferCreditApplicant:\n    # string in lowerc...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "GPA",
+        "credits_earned"
+      ],
+      [
+        "GPA",
+        "credits_earned",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "71",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass UniversityHonorsApplicant:\n    # string in lowe...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "leadership_roles",
+        "employment_status",
+        "GPA",
+        "education"
+      ],
+      [
+        "leadership_roles",
+        "GPA",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "72",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass FinancialAidApplicant:\n    # string in lowercas...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "family_income",
+        "employment_status",
+        "GPA"
+      ],
+      [
+        "family_income",
+        "employment_status",
+        "GPA",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "73",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass WorkStudyApplicant:\n    # string in lowercase\n ...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "education",
+        "GPA",
+        "enrollment_status"
+      ],
+      [
+        "employment_status",
+        "GPA",
+        "enrollment_status",
+        "education"
+      ],
+      [
+        "employment_status",
+        "GPA",
+        "enrollment_status"
+      ]
+    ]
+  },
+  {
+    "task_id": "74",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass GraduationCandidate:\n    # string in lowercase\n...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "credits_completed",
+        "GPA"
+      ],
+      [
+        "credits_completed",
+        "GPA",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "76",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass PhDCandidate:\n    # string in lowercase\n    # g...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "GPA",
+        "education"
+      ],
+      [
+        "GPA",
+        "published_papers",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "77",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass LeadershipScholarshipApplicant:\n    # string in...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "leadership_experience",
+        "GPA"
+      ],
+      [
+        "leadership_experience",
+        "GPA",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "78",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass InternshipCandidate:\n    # string in lowercase\n...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "GPA",
+        "education"
+      ],
+      [
+        "employment_status",
+        "GPA"
+      ]
+    ]
+  },
+  {
+    "task_id": "79",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass HonorRollCandidate:\n    # string in lowercase\n ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "GPA"
+      ],
+      [
+        "GPA",
+        "enrollment_status"
+      ]
+    ]
+  },
+  {
+    "task_id": "80",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass DeanScholarshipApplicant:\n    # string in lower...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "GPA",
+        "community_service",
+        "education"
+      ],
+      [
+        "GPA",
+        "community_service",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "81",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass UndergraduateResearchApplicant:\n    # string in...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "employment_status",
+        "GPA",
+        "education"
+      ],
+      [
+        "employment_status",
+        "education"
+      ],
+      [
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "82",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass SummerProgramApplicant:\n    # string in lowerca...",
+    "unique_paths_count": 4,
+    "paths": [
+      [
+        "employment_status",
+        "GPA"
+      ],
+      [
+        "employment_status",
+        "GPA",
+        "age",
+        "education"
+      ],
+      [
+        "employment_status",
+        "GPA",
+        "education"
+      ],
+      [
+        "employment_status",
+        "GPA",
+        "major",
+        "education",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "83",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass AlumniScholarshipApplicant:\n    # string in low...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "community_service_hours",
+        "employment_status",
+        "GPA",
+        "education"
+      ],
+      [
+        "community_service_hours",
+        "GPA",
+        "education"
+      ],
+      [
+        "community_service_hours",
+        "GPA"
+      ]
+    ]
+  },
+  {
+    "task_id": "84",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass CampusLeadershipApplicant:\n    # string in lowe...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "leadership_experience",
+        "GPA",
+        "education"
+      ],
+      [
+        "employment_status",
+        "GPA",
+        "leadership_experience"
+      ]
+    ]
+  },
+  {
+    "task_id": "85",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass ThesisDefenseCandidate:\n    # string in lowerca...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "GPA",
+        "thesis_status"
+      ],
+      [
+        "thesis_status"
+      ]
+    ]
+  },
+  {
+    "task_id": "87",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass GraduateScholarshipApplicant:\n    # string in l...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "GPA",
+        "research_publications",
+        "education"
+      ],
+      [
+        "GPA",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "88",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass InternationalStudentApplicant:\n    # string in ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "GPA",
+        "TOEFL_score"
+      ],
+      [
+        "GPA",
+        "TOEFL_score",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "89",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass CollegeTransferApplicant:\n    # string in lower...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "credits_completed",
+        "GPA"
+      ],
+      [
+        "credits_completed",
+        "GPA",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "8",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass VeteranBenefitsApplicant:\n    # string in lower...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "years_of_service",
+        "service_disability_rating"
+      ],
+      [
+        "years_of_service"
+      ]
+    ]
+  },
+  {
+    "task_id": "90",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass ResearchGrantApplicant:\n    # string in lowerca...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "employment_status",
+        "GPA",
+        "research_proposal_status",
+        "education"
+      ],
+      [
+        "employment_status"
+      ],
+      [
+        "employment_status",
+        "GPA",
+        "research_proposal_status"
+      ]
+    ]
+  },
+  {
+    "task_id": "91",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass UniversityAmbassadorApplicant:\n    # string in ...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "employment_status",
+        "leadership_experience",
+        "GPA",
+        "education"
+      ],
+      [
+        "employment_status",
+        "GPA",
+        "leadership_experience"
+      ]
+    ]
+  },
+  {
+    "task_id": "92",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass CampusMentorApplicant:\n    # string in lowercas...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "mentorship_experience",
+        "employment_status",
+        "GPA",
+        "education"
+      ],
+      [
+        "mentorship_experience",
+        "employment_status",
+        "GPA",
+        "education",
+        "age"
+      ],
+      [
+        "mentorship_experience",
+        "GPA",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "93",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass HonorSocietyApplicant:\n    # string in lowercas...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "extracurricular_activities",
+        "GPA",
+        "education"
+      ],
+      [
+        "extracurricular_activities",
+        "employment_status",
+        "GPA",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "94",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass StudyAbroadGrantApplicant:\n    # string in lowe...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "language_proficiency",
+        "employment_status",
+        "GPA",
+        "education"
+      ],
+      [
+        "employment_status",
+        "GPA",
+        "education",
+        "language_proficiency",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "95",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass LeadershipProgramApplicant:\n    # string in low...",
+    "unique_paths_count": 2,
+    "paths": [
+      [
+        "leadership_experience",
+        "GPA",
+        "age",
+        "education"
+      ],
+      [
+        "employment_status",
+        "GPA",
+        "education",
+        "leadership_experience",
+        "age"
+      ]
+    ]
+  },
+  {
+    "task_id": "96",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass GraduateAssistantshipApplicant:\n    # string in...",
+    "unique_paths_count": 4,
+    "paths": [
+      [
+        "employment_status",
+        "GPA",
+        "education"
+      ],
+      [
+        "GPA",
+        "education"
+      ],
+      [
+        "research_experience",
+        "GPA",
+        "education"
+      ],
+      [
+        "research_experience",
+        "employment_status",
+        "GPA",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "97",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass PeerTutorApplicant:\n    # string in lowercase\n ...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "employment_status",
+        "GPA",
+        "subject_mastery",
+        "education"
+      ],
+      [
+        "employment_status",
+        "GPA",
+        "education"
+      ],
+      [
+        "GPA",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "98",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass PresidentialScholarshipApplicant:\n    # string ...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "employment_status",
+        "GPA",
+        "community_service",
+        "education"
+      ],
+      [
+        "employment_status",
+        "GPA",
+        "community_service"
+      ],
+      [
+        "GPA",
+        "community_service"
+      ]
+    ]
+  },
+  {
+    "task_id": "99",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass UndergraduateScholarApplicant:\n    # string in ...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "employment_status",
+        "GPA",
+        "honors_courses",
+        "education"
+      ],
+      [
+        "GPA",
+        "education"
+      ],
+      [
+        "GPA",
+        "honors_courses",
+        "education"
+      ]
+    ]
+  },
+  {
+    "task_id": "9",
+    "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass EnergyAssistanceApplicant:\n    # string in lowe...",
+    "unique_paths_count": 3,
+    "paths": [
+      [
+        "household_size",
+        "annual_income"
+      ],
+      [
+        "employment_status",
+        "household_size",
+        "annual_income",
+        "age"
+      ],
+      [
+        "employment_status",
+        "annual_income",
+        "age"
+      ]
+    ]
+  }
+]

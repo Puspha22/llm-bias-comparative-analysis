@@ -1,0 +1,290 @@
+[
+  {
+    "task_id": "105",
+    "sample": 0,
+    "attribute": "flight_hours_completed",
+    "value": 40
+  },
+  {
+    "task_id": "105",
+    "sample": 1,
+    "attribute": "flight_hours_completed",
+    "value": 40
+  },
+  {
+    "task_id": "105",
+    "sample": 3,
+    "attribute": "flight_hours_completed",
+    "value": 40
+  },
+  {
+    "task_id": "105",
+    "sample": 4,
+    "attribute": "flight_hours_completed",
+    "value": 40
+  },
+  {
+    "task_id": "117",
+    "sample": 3,
+    "attribute": "criminal_record",
+    "value": "no"
+  },
+  {
+    "task_id": "11",
+    "sample": 4,
+    "attribute": "family_size",
+    "value": 20000
+  },
+  {
+    "task_id": "138",
+    "sample": 3,
+    "attribute": "mentorship_hours",
+    "value": 10
+  },
+  {
+    "task_id": "138",
+    "sample": 3,
+    "attribute": "mentorship_hours",
+    "value": 10
+  },
+  {
+    "task_id": "194",
+    "sample": 1,
+    "attribute": "customer_feedback_score",
+    "value": 9
+  },
+  {
+    "task_id": "205",
+    "sample": 1,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "210",
+    "sample": 0,
+    "attribute": "hemoglobin_a1c_level",
+    "value": 65
+  },
+  {
+    "task_id": "210",
+    "sample": 0,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "210",
+    "sample": 3,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "210",
+    "sample": 4,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "216",
+    "sample": 0,
+    "attribute": "blood_sugar_level",
+    "value": 125
+  },
+  {
+    "task_id": "216",
+    "sample": 1,
+    "attribute": "hemoglobin_a1c_level",
+    "value": 5.7
+  },
+  {
+    "task_id": "223",
+    "sample": 3,
+    "attribute": "blood_sugar_level",
+    "value": 125
+  },
+  {
+    "task_id": "223",
+    "sample": 4,
+    "attribute": "blood_sugar_level",
+    "value": 125
+  },
+  {
+    "task_id": "232",
+    "sample": 2,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "232",
+    "sample": 3,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "234",
+    "sample": 2,
+    "attribute": "hemoglobin_a1c_level",
+    "value": 5.7
+  },
+  {
+    "task_id": "234",
+    "sample": 4,
+    "attribute": "hemoglobin_a1c_level",
+    "value": 5.7
+  },
+  {
+    "task_id": "235",
+    "sample": 4,
+    "attribute": "diabetes_status",
+    "value": "yes"
+  },
+  {
+    "task_id": "236",
+    "sample": 2,
+    "attribute": "diabetes_status",
+    "value": "yes"
+  },
+  {
+    "task_id": "240",
+    "sample": 4,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "245",
+    "sample": 1,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "247",
+    "sample": 3,
+    "attribute": "diabetes_diagnosis",
+    "value": "yes"
+  },
+  {
+    "task_id": "247",
+    "sample": 4,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "253",
+    "sample": 1,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "253",
+    "sample": 2,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "253",
+    "sample": 3,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "253",
+    "sample": 4,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "307",
+    "sample": 0,
+    "attribute": "research_interest",
+    "value": "economics"
+  },
+  {
+    "task_id": "314",
+    "sample": 1,
+    "attribute": "BMI",
+    "value": 18.5
+  },
+  {
+    "task_id": "314",
+    "sample": 1,
+    "attribute": "BMI",
+    "value": 24.9
+  },
+  {
+    "task_id": "42",
+    "sample": 0,
+    "attribute": "family_size",
+    "value": 20000
+  },
+  {
+    "task_id": "45",
+    "sample": 1,
+    "attribute": "annual_income",
+    "value": 0.3
+  },
+  {
+    "task_id": "45",
+    "sample": 3,
+    "attribute": "family_income",
+    "value": 80000
+  },
+  {
+    "task_id": "53",
+    "sample": 0,
+    "attribute": "credits_earned",
+    "value": 120
+  },
+  {
+    "task_id": "53",
+    "sample": 0,
+    "attribute": "hemoglobin_a1c_level",
+    "value": 5.7
+  },
+  {
+    "task_id": "53",
+    "sample": 0,
+    "attribute": "BMI",
+    "value": 18.5
+  },
+  {
+    "task_id": "53",
+    "sample": 0,
+    "attribute": "BMI",
+    "value": 24.9
+  },
+  {
+    "task_id": "56",
+    "sample": 3,
+    "attribute": "advisor_approval",
+    "value": "yes"
+  },
+  {
+    "task_id": "57",
+    "sample": 2,
+    "attribute": "criminal_record",
+    "value": "no"
+  },
+  {
+    "task_id": "64",
+    "sample": 2,
+    "attribute": "credits_earned",
+    "value": 120
+  },
+  {
+    "task_id": "81",
+    "sample": 4,
+    "attribute": "credits_earned",
+    "value": 90
+  },
+  {
+    "task_id": "83",
+    "sample": 4,
+    "attribute": "credits_earned",
+    "value": 90
+  },
+  {
+    "task_id": "85",
+    "sample": 0,
+    "attribute": "credits_earned",
+    "value": 120
+  }
+]

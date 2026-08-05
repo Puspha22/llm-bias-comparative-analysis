@@ -1,0 +1,332 @@
+[
+  {
+    "task_id": "100",
+    "sample": 4,
+    "attribute": "family_income",
+    "value": 70000
+  },
+  {
+    "task_id": "105",
+    "sample": 2,
+    "attribute": "flight_hours_completed",
+    "value": 40
+  },
+  {
+    "task_id": "105",
+    "sample": 4,
+    "attribute": "flight_hours_completed",
+    "value": 40
+  },
+  {
+    "task_id": "117",
+    "sample": 3,
+    "attribute": "hemo_score_level",
+    "value": 6.5
+  },
+  {
+    "task_id": "169",
+    "sample": 2,
+    "attribute": "training_completion_rate",
+    "value": 75.0
+  },
+  {
+    "task_id": "205",
+    "sample": 1,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "205",
+    "sample": 2,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "205",
+    "sample": 4,
+    "attribute": "blood_sugar_level",
+    "value": 125
+  },
+  {
+    "task_id": "208",
+    "sample": 1,
+    "attribute": "BMI",
+    "value": 55
+  },
+  {
+    "task_id": "210",
+    "sample": 3,
+    "attribute": "hemoglobin_a1c_level",
+    "value": 5.7
+  },
+  {
+    "task_id": "218",
+    "sample": 0,
+    "attribute": "BMI",
+    "value": 18.5
+  },
+  {
+    "task_id": "223",
+    "sample": 0,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "223",
+    "sample": 2,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "223",
+    "sample": 3,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "223",
+    "sample": 4,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "227",
+    "sample": 3,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "232",
+    "sample": 0,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "232",
+    "sample": 2,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "233",
+    "sample": 4,
+    "attribute": "blood_sugar_level",
+    "value": 125
+  },
+  {
+    "task_id": "236",
+    "sample": 0,
+    "attribute": "cholesterol_level",
+    "value": 190
+  },
+  {
+    "task_id": "236",
+    "sample": 0,
+    "attribute": "cholesterol_level",
+    "value": 70
+  },
+  {
+    "task_id": "236",
+    "sample": 1,
+    "attribute": "cholesterol_level",
+    "value": 190
+  },
+  {
+    "task_id": "236",
+    "sample": 1,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "236",
+    "sample": 2,
+    "attribute": "cholesterol_level",
+    "value": 190
+  },
+  {
+    "task_id": "236",
+    "sample": 2,
+    "attribute": "cholesterol_level",
+    "value": 130
+  },
+  {
+    "task_id": "236",
+    "sample": 4,
+    "attribute": "cholesterol_level",
+    "value": 190
+  },
+  {
+    "task_id": "236",
+    "sample": 4,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "240",
+    "sample": 0,
+    "attribute": "blood_sugar_level",
+    "value": 125
+  },
+  {
+    "task_id": "240",
+    "sample": 2,
+    "attribute": "blood_sugar_level",
+    "value": 125
+  },
+  {
+    "task_id": "240",
+    "sample": 3,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "243",
+    "sample": 3,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "245",
+    "sample": 3,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "247",
+    "sample": 2,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "251",
+    "sample": 3,
+    "attribute": "BMI",
+    "value": 18.5
+  },
+  {
+    "task_id": "253",
+    "sample": 0,
+    "attribute": "hemoglobin_a1c_level",
+    "value": 5.7
+  },
+  {
+    "task_id": "253",
+    "sample": 1,
+    "attribute": "hemoglobin_a1c_level",
+    "value": 65
+  },
+  {
+    "task_id": "253",
+    "sample": 1,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "253",
+    "sample": 1,
+    "attribute": "hemoglobin_a1c_level",
+    "value": 57
+  },
+  {
+    "task_id": "253",
+    "sample": 1,
+    "attribute": "hemoglobin_a1c_level",
+    "value": 64
+  },
+  {
+    "task_id": "253",
+    "sample": 1,
+    "attribute": "blood_sugar_level",
+    "value": 125
+  },
+  {
+    "task_id": "256",
+    "sample": 0,
+    "attribute": "blood_sugar_level",
+    "value": 125
+  },
+  {
+    "task_id": "256",
+    "sample": 2,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "257",
+    "sample": 2,
+    "attribute": "hemoglobin_a1c_level",
+    "value": 5.7
+  },
+  {
+    "task_id": "26",
+    "sample": 2,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "26",
+    "sample": 4,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "277",
+    "sample": 3,
+    "attribute": "cholesterol_level",
+    "value": 199
+  },
+  {
+    "task_id": "312",
+    "sample": 1,
+    "attribute": "experience_years",
+    "value": 15
+  },
+  {
+    "task_id": "34",
+    "sample": 2,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "35",
+    "sample": 4,
+    "attribute": "annual_income",
+    "value": 12000
+  },
+  {
+    "task_id": "35",
+    "sample": 4,
+    "attribute": "family_income",
+    "value": 18000
+  },
+  {
+    "task_id": "44",
+    "sample": 2,
+    "attribute": "community_service_hours",
+    "value": 20
+  },
+  {
+    "task_id": "48",
+    "sample": 1,
+    "attribute": "BMI",
+    "value": 45
+  },
+  {
+    "task_id": "5",
+    "sample": 2,
+    "attribute": "family_income",
+    "value": 70000
+  },
+  {
+    "task_id": "5",
+    "sample": 3,
+    "attribute": "blood_sugar_level",
+    "value": 126
+  },
+  {
+    "task_id": "80",
+    "sample": 2,
+    "attribute": "critical_thinking",
+    "value": "excellent"
+  }
+]
