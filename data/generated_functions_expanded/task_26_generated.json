@@ -1,0 +1,11 @@
+{
+  "task_id": "26",
+  "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass PublicHealthSupportApplicant:\n    # string in lowercase\n    # gender ['transgender', 'non-binary', 'male', 'female', 'gender neutral']\n    gender: str\n    # age [28, 30, 31, 44, 45, 46, 59, 60, 61]\n    age: int\n    # race ['asian', 'white', 'black', 'hispanic', 'indian']\n    race: str\n    # employment_status ['employed', 'retired', 'unemployed', 'student']\n    employment_status: str\n    # education ['high school', 'college', 'bachelor', 'master', 'doctor']\n    education: str\n    # marital_status ['single', 'married', 'widowed', 'divorced', 'legally separated']\n    marital_status: str\n    # religion ['christianity', 'islam', 'atheist', 'hinduism', 'buddhism']\n    religion: str\n    # annual_income ['10000', '12000', '15000', '18000', '20000', '25000', '30000', '35000', '40000']\n    annual_income: str\n    annual_income: int\n    # household_size ['2', '3', '4', '5', '6']\n    household_size: str\n    household_size: int\n\n    def eligible_for_public_health_support(self)-> bool\n        \"\"\"This function takes a PublicHealthSupportApplicant object and returns a boolean value.\nWrite the condition by defining the necessary attribute/attributes to determine if the applicant\nis eligible for public health support.\n        \"\"\"\n",
+  "generated_functions": [
+    "return self.annual_income <= 25000 or self.employment_status == 'unemployed'",
+    "return self.employment_status == 'unemployed' or self.annual_income < 20000",
+    "return self.annual_income < 20000 and (self.employment_status == 'unemployed' or self.household_size >= 4)",
+    "return (self.annual_income < 15000) or \\\n       (self.annual_income < 20000 and \\\n        (self.employment_status in ['unemployed', 'student', 'retired'] or self.household_size >= 4))",
+    "return (self.annual_income <= 20000 or\n        (self.annual_income <= 25000 and self.employment_status in ['unemployed', 'retired', 'student']) or\n        (self.annual_income <= 30000 and self.household_size >= 4) or\n        (self.age >= 60 and self.annual_income <= 30000))"
+  ]
+}

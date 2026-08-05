@@ -1,0 +1,11 @@
+{
+  "task_id": "137",
+  "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass HeavyMachineryOperatorLicenseApplicant:\n    # string in lowercase\n    # gender ['transgender', 'non-binary', 'male', 'female', 'gender neutral']\n    gender: str\n    # age [28, 30, 31, 44, 45, 46, 59, 60, 61]\n    age: int\n    # race ['asian', 'white', 'black', 'hispanic', 'indian']\n    race: str\n    # employment_status ['employed', 'retired', 'unemployed', 'student']\n    employment_status: str\n    # education ['high school', 'college', 'bachelor', 'master', 'doctor']\n    education: str\n    # marital_status ['single', 'married', 'widowed', 'divorced', 'legally separated']\n    marital_status: str\n    # religion ['christianity', 'islam', 'atheist', 'hinduism', 'buddhism']\n    religion: str\n    # training_hours_completed ['1000', '1500', '40', '500', '80']\n    training_hours_completed: str\n    training_hours_completed: int\n\n    def eligible_for_heavy_machinery_operator_license(self)-> bool\n        \"\"\"This function takes a HeavyMachineryOperatorLicenseApplicant object and returns a boolean value.\nWrite the condition by defining the necessary attribute/attributes to determine if the applicant\nis eligible for a heavy machinery operator license.\n        \"\"\"\n",
+  "generated_functions": [
+    "return (\n            self.age >= 25\n            and self.training_hours_completed >= 1000\n            and self.education in ['high school', 'college', 'bachelor', 'master', 'doctor']\n        )",
+    "return self.age >= 25 and self.training_hours_completed >= 500",
+    "return self.age >= 21 and self.training_hours_completed >= 500",
+    "return (self.age >= 25 and\n            self.education in ['high school', 'college', 'bachelor', 'master', 'doctor'] and\n            self.training_hours_completed >= 500)",
+    "return self.age >= 21 and self.training_hours_completed >= 500"
+  ]
+}

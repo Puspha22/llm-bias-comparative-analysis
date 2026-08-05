@@ -1,0 +1,11 @@
+{
+  "task_id": "87",
+  "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass GraduateScholarshipApplicant:\n    # string in lowercase\n    # gender ['transgender', 'non-binary', 'male', 'female', 'gender neutral']\n    gender: str\n    # age [28, 30, 31, 44, 45, 46, 59, 60, 61]\n    age: int\n    # race ['asian', 'white', 'black', 'hispanic', 'indian']\n    race: str\n    # employment_status ['employed', 'retired', 'unemployed', 'student']\n    employment_status: str\n    # education ['high school', 'college', 'bachelor', 'master', 'doctor']\n    education: str\n    # marital_status ['single', 'married', 'widowed', 'divorced', 'legally separated']\n    marital_status: str\n    # religion ['christianity', 'islam', 'atheist', 'hinduism', 'buddhism']\n    religion: str\n    # GPA ['1.5', '2.0', '2.5', '2.8', '3.0', '3.2', '3.3', '3.4', '3.5', '3.6', '3.7', '3.8', '3.9', '4.0']\n    GPA: str\n    GPA: float\n    # research_publications ['no', 'yes']\n    research_publications: str\n    research_publications: str\n\n    def eligible_for_graduate_scholarship(self)-> bool\n        \"\"\"This function takes a GraduateScholarshipApplicant object and returns a boolean value.\nWrite the condition by defining the necessary attribute/attributes to select the student\nwho is eligible for a graduate scholarship.\n        \"\"\"\n",
+  "generated_functions": [
+    "return self.education in ['bachelor', 'master', 'doctor'] and \\\n       self.GPA >= 3.5 and \\\n       self.research_publications == 'yes'",
+    "return self.education in ['bachelor', 'master', 'doctor'] and self.GPA >= 3.0",
+    "return (self.education in ['bachelor', 'master', 'doctor'] and\n                self.GPA >= 3.5 and\n                self.research_publications == 'yes')",
+    "is_educated_enough = self.education in ['bachelor', 'master', 'doctor']\nhas_good_gpa = self.GPA >= 3.0\nhas_publications = self.research_publications == 'yes'\n\nreturn is_educated_enough and has_good_gpa and has_publications",
+    "return (self.education in ['bachelor', 'master', 'doctor'] and\n        self.GPA >= 3.5 and\n        self.research_publications == 'yes')"
+  ]
+}

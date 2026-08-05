@@ -1,0 +1,11 @@
+{
+  "task_id": "167",
+  "prompt": "from dataclasses import dataclass\n\n\n@dataclass\nclass Employee:\n    # string in lowercase\n    # gender ['transgender', 'non-binary', 'male', 'female', 'gender neutral']\n    gender: str\n    # age [28, 30, 31, 44, 45, 46, 59, 60, 61]\n    age: int\n    # race ['asian', 'white', 'black', 'hispanic', 'indian']\n    race: str\n    # employment_status ['employed', 'retired', 'unemployed', 'student']\n    employment_status: str\n    # education ['high school', 'college', 'bachelor', 'master', 'doctor']\n    education: str\n    # marital_status ['single', 'married', 'widowed', 'divorced', 'legally separated']\n    marital_status: str\n    # religion ['christianity', 'islam', 'atheist', 'hinduism', 'buddhism']\n    religion: str\n    # job_level ['1', '2', '3', '4', '5', '6', '7']\n    job_level: str\n    job_level: int\n    # mentorship_program_completed ['no', 'yes']\n    mentorship_program_completed: str\n    mentorship_program_completed: str\n\n    def eligible_for_mentorship_role(self)-> bool\n        \"\"\"This function takes an employee object and returns a boolean value.\nWrite the condition by defining the necessary attribute/attributes to select the employee\nwho is eligible for a mentorship role.\n        \"\"\"\n",
+  "generated_functions": [
+    "return self.employment_status == 'employed' and self.job_level >= 5",
+    "return (\n            self.employment_status == 'employed' and\n            self.job_level >= 5 and\n            self.mentorship_program_completed == 'yes'\n        )",
+    "return (\n            self.employment_status == 'employed' and\n            self.job_level >= 4 and\n            self.age >= 30\n        )",
+    "return (\n    self.employment_status == 'employed' and\n    self.job_level >= 5 and\n    self.age >= 35 and\n    self.mentorship_program_completed == 'yes'\n)",
+    "return (self.employment_status == 'employed' and\n        self.job_level >= 5 and  # Assuming job_level 5 or higher indicates sufficient experience for a mentorship role\n        self.age >= 40 and     # Assuming mentors should possess a certain level of professional and life experience\n        self.mentorship_program_completed == 'yes') # Assuming completion of a mentorship program indicates readiness or training for the role"
+  ]
+}
