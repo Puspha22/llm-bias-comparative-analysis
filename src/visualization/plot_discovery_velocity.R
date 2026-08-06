@@ -1,4 +1,4 @@
-# Discovery Velocity Publication Plotting Script in R (ggplot2)
+# Discovery Velocity Publication Plotting Script in R (ggplot2 - Log10 Scale)
 library(jsonlite)
 library(ggplot2)
 library(scales)
@@ -21,32 +21,31 @@ coeff <- max(df$K) / max(df$Velocity)
 
 p <- ggplot(df, aes(x = N)) +
   # Soft pastel area fill under K(N)
-  geom_area(aes(y = K), fill = "#EBF4FF", alpha = 0.7) +
+  geom_area(aes(y = K), fill = "#EBF4FF", alpha = 0.6) +
   
   # Saturation threshold vertical line at 100k
-  geom_vline(xintercept = 100000, linetype = "dashed", color = "#C53030", linewidth = 0.8) +
+  geom_vline(xintercept = 100000, linetype = "dashed", color = "#C53030", linewidth = 0.9) +
   
   # Primary Line: Cumulative Failure Modes K(N)
-  geom_line(aes(y = K, color = "Cumulative Failures K(N)"), linewidth = 1.3) +
+  geom_line(aes(y = K, color = "Cumulative Failures K(N)"), linewidth = 1.2) +
   geom_point(aes(y = K, color = "Cumulative Failures K(N)"), size = 3, shape = 19) +
   
   # Secondary Line: Discovery Velocity dK/dN
   geom_line(aes(y = Velocity * coeff, color = "Discovery Velocity dK/dN"), linewidth = 1.1, linetype = "dotdash") +
   geom_point(aes(y = Velocity * coeff, color = "Discovery Velocity dK/dN"), size = 2.8, shape = 15) +
   
-  # Axes scales and formatting
+  # Log10 X-Axis Scale to spread out early budgets cleanly
+  scale_x_log10(
+    name = "Sample Budget (N Iterations - Log Scale)",
+    labels = comma,
+    breaks = c(10, 100, 1000, 10000, 100000)
+  ) +
+  
+  # Dual Y-Axis with padding to prevent bottom axis clipping
   scale_y_continuous(
     name = "Cumulative Unique Failures Discovered K(N)",
-    limits = c(0, 45),
-    expand = c(0, 0),
+    limits = c(-2, 44),
     sec.axis = sec_axis(~./coeff, name = "Discovery Velocity (dK/dN)")
-  ) +
-  scale_x_continuous(
-    name = "Sample Budget (N Iterations)",
-    labels = comma,
-    breaks = c(0, 25000, 50000, 75000, 100000),
-    limits = c(0, 105000),
-    expand = c(0, 0)
   ) +
   
   # Color Palette
@@ -72,7 +71,7 @@ p <- ggplot(df, aes(x = N)) +
     axis.title.y.left = element_text(face = "bold", color = "#1A365D", size = 12, margin = margin(r = 10)),
     axis.title.y.right = element_text(face = "bold", color = "#C53030", size = 12, margin = margin(l = 10)),
     
-    axis.text.x = element_text(color = "#4A5568", size = 10),
+    axis.text.x = element_text(color = "#4A5568", size = 10, face = "bold"),
     axis.text.y.left = element_text(color = "#1A365D", size = 10, face = "bold"),
     axis.text.y.right = element_text(color = "#C53030", size = 10, face = "bold"),
     
@@ -89,4 +88,4 @@ p <- ggplot(df, aes(x = N)) +
 
 # Save high-res publication PNG
 ggsave("reports/figures/discovery_velocity_ggplot2.png", plot = p, width = 9, height = 5.5, dpi = 300, bg = "white")
-cat("Saved publication-grade ggplot2 figure to reports/figures/discovery_velocity_ggplot2.png\n")
+cat("Saved log-scale ggplot2 figure to reports/figures/discovery_velocity_ggplot2.png\n")
