@@ -1,7 +1,6 @@
 import os
 import json
 import textwrap
-import re
 import math
 from collections import defaultdict
 import random
@@ -31,12 +30,12 @@ def run_sensitivity_analysis():
                 total_combos = math.prod(len(c) for c in combos)
                 if total_combos > 1000000:
                     complex_functions.append((t_id, i, prompt, clean_code, used_attrs, combos, total_combos))
-                    if len(complex_functions) >= 10:
+                    if len(complex_functions) >= 15:
                         break
-        if len(complex_functions) >= 10:
+        if len(complex_functions) >= 15:
             break
 
-    sample_budgets = [1000, 5000, 10000, 25000, 50000, 75000, 100000, 150000, 200000]
+    sample_budgets = [10, 50, 100, 500, 1000, 5000, 10000, 25000, 50000, 75000, 100000]
     seeds = [42, 123, 999]
 
     sensitivity_results = {
@@ -70,16 +69,16 @@ def run_sensitivity_analysis():
             "budget_evaluations": {}
         }
 
-        # Track outputs and unique failure patterns (combos triggering True) per seed
+        # Track attribute-level failure triggers K(N) per seed
         for seed in seeds:
             random.seed(seed)
-            discovered_failure_modes = set()
+            discovered_failure_attributes = set()
             outputs = set()
             p_obj = Person(**base_profile)
             
-            curr_sample_idx = 0
+            curr_n = 0
             for budget in sample_budgets:
-                needed = budget - curr_sample_idx
+                needed = budget - curr_n
                 for _ in range(needed):
                     combo = tuple(random.choice(c) for c in combos)
                     for k_idx, key in enumerate(used_attrs):
@@ -88,14 +87,15 @@ def run_sensitivity_analysis():
                         res = func_obj(p_obj)
                         outputs.add(str(res))
                         if res is True or str(res) == "True":
-                            # Record failure sub-tuple pattern (combination of decision attributes triggering True)
-                            discovered_failure_modes.add(combo)
+                            for k_idx, key in enumerate(used_attrs):
+                                if key in PROTECTED_ATTRIBUTES:
+                                    val = combo[k_idx]
+                                    discovered_failure_attributes.add((key, str(val)))
                     except Exception as e:
                         outputs.add(f"Error:{type(e).__name__}")
-                        discovered_failure_modes.add(combo)
 
-                curr_sample_idx = budget
-                k_count = len(discovered_failure_modes)
+                curr_n = budget
+                k_count = len(discovered_failure_attributes)
                 cumulative_failures_by_budget[budget].append(k_count)
 
                 valid_outputs = {r for r in outputs if "Error" not in r}
@@ -142,7 +142,7 @@ def run_sensitivity_analysis():
     with open(out_file, 'w', encoding='utf-8') as f:
         json.dump(sensitivity_results, f, indent=2)
 
-    print("\n================ SENSITIVITY ANALYSIS & DISCOVERY VELOCITY REPORT ================")
+    print("\n================ PROFESSOR FAILURE MODE DISCOVERY K(N) REPORT ================")
     print(json.dumps(discovery_velocity_summary, indent=2))
 
 if __name__ == "__main__":
