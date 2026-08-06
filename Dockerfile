@@ -6,6 +6,10 @@ ENV PYTHONDONTWRITEBYTECODE=1
 # Install system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
+    r-base \
+    r-cran-ggplot2 \
+    r-cran-jsonlite \
+    r-cran-scales \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
