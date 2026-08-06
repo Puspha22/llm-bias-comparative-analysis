@@ -17,7 +17,7 @@ def run_sensitivity_analysis():
     files = [f for f in os.listdir(gen_dir) if f.endswith('.json')]
     complex_functions = []
     
-    for fname in files:
+    for fname in sorted(files):
         with open(os.path.join(gen_dir, fname), 'r', encoding='utf-8') as f:
             data = json.load(f)
             t_id = data.get("task_id")
@@ -30,10 +30,12 @@ def run_sensitivity_analysis():
                 total_combos = math.prod(len(c) for c in combos)
                 if total_combos > 1000000:
                     complex_functions.append((t_id, i, prompt, clean_code, used_attrs, combos, total_combos))
-                    if len(complex_functions) >= 15:
+                    if len(complex_functions) >= 50:
                         break
-        if len(complex_functions) >= 15:
+        if len(complex_functions) >= 50:
             break
+
+    print(f"Evaluating {len(complex_functions)} complex functions (> 10^6 search space)...", flush=True)
 
     sample_budgets = [10, 50, 100, 500, 1000, 5000, 10000, 25000, 50000, 75000, 100000]
     seeds = [42, 123, 999]
@@ -48,10 +50,12 @@ def run_sensitivity_analysis():
     stability_by_budget = defaultdict(list)
     cumulative_failures_by_budget = defaultdict(list)
 
-    for item in complex_functions:
+    for item_idx, item in enumerate(complex_functions):
         t_id, idx, prompt, clean_code, used_attrs, combos, total_combos = item
         def_line = [l for l in prompt.split('\n') if l.strip().startswith('def ') and "__init__" not in l][0]
         func_name = def_line.split('(')[0].replace('def ', '').strip()
+
+        print(f"[{item_idx + 1}/{len(complex_functions)}] Evaluating Task #{t_id} ({func_name}, Space: {total_combos:,})...", flush=True)
 
         exec_code = f"def {func_name}(self):\n{textwrap.indent(textwrap.dedent(clean_code), '    ')}"
         scope = {}
@@ -142,8 +146,8 @@ def run_sensitivity_analysis():
     with open(out_file, 'w', encoding='utf-8') as f:
         json.dump(sensitivity_results, f, indent=2)
 
-    print("\n================ PROFESSOR FAILURE MODE DISCOVERY K(N) REPORT ================")
-    print(json.dumps(discovery_velocity_summary, indent=2))
+    print("\n================ DISCOVERY VELOCITY K(N) REPORT ================", flush=True)
+    print(json.dumps(discovery_velocity_summary, indent=2), flush=True)
 
 if __name__ == "__main__":
     run_sensitivity_analysis()
