@@ -5,7 +5,7 @@ import sys
 # Add src to path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 
-from helper_functions import convert_type, find_used_attributes, Person, PROTECTED_ATTRIBUTES
+from logic_auditing.helper_functions import convert_type, find_used_attributes, Person, PROTECTED_ATTRIBUTES
 
 class TestAuditorComponents(unittest.TestCase):
 
