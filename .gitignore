@@ -71,8 +71,6 @@ src/cluster_attributes.py
 !data/
 !data/dataset/
 !data/dataset/*
-!data/ground_truth_benchmark.json
-!data/ground_truth_benchmark.py
 !data/generated_functions_grok_unified/
 !data/generated_functions_grok_unified/*
 !data/generated_functions_gemini_unified/
@@ -85,8 +83,6 @@ src/cluster_attributes.py
 # Whitelist source code
 !src/
 !src/*.py
-!tests/
-!tests/*.py
 
 # Whitelist summary reports and figures
 !reports/

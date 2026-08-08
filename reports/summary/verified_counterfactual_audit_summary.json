@@ -1,0 +1,180 @@
+{
+  "Gemini_Unified": {
+    "total_functions_evaluated": 1711,
+    "counterfactual_biased_functions": 379,
+    "counterfactual_bias_rate_pct": 22.15,
+    "ci_95_lower_pct": 18.6,
+    "ci_95_upper_pct": 25.75,
+    "attribute_flips": {
+      "dependents_count": 26,
+      "age": 272,
+      "marital_status": 10,
+      "disability_rating": 30,
+      "family_size": 9,
+      "number_of_children": 16,
+      "pregnancy_status": 11,
+      "race": 3,
+      "mental_health_history": 24,
+      "gender": 4,
+      "genetic_disorder_risk": 6
+    },
+    "average_counterfactual_flip_rates_pct": {
+      "dependents_count": 7.73,
+      "age": 12.54,
+      "marital_status": 72.65,
+      "disability_rating": 22.17,
+      "family_size": 12.51,
+      "number_of_children": 35.65,
+      "pregnancy_status": 59.58,
+      "race": 0.99,
+      "mental_health_history": 27.11,
+      "gender": 1.28,
+      "genetic_disorder_risk": 10.62
+    },
+    "domain_breakdown_pct": {
+      "Social Benefits": 54.51,
+      "University Admissions and Awards": 10.63,
+      "Employee Development and Benefits": 44.31,
+      "Health Exams and Programs": 2.67,
+      "Licensing": 24.19,
+      "Hobbies": 18.0,
+      "Occupations": 2.01
+    }
+  },
+  "Grok_Unified": {
+    "total_functions_evaluated": 1715,
+    "counterfactual_biased_functions": 657,
+    "counterfactual_bias_rate_pct": 38.31,
+    "ci_95_lower_pct": 33.99,
+    "ci_95_upper_pct": 42.74,
+    "attribute_flips": {
+      "age": 528,
+      "mental_health_history": 47,
+      "family_size": 23,
+      "dependents_count": 20,
+      "disability_rating": 30,
+      "number_of_children": 18,
+      "race": 3,
+      "gender": 5,
+      "religion": 1,
+      "pregnancy_status": 8,
+      "genetic_disorder_risk": 3,
+      "marital_status": 5
+    },
+    "average_counterfactual_flip_rates_pct": {
+      "age": 15.38,
+      "mental_health_history": 13.46,
+      "family_size": 16.26,
+      "dependents_count": 10.98,
+      "disability_rating": 32.65,
+      "number_of_children": 24.5,
+      "race": 10.83,
+      "gender": 8.8,
+      "religion": 1.39,
+      "pregnancy_status": 100.0,
+      "genetic_disorder_risk": 37.63,
+      "marital_status": 52.92
+    },
+    "domain_breakdown_pct": {
+      "Social Benefits": 64.71,
+      "University Admissions and Awards": 16.08,
+      "Employee Development and Benefits": 83.14,
+      "Health Exams and Programs": 8.33,
+      "Licensing": 55.6,
+      "Hobbies": 42.67,
+      "Occupations": 4.4
+    }
+  },
+  "Gemini_Legacy": {
+    "total_functions_evaluated": 1688,
+    "counterfactual_biased_functions": 326,
+    "counterfactual_bias_rate_pct": 19.31,
+    "ci_95_lower_pct": 15.71,
+    "ci_95_upper_pct": 22.87,
+    "attribute_flips": {
+      "age": 255,
+      "marital_status": 21,
+      "household_size": 28,
+      "race": 20,
+      "gender": 26,
+      "religion": 3,
+      "mental_health_history": 5,
+      "pregnancy_status": 5,
+      "family_size": 3,
+      "genetic_disorder_risk": 5,
+      "number_of_dependents": 1,
+      "disability_rating": 2,
+      "number_of_children": 1,
+      "service_disability_rating": 4
+    },
+    "average_counterfactual_flip_rates_pct": {
+      "age": 40.12,
+      "marital_status": 68.78,
+      "household_size": 31.69,
+      "race": 18.26,
+      "gender": 30.98,
+      "religion": 1.82,
+      "mental_health_history": 80.67,
+      "pregnancy_status": 100.0,
+      "family_size": 52.38,
+      "genetic_disorder_risk": 100.0,
+      "number_of_dependents": 8.33,
+      "disability_rating": 81.82,
+      "number_of_children": 14.29,
+      "service_disability_rating": 29.55
+    },
+    "domain_breakdown_pct": {
+      "Social Benefits": 43.51,
+      "University Admissions and Awards": 5.91,
+      "Employee Development and Benefits": 16.47,
+      "Health Exams and Programs": 14.48,
+      "Licensing": 32.26,
+      "Hobbies": 22.0,
+      "Occupations": 3.67
+    }
+  },
+  "Gemini_Expanded": {
+    "total_functions_evaluated": 1627,
+    "counterfactual_biased_functions": 302,
+    "counterfactual_bias_rate_pct": 18.56,
+    "ci_95_lower_pct": 14.99,
+    "ci_95_upper_pct": 22.2,
+    "attribute_flips": {
+      "age": 239,
+      "marital_status": 17,
+      "household_size": 26,
+      "race": 19,
+      "gender": 25,
+      "religion": 2,
+      "mental_health_history": 5,
+      "pregnancy_status": 5,
+      "genetic_disorder_risk": 5,
+      "disability_rating": 1,
+      "number_of_children": 1,
+      "service_disability_rating": 5
+    },
+    "average_counterfactual_flip_rates_pct": {
+      "age": 45.35,
+      "marital_status": 86.76,
+      "household_size": 34.16,
+      "race": 20.95,
+      "gender": 36.05,
+      "religion": 2.33,
+      "mental_health_history": 86.0,
+      "pregnancy_status": 100.0,
+      "genetic_disorder_risk": 100.0,
+      "disability_rating": 100.0,
+      "number_of_children": 14.29,
+      "service_disability_rating": 9.09
+    },
+    "domain_breakdown_pct": {
+      "Social Benefits": 43.28,
+      "University Admissions and Awards": 1.61,
+      "Employee Development and Benefits": 14.29,
+      "Health Exams and Programs": 13.9,
+      "Licensing": 30.92,
+      "Hobbies": 19.33,
+      "Occupations": 6.15
+    }
+  }
+}

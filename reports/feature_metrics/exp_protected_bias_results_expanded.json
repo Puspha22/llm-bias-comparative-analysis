@@ -1,0 +1,16 @@
+{
+  "age": 343,
+  "marital_status": 17,
+  "household_size": 26,
+  "dependents_count": 9,
+  "number_of_children": 18,
+  "gender": 29,
+  "race": 19,
+  "religion": 2,
+  "pregnancy_status": 5,
+  "genetic_disorder_risk": 5,
+  "number_of_dependents": 4,
+  "disability_percentage": 10,
+  "disability_rating": 1,
+  "service_disability_rating": 5
+}

@@ -1,0 +1,150 @@
+{
+  "Gemini Legacy": {
+    "Social Benefits": {
+      "total_tasks": 51,
+      "biased_tasks": 39,
+      "bias_pct": 76.47
+    },
+    "University Admissions": {
+      "total_tasks": 51,
+      "biased_tasks": 7,
+      "bias_pct": 13.73
+    },
+    "Employee Dev. & Benefits": {
+      "total_tasks": 51,
+      "biased_tasks": 43,
+      "bias_pct": 84.31
+    },
+    "Health Exams": {
+      "total_tasks": 60,
+      "biased_tasks": 12,
+      "bias_pct": 20.0
+    },
+    "Licensing": {
+      "total_tasks": 50,
+      "biased_tasks": 19,
+      "bias_pct": 38.0
+    },
+    "Hobbies": {
+      "total_tasks": 30,
+      "biased_tasks": 14,
+      "bias_pct": 46.67
+    },
+    "Occupations": {
+      "total_tasks": 50,
+      "biased_tasks": 6,
+      "bias_pct": 12.0
+    }
+  },
+  "Gemini Expanded": {
+    "Social Benefits": {
+      "total_tasks": 51,
+      "biased_tasks": 40,
+      "bias_pct": 78.43
+    },
+    "University Admissions": {
+      "total_tasks": 51,
+      "biased_tasks": 4,
+      "bias_pct": 7.84
+    },
+    "Employee Dev. & Benefits": {
+      "total_tasks": 51,
+      "biased_tasks": 39,
+      "bias_pct": 76.47
+    },
+    "Health Exams": {
+      "total_tasks": 60,
+      "biased_tasks": 13,
+      "bias_pct": 21.67
+    },
+    "Licensing": {
+      "total_tasks": 50,
+      "biased_tasks": 23,
+      "bias_pct": 46.0
+    },
+    "Hobbies": {
+      "total_tasks": 30,
+      "biased_tasks": 14,
+      "bias_pct": 46.67
+    },
+    "Occupations": {
+      "total_tasks": 50,
+      "biased_tasks": 4,
+      "bias_pct": 8.0
+    }
+  },
+  "Gemini Unified": {
+    "Social Benefits": {
+      "total_tasks": 51,
+      "biased_tasks": 47,
+      "bias_pct": 92.16
+    },
+    "University Admissions": {
+      "total_tasks": 51,
+      "biased_tasks": 15,
+      "bias_pct": 29.41
+    },
+    "Employee Dev. & Benefits": {
+      "total_tasks": 51,
+      "biased_tasks": 47,
+      "bias_pct": 92.16
+    },
+    "Health Exams": {
+      "total_tasks": 60,
+      "biased_tasks": 6,
+      "bias_pct": 10.0
+    },
+    "Licensing": {
+      "total_tasks": 50,
+      "biased_tasks": 24,
+      "bias_pct": 48.0
+    },
+    "Hobbies": {
+      "total_tasks": 30,
+      "biased_tasks": 12,
+      "bias_pct": 40.0
+    },
+    "Occupations": {
+      "total_tasks": 50,
+      "biased_tasks": 6,
+      "bias_pct": 12.0
+    }
+  },
+  "Grok Unified": {
+    "Social Benefits": {
+      "total_tasks": 51,
+      "biased_tasks": 43,
+      "bias_pct": 84.31
+    },
+    "University Admissions": {
+      "total_tasks": 51,
+      "biased_tasks": 19,
+      "bias_pct": 37.25
+    },
+    "Employee Dev. & Benefits": {
+      "total_tasks": 51,
+      "biased_tasks": 49,
+      "bias_pct": 96.08
+    },
+    "Health Exams": {
+      "total_tasks": 60,
+      "biased_tasks": 8,
+      "bias_pct": 13.33
+    },
+    "Licensing": {
+      "total_tasks": 50,
+      "biased_tasks": 35,
+      "bias_pct": 70.0
+    },
+    "Hobbies": {
+      "total_tasks": 30,
+      "biased_tasks": 19,
+      "bias_pct": 63.33
+    },
+    "Occupations": {
+      "total_tasks": 50,
+      "biased_tasks": 3,
+      "bias_pct": 6.0
+    }
+  }
+}
