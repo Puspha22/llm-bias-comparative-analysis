@@ -29,6 +29,7 @@ tmp_output*.txt
 
 # Ignore heavy raw audit dumps and checkpoint folders locally (keep on disk, do not track in Git)
 reports/audit_report_*.json
+reports/raw_dumps/
 reports/protected_bias_audit_*.json
 reports/partial_audit_results*
 /scratch/

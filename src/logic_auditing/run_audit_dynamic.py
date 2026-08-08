@@ -13,7 +13,7 @@ except ImportError:
 # Configuration
 GENERATED_DIR = os.path.join("data", "generated_functions_grok_unified")
 PROMPTS_FILE = os.path.join("data", "dataset", "prompts_unified_new.jsonl")
-AUDIT_REPORT = os.path.join("reports", "audit_report_grok.json")
+AUDIT_REPORT = os.path.join("reports", "raw_dumps", "audit_report_grok_unified.json")
 PARTIAL_DIR = os.path.join("reports", "partial_audit_results_grok_unified")
 
 from helper_functions import Person, convert_type, find_used_attributes, build_profile_map, PROTECTED_ATTRIBUTES
