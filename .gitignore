@@ -31,7 +31,7 @@ tmp_output*.txt
 reports/audit_report_*.json
 reports/protected_bias_audit_*.json
 reports/partial_audit_results*
-scratch/
+/scratch/
 data/dataset/prompts_unified.jsonl
 data/generated_functions_unified/
 data/generated_functions_unified_test/
