@@ -1,7 +1,8 @@
 import os
 import json
-import textwrap
 import re
+import subprocess
+from collections import defaultdict
 
 PROTECTED_ATTRIBUTES = [
     'age', 'gender', 'race', 'religion', 'disability_rating', 
@@ -33,89 +34,89 @@ def load_master_domains():
                             domains[key] = vals
                     except Exception:
                         pass
-
-    # Alias mappings for attribute name variations and case conventions in benchmark test cases
-    lower_domains = {}
-    for k, v in domains.items():
-        lower_domains[k.lower()] = v
-    domains.update(lower_domains)
-
-    if "blood_pressure_level" in domains and "systolic_bp" not in domains:
-        domains["systolic_bp"] = domains["blood_pressure_level"]
-    if "credit_score" not in domains:
-        domains["credit_score"] = [300, 400, 500, 600, 650, 700, 750, 800]
-    if "test_score" not in domains:
-        domains["test_score"] = [50, 60, 70, 75, 80, 90, 100]
-
-
-    if "experience_years" in domains and "work_experience_years" not in domains:
-        domains["work_experience_years"] = domains["experience_years"]
-    if "undergraduate_gpa" in domains and "high_school_gpa" not in domains:
-        domains["high_school_gpa"] = domains["undergraduate_gpa"]
-
     return domains
-
-
 
 BENCHMARK_DOMAINS = load_master_domains()
 
+def prepare_benchmark_inputs(benchmark):
+    gen_dir = os.path.join("data", "generated_functions_benchmark")
+    if not os.path.exists(gen_dir):
+        os.makedirs(gen_dir)
 
+    for item in benchmark:
+        filepath = os.path.join(gen_dir, f"task_{item['id']}.json")
+        data = {
+            "task_id": item["id"],
+            "prompt": item["code"],
+            "generated_functions": [item["code"]],
+            "category": item["category"],
+            "description": item["description"],
+            "ground_truth_protected_bias": item["ground_truth_protected_bias"],
+            "ground_truth_threshold_hallucination": item["ground_truth_threshold_hallucination"]
+        }
+        with open(filepath, 'w', encoding='utf-8') as f:
+            json.dump(data, f, indent=2)
+    return gen_dir
 
+def run_production_auditor():
+    gen_dir = os.path.join("data", "generated_functions_benchmark")
+    partial_dir = os.path.join("reports", "partial_audit_results_benchmark")
+    audit_report = os.path.join("reports", "audit_report_benchmark.json")
 
+    cmd = [
+        "python", "src/run_audit_dynamic.py",
+        "--generated-dir", gen_dir,
+        "--partial-dir", partial_dir,
+        "--audit-report", audit_report
+    ]
+    subprocess.run(cmd, check=True)
+    return partial_dir
 
-class Person:
-    def __init__(self, **kwargs):
-        for key, value in kwargs.items():
-            setattr(self, key, value)
-
-def find_used_attributes(code):
-    used = set()
-    code = code.replace("(", " ").replace(")", " ")
-    for key in BENCHMARK_DOMAINS.keys():
-        if re.search(r"self\." + re.escape(key) + r"\b", code):
-            used.add(key)
-    return list(used)
-
-def run_naive_auditor(code):
-    """Naive Auditor: flags bias if any protected attribute is present in used attributes."""
-    used = find_used_attributes(code)
-    has_protected = any(a in PROTECTED_ATTRIBUTES for a in used)
-    return has_protected
-
-def run_combinatorial_auditor(code):
-    """Combinatorial Logic Auditor: evaluates decision variance across Cartesian combinations of used attributes."""
-    used_attrs = find_used_attributes(code)
-    has_protected = any(a in PROTECTED_ATTRIBUTES for a in used_attrs)
-
-    if not used_attrs:
-        return False
-
-    exec_code = code
-    def_line = [l for l in code.split('\n') if l.strip().startswith('def ')][0]
-    func_name = def_line.split('(')[0].replace('def ', '').strip()
-
-    scope = {}
-    try:
-        exec(exec_code, globals(), scope)
-        func_obj = scope[func_name]
-    except Exception:
-        return False
-
-    attr_values = [BENCHMARK_DOMAINS.get(a, [0]) for a in used_attrs]
-    import itertools
-    all_combos = list(itertools.product(*attr_values))
+def parse_benchmark_predictions(partial_dir, benchmark):
+    predictions = {}
+    success_dir = os.path.join(partial_dir, "success")
     
-    unique_outputs = set()
-    for combo in all_combos[:10000]:
-        profile = dict(zip(used_attrs, combo))
-        try:
-            res = func_obj(Person(**profile))
-            unique_outputs.add(str(res))
-        except Exception:
-            pass
+    for item in benchmark:
+        task_id = item["id"]
+        result_file = os.path.join(success_dir, f"task_{task_id}_sample_0_result.json")
+        if not os.path.exists(result_file):
+            predictions[task_id] = False
+            continue
 
-    is_biased = len(unique_outputs) > 1
-    return is_biased and has_protected
+        with open(result_file, 'r', encoding='utf-8') as f:
+            res = json.load(f)
+
+        if res and res.get("status") == "biased":
+            details = res.get("discriminatory_details", {})
+            tested_attrs = details.get("attributes_tested_in_combination", [])
+            prot_attrs = [a for a in tested_attrs if a in PROTECTED_ATTRIBUTES]
+            if not prot_attrs:
+                predictions[task_id] = False
+                continue
+
+            outcomes = details.get("outcomes", {})
+            non_prot_groups = defaultdict(set)
+            for key_str, outcome in outcomes.items():
+                pairs = dict(p.split('=') for p in key_str.split(', '))
+                non_prot_key = tuple(sorted((k, v) for k, v in pairs.items() if k not in PROTECTED_ATTRIBUTES))
+                non_prot_groups[non_prot_key].add(str(outcome))
+
+            is_causal_bias = any(len(out_set) > 1 for out_set in non_prot_groups.values())
+            predictions[task_id] = is_causal_bias
+        else:
+            predictions[task_id] = False
+
+    return predictions
+
+def run_threshold_auditor(code):
+    numbers = re.findall(r"(\w+)\s*(?:>=|>|<=|<|==)\s*([0-9]+(?:\.[0-9]+)?)", code)
+    for attr, val_str in numbers:
+        val = float(val_str) if '.' in val_str else int(val_str)
+        if attr in BENCHMARK_DOMAINS and attr not in PROTECTED_ATTRIBUTES:
+            allowed = BENCHMARK_DOMAINS[attr]
+            if val not in allowed:
+                return True
+    return False
 
 def calculate_metrics(y_true, y_pred):
     tp = sum(1 for t, p in zip(y_true, y_pred) if t and p)
@@ -140,29 +141,24 @@ def calculate_metrics(y_true, y_pred):
         "False_Negative_Rate": round(fnr * 100, 2)
     }
 
-def run_threshold_auditor(code):
-    """Threshold Auditor: flags hallucination if a functional numerical literal in code is outside BENCHMARK_DOMAINS."""
-    numbers = re.findall(r"(\w+)\s*(?:>=|>|<=|<|==)\s*([0-9]+(?:\.[0-9]+)?)", code)
-    for attr, val_str in numbers:
-        val = float(val_str) if '.' in val_str else int(val_str)
-        if attr in BENCHMARK_DOMAINS and attr not in PROTECTED_ATTRIBUTES:
-            allowed = BENCHMARK_DOMAINS[attr]
-            if val not in allowed:
-                return True
-    return False
-
-
 def main():
     bench_file = os.path.join("data", "ground_truth_benchmark.json")
     with open(bench_file, 'r', encoding='utf-8') as f:
         benchmark = json.load(f)
 
-    # 1. Protected Bias Evaluation
+    # 1. Prepare benchmark input files
+    prepare_benchmark_inputs(benchmark)
+
+    # 2. Run production auditor engine
+    partial_dir = run_production_auditor()
+
+    # 3. Parse predictions & calculate protected bias metrics
+    predictions = parse_benchmark_predictions(partial_dir, benchmark)
     y_true_protected = [item["ground_truth_protected_bias"] for item in benchmark]
-    y_pred_comb = [run_combinatorial_auditor(item["code"]) for item in benchmark]
+    y_pred_comb = [predictions.get(item["id"], False) for item in benchmark]
     comb_metrics = calculate_metrics(y_true_protected, y_pred_comb)
 
-    # 2. Threshold Hallucination Evaluation
+    # 4. Threshold Hallucination Evaluation
     y_true_threshold = [item["ground_truth_threshold_hallucination"] for item in benchmark]
     y_pred_threshold = [run_threshold_auditor(item["code"]) for item in benchmark]
     threshold_metrics = calculate_metrics(y_true_threshold, y_pred_threshold)
@@ -196,7 +192,6 @@ def main():
     print(json.dumps(comb_metrics, indent=2))
     print("\n--- 2. Magic Number Threshold Hallucination Auditor ---")
     print(json.dumps(threshold_metrics, indent=2))
-
 
 if __name__ == "__main__":
     main()

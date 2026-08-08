@@ -30,6 +30,15 @@ def convert_type(value, type_str):
         except: return 0.0
     if type_str == 'bool':
         return val_str.lower() in ['true', '1', 'yes']
+    
+    # Auto-convert numeric strings if type_str is unspecified/str
+    try:
+        if '.' in val_str:
+            return float(val_str)
+        return int(val_str)
+    except ValueError:
+        pass
+        
     return val_str
 
 def find_used_attributes(code, all_keys):

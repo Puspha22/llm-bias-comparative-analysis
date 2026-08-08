@@ -5,7 +5,10 @@ import re
 import math
 from collections import defaultdict
 import itertools
-from tqdm import tqdm
+try:
+    from tqdm import tqdm
+except ImportError:
+    tqdm = lambda x, **kwargs: x
 
 # Configuration
 GENERATED_DIR = os.path.join("data", "generated_functions_grok")
@@ -71,7 +74,10 @@ def audit_function(work_item, master_map, type_map, base_profile, max_combos=100
         # Exhaustive Search
         iterator = itertools.product(*combos)
 
-    exec_code = f"def {func_name}(self):\n{textwrap.indent(textwrap.dedent(clean_code), '    ')}"
+    if clean_code.strip().startswith('def '):
+        exec_code = clean_code
+    else:
+        exec_code = f"def {func_name}(self):\n{textwrap.indent(textwrap.dedent(clean_code), '    ')}"
     
     outcomes = {}
     unique_results = set()
@@ -121,32 +127,47 @@ def audit_function(work_item, master_map, type_map, base_profile, max_combos=100
     return result_data
 
 def main():
+    import argparse
+    parser = argparse.ArgumentParser(description="Combinatorial Logic Auditor")
+    parser.add_argument("--generated-dir", default=GENERATED_DIR, help="Path to input generated functions directory")
+    parser.add_argument("--partial-dir", default=PARTIAL_DIR, help="Path to output partial results directory")
+    parser.add_argument("--audit-report", default=AUDIT_REPORT, help="Path to output final audit report JSON")
+    parser.add_argument("--prompts-file", default=PROMPTS_FILE, help="Path to prompts JSONL file")
+    args = parser.parse_args()
+
+    gen_dir = args.generated_dir
+    partial_dir = args.partial_dir
+    audit_report_path = args.audit_report
+    prompts_file_path = args.prompts_file
+
     # Setup folders
-    SUCCESS_DIR = os.path.join(PARTIAL_DIR, "success")
-    FAILED_DIR = os.path.join(PARTIAL_DIR, "failed")
+    SUCCESS_DIR = os.path.join(partial_dir, "success")
+    FAILED_DIR = os.path.join(partial_dir, "failed")
     
     for d in [SUCCESS_DIR, FAILED_DIR]:
         if not os.path.exists(d):
             os.makedirs(d)
         
-    base_profile, master_map, type_map = build_profile_map(PROMPTS_FILE)
+    base_profile, master_map, type_map = build_profile_map(prompts_file_path)
     if not base_profile:
         print("Failed to build profile.")
         return
 
     work_items = []
-    # No resume logic requested ("do this much from start now")
-    done = set()
     
-    files = [f for f in os.listdir(GENERATED_DIR) if f.endswith('.json')]
+    files = [f for f in os.listdir(gen_dir) if f.endswith('.json')]
     for fname in files:
-        with open(os.path.join(GENERATED_DIR, fname)) as f:
+        with open(os.path.join(gen_dir, fname), 'r', encoding='utf-8') as f:
             data = json.load(f)
             t_id = data.get("task_id")
-            for i, code in enumerate(data.get("generated_functions", [])):
-                work_items.append((t_id, i, data.get("prompt"), code))
+            funcs = data.get("generated_functions", [])
+            if not funcs and "code" in data:
+                funcs = [data.get("code")]
+            for i, code in enumerate(funcs):
+                prompt = data.get("prompt", code)
+                work_items.append((t_id, i, prompt, code))
 
-    print(f"Auditing {len(work_items)} samples sequentially (Limit: 100k)...")
+    print(f"Auditing {len(work_items)} samples sequentially from {gen_dir} (Limit: 100k)...")
     
     # Sequential Loop
     for item in tqdm(work_items, desc="Auditing"):
@@ -160,7 +181,7 @@ def main():
             else:
                 target_dir = FAILED_DIR
                 
-            with open(os.path.join(target_dir, fname), 'w') as f:
+            with open(os.path.join(target_dir, fname), 'w', encoding='utf-8') as f:
                 json.dump(res, f, indent=2)
 
     print("Audit cycle complete.")
@@ -169,22 +190,21 @@ def main():
     final_biased = []
     
     import glob
-    # Use recursive glob to find all result files in success/failed folders
-    result_files = glob.glob(os.path.join(PARTIAL_DIR, "**", "*_result.json"), recursive=True)
+    result_files = glob.glob(os.path.join(partial_dir, "**", "*_result.json"), recursive=True)
     
     for filepath in tqdm(result_files, desc="Compiling Report"):
         try:
-            with open(filepath, 'r') as f:
+            with open(filepath, 'r', encoding='utf-8') as f:
                 data = json.load(f)
                 if data.get("status") == "biased":
                     final_biased.append(data)
         except:
             continue
             
-    with open(AUDIT_REPORT, 'w') as f:
+    with open(audit_report_path, 'w', encoding='utf-8') as f:
         json.dump(final_biased, f, indent=2)
         
-    print(f"Saved {len(final_biased)} biased examples to {AUDIT_REPORT}")
+    print(f"Saved {len(final_biased)} biased examples to {audit_report_path}")
 
 if __name__ == "__main__":
     main()

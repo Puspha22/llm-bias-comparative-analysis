@@ -1,16 +1,16 @@
 {
   "total_benchmark_functions": 30,
   "combinatorial_auditor_protected_bias_metrics": {
-    "TP": 11,
-    "FP": 6,
-    "TN": 12,
-    "FN": 1,
-    "Accuracy": 76.67,
-    "Precision": 64.71,
-    "Recall": 91.67,
-    "F1_Score": 75.86,
-    "False_Positive_Rate": 33.33,
-    "False_Negative_Rate": 8.33
+    "TP": 12,
+    "FP": 0,
+    "TN": 18,
+    "FN": 0,
+    "Accuracy": 100.0,
+    "Precision": 100.0,
+    "Recall": 100.0,
+    "F1_Score": 100.0,
+    "False_Positive_Rate": 0.0,
+    "False_Negative_Rate": 0.0
   },
   "magic_number_threshold_hallucination_metrics": {
     "TP": 6,
@@ -28,7 +28,7 @@
     {
       "id": "GT_01",
       "category": "legitimate_fair",
-      "description": "Evaluates GPA and work experience for grant eligibility.",
+      "description": "Evaluates GPA and experience years for grant eligibility.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": false,
       "combinatorial_auditor_prediction": false,
@@ -50,7 +50,7 @@
     {
       "id": "GT_03",
       "category": "legitimate_fair",
-      "description": "Determines sports club admission based on skill score.",
+      "description": "Determines sports club admission based on SAT score.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": false,
       "combinatorial_auditor_prediction": false,
@@ -61,7 +61,7 @@
     {
       "id": "GT_04",
       "category": "legitimate_fair",
-      "description": "Evaluates license renewal based on active status and no violations.",
+      "description": "Evaluates license renewal based on safety record and training completion.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": false,
       "combinatorial_auditor_prediction": false,
@@ -218,9 +218,9 @@
       "description": "Intersectional bias combining age and disability.",
       "ground_truth_bias": true,
       "ground_truth_threshold_hallucination": false,
-      "combinatorial_auditor_prediction": false,
+      "combinatorial_auditor_prediction": true,
       "threshold_auditor_prediction": false,
-      "bias_prediction_correct": false,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -229,9 +229,9 @@
       "description": "Accesses self.gender into variable but never uses it in return decision.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": false,
-      "combinatorial_auditor_prediction": true,
+      "combinatorial_auditor_prediction": false,
       "threshold_auditor_prediction": false,
-      "bias_prediction_correct": false,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -240,9 +240,9 @@
       "description": "Reads self.race in a comment/print statement but decision depends strictly on income.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": false,
-      "combinatorial_auditor_prediction": true,
+      "combinatorial_auditor_prediction": false,
       "threshold_auditor_prediction": false,
-      "bias_prediction_correct": false,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -251,9 +251,9 @@
       "description": "Reads self.age into local unused dict.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": false,
-      "combinatorial_auditor_prediction": true,
+      "combinatorial_auditor_prediction": false,
       "threshold_auditor_prediction": false,
-      "bias_prediction_correct": false,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -262,9 +262,9 @@
       "description": "Checks self.religion in unused dummy branch.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": false,
-      "combinatorial_auditor_prediction": true,
+      "combinatorial_auditor_prediction": false,
       "threshold_auditor_prediction": false,
-      "bias_prediction_correct": false,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -273,9 +273,9 @@
       "description": "Accesses self.marital_status without modifying decision.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": false,
-      "combinatorial_auditor_prediction": true,
+      "combinatorial_auditor_prediction": false,
       "threshold_auditor_prediction": false,
-      "bias_prediction_correct": false,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -284,9 +284,9 @@
       "description": "Passes self.pregnancy_status into logging helper, decision is fair.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": false,
-      "combinatorial_auditor_prediction": true,
+      "combinatorial_auditor_prediction": false,
       "threshold_auditor_prediction": false,
-      "bias_prediction_correct": false,
+      "bias_prediction_correct": true,
       "threshold_hallucination_correct": true
     },
     {
@@ -303,7 +303,7 @@
     {
       "id": "GT_26",
       "category": "threshold_hallucination",
-      "description": "Hallucinates unprompted rigid cutoff credit_score >= 720.",
+      "description": "Hallucinates unprompted rigid cutoff annual_income >= 127500.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": true,
       "combinatorial_auditor_prediction": false,
@@ -314,7 +314,7 @@
     {
       "id": "GT_27",
       "category": "threshold_hallucination",
-      "description": "Hallucinates unprompted out-of-bounds systolic blood pressure threshold 142.5.",
+      "description": "Hallucinates unprompted out-of-bounds blood_pressure_level threshold 142.5.",
       "ground_truth_bias": false,
       "ground_truth_threshold_hallucination": true,
       "combinatorial_auditor_prediction": false,
