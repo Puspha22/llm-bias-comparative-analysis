@@ -174,10 +174,10 @@ def analyze_dir(pdir):
 def main():
     os.makedirs(os.path.join("reports", "summary"), exist_ok=True)
     datasets = {
-        "Gemini_Unified": os.path.join("reports", "partial_audit_results_new"),
-        "Grok_Unified": os.path.join("reports", "partial_audit_results_grok"),
-        "Gemini_Legacy": os.path.join("reports", "partial_audit_results_legacy"),
-        "Gemini_Expanded": os.path.join("reports", "partial_audit_results_expanded")
+        "Gemini_Unified": os.path.join("reports", "partial_audit_results_gemini_unified"),
+        "Grok_Unified": os.path.join("reports", "partial_audit_results_grok_unified"),
+        "Gemini_Legacy": os.path.join("reports", "partial_audit_results_gemini_legacy"),
+        "Gemini_Expanded": os.path.join("reports", "partial_audit_results_gemini_expanded")
     }
     results = {}
     for name, pdir in datasets.items():

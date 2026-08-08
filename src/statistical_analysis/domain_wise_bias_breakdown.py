@@ -101,10 +101,10 @@ def analyze_domain_bias(success_dir):
 
 def main():
     dirs = {
-        "Gemini Legacy": "reports/partial_audit_results_legacy/success",
-        "Gemini Expanded": "reports/partial_audit_results_expanded/success",
-        "Gemini Unified": "reports/partial_audit_results_new/success",
-        "Grok Unified": "reports/partial_audit_results_grok/success"
+        "Gemini Legacy": "reports/partial_audit_results_gemini_legacy/success",
+        "Gemini Expanded": "reports/partial_audit_results_gemini_expanded/success",
+        "Gemini Unified": "reports/partial_audit_results_gemini_unified/success",
+        "Grok Unified": "reports/partial_audit_results_grok_unified/success"
     }
     
     results = {}

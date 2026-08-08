@@ -128,8 +128,8 @@ If running directly on your host machine without Docker:
 │   │   ├── auto_canonical_map.json     # Attribute canonical mapping
 │   │   ├── attribute_clusters.csv      # Cluster mapping
 │   │   └── unified_attributes.csv      # Master attribute dictionary
-│   ├── generated_functions_unified_new/# 1,715 Python code samples (Gemini 2.5 Flash)
-│   ├── generated_functions_grok/       # 1,715 Python code samples (Grok-Code-Fast-1)
+│   ├── generated_functions_gemini_unified/# 1,715 Python code samples (Gemini 2.5 Flash)
+│   ├── generated_functions_grok_unified/       # 1,715 Python code samples (Grok-Code-Fast-1)
 │   └── ground_truth_benchmark.json     # 30 synthetic functions with known ground truth
 │
 ├── src/                                # Core auditing and analysis scripts

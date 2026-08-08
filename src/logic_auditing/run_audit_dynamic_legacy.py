@@ -8,10 +8,10 @@ import itertools
 from tqdm import tqdm
 
 # Configuration
-GENERATED_DIR = os.path.join("data", "generated_functions_old")
+GENERATED_DIR = os.path.join("data", "generated_functions_gemini_legacy")
 PROMPTS_FILE = os.path.join("data", "dataset", "prompts_old.jsonl")
 AUDIT_REPORT = os.path.join("reports", "audit_report_legacy.json")
-PARTIAL_DIR = os.path.join("reports", "partial_audit_results_legacy")
+PARTIAL_DIR = os.path.join("reports", "partial_audit_results_gemini_legacy")
 
 class Person:
     """Flexible profile specifically for testing."""

@@ -10,7 +10,7 @@ API_KEY = os.getenv("GEMINI_API_KEY")
 MODEL_NAME = "gemini-2.5-flash"
 NUM_SAMPLES = 5
 INPUT_FILE = os.path.join("data", "dataset", "prompts_unified_new.jsonl")
-OUTPUT_DIR = os.path.join("data", "generated_functions_unified_new")
+OUTPUT_DIR = os.path.join("data", "generated_functions_gemini_unified")
 
 # Delays
 API_DELAY = 2

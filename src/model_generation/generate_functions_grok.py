@@ -17,7 +17,7 @@ client = OpenAI(
 MODEL_NAME = "grok-code-fast-1"
 NUM_SAMPLES = 5
 INPUT_FILE = os.path.join("data", "dataset", "prompts_unified_new.jsonl")
-OUTPUT_DIR = os.path.join("data", "generated_functions_grok")
+OUTPUT_DIR = os.path.join("data", "generated_functions_grok_unified")
 
 # Delays
 API_DELAY = 1

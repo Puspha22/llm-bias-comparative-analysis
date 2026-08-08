@@ -48,10 +48,10 @@ def calculate_cooccurrence_dir(folder_path):
     return pair_counts, attribute_counts
 
 def generate_heatmap_grid():
-    legacy_dir = "reports/partial_audit_results_legacy/success"
-    expanded_dir = "reports/partial_audit_results_expanded/success"
-    gemini_dir = "reports/partial_audit_results_new/success"
-    grok_dir = "reports/partial_audit_results_grok/success"
+    legacy_dir = "reports/partial_audit_results_gemini_legacy/success"
+    expanded_dir = "reports/partial_audit_results_gemini_expanded/success"
+    gemini_dir = "reports/partial_audit_results_gemini_unified/success"
+    grok_dir = "reports/partial_audit_results_grok_unified/success"
 
     print("Computing 100% full dataset co-occurrences across all 4 conditions...")
     l_pairs, l_attrs = calculate_cooccurrence_dir(legacy_dir)

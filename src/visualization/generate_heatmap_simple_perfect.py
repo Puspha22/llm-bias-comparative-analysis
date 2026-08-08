@@ -58,10 +58,10 @@ def match_pair_count(pair_counts, target_a, target_b):
     return 0
 
 def main():
-    legacy_dir = "reports/partial_audit_results_legacy/success"
-    expanded_dir = "reports/partial_audit_results_expanded/success"
-    gemini_dir = "reports/partial_audit_results_new/success"
-    grok_dir = "reports/partial_audit_results_grok/success"
+    legacy_dir = "reports/partial_audit_results_gemini_legacy/success"
+    expanded_dir = "reports/partial_audit_results_gemini_expanded/success"
+    gemini_dir = "reports/partial_audit_results_gemini_unified/success"
+    grok_dir = "reports/partial_audit_results_grok_unified/success"
 
     print("Computing co-occurrences correctly for simple top 8 individual attributes...")
     l_pairs, l_attrs = calculate_cooccurrence_dir(legacy_dir)

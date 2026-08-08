@@ -11,8 +11,8 @@ def main():
     # Let's run a quick paired lookup between Gemini Unified and Grok Unified results
     from compute_rigorous_metrics import analyze_dir
 
-    gemini_res = analyze_dir(os.path.join("reports", "partial_audit_results_new"))
-    grok_res = analyze_dir(os.path.join("reports", "partial_audit_results_grok"))
+    gemini_res = analyze_dir(os.path.join("reports", "partial_audit_results_gemini_unified"))
+    grok_res = analyze_dir(os.path.join("reports", "partial_audit_results_grok_unified"))
 
     common_keys = set(gemini_res["function_results"].keys()).intersection(set(grok_res["function_results"].keys()))
     

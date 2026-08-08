@@ -72,14 +72,14 @@ src/cluster_attributes.py
 !data/dataset/*
 !data/ground_truth_benchmark.json
 !data/ground_truth_benchmark.py
-!data/generated_functions_grok/
-!data/generated_functions_grok/*
-!data/generated_functions_unified_new/
-!data/generated_functions_unified_new/*
-!data/generated_functions_old/
-!data/generated_functions_old/*
-!data/generated_functions_expanded/
-!data/generated_functions_expanded/*
+!data/generated_functions_grok_unified/
+!data/generated_functions_grok_unified/*
+!data/generated_functions_gemini_unified/
+!data/generated_functions_gemini_unified/*
+!data/generated_functions_gemini_legacy/
+!data/generated_functions_gemini_legacy/*
+!data/generated_functions_gemini_expanded/
+!data/generated_functions_gemini_expanded/*
 
 # Whitelist source code
 !src/

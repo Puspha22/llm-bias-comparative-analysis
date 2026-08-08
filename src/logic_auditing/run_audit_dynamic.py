@@ -11,10 +11,10 @@ except ImportError:
     tqdm = lambda x, **kwargs: x
 
 # Configuration
-GENERATED_DIR = os.path.join("data", "generated_functions_grok")
+GENERATED_DIR = os.path.join("data", "generated_functions_grok_unified")
 PROMPTS_FILE = os.path.join("data", "dataset", "prompts_unified_new.jsonl")
 AUDIT_REPORT = os.path.join("reports", "audit_report_grok.json")
-PARTIAL_DIR = os.path.join("reports", "partial_audit_results_grok")
+PARTIAL_DIR = os.path.join("reports", "partial_audit_results_grok_unified")
 
 from helper_functions import Person, convert_type, find_used_attributes, build_profile_map, PROTECTED_ATTRIBUTES
 
