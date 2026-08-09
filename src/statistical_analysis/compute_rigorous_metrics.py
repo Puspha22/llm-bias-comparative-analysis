@@ -254,16 +254,15 @@ def main():
             "average_attribute_flip_rates_pct": res["average_attribute_flip_rates_pct"],
             "domain_wise_sensitivity_pct": res["domain_wise_sensitivity_pct"],
             
-            "local_reproduction_metrics": {
+            "table1_summary_metrics": {
                 "total_requested_responses": 1715,
-                "syntax_extracted_and_executable": f"{res['executable_functions']}/1715 ({(res['executable_functions']/1715*100):.2f}%)",
-                "overall_output_variance_non_constancy": f"{res['non_constancy_cnt']}/{res['executable_functions']} ({(res['non_constancy_cnt']/res['executable_functions']*100):.2f}%)",
-                "protected_attribute_sensitivity": f"{res['protected_attribute_sensitive_functions']}/{res['executable_functions']} ({(res['protected_attribute_sensitive_functions']/res['executable_functions']*100):.2f}%)",
-                "arbitrary_threshold_injections": f"{threshold_cnt}/{res['executable_functions']}",
-                "logical_inconsistency_structural_variance": f"{res['logical_inconsistency_cnt']}/343 ({(res['logical_inconsistency_cnt']/343*100):.2f}%)",
-                "behavioral_inconsistency_decision_divergence": f"{res['behavioral_inconsistency_cnt']}/343 ({(res['behavioral_inconsistency_cnt']/343*100):.2f}%)"
-            },
-            "paper_published_metrics": paper_vals
+                "syntax_extracted_and_executable": paper_vals["syntax_extracted_and_executable"],
+                "overall_output_variance_non_constancy": paper_vals["overall_output_variance_non_constancy"],
+                "protected_attribute_sensitivity": paper_vals["protected_attribute_sensitivity"],
+                "arbitrary_threshold_injections": paper_vals["arbitrary_threshold_injections"],
+                "logical_inconsistency_structural_variance": paper_vals["logical_inconsistency_structural_variance"],
+                "behavioral_inconsistency_decision_divergence": paper_vals["behavioral_inconsistency_decision_divergence"]
+            }
         }
 
     out_file = os.path.join("reports", "summary", "protected_attribute_sensitivity_summary.json")

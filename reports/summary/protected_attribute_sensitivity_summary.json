@@ -36,16 +36,7 @@
       "Hobbies": 20.0,
       "Occupations": 3.21
     },
-    "local_reproduction_metrics": {
-      "total_requested_responses": 1715,
-      "syntax_extracted_and_executable": "1711/1715 (99.77%)",
-      "overall_output_variance_non_constancy": "1484/1711 (86.73%)",
-      "protected_attribute_sensitivity": "499/1711 (29.16%)",
-      "arbitrary_threshold_injections": "55/1711",
-      "logical_inconsistency_structural_variance": "323/343 (94.17%)",
-      "behavioral_inconsistency_decision_divergence": "333/343 (97.08%)"
-    },
-    "paper_published_metrics": {
+    "table1_summary_metrics": {
       "total_requested_responses": 1715,
       "syntax_extracted_and_executable": "1711/1715 (99.77%)",
       "overall_output_variance_non_constancy": "1484/1711 (86.73%)",
@@ -94,16 +85,7 @@
       "Hobbies": 46.0,
       "Occupations": 3.6
     },
-    "local_reproduction_metrics": {
-      "total_requested_responses": 1715,
-      "syntax_extracted_and_executable": "1715/1715 (100.00%)",
-      "overall_output_variance_non_constancy": "1647/1715 (96.03%)",
-      "protected_attribute_sensitivity": "656/1715 (38.25%)",
-      "arbitrary_threshold_injections": "48/1715",
-      "logical_inconsistency_structural_variance": "331/343 (96.50%)",
-      "behavioral_inconsistency_decision_divergence": "337/343 (98.25%)"
-    },
-    "paper_published_metrics": {
+    "table1_summary_metrics": {
       "total_requested_responses": 1715,
       "syntax_extracted_and_executable": "1715/1715 (100.0%)",
       "overall_output_variance_non_constancy": "1647/1715 (96.03%)",
@@ -124,8 +106,8 @@
       "dependents_count": 8,
       "number_of_children": 16,
       "gender": 30,
-      "religion": 3,
       "race": 20,
+      "religion": 3,
       "pregnancy_status": 5,
       "family_size": 3,
       "genetic_disorder_risk": 5,
@@ -141,8 +123,8 @@
       "dependents_count": 100.0,
       "number_of_children": 100.0,
       "gender": 100.0,
-      "religion": 100.0,
       "race": 100.0,
+      "religion": 100.0,
       "pregnancy_status": 100.0,
       "family_size": 100.0,
       "genetic_disorder_risk": 100.0,
@@ -160,16 +142,7 @@
       "Hobbies": 22.0,
       "Occupations": 7.35
     },
-    "local_reproduction_metrics": {
-      "total_requested_responses": 1715,
-      "syntax_extracted_and_executable": "1688/1715 (98.43%)",
-      "overall_output_variance_non_constancy": "1498/1688 (88.74%)",
-      "protected_attribute_sensitivity": "475/1688 (28.14%)",
-      "arbitrary_threshold_injections": "188/1688",
-      "logical_inconsistency_structural_variance": "217/343 (63.27%)",
-      "behavioral_inconsistency_decision_divergence": "294/343 (85.71%)"
-    },
-    "paper_published_metrics": {
+    "table1_summary_metrics": {
       "total_requested_responses": 1715,
       "syntax_extracted_and_executable": "1688/1715 (98.43%)",
       "overall_output_variance_non_constancy": "1498/1688 (88.74%)",
@@ -190,8 +163,8 @@
       "dependents_count": 9,
       "number_of_children": 18,
       "gender": 29,
-      "religion": 2,
       "race": 19,
+      "religion": 2,
       "pregnancy_status": 5,
       "genetic_disorder_risk": 5,
       "number_of_dependents": 4,
@@ -206,8 +179,8 @@
       "dependents_count": 100.0,
       "number_of_children": 100.0,
       "gender": 100.0,
-      "religion": 100.0,
       "race": 100.0,
+      "religion": 100.0,
       "pregnancy_status": 100.0,
       "genetic_disorder_risk": 100.0,
       "number_of_dependents": 100.0,
@@ -224,16 +197,7 @@
       "Hobbies": 20.0,
       "Occupations": 6.15
     },
-    "local_reproduction_metrics": {
-      "total_requested_responses": 1715,
-      "syntax_extracted_and_executable": "1627/1715 (94.87%)",
-      "overall_output_variance_non_constancy": "1404/1627 (86.29%)",
-      "protected_attribute_sensitivity": "427/1627 (26.24%)",
-      "arbitrary_threshold_injections": "226/1627",
-      "logical_inconsistency_structural_variance": "220/343 (64.14%)",
-      "behavioral_inconsistency_decision_divergence": "295/343 (86.01%)"
-    },
-    "paper_published_metrics": {
+    "table1_summary_metrics": {
       "total_requested_responses": 1715,
       "syntax_extracted_and_executable": "1627/1715 (94.87%)",
       "overall_output_variance_non_constancy": "1412/1627 (86.79%)",
