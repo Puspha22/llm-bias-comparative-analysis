@@ -61,19 +61,6 @@ inset_ax.grid(True, linestyle=':', alpha=0.6)
 inset_ax.set_ylim(-1000, 85000)
 
 plt.tight_layout()
-
-# Save to reports/figures
 os.makedirs(os.path.join('reports', 'figures'), exist_ok=True)
 plt.savefig(os.path.join('reports', 'figures', 'combinatorial_growth.png'), dpi=300, bbox_inches='tight')
-
-# Save to MDPI Assets
-mdpi_dir = 'MDPI___A_Comparative_Analysis_of_Implicit_Bias_and_Logical_Inconsistency_in_General_Purpose_and_Code_Specialized_Large_Language_Models/Assets'
-if os.path.exists(mdpi_dir):
-    plt.savefig(os.path.join(mdpi_dir, 'combinatorial_growth.png'), dpi=300, bbox_inches='tight')
-    
-# Save to siuethesis Assets
-siue_dir = 'siuethesis/Assets'
-if os.path.exists(siue_dir):
-    plt.savefig(os.path.join(siue_dir, 'combinatorial_growth.png'), dpi=300, bbox_inches='tight')
-
 print('Saved combinatorial_growth.png with linear scale and inset')
