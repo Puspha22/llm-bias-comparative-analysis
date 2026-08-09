@@ -47,22 +47,43 @@ services:
       - .:/app
     command: python src/visualization/generate_paper_figures.py
 
-  # 6. Model Code Generation (Gemini 2.5 Flash)
-  generate-gemini:
+  # 6. Model Code Generation (Gemini Legacy - Condition 1)
+  generate-gemini-legacy:
     build: .
-    container_name: llm_bias_gemini_generator
+    container_name: llm_bias_gemini_legacy_generator
     environment:
       - GEMINI_API_KEY
     volumes:
       - .:/app
-    command: python src/model_generation/generate_functions.py
+    command: python src/model_generation/generate_functions.py --input data/dataset/prompts_old.jsonl --output data/generated_functions_gemini_legacy
 
-  # 7. Model Code Generation (Grok-Code-Fast-1)
-  generate-grok:
+  # 7. Model Code Generation (Gemini Expanded - Condition 2)
+  generate-gemini-expanded:
     build: .
-    container_name: llm_bias_grok_generator
+    container_name: llm_bias_gemini_expanded_generator
+    environment:
+      - GEMINI_API_KEY
+    volumes:
+      - .:/app
+    command: python src/model_generation/generate_functions.py --input data/dataset/prompts_expanded_new.jsonl --output data/generated_functions_gemini_expanded
+
+  # 8. Model Code Generation (Gemini Unified - Condition 3)
+  generate-gemini-unified:
+    build: .
+    container_name: llm_bias_gemini_unified_generator
+    environment:
+      - GEMINI_API_KEY
+    volumes:
+      - .:/app
+    command: python src/model_generation/generate_functions.py --input data/dataset/prompts_unified_new.jsonl --output data/generated_functions_gemini_unified
+
+  # 9. Model Code Generation (Grok Unified - Condition 4)
+  generate-grok-unified:
+    build: .
+    container_name: llm_bias_grok_unified_generator
     environment:
       - XAI_API_KEY
     volumes:
       - .:/app
-    command: python src/model_generation/generate_functions_grok.py
+    command: python src/model_generation/generate_functions_grok.py --input data/dataset/prompts_unified_new.jsonl --output data/generated_functions_grok_unified
+

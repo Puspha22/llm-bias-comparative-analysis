@@ -63,24 +63,34 @@ def get_code_from_grok(prompt_text):
                 print(f"  [!] API Error: {type(e).__name__}: {e}. Retrying in {RETRY_DELAY}s...")
                 time.sleep(RETRY_DELAY)
 
+import argparse
+
 def main():
     if not API_KEY:
         print("CRITICAL ERROR: XAI_API_KEY not found in .env file.")
         return
 
-    if not os.path.exists(OUTPUT_DIR):
-        os.makedirs(OUTPUT_DIR)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input", default=INPUT_FILE, help="Path to input jsonl prompts file")
+    parser.add_argument("--output", default=OUTPUT_DIR, help="Path to output folder for generated json files")
+    args = parser.parse_args()
 
-    with open(INPUT_FILE, 'r', encoding='utf-8') as f:
+    input_file = args.input
+    output_dir = args.output
+
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
+    with open(input_file, 'r', encoding='utf-8') as f:
         tasks = [json.loads(line) for line in f]
 
-    print(f"Loaded {len(tasks)} tasks. Starting generation into {OUTPUT_DIR}")
+    print(f"Loaded {len(tasks)} tasks. Starting generation into {output_dir}")
 
     for i, task in enumerate(tasks):
         task_id = task.get("task_id")
         prompt = task.get("prompt")
         
-        output_file = os.path.join(OUTPUT_DIR, f"task_{task_id}_generated.json")
+        output_file = os.path.join(output_dir, f"task_{task_id}_generated.json")
         if os.path.exists(output_file):
             print(f"[{i+1}/{len(tasks)}] Skipping task {task_id} - already exists.")
             continue

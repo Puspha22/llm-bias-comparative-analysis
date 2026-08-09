@@ -36,14 +36,25 @@ To generate decision functions from prompts across Gemini 2.5 Flash and Grok Cod
 
 * **Using Docker**:
   ```bash
-  docker compose run generate-gemini
-  docker compose run generate-grok
+  docker compose run generate-gemini-legacy
+  docker compose run generate-gemini-expanded
+  docker compose run generate-gemini-unified
+  docker compose run generate-grok-unified
   ```
 
 * **Using Host Python**:
   ```bash
-  python src/model_generation/generate_functions.py
-  python src/model_generation/generate_functions_grok.py
+  # Gemini Legacy (Condition 1)
+  python src/model_generation/generate_functions.py --input data/dataset/prompts_old.jsonl --output data/generated_functions_gemini_legacy
+
+  # Gemini Expanded (Condition 2)
+  python src/model_generation/generate_functions.py --input data/dataset/prompts_expanded_new.jsonl --output data/generated_functions_gemini_expanded
+
+  # Gemini Unified (Condition 3)
+  python src/model_generation/generate_functions.py --input data/dataset/prompts_unified_new.jsonl --output data/generated_functions_gemini_unified
+
+  # Grok Unified (Condition 4)
+  python src/model_generation/generate_functions_grok.py --input data/dataset/prompts_unified_new.jsonl --output data/generated_functions_grok_unified
   ```
 
 ### Step 3: Run Reproduction Tasks via Docker Compose (Recommended)
