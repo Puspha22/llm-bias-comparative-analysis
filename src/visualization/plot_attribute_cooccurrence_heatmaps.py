@@ -79,13 +79,13 @@ def main():
     g_pairs, g_attrs = calculate_cooccurrence_fast(gemini_dir)
     gr_pairs, gr_attrs = calculate_cooccurrence_fast(grok_dir)
 
-    with open("reports/feature_metrics/frequency_legacy.json") as f:
+    with open("reports/feature_metrics/attribute_frequency_gemini_legacy.json") as f:
         l_top8 = list(json.load(f).keys())[:8]
-    with open("reports/feature_metrics/frequency_expanded.json") as f:
+    with open("reports/feature_metrics/attribute_frequency_gemini_expanded.json") as f:
         e_top8 = list(json.load(f).keys())[:8]
-    with open("reports/feature_metrics/frequency_gemini.json") as f:
+    with open("reports/feature_metrics/attribute_frequency_gemini_unified.json") as f:
         g_top8 = list(json.load(f).keys())[:8]
-    with open("reports/feature_metrics/frequency_grok.json") as f:
+    with open("reports/feature_metrics/attribute_frequency_grok_unified.json") as f:
         gr_top8 = list(json.load(f).keys())[:8]
 
     fig, axes = plt.subplots(2, 2, figsize=(13, 11), dpi=300)

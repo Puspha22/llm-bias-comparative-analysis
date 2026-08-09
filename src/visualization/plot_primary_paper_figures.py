@@ -107,13 +107,13 @@ def generate_figure4_behavioral_inconsistency():
 
 def generate_complexity_combined():
     metrics_dir = os.path.join("reports", "feature_metrics")
-    with open(os.path.join(metrics_dir, "complexity_legacy.json")) as f:
+    with open(os.path.join(metrics_dir, "code_complexity_gemini_legacy.json")) as f:
         legacy = json.load(f)
-    with open(os.path.join(metrics_dir, "complexity_expanded.json")) as f:
+    with open(os.path.join(metrics_dir, "code_complexity_gemini_expanded.json")) as f:
         expanded = json.load(f)
-    with open(os.path.join(metrics_dir, "complexity_gemini.json")) as f:
+    with open(os.path.join(metrics_dir, "code_complexity_gemini_unified.json")) as f:
         gemini = json.load(f)
-    with open(os.path.join(metrics_dir, "complexity_grok.json")) as f:
+    with open(os.path.join(metrics_dir, "code_complexity_grok_unified.json")) as f:
         grok = json.load(f)
 
     max_vars = 12
@@ -170,13 +170,13 @@ def generate_complexity_combined():
 
 def generate_frequency_combined():
     metrics_dir = os.path.join("reports", "feature_metrics")
-    with open(os.path.join(metrics_dir, "frequency_legacy.json")) as f:
+    with open(os.path.join(metrics_dir, "attribute_frequency_gemini_legacy.json")) as f:
         legacy = json.load(f)
-    with open(os.path.join(metrics_dir, "frequency_expanded.json")) as f:
+    with open(os.path.join(metrics_dir, "attribute_frequency_gemini_expanded.json")) as f:
         expanded = json.load(f)
-    with open(os.path.join(metrics_dir, "frequency_gemini.json")) as f:
+    with open(os.path.join(metrics_dir, "attribute_frequency_gemini_unified.json")) as f:
         gemini = json.load(f)
-    with open(os.path.join(metrics_dir, "frequency_grok.json")) as f:
+    with open(os.path.join(metrics_dir, "attribute_frequency_grok_unified.json")) as f:
         grok = json.load(f)
 
     plt.rcParams['font.family'] = 'serif'

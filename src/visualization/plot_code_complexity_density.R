@@ -14,10 +14,10 @@ theme_set(theme_minimal(base_family = "serif", base_size = 13) +
             legend.text = element_text(size = 11)
           ))
 
-legacy   <- fromJSON("reports/feature_metrics/complexity_legacy.json")
-expanded <- fromJSON("reports/feature_metrics/complexity_expanded.json")
-gemini   <- fromJSON("reports/feature_metrics/complexity_gemini.json")
-grok     <- fromJSON("reports/feature_metrics/complexity_grok.json")
+legacy   <- fromJSON("reports/feature_metrics/code_complexity_gemini_legacy.json")
+expanded <- fromJSON("reports/feature_metrics/code_complexity_gemini_expanded.json")
+gemini   <- fromJSON("reports/feature_metrics/code_complexity_gemini_unified.json")
+grok     <- fromJSON("reports/feature_metrics/code_complexity_grok_unified.json")
 
 df_legacy   <- data.frame(Attributes = legacy,   Model = "Gemini Legacy (Cond. 1)")
 df_expanded <- data.frame(Attributes = expanded, Model = "Gemini Expanded (Cond. 2)")
