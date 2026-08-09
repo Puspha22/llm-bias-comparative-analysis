@@ -165,6 +165,10 @@ If running directly on your host machine without Docker (requires **Python 3.11+
 │
 ├── reports/                            # Summary reports, figures, and dumps
 │   ├── summary/                        # Published summary JSON results
+│   │   ├── counterfactual_bias_rates_summary.json       # Table 1 main results
+│   │   ├── mcnemar_significance_test_results.json       # Paired hypothesis test results
+│   │   ├── domain_wise_bias_breakdown_summary.json     # Figure 3 domain bias rates
+│   │   └── monte_carlo_sampling_sensitivity_report.json # Monte Carlo budget stats
 │   ├── figures/                        # Output PDF and PNG chart figures
 │   ├── feature_metrics/                # Structured complexity, frequency, and threshold JSONs
 │   │   ├── code_complexity_*.json      # Input variable complexity counts
