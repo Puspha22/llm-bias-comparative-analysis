@@ -1,49 +1,48 @@
 x-security-defaults: &security-defaults
-  network_mode: none
+  network_mode: none  # Sandbox: Disable container internet/network access for safe code execution
 
 services:
-  test:
+  # 1. Dataset Generation
+  dataset:
     <<: *security-defaults
     build: .
-    container_name: llm_bias_unit_tests
-    command: python -m unittest tests/test_auditor.py
-
-  auditor:
-    <<: *security-defaults
-    build: .
-    container_name: llm_bias_combinatorial_auditor
+    container_name: llm_bias_dataset_generator
     volumes:
       - .:/app
-    command: python src/run_audit_dynamic.py
+    command: python src/dataset_generation/generate_unified_dataset.py
 
-  benchmark:
+  # 2. Logic Auditing Engine
+  audit:
     <<: *security-defaults
     build: .
-    container_name: llm_bias_ground_truth_benchmark
+    container_name: llm_bias_logic_auditor
     volumes:
       - .:/app
-    command: python src/evaluate_ground_truth_benchmark.py
+    command: python src/logic_auditing/run_audit_dynamic.py
 
-  inconsistency:
+  # 3. Statistical Analysis (Table 1 Metrics)
+  metrics:
     <<: *security-defaults
     build: .
-    container_name: llm_bias_behavioral_inconsistency
+    container_name: llm_bias_metrics_calculator
     volumes:
       - .:/app
-    command: python src/evaluate_behavioral_inconsistency.py
+    command: python src/statistical_analysis/compute_rigorous_metrics.py
 
-  statistical:
+  # 4. McNemar Exact Test
+  mcnemar:
     <<: *security-defaults
     build: .
-    container_name: llm_bias_statistical_rigor
+    container_name: llm_bias_mcnemar_test
     volumes:
       - .:/app
-    command: python src/analyze_statistical_rigor.py
+    command: python src/statistical_analysis/compute_mcnemar_exact.py
 
-  sensitivity:
+  # 5. Visualization (Paper Figures)
+  figures:
     <<: *security-defaults
     build: .
-    container_name: llm_bias_sensitivity_analysis
+    container_name: llm_bias_figure_generator
     volumes:
       - .:/app
-    command: python src/run_sensitivity_analysis.py
+    command: python src/visualization/generate_paper_figures.py
