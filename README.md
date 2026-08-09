@@ -166,7 +166,11 @@ If running directly on your host machine without Docker (requires **Python 3.11+
 ├── reports/                            # Summary reports, figures, and dumps
 │   ├── summary/                        # Published summary JSON results
 │   ├── figures/                        # Output PDF and PNG chart figures
-│   ├── feature_metrics/                # Complexity and injected threshold statistics
+│   ├── feature_metrics/                # Structured complexity, frequency, and threshold JSONs
+│   │   ├── code_complexity_*.json      # Input variable complexity counts
+│   │   ├── attribute_frequency_*.json  # Attribute usage frequencies per model
+│   │   ├── injected_thresholds_*.json  # Arbitrary threshold injection metrics
+│   │   └── protected_bias_rates_*.json # Protected attribute-wise bias rates
 │   ├── audit_details/                  # Detailed task evaluations
 │   └── raw_dumps/                      # raw json execution traces (git-ignored)
 │
