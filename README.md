@@ -47,16 +47,16 @@ To generate decision functions from prompts across Google Gemini and xAI Grok:
 
 * **Using Host Python**:
   ```bash
-  # Gemini Legacy (Condition 1)
+  # Gemini Legacy
   python src/model_generation/generate_functions.py --input data/dataset/prompts_old.jsonl --output data/generated_functions_gemini_legacy
 
-  # Gemini Expanded (Condition 2)
+  # Gemini Expanded
   python src/model_generation/generate_functions.py --input data/dataset/prompts_expanded_new.jsonl --output data/generated_functions_gemini_expanded
 
-  # Gemini Unified (Condition 3)
+  # Gemini Unified
   python src/model_generation/generate_functions.py --input data/dataset/prompts_unified_new.jsonl --output data/generated_functions_gemini_unified
 
-  # Grok Unified (Condition 4)
+  # Grok Unified
   python src/model_generation/generate_functions_grok.py --input data/dataset/prompts_unified_new.jsonl --output data/generated_functions_grok_unified
   ```
 
@@ -127,14 +127,14 @@ If running directly on your host machine without Docker (requires **Python 3.11+
 ```
 ├── data/                               # Master datasets and LLM generated code
 │   ├── dataset/
-│   │   ├── prompts_old.jsonl           # Baseline legacy prompts (Condition 1)
-│   │   ├── prompts_expanded_new.jsonl  # Expanded range prompts (Condition 2)
-│   │   ├── prompts_unified_new.jsonl   # Standardized dataclass prompts (Conditions 3 & 4)
+│   │   ├── prompts_old.jsonl           # Baseline legacy prompts
+│   │   ├── prompts_expanded_new.jsonl  # Expanded range prompts
+│   │   ├── prompts_unified_new.jsonl   # Standardized dataclass prompts
 │   │   └── unified_attributes.csv      # Master attribute dictionary (206 attributes)
-│   ├── generated_functions_gemini_legacy/ # Gemini Legacy code outputs (Condition 1)
-│   ├── generated_functions_gemini_expanded/ # Gemini Expanded code outputs (Condition 2)
-│   ├── generated_functions_gemini_unified/ # Gemini Unified code outputs (Condition 3)
-│   └── generated_functions_grok_unified/ # Grok Unified code outputs (Condition 4)
+│   ├── generated_functions_gemini_legacy/ # Gemini Legacy code outputs
+│   ├── generated_functions_gemini_expanded/ # Gemini Expanded code outputs
+│   ├── generated_functions_gemini_unified/ # Gemini Unified code outputs
+│   └── generated_functions_grok_unified/ # Grok Unified code outputs
 │
 ├── src/                                # Core codebase
 │   ├── dataset_generation/             # Prompts creation and range mapping
