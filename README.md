@@ -152,7 +152,6 @@ If running directly on your host machine without Docker (requires **Python 3.11+
 │   ├── statistical_analysis/           # Table 1 aggregator, McNemar test, domain breakdowns
 │   │   ├── compute_rigorous_metrics.py
 │   │   ├── compute_mcnemar_exact.py
-│   │   ├── analyze_statistical_rigor.py
 │   │   └── domain_wise_bias_breakdown.py
 │   └── visualization/                  # Matplotlib paper plots & heatmaps
 │       ├── generate_paper_figures.py

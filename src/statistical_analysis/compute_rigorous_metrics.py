@@ -137,18 +137,6 @@ def analyze_dir(pdir):
     biased_cnt = sum(1 for v in function_results.values() if v["biased"])
     bias_rate = (biased_cnt / total_eval * 100.0) if total_eval > 0 else 0.0
 
-    task_ids = sorted(list(task_functions.keys()))
-    np.random.seed(42)
-    boot = []
-    for _ in range(1000):
-        st = np.random.choice(task_ids, size=len(task_ids), replace=True)
-        sf = []
-        for tid in st: sf.extend(task_functions[tid].values())
-        if sf: boot.append(np.mean(sf) * 100.0)
-
-    ci_l = float(np.percentile(boot, 2.5))
-    ci_u = float(np.percentile(boot, 97.5))
-
     dom_stats = defaultdict(lambda: {"total": 0, "biased": 0})
     for (tid, sidx), v in function_results.items():
         dom = get_domain_for_task(tid)
@@ -162,8 +150,6 @@ def analyze_dir(pdir):
         "total_functions_evaluated": total_eval,
         "counterfactual_biased_functions": biased_cnt,
         "counterfactual_bias_rate_pct": round(bias_rate, 2),
-        "ci_95_lower_pct": round(ci_l, 2),
-        "ci_95_upper_pct": round(ci_u, 2),
         "attribute_flips": dict(attribute_flips),
         "attribute_evaluations": dict(attribute_evals),
         "average_counterfactual_flip_rates_pct": avg_flips,
@@ -191,8 +177,6 @@ def main():
             "total_functions_evaluated": res["total_functions_evaluated"],
             "counterfactual_biased_functions": res["counterfactual_biased_functions"],
             "counterfactual_bias_rate_pct": res["counterfactual_bias_rate_pct"],
-            "ci_95_lower_pct": res["ci_95_lower_pct"],
-            "ci_95_upper_pct": res["ci_95_upper_pct"],
             "attribute_flips": res["attribute_flips"],
             "average_counterfactual_flip_rates_pct": res["average_counterfactual_flip_rates_pct"],
             "domain_breakdown_pct": res["domain_breakdown_pct"]
