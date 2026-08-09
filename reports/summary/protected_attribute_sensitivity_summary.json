@@ -35,6 +35,24 @@
       "Licensing": 30.65,
       "Hobbies": 20.0,
       "Occupations": 3.21
+    },
+    "local_reproduction_metrics": {
+      "total_requested_responses": 1715,
+      "syntax_extracted_and_executable": "1711/1715 (99.77%)",
+      "overall_output_variance_non_constancy": "1484/1711 (86.73%)",
+      "protected_attribute_sensitivity": "499/1711 (29.16%)",
+      "arbitrary_threshold_injections": "55/1711",
+      "logical_inconsistency_structural_variance": "323/343 (94.17%)",
+      "behavioral_inconsistency_decision_divergence": "333/343 (97.08%)"
+    },
+    "paper_published_metrics": {
+      "total_requested_responses": 1715,
+      "syntax_extracted_and_executable": "1711/1715 (99.77%)",
+      "overall_output_variance_non_constancy": "1484/1711 (86.73%)",
+      "protected_attribute_sensitivity": "499/1711 (29.16%)",
+      "arbitrary_threshold_injections": "55/1711",
+      "logical_inconsistency_structural_variance": "317/343 (92.42%)",
+      "behavioral_inconsistency_decision_divergence": "307/343 (89.50%)"
     }
   },
   "Grok_Unified": {
@@ -42,8 +60,8 @@
     "protected_attribute_sensitive_functions": 656,
     "protected_attribute_sensitivity_rate_pct": 38.25,
     "sensitive_attribute_counts": {
-      "age": 557,
       "disability_rating": 70,
+      "age": 557,
       "marital_status": 10,
       "family_size": 27,
       "dependents_count": 26,
@@ -55,8 +73,8 @@
       "genetic_disorder_risk": 6
     },
     "average_attribute_flip_rates_pct": {
-      "age": 100.0,
       "disability_rating": 100.0,
+      "age": 100.0,
       "marital_status": 100.0,
       "family_size": 100.0,
       "dependents_count": 100.0,
@@ -75,6 +93,24 @@
       "Licensing": 52.4,
       "Hobbies": 46.0,
       "Occupations": 3.6
+    },
+    "local_reproduction_metrics": {
+      "total_requested_responses": 1715,
+      "syntax_extracted_and_executable": "1715/1715 (100.00%)",
+      "overall_output_variance_non_constancy": "1647/1715 (96.03%)",
+      "protected_attribute_sensitivity": "656/1715 (38.25%)",
+      "arbitrary_threshold_injections": "48/1715",
+      "logical_inconsistency_structural_variance": "331/343 (96.50%)",
+      "behavioral_inconsistency_decision_divergence": "337/343 (98.25%)"
+    },
+    "paper_published_metrics": {
+      "total_requested_responses": 1715,
+      "syntax_extracted_and_executable": "1715/1715 (100.0%)",
+      "overall_output_variance_non_constancy": "1647/1715 (96.03%)",
+      "protected_attribute_sensitivity": "656/1715 (38.25%)",
+      "arbitrary_threshold_injections": "48/1715",
+      "logical_inconsistency_structural_variance": "328/343 (95.63%)",
+      "behavioral_inconsistency_decision_divergence": "320/343 (93.29%)"
     }
   },
   "Gemini_Legacy": {
@@ -123,6 +159,24 @@
       "Licensing": 32.66,
       "Hobbies": 22.0,
       "Occupations": 7.35
+    },
+    "local_reproduction_metrics": {
+      "total_requested_responses": 1715,
+      "syntax_extracted_and_executable": "1688/1715 (98.43%)",
+      "overall_output_variance_non_constancy": "1498/1688 (88.74%)",
+      "protected_attribute_sensitivity": "475/1688 (28.14%)",
+      "arbitrary_threshold_injections": "188/1688",
+      "logical_inconsistency_structural_variance": "217/343 (63.27%)",
+      "behavioral_inconsistency_decision_divergence": "294/343 (85.71%)"
+    },
+    "paper_published_metrics": {
+      "total_requested_responses": 1715,
+      "syntax_extracted_and_executable": "1688/1715 (98.43%)",
+      "overall_output_variance_non_constancy": "1498/1688 (88.74%)",
+      "protected_attribute_sensitivity": "475/1688 (28.14%)",
+      "arbitrary_threshold_injections": "188/1688",
+      "logical_inconsistency_structural_variance": "217/343 (63.27%)",
+      "behavioral_inconsistency_decision_divergence": "245/343 (71.43%)"
     }
   },
   "Gemini_Expanded": {
@@ -169,6 +223,24 @@
       "Licensing": 31.33,
       "Hobbies": 20.0,
       "Occupations": 6.15
+    },
+    "local_reproduction_metrics": {
+      "total_requested_responses": 1715,
+      "syntax_extracted_and_executable": "1627/1715 (94.87%)",
+      "overall_output_variance_non_constancy": "1404/1627 (86.29%)",
+      "protected_attribute_sensitivity": "427/1627 (26.24%)",
+      "arbitrary_threshold_injections": "226/1627",
+      "logical_inconsistency_structural_variance": "220/343 (64.14%)",
+      "behavioral_inconsistency_decision_divergence": "295/343 (86.01%)"
+    },
+    "paper_published_metrics": {
+      "total_requested_responses": 1715,
+      "syntax_extracted_and_executable": "1627/1715 (94.87%)",
+      "overall_output_variance_non_constancy": "1412/1627 (86.79%)",
+      "protected_attribute_sensitivity": "427/1627 (26.24%)",
+      "arbitrary_threshold_injections": "38/1627",
+      "logical_inconsistency_structural_variance": "220/343 (64.14%)",
+      "behavioral_inconsistency_decision_divergence": "260/343 (75.80%)"
     }
   }
 }
