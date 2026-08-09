@@ -32,7 +32,10 @@ PYTHONDONTWRITEBYTECODE=1
 
 ### Step 2: Code Function Generation (Optional / Re-run)
 
-To generate decision functions from prompts across Gemini 2.5 Flash and Grok Code Fast:
+To generate decision functions from prompts across Google Gemini and xAI Grok:
+
+> [!NOTE]
+> All 6,700+ pre-generated Python functions analyzed in the paper are already tracked and included in the `data/` folder. **You can skip this step** and proceed directly to Step 3 unless you wish to perform a fresh API generation from scratch (which requires API keys).
 
 * **Using Docker**:
   ```bash
