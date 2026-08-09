@@ -11,43 +11,26 @@ OUTPUT_DIR = os.path.join("reports", "figures")
 plt.rcParams['font.family'] = 'serif'
 plt.rcParams['font.serif'] = ['Palatino', 'Times New Roman', 'DejaVu Serif']
 
-def extract_attributes_fast(file_path):
-    sample_attributes = []
-    current_attrs = []
-    in_attrs = False
-    with open(file_path, 'r', encoding='utf-8') as f:
-        for line in f:
-            if '"attributes_tested"' in line:
-                in_attrs = True
-                current_attrs = []
-                continue
-            if in_attrs:
-                if '"name"' in line:
-                    match = re.search(r'"name":\s*"([^"]+)"', line)
-                    if match:
-                        current_attrs.append(match.group(1).strip())
-                elif ']' in line and in_attrs:
-                    in_attrs = False
-                    if current_attrs:
-                        sample_attributes.append(current_attrs)
-                        current_attrs = []
-    return sample_attributes
-
-def calculate_cooccurrence_fast(folder_path):
-    pair_counts = Counter()
-    attribute_counts = Counter()
+def load_pairs_data(model_name):
+    pairs_file = os.path.join("reports", "feature_metrics", f"attribute_pairs_{model_name}.json")
+    freq_file = os.path.join("reports", "feature_metrics", f"attribute_frequency_{model_name}.json")
     
-    with os.scandir(folder_path) as entries:
-        for entry in entries:
-            if entry.name.endswith('.json'):
-                samples = extract_attributes_fast(entry.path)
-                for attrs in samples:
-                    unique_attrs = sorted(set(attrs))
-                    for attr in unique_attrs:
-                        attribute_counts[attr] += 1
-                    for pair in itertools.combinations(unique_attrs, 2):
-                        pair_counts[pair] += 1
-    return pair_counts, attribute_counts
+    with open(freq_file, 'r', encoding='utf-8') as f:
+        top_attrs = list(json.load(f).keys())[:8]
+        
+    with open(pairs_file, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+        
+    attr_counts = data.get("attribute_counts", {})
+    pair_counts_raw = data.get("pair_counts", {})
+    
+    pair_counts = {}
+    for k, v in pair_counts_raw.items():
+        parts = k.split("||")
+        if len(parts) == 2:
+            pair_counts[(parts[0], parts[1])] = v
+            
+    return top_attrs, pair_counts, attr_counts
 
 def match_count(counts, target_name):
     t = target_name.lower().replace(' ', '_')
@@ -67,25 +50,11 @@ def match_pair_count(pair_counts, target_a, target_b):
     return 0
 
 def main():
-    legacy_dir = "reports/partial_audit_results_gemini_legacy/success"
-    expanded_dir = "reports/partial_audit_results_gemini_expanded/success"
-    gemini_dir = "reports/partial_audit_results_gemini_unified/success"
-    grok_dir = "reports/partial_audit_results_grok_unified/success"
-
-    print("Computing simple top 8 heatmap co-occurrences instantly...")
-    l_pairs, l_attrs = calculate_cooccurrence_fast(legacy_dir)
-    e_pairs, e_attrs = calculate_cooccurrence_fast(expanded_dir)
-    g_pairs, g_attrs = calculate_cooccurrence_fast(gemini_dir)
-    gr_pairs, gr_attrs = calculate_cooccurrence_fast(grok_dir)
-
-    with open("reports/feature_metrics/attribute_frequency_gemini_legacy.json") as f:
-        l_top8 = list(json.load(f).keys())[:8]
-    with open("reports/feature_metrics/attribute_frequency_gemini_expanded.json") as f:
-        e_top8 = list(json.load(f).keys())[:8]
-    with open("reports/feature_metrics/attribute_frequency_gemini_unified.json") as f:
-        g_top8 = list(json.load(f).keys())[:8]
-    with open("reports/feature_metrics/attribute_frequency_grok_unified.json") as f:
-        gr_top8 = list(json.load(f).keys())[:8]
+    print("Loading precomputed attribute co-occurrence matrices...")
+    l_top8, l_pairs, l_attrs = load_pairs_data("gemini_legacy")
+    e_top8, e_pairs, e_attrs = load_pairs_data("gemini_expanded")
+    g_top8, g_pairs, g_attrs = load_pairs_data("gemini_unified")
+    gr_top8, gr_pairs, gr_attrs = load_pairs_data("grok_unified")
 
     fig, axes = plt.subplots(2, 2, figsize=(13, 11), dpi=300)
 
@@ -97,6 +66,15 @@ def main():
     ]
 
     top_n = 8
+
+    filenames_map = {
+        "Gemini Legacy (Condition 1)": "attribute_pairs_heatmap_legacy",
+        "Gemini Expanded (Condition 2)": "attribute_pairs_heatmap_expanded",
+        "Gemini Unified (Condition 3)": "attribute_pairs_heatmap",
+        "Grok Unified (Condition 4)": "attribute_pairs_heatmap_grok"
+    }
+
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     for title, top_attrs, pair_counts, attribute_counts, ax in datasets:
         matrix = np.zeros((top_n, top_n))
@@ -119,17 +97,29 @@ def main():
         ax.set_title(title, fontweight='bold', fontsize=12, pad=10)
         fig.colorbar(im, ax=ax, shrink=0.8)
 
-    plt.tight_layout()
-    
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
+        # Generate individual standalone heatmap
+        single_name = filenames_map.get(title)
+        if single_name:
+            single_fig, single_ax = plt.subplots(figsize=(7, 6), dpi=300)
+            single_im = single_ax.imshow(matrix, cmap='Blues', aspect='auto')
+            single_ax.set_xticks(np.arange(top_n))
+            single_ax.set_yticks(np.arange(top_n))
+            single_ax.set_xticklabels(clean_labels, rotation=35, ha='right', fontsize=10)
+            single_ax.set_yticklabels(clean_labels, fontsize=10)
+            single_ax.set_title(title, fontweight='bold', fontsize=13, pad=12)
+            single_fig.colorbar(single_im, ax=single_ax, shrink=0.8)
+            single_fig.tight_layout()
+            single_fig.savefig(os.path.join(OUTPUT_DIR, f"{single_name}.png"), dpi=300)
+            single_fig.savefig(os.path.join(OUTPUT_DIR, f"{single_name}.pdf"))
+            plt.close(single_fig)
 
-    fig.savefig(os.path.join(OUTPUT_DIR, "attribute_pairs_heatmap_combined_simple.png"), dpi=300)
-    fig.savefig(os.path.join(OUTPUT_DIR, "attribute_pairs_heatmap_combined_simple.pdf"))
+    fig.tight_layout()
+
     fig.savefig(os.path.join(OUTPUT_DIR, "attribute_pairs_heatmap_combined.png"), dpi=300)
     fig.savefig(os.path.join(OUTPUT_DIR, "attribute_pairs_heatmap_combined.pdf"))
 
-    plt.close()
-    print("INSTANTLY generated simple frequency-based 4-condition attribute_pairs_heatmap_combined grid!")
+    plt.close(fig)
+    print("Generated all individual heatmaps and 4-condition combined heatmap grid!")
 
 if __name__ == "__main__":
     main()
