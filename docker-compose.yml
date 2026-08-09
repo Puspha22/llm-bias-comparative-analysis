@@ -45,7 +45,7 @@ services:
     container_name: llm_bias_figure_generator
     volumes:
       - .:/app
-    command: python src/visualization/plot_primary_paper_figures.py
+    command: sh -c "python src/visualization/plot_primary_paper_figures.py && python src/visualization/plot_process_flowchart.py"
 
   # 6. Model Code Generation (Gemini Legacy - Condition 1)
   generate-gemini-legacy:

@@ -1,3 +1,4 @@
+import os
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
 import matplotlib.font_manager as fm
@@ -73,7 +74,21 @@ def draw_flowchart():
     ax.text(0.2, 1.6, "AUDITING", fontsize=14, fontweight='bold', color='#1E8E3E', rotation=90, va='center')
     
     plt.tight_layout()
-    plt.savefig('siuethesis/Assets/EndToEndProcess.png', dpi=300, bbox_inches='tight')
+    
+    # Save to reports/figures
+    os.makedirs(os.path.join('reports', 'figures'), exist_ok=True)
+    plt.savefig(os.path.join('reports', 'figures', 'EndToEndProcess.png'), dpi=300, bbox_inches='tight')
+    
+    # Save to MDPI Assets
+    mdpi_dir = 'MDPI___A_Comparative_Analysis_of_Implicit_Bias_and_Logical_Inconsistency_in_General_Purpose_and_Code_Specialized_Large_Language_Models/Assets'
+    if os.path.exists(mdpi_dir):
+        plt.savefig(os.path.join(mdpi_dir, 'EndToEndProcess.png'), dpi=300, bbox_inches='tight')
+        
+    # Save to siuethesis Assets
+    siue_dir = 'siuethesis/Assets'
+    if os.path.exists(siue_dir):
+        plt.savefig(os.path.join(siue_dir, 'EndToEndProcess.png'), dpi=300, bbox_inches='tight')
+        
     print("Flowchart generated successfully!")
 
 if __name__ == '__main__':
