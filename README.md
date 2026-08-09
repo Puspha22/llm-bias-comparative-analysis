@@ -109,12 +109,22 @@ Docker Compose is the primary, zero-configuration reproduction method. Disabling
   docker compose run figures
   ```
   * **Files Created:** Generates high-res PNG and vector PDF charts under `reports/figures/`:
-    * `fig2_counterfactual_bias_rates.pdf/.png` (Overall sensitivity rates chart)
-    * `fig3_domain_breakdown.pdf/.png` (Domain Breakdown comparison bar chart)
-    * `fig4_behavioral_inconsistency.pdf/.png` (Stacked decision agreement tiers)
-    * `complexity_combined.pdf/.png` (Input variable density histogram)
-    * `attribute_frequency_combined.pdf/.png` (Top-10 utilized sensitive demographics distribution)
-  * **What it contains:** Ready-to-publish visual outputs matching figures included in your Overleaf LaTeX manuscript.
+    * **Architecture & Theory:**
+      * `EndToEndProcess.png` (End-to-end framework architecture)
+      * `combinatorial_growth.png` (Exponential search space growth)
+      * `discovery_velocity_plateau.pdf/.png` (Monte Carlo failure discovery velocity $dK/dN$)
+    * **Sensitivity & Consistency:**
+      * `fig2_protected_attribute_sensitivity_rates.pdf/.png` (Overall sensitivity rates across conditions)
+      * `fig3_domain_breakdown.pdf/.png` (Domain-level sensitivity breakdown comparison)
+      * `fig4_behavioral_inconsistency.pdf/.png` (Generative decision inconsistency across seeds)
+      * `complexity_combined.pdf/.png` (Input variable count density histogram)
+      * `attribute_frequency_combined.pdf/.png` (Top-10 utilized sensitive demographics $2 \times 2$ grid)
+    * **Heatmaps & Injected Thresholds:**
+      * `attribute_pairs_heatmap_*.pdf/.png` (Pairwise co-occurrence heatmaps for Legacy, Expanded, Gemini, Grok, and Combined $2 \times 2$ grid)
+      * `magic_numbers_chart_*.pdf/.png` (Arbitrary injected numeric thresholds for All4, Gemini, Grok, and Legacy)
+      * `protected_bias_chart_all4.pdf/.png` (Top protected demographic classes across 4 conditions)
+      * `inconsistency_chart_combined.pdf/.png` (Internal structural logic variance across conditions)
+  * **What it contains:** 100% complete visual assets matching all figures published in the research paper manuscript.
 
 ---
 
@@ -145,8 +155,13 @@ If running directly on your host machine without Docker (requires **Python 3.11+
    # Run domain-wise breakdown analysis
    python src/statistical_analysis/domain_wise_bias_breakdown.py
 
-   # Generate all figures
+   # Generate all paper figures and diagrams
    python src/visualization/plot_primary_paper_figures.py
+   python src/visualization/plot_process_flowchart.py
+   python src/visualization/plot_combinatorial_space_growth.py
+   python src/visualization/plot_monte_carlo_velocity.py
+   python src/visualization/plot_attribute_cooccurrence_heatmaps.py
+   python src/visualization/plot_threshold_and_bias_distributions.py
    ```
 
 ---
