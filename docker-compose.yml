@@ -46,3 +46,23 @@ services:
     volumes:
       - .:/app
     command: python src/visualization/generate_paper_figures.py
+
+  # 6. Model Code Generation (Gemini 2.5 Flash)
+  generate-gemini:
+    build: .
+    container_name: llm_bias_gemini_generator
+    environment:
+      - GEMINI_API_KEY
+    volumes:
+      - .:/app
+    command: python src/model_generation/generate_functions.py
+
+  # 7. Model Code Generation (Grok-Code-Fast-1)
+  generate-grok:
+    build: .
+    container_name: llm_bias_grok_generator
+    environment:
+      - XAI_API_KEY
+    volumes:
+      - .:/app
+    command: python src/model_generation/generate_functions_grok.py

@@ -12,7 +12,7 @@ Key Methodology:
 - **Combinatorial Logic Auditing Framework**: Cartesian and Monte Carlo evaluation over function-utilized attributes (up to 100,000 combinations per function).
 - **Arbitrary Threshold Injections**: Dynamic checking of unprompted numeric thresholds injected into decision logic against master prompt value ranges.
 - **Behavioral Inconsistency Evaluation**: Uniform testing of generated function sets across shared applicant profiles (5 generated functions per prompt).
-- **Statistical Rigor**: Clustered bootstrap 95% Confidence Intervals and paired McNemar statistical significance tests ($p < 0.001$).
+- **Statistical Rigor**: Paired McNemar statistical significance tests ($p < 0.001$) evaluating Grok Unified vs. Gemini Unified.
 - **Docker-First Containerization**: Zero-setup, isolated execution sandbox (`network_mode: none`).
 
 ---
@@ -36,7 +36,8 @@ To generate decision functions from prompts across Gemini 2.5 Flash and Grok Cod
 
 * **Using Docker**:
   ```bash
-  docker compose run dataset
+  docker compose run generate-gemini
+  docker compose run generate-grok
   ```
 
 * **Using Host Python**:
@@ -155,9 +156,8 @@ If running directly on your host machine without Docker (requires **Python 3.11+
 ## 🔬 Experimental Parameters & Random Seeds
 
 To guarantee deterministic reproduction, all experimental scripts set explicit random seeds:
-* **Primary Seed**: `seed = 42` (used across combinatorial audits, baseline profile generation, and bootstrap resamples).
+* **Primary Seed**: `seed = 42` (used across combinatorial audits and baseline profile generation).
 * **Sensitivity Analysis Seeds**: `seeds = [42, 123, 999]` (used to verify cross-seed stability across Monte Carlo sampling budgets).
-* **Clustered Bootstrap**: `n_bootstraps = 1000` resamples clustered by prompt task (`seed = 42`).
 * **Decoding Parameters**:
   * **Gemini 2.5 Flash**: `temperature = 1.0`, `top_p = 0.95`.
   * **Grok Code Fast**: `temperature = 0.7`.
