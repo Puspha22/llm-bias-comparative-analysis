@@ -2,7 +2,7 @@ import os, json
 from scipy.stats import chi2 as chi2_dist
 
 def main():
-    verified_file = os.path.join("reports", "summary", "counterfactual_bias_rates_summary.json")
+    verified_file = os.path.join("reports", "summary", "protected_attribute_sensitivity_summary.json")
     if not os.path.exists(verified_file):
         print("Missing verified summary file.")
         return
