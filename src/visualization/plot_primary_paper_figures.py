@@ -29,18 +29,18 @@ def generate_figure2_counterfactual_bias():
         ax.text(bar.get_x() + bar.get_width()/2., height + 3.0, f'{r:.2f}%',
                 ha='center', va='bottom', fontweight='bold', fontsize=11)
 
-    ax.set_ylabel('Counterfactual Sensitive Bias Rate (%)', fontweight='bold')
-    ax.set_title('Counterfactual Protected Attribute Bias Across Controlled Prompt Conditions\n(With 95% Clustered Bootstrap CIs)', fontweight='bold', pad=15)
+    ax.set_ylabel('Protected Attribute Sensitivity Rate (%)', fontweight='bold')
+    ax.set_title('Protected Attribute Sensitivity Across Controlled Prompt Conditions', fontweight='bold', pad=15)
     ax.set_ylim(0, 50)
     ax.grid(True, linestyle='--', alpha=0.5, axis='y')
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
     
     plt.tight_layout()
-    fig.savefig(os.path.join(OUTPUT_DIR, "fig2_counterfactual_bias_rates.png"), dpi=300)
-    fig.savefig(os.path.join(OUTPUT_DIR, "fig2_counterfactual_bias_rates.pdf"))
+    fig.savefig(os.path.join(OUTPUT_DIR, "fig2_protected_attribute_sensitivity_rates.png"), dpi=300)
+    fig.savefig(os.path.join(OUTPUT_DIR, "fig2_protected_attribute_sensitivity_rates.pdf"))
     plt.close()
-    print("Generated Figure 2.")
+    print("Generated Protected Attribute Sensitivity Rates figure.")
 
 def generate_figure3_domain_breakdown():
     domains = [
