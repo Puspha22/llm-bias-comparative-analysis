@@ -6,19 +6,18 @@ A master's thesis research project presenting a modern, comparative approach to 
 
 ## 📘 Overview
 
-This repository provides the complete dataset, source code, ground-truth benchmark suite, and statistical auditing framework for evaluating LLM-generated decision code.
+This repository provides the complete dataset, source code, and statistical auditing framework for evaluating LLM-generated decision code.
 
 Key Methodology:
 - **Combinatorial Logic Auditing Framework**: Cartesian and Monte Carlo evaluation over function-utilized attributes (up to 100,000 combinations per function).
 - **Magic Number Threshold Hallucination Detection**: Dynamic checking of numeric thresholds against master prompt value ranges.
 - **Behavioral Inconsistency Evaluation**: Uniform testing of generated function sets across shared applicant profiles (5 generated functions per prompt).
-- **Ground-Truth Benchmark Suite**: Validation against 30 synthetic functions with known ground truth.
 - **Statistical Rigor**: Clustered bootstrap 95% Confidence Intervals and paired McNemar statistical significance tests ($p < 0.001$).
-- **Docker-First Containerization**: Zero-setup, isolated execution environment (`network_mode: none`).
+- **Docker-First Containerization**: Zero-setup, isolated execution sandbox (`network_mode: none`).
 
 ---
 
-## 🚀 Step-by-Step Reproduction Guide (From Scratch)
+## 🚀 Step-by-Step Reproduction Guide
 
 ### Step 1: Environment & API Key Setup
 
@@ -31,89 +30,72 @@ XAI_API_KEY=your_grok_api_key_here
 PYTHONDONTWRITEBYTECODE=1
 ```
 
-### Step 2: Code Function Generation (Optional / Optional Re-run)
+### Step 2: Code Function Generation (Optional / Re-run)
 
-To generate 1,715 Python decision functions from prompts across Gemini 2.5 Flash and Grok Code Fast:
+To generate decision functions from prompts across Gemini 2.5 Flash and Grok Code Fast:
 
 * **Using Docker**:
   ```bash
-  docker compose run auditor python src/generate_functions.py
-  docker compose run auditor python src/generate_functions_grok.py
+  docker compose run dataset
   ```
 
 * **Using Host Python**:
   ```bash
-  python src/generate_functions.py
-  python src/generate_functions_grok.py
+  python src/model_generation/generate_functions.py
+  python src/model_generation/generate_functions_grok.py
   ```
 
-### Step 3: Run Full Pipeline via Docker Compose (Recommended)
+### Step 3: Run Reproduction Tasks via Docker Compose (Recommended)
 
-Docker Compose is the primary, zero-configuration reproduction method.
+Docker Compose is the primary, zero-configuration reproduction method. Disabling container network access (`network_mode: none`) provides a secure sandbox for dynamic execution.
 
-* **1. Run Unit Tests**:
+* **1. Run Primary Combinatorial Logic Audit**:
   ```bash
-  docker compose run test
+  docker compose run audit
   ```
 
-* **2. Run Primary Combinatorial Logic Audit**:
+* **2. Compute Table 1 Metrics & Percentages**:
   ```bash
-  docker compose run auditor
+  docker compose run metrics
   ```
 
-* **3. Run Ground-Truth Benchmark Validation**:
+* **3. Run Paired McNemar Statistical Significance Tests**:
   ```bash
-  docker compose run benchmark
+  docker compose run mcnemar
   ```
 
-* **4. Run Behavioral Inconsistency Evaluation**:
+* **4. Generate All Paper Figures**:
   ```bash
-  docker compose run inconsistency
-  ```
-
-* **5. Run Statistical Rigor & McNemar Significance Tests**:
-  ```bash
-  docker compose run statistical
-  ```
-
-* **6. Run Sampling Budget & Seed Sensitivity Analysis**:
-  ```bash
-  docker compose run sensitivity
+  docker compose run figures
   ```
 
 ---
 
 ## 🐍 Alternative Setup (Native Python)
 
-If running directly on your host machine without Docker:
+If running directly on your host machine without Docker (requires **Python 3.11+**):
 
-1. Requires **Python 3.11+**. Install dependencies:
+1. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
 2. Run pipeline scripts directly:
    ```bash
-   # Run unit tests
-   python -m unittest tests/test_auditor.py
-
    # Run primary combinatorial audit
-   python src/run_audit_dynamic.py
+   python src/logic_auditing/run_audit_dynamic.py
 
-   # Extract all 15 protected attribute counts
-   python src/extract_all_protected_counts.py
+   # Compute Table 1 results
+   python src/statistical_analysis/compute_rigorous_metrics.py
 
-   # Run ground-truth benchmark validation
-   python src/evaluate_ground_truth_benchmark.py
+   # Run McNemar statistical significance test
+   python src/statistical_analysis/compute_mcnemar_exact.py
 
-   # Run behavioral inconsistency evaluation
-   python src/evaluate_behavioral_inconsistency.py
+   # Run domain-wise breakdown analysis
+   python src/statistical_analysis/domain_wise_bias_breakdown.py
 
-   # Run statistical rigor analysis
-   python src/analyze_statistical_rigor.py
-
-   # Run sensitivity analysis
-   python src/run_sensitivity_analysis.py
+   # Generate all figures
+   python src/visualization/generate_paper_figures.py
    ```
 
 ---
@@ -121,44 +103,51 @@ If running directly on your host machine without Docker:
 ## 📂 Repository Structure
 
 ```
-├── data/                               # Master prompt datasets and generated code
+├── data/                               # Master datasets and LLM generated code
 │   ├── dataset/
-│   │   ├── prompts_old.jsonl           # Baseline legacy prompts
-│   │   ├── prompts_unified_new.jsonl   # Standardized dataclass prompts (343 tasks, 206 master attributes)
-│   │   ├── auto_canonical_map.json     # Attribute canonical mapping
-│   │   ├── attribute_clusters.csv      # Cluster mapping
-│   │   └── unified_attributes.csv      # Master attribute dictionary
-│   ├── generated_functions_gemini_unified/# 1,715 Python code samples (Gemini 2.5 Flash)
-│   ├── generated_functions_grok_unified/       # 1,715 Python code samples (Grok-Code-Fast-1)
-│   └── ground_truth_benchmark.json     # 30 synthetic functions with known ground truth
+│   │   ├── prompts_old.jsonl           # Baseline legacy prompts (Condition 1)
+│   │   ├── prompts_expanded_new.jsonl  # Expanded range prompts (Condition 2)
+│   │   ├── prompts_unified_new.jsonl   # Standardized dataclass prompts (Conditions 3 & 4)
+│   │   └── unified_attributes.csv      # Master attribute dictionary (206 attributes)
+│   ├── generated_functions_gemini_legacy/ # Gemini Legacy code outputs (Condition 1)
+│   ├── generated_functions_gemini_expanded/ # Gemini Expanded code outputs (Condition 2)
+│   ├── generated_functions_gemini_unified/ # Gemini Unified code outputs (Condition 3)
+│   └── generated_functions_grok_unified/ # Grok Unified code outputs (Condition 4)
 │
-├── src/                                # Core auditing and analysis scripts
-│   ├── helper_functions.py             # Shared Person, type conversion, and prompt parser module
-│   ├── run_audit_dynamic.py            # Primary Combinatorial Logic Auditor
-│   ├── extract_attribute_wise_protected_bias.py # 15 Protected Attribute-wise bias counter
-│   ├── evaluate_ground_truth_benchmark.py # Validation against 30 ground-truth functions
-│   ├── evaluate_behavioral_inconsistency.py # Behavioral decision disagreement evaluator
-│   ├── evaluate_code_compilation_metrics.py # Syntax extraction & compilation success rate evaluator
-│   ├── analyze_statistical_rigor.py    # McNemar test, 95% CIs, and 7-domain breakdown
-│   ├── run_sensitivity_analysis.py     # Sampling budget (1k–200k) & random seed stability
-│   ├── experiments/                    # Exploratory feature & attribute variance experiments
-│   └── visualization/                  # Plotting, PDF/PNG chart generation, & dashboard scripts
+├── src/                                # Core codebase
+│   ├── dataset_generation/             # Prompts creation and range mapping
+│   │   ├── generate_unified_dataset.py
+│   │   └── generate_expanded_dataset.py
+│   ├── model_generation/               # API clients querying Gemini & Grok
+│   │   ├── generate_functions.py
+│   │   └── generate_functions_grok.py
+│   ├── logic_auditing/                 # Sandbox execution engines & retry wrappers
+│   │   ├── run_audit_dynamic.py
+│   │   ├── run_audit_dynamic_legacy.py
+│   │   ├── helper_functions.py
+│   │   ├── audit_remaining_samples.py
+│   │   └── retry_failed_audits.py
+│   ├── statistical_analysis/           # Table 1 aggregator, McNemar test, domain breakdowns
+│   │   ├── compute_rigorous_metrics.py
+│   │   ├── compute_mcnemar_exact.py
+│   │   ├── analyze_statistical_rigor.py
+│   │   └── domain_wise_bias_breakdown.py
+│   └── visualization/                  # Matplotlib paper plots & heatmaps
+│       ├── generate_paper_figures.py
+│       └── [Heatmap generation scripts]
 │
-├── tests/
-│   └── test_auditor.py                 # Automated unit tests for auditor components
-│
-├── reports/                            # Summary JSON reports, audit details, and figures
-│   ├── summary/                        # Published summary JSON reports
-│   ├── audit_details/                  # Detailed per-model JSON audit logs
-│   ├── feature_metrics/                # Feature variance and complexity metrics
+├── reports/                            # Summary reports, figures, and dumps
+│   ├── summary/                        # Published summary JSON results
 │   ├── figures/                        # Output PDF and PNG chart figures
-│   └── manuscript_notes/               # Response letters and methodology notes
+│   ├── feature_metrics/                # Complexity and magic number count statistics
+│   ├── audit_details/                  # Detailed task evaluations
+│   └── raw_dumps/                      # raw json execution traces (git-ignored)
 │
 ├── Dockerfile                          # Container environment specification
 ├── docker-compose.yml                  # Docker Compose service specifications
-├── requirements.txt                    # Pinned Python package dependencies
-├── LICENSE                             # Open-source MIT License
-└── README.md                           # Master repository documentation
+├── requirements.txt                    # Python package dependencies
+├── LICENSE                             # MIT License
+└── README.md                           # Master documentation
 ```
 
 ---
@@ -166,7 +155,7 @@ If running directly on your host machine without Docker:
 ## 🔬 Experimental Parameters & Random Seeds
 
 To guarantee deterministic reproduction, all experimental scripts set explicit random seeds:
-* **Primary Seed**: `seed = 42` (used across combinatorial audits, baseline profile generation, and ground-truth benchmark runs).
+* **Primary Seed**: `seed = 42` (used across combinatorial audits, baseline profile generation, and bootstrap resamples).
 * **Sensitivity Analysis Seeds**: `seeds = [42, 123, 999]` (used to verify cross-seed stability across Monte Carlo sampling budgets).
 * **Clustered Bootstrap**: `n_bootstraps = 1000` resamples clustered by prompt task (`seed = 42`).
 * **Decoding Parameters**:
