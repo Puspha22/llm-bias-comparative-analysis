@@ -61,6 +61,9 @@ To generate decision functions from prompts across Gemini 2.5 Flash and Grok Cod
 
 Docker Compose is the primary, zero-configuration reproduction method. Disabling container network access (`network_mode: none`) provides a secure sandbox for dynamic execution.
 
+> [!IMPORTANT]
+> Since the raw audit output logs (thousands of JSON files representing execution traces) are ignored by Git to keep the repository lightweight, you **must run the logic auditor first** (Step 3.1) to generate the evaluations before you can run the metrics aggregator (Step 3.2), McNemar tests (Step 3.3), or render figures (Step 3.4).
+
 * **1. Run Primary Combinatorial Logic Audit**:
   ```bash
   docker compose run audit
@@ -93,6 +96,10 @@ If running directly on your host machine without Docker (requires **Python 3.11+
    ```
 
 2. Run pipeline scripts directly:
+
+   > [!IMPORTANT]
+   > You must run the logic auditor (`run_audit_dynamic.py`) first to generate the raw audit JSON files on your disk before running the metrics, breakdowns, or figure scripts.
+
    ```bash
    # Run primary combinatorial audit
    python src/logic_auditing/run_audit_dynamic.py
