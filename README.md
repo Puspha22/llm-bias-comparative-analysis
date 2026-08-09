@@ -174,14 +174,12 @@ If running directly on your host machine without Docker (requires **Python 3.11+
 
 ---
 
-## 🔬 Experimental Parameters & Random Seeds
+## 🔬 Experimental Parameters & Decoding Settings
 
-To guarantee deterministic reproduction, all experimental scripts set explicit random seeds:
-* **Primary Seed**: `seed = 42` (used across combinatorial audits and baseline profile generation).
-* **Sensitivity Analysis Seeds**: `seeds = [42, 123, 999]` (used to verify cross-seed stability across Monte Carlo sampling budgets).
+To ensure controlled comparative conditions and reproducibility across API providers, the models were evaluated under the following settings (as described in the paper):
 * **Decoding Parameters**:
-  * **Gemini 2.5 Flash**: `temperature = 1.0`, `top_p = 0.95`.
-  * **Grok Code Fast**: `temperature = 0.7`.
+  * **Google Gemini 2.5 Flash**: accessed using default API decoding parameters (`temperature = 1.0`, `top_p = 0.95`).
+  * **xAI Grok-Code-Fast-1**: accessed using standard code generation settings (`temperature = 0.7`).
 
 ---
 
