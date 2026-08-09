@@ -8,7 +8,9 @@ siuethesis
 MDPI___A_Comparative_Analysis_of_Implicit_Bias_and_Logical_Inconsistency_in_General_Purpose_and_Code_Specialized_Large_Language_Models
 reports/audit_report_*.json
 reports/protected_bias_audit_*.json
-reports/partial_audit_results*
+reports/partial_audit_results*/
+reports/raw_dumps/
+data/generated_functions_*/
 scratch/
 data/dataset/prompts_unified.jsonl
 data/generated_functions_unified/
