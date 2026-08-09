@@ -168,13 +168,6 @@ def main():
         fig.savefig(os.path.join(figures_dir, "fig3_domain_breakdown.pdf"))
         print(f"Saved figure to {os.path.join(figures_dir, 'fig3_domain_breakdown.pdf')}")
         
-        # Save to MDPI Assets
-        assets_dir = "MDPI___A_Comparative_Analysis_of_Implicit_Bias_and_Logical_Inconsistency_in_General_Purpose_and_Code_Specialized_Large_Language_Models/Assets"
-        if os.path.exists(assets_dir):
-            fig.savefig(os.path.join(assets_dir, "fig3_domain_breakdown.png"), dpi=300)
-            fig.savefig(os.path.join(assets_dir, "fig3_domain_breakdown.pdf"))
-            print(f"Saved figure to {os.path.join(assets_dir, 'fig3_domain_breakdown.pdf')}")
-            
         plt.close()
 
 if __name__ == "__main__":

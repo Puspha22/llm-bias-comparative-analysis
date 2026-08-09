@@ -158,13 +158,6 @@ def generate_complexity_combined():
     plt.tight_layout()
     fig.savefig(os.path.join(OUTPUT_DIR, "complexity_combined.png"), dpi=300)
     fig.savefig(os.path.join(OUTPUT_DIR, "complexity_combined.pdf"))
-    
-    # Also save to MDPI Assets
-    assets_dir = os.path.join("MDPI___A_Comparative_Analysis_of_Implicit_Bias_and_Logical_Inconsistency_in_General_Purpose_and_Code_Specialized_Large_Language_Models", "Assets")
-    if os.path.exists(assets_dir):
-        fig.savefig(os.path.join(assets_dir, "complexity_combined.png"), dpi=300)
-        fig.savefig(os.path.join(assets_dir, "complexity_combined.pdf"))
-        
     plt.close()
     print("Generated 4-condition complexity_combined figure with ColorBrewer journal palette.")
 
@@ -211,13 +204,6 @@ def generate_frequency_combined():
     plt.tight_layout()
     fig.savefig(os.path.join(OUTPUT_DIR, "attribute_frequency_combined.png"), dpi=300)
     fig.savefig(os.path.join(OUTPUT_DIR, "attribute_frequency_combined.pdf"))
-    
-    # Save to MDPI Assets
-    assets_dir = os.path.join("MDPI___A_Comparative_Analysis_of_Implicit_Bias_and_Logical_Inconsistency_in_General_Purpose_and_Code_Specialized_Large_Language_Models", "Assets")
-    if os.path.exists(assets_dir):
-        fig.savefig(os.path.join(assets_dir, "attribute_frequency_combined.png"), dpi=300)
-        fig.savefig(os.path.join(assets_dir, "attribute_frequency_combined.pdf"))
-        
     plt.close()
     print("Generated 4-condition attribute_frequency_combined 2x2 grid.")
 

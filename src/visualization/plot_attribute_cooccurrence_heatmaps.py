@@ -7,7 +7,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 OUTPUT_DIR = os.path.join("reports", "figures")
-ASSETS_DIR = os.path.join("MDPI___A_Comparative_Analysis_of_Implicit_Bias_and_Logical_Inconsistency_in_General_Purpose_and_Code_Specialized_Large_Language_Models", "Assets")
 
 plt.rcParams['font.family'] = 'serif'
 plt.rcParams['font.serif'] = ['Palatino', 'Times New Roman', 'DejaVu Serif']
@@ -123,15 +122,11 @@ def main():
     plt.tight_layout()
     
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-    os.makedirs(ASSETS_DIR, exist_ok=True)
 
     fig.savefig(os.path.join(OUTPUT_DIR, "attribute_pairs_heatmap_combined_simple.png"), dpi=300)
     fig.savefig(os.path.join(OUTPUT_DIR, "attribute_pairs_heatmap_combined_simple.pdf"))
-    fig.savefig(os.path.join(ASSETS_DIR, "attribute_pairs_heatmap_combined_simple.png"), dpi=300)
-    fig.savefig(os.path.join(ASSETS_DIR, "attribute_pairs_heatmap_combined_simple.pdf"))
-
-    fig.savefig(os.path.join(ASSETS_DIR, "attribute_pairs_heatmap_combined.png"), dpi=300)
-    fig.savefig(os.path.join(ASSETS_DIR, "attribute_pairs_heatmap_combined.pdf"))
+    fig.savefig(os.path.join(OUTPUT_DIR, "attribute_pairs_heatmap_combined.png"), dpi=300)
+    fig.savefig(os.path.join(OUTPUT_DIR, "attribute_pairs_heatmap_combined.pdf"))
 
     plt.close()
     print("INSTANTLY generated simple frequency-based 4-condition attribute_pairs_heatmap_combined grid!")

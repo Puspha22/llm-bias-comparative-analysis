@@ -53,12 +53,5 @@ dir.create("reports/figures", showWarnings = FALSE, recursive = TRUE)
 ggsave("reports/figures/complexity_combined.pdf", plot = p, width = 10, height = 5.2, device = "pdf")
 ggsave("reports/figures/complexity_combined.png", plot = p, width = 10, height = 5.2, dpi = 300)
 
-# Save to MDPI Assets
-mdpi_dir <- "MDPI___A_Comparative_Analysis_of_Implicit_Bias_and_Logical_Inconsistency_in_General_Purpose_and_Code_Specialized_Large_Language_Models/Assets"
-if (dir.exists(mdpi_dir)) {
-  ggsave(file.path(mdpi_dir, "complexity_combined.pdf"), plot = p, width = 10, height = 5.2, device = "pdf")
-  ggsave(file.path(mdpi_dir, "complexity_combined.png"), plot = p, width = 10, height = 5.2, dpi = 300)
-}
-
 cat("Successfully generated publication-ready complexity_combined plots in R!\n")
 

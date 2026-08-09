@@ -40,4 +40,5 @@ p <- ggplot(df_filtered, aes(x = Attribute, y = Count, fill = Model)) +
   scale_fill_manual(values = c("Legacy Prompts" = "#34A853", "Gemini 2.5 Flash" = "#4285F4", "Grok-Code-Fast-1" = "#2c3e50")) +
   labs(x = "Input Attribute", y = "Total Occurrences", title = "Top 12 Most Frequently Utilized Attributes Across Models")
 
-ggsave("siuethesis/Assets/frequency_combined.pdf", plot = p, width = 10, height = 5, device = "pdf")
+dir.create("reports/figures", showWarnings = FALSE, recursive = TRUE)
+ggsave("reports/figures/frequency_combined.pdf", plot = p, width = 10, height = 5, device = "pdf")
