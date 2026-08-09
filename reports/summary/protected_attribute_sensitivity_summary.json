@@ -1,9 +1,9 @@
 {
   "Gemini_Unified": {
-    "total_functions_evaluated": 1711,
-    "counterfactual_biased_functions": 499,
-    "counterfactual_bias_rate_pct": 29.16,
-    "attribute_flips": {
+    "executable_functions": 1711,
+    "protected_attribute_sensitive_functions": 499,
+    "protected_attribute_sensitivity_rate_pct": 29.16,
+    "sensitive_attribute_counts": {
       "dependents_count": 48,
       "age": 396,
       "marital_status": 11,
@@ -11,11 +11,11 @@
       "family_size": 15,
       "number_of_children": 19,
       "pregnancy_status": 28,
-      "race": 5,
       "gender": 9,
+      "race": 5,
       "genetic_disorder_risk": 9
     },
-    "average_counterfactual_flip_rates_pct": {
+    "average_attribute_flip_rates_pct": {
       "dependents_count": 100.0,
       "age": 100.0,
       "marital_status": 100.0,
@@ -23,11 +23,11 @@
       "family_size": 100.0,
       "number_of_children": 100.0,
       "pregnancy_status": 100.0,
-      "race": 100.0,
       "gender": 100.0,
+      "race": 100.0,
       "genetic_disorder_risk": 100.0
     },
-    "domain_breakdown_pct": {
+    "domain_wise_sensitivity_pct": {
       "Social Benefits": 66.27,
       "University Admissions and Awards": 14.96,
       "Employee Development and Benefits": 65.49,
@@ -38,36 +38,36 @@
     }
   },
   "Grok_Unified": {
-    "total_functions_evaluated": 1715,
-    "counterfactual_biased_functions": 656,
-    "counterfactual_bias_rate_pct": 38.25,
-    "attribute_flips": {
-      "disability_rating": 70,
+    "executable_functions": 1715,
+    "protected_attribute_sensitive_functions": 656,
+    "protected_attribute_sensitivity_rate_pct": 38.25,
+    "sensitive_attribute_counts": {
       "age": 557,
+      "disability_rating": 70,
       "marital_status": 10,
       "family_size": 27,
       "dependents_count": 26,
       "number_of_children": 20,
       "pregnancy_status": 25,
-      "race": 7,
       "gender": 17,
+      "race": 7,
       "religion": 1,
       "genetic_disorder_risk": 6
     },
-    "average_counterfactual_flip_rates_pct": {
-      "disability_rating": 100.0,
+    "average_attribute_flip_rates_pct": {
       "age": 100.0,
+      "disability_rating": 100.0,
       "marital_status": 100.0,
       "family_size": 100.0,
       "dependents_count": 100.0,
       "number_of_children": 100.0,
       "pregnancy_status": 100.0,
-      "race": 100.0,
       "gender": 100.0,
+      "race": 100.0,
       "religion": 100.0,
       "genetic_disorder_risk": 100.0
     },
-    "domain_breakdown_pct": {
+    "domain_wise_sensitivity_pct": {
       "Social Benefits": 64.31,
       "University Admissions and Awards": 16.86,
       "Employee Development and Benefits": 85.1,
@@ -78,18 +78,18 @@
     }
   },
   "Gemini_Legacy": {
-    "total_functions_evaluated": 1688,
-    "counterfactual_biased_functions": 475,
-    "counterfactual_bias_rate_pct": 28.14,
-    "attribute_flips": {
+    "executable_functions": 1688,
+    "protected_attribute_sensitive_functions": 475,
+    "protected_attribute_sensitivity_rate_pct": 28.14,
+    "sensitive_attribute_counts": {
       "age": 385,
       "marital_status": 21,
       "household_size": 28,
       "dependents_count": 8,
       "number_of_children": 16,
-      "race": 20,
-      "religion": 3,
       "gender": 30,
+      "religion": 3,
+      "race": 20,
       "pregnancy_status": 5,
       "family_size": 3,
       "genetic_disorder_risk": 5,
@@ -98,15 +98,15 @@
       "disability_rating": 3,
       "service_disability_rating": 4
     },
-    "average_counterfactual_flip_rates_pct": {
+    "average_attribute_flip_rates_pct": {
       "age": 100.0,
       "marital_status": 100.0,
       "household_size": 100.0,
       "dependents_count": 100.0,
       "number_of_children": 100.0,
-      "race": 100.0,
-      "religion": 100.0,
       "gender": 100.0,
+      "religion": 100.0,
+      "race": 100.0,
       "pregnancy_status": 100.0,
       "family_size": 100.0,
       "genetic_disorder_risk": 100.0,
@@ -115,7 +115,7 @@
       "disability_rating": 100.0,
       "service_disability_rating": 100.0
     },
-    "domain_breakdown_pct": {
+    "domain_wise_sensitivity_pct": {
       "Social Benefits": 56.07,
       "University Admissions and Awards": 5.91,
       "Employee Development and Benefits": 59.22,
@@ -126,18 +126,18 @@
     }
   },
   "Gemini_Expanded": {
-    "total_functions_evaluated": 1627,
-    "counterfactual_biased_functions": 427,
-    "counterfactual_bias_rate_pct": 26.24,
-    "attribute_flips": {
+    "executable_functions": 1627,
+    "protected_attribute_sensitive_functions": 427,
+    "protected_attribute_sensitivity_rate_pct": 26.24,
+    "sensitive_attribute_counts": {
       "age": 343,
       "marital_status": 17,
       "household_size": 26,
       "dependents_count": 9,
       "number_of_children": 18,
-      "race": 19,
-      "religion": 2,
       "gender": 29,
+      "religion": 2,
+      "race": 19,
       "pregnancy_status": 5,
       "genetic_disorder_risk": 5,
       "number_of_dependents": 4,
@@ -145,15 +145,15 @@
       "disability_rating": 1,
       "service_disability_rating": 5
     },
-    "average_counterfactual_flip_rates_pct": {
+    "average_attribute_flip_rates_pct": {
       "age": 100.0,
       "marital_status": 100.0,
       "household_size": 100.0,
       "dependents_count": 100.0,
       "number_of_children": 100.0,
-      "race": 100.0,
-      "religion": 100.0,
       "gender": 100.0,
+      "religion": 100.0,
+      "race": 100.0,
       "pregnancy_status": 100.0,
       "genetic_disorder_risk": 100.0,
       "number_of_dependents": 100.0,
@@ -161,7 +161,7 @@
       "disability_rating": 100.0,
       "service_disability_rating": 100.0
     },
-    "domain_breakdown_pct": {
+    "domain_wise_sensitivity_pct": {
       "Social Benefits": 57.98,
       "University Admissions and Awards": 2.02,
       "Employee Development and Benefits": 50.0,

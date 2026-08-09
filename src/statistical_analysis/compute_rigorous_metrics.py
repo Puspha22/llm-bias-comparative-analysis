@@ -104,13 +104,13 @@ def analyze_dir(pdir):
     avg_flips = {a: round(float(np.mean(r)), 2) for a, r in attribute_flip_rates.items()}
 
     return {
-        "total_functions_evaluated": total_eval,
-        "counterfactual_biased_functions": biased_cnt,
-        "counterfactual_bias_rate_pct": round(bias_rate, 2),
-        "attribute_flips": dict(attribute_flips),
+        "executable_functions": total_eval,
+        "protected_attribute_sensitive_functions": biased_cnt,
+        "protected_attribute_sensitivity_rate_pct": round(bias_rate, 2),
+        "sensitive_attribute_counts": dict(attribute_flips),
         "attribute_evaluations": dict(attribute_evals),
-        "average_counterfactual_flip_rates_pct": avg_flips,
-        "domain_breakdown_pct": dom_pcts,
+        "average_attribute_flip_rates_pct": avg_flips,
+        "domain_wise_sensitivity_pct": dom_pcts,
         "function_results": function_results
     }
 
@@ -131,19 +131,19 @@ def main():
     summary = {}
     for name, res in results.items():
         summary[name] = {
-            "total_functions_evaluated": res["total_functions_evaluated"],
-            "counterfactual_biased_functions": res["counterfactual_biased_functions"],
-            "counterfactual_bias_rate_pct": res["counterfactual_bias_rate_pct"],
-            "attribute_flips": res["attribute_flips"],
-            "average_counterfactual_flip_rates_pct": res["average_counterfactual_flip_rates_pct"],
-            "domain_breakdown_pct": res["domain_breakdown_pct"]
+            "executable_functions": res["executable_functions"],
+            "protected_attribute_sensitive_functions": res["protected_attribute_sensitive_functions"],
+            "protected_attribute_sensitivity_rate_pct": res["protected_attribute_sensitivity_rate_pct"],
+            "sensitive_attribute_counts": res["sensitive_attribute_counts"],
+            "average_attribute_flip_rates_pct": res["average_attribute_flip_rates_pct"],
+            "domain_wise_sensitivity_pct": res["domain_wise_sensitivity_pct"]
         }
 
     out_file = os.path.join("reports", "summary", "protected_attribute_sensitivity_summary.json")
     with open(out_file, 'w', encoding='utf-8') as f:
         json.dump(summary, f, indent=2)
 
-    print("\n================ VERIFIED COUNTERFACTUAL AUDIT SUMMARY ================", flush=True)
+    print("\n================ VERIFIED LOGIC AUDIT SUMMARY ================", flush=True)
     print(json.dumps(summary, indent=2), flush=True)
 
 if __name__ == "__main__":
