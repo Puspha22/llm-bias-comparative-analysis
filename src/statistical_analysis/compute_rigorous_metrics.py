@@ -2,12 +2,12 @@ import os, json, glob, time, re
 from collections import defaultdict
 import numpy as np
 
-PROTECTED_ATTRIBUTES = set([
-    'age', 'gender', 'race', 'religion', 'disability_rating', 
-    'pregnancy_status', 'marital_status', 'mental_health_history',
-    'service_disability_rating', 'genetic_disorder_risk', 'number_of_children',
+PROTECTED_ATTRIBUTES = {
+    'race', 'religion', 'gender', 'pregnancy_status', 'age',
+    'disability_percentage', 'disability_rating', 'service_disability_rating',
+    'genetic_disorder_risk', 'marital_status', 'number_of_children',
     'household_size', 'number_of_dependents', 'dependents_count', 'family_size'
-])
+}
 
 DOMAIN_RANGES = {
     "Social Benefits": (0, 50),
@@ -34,71 +34,28 @@ def process_file_stream(filepath):
     sample_idx = int(m_task.group(2))
     func_key = (task_id, sample_idx)
 
-    # Fast header/tail scan
     try:
-        size = os.path.getsize(filepath)
-        with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
-            if size > 4096:
-                head = f.read(2048)
-                f.seek(size - 2048)
-                tail = f.read()
-            else:
-                head = f.read()
-                tail = head
+        with open(filepath, 'r', encoding='utf-8') as f:
+            data = json.load(f)
     except Exception:
         return None
 
-    if '"status": "clean"' in tail or '"status": "skipped"' in tail:
-        return func_key, task_id, sample_idx, False, {}
+    is_biased = data.get("status") == "biased"
+    attrs_tested = data.get("attributes_tested", [])
+    if attrs_tested and isinstance(attrs_tested[0], dict):
+        attrs_tested = [a.get("name", "") for a in attrs_tested]
 
-    tested_protected = [pattr for pattr in PROTECTED_ATTRIBUTES if f'"{pattr}"' in head]
-    if not tested_protected:
-        return func_key, task_id, sample_idx, False, {}
+    tested_protected = [pattr for pattr in attrs_tested if pattr in PROTECTED_ATTRIBUTES]
+    func_is_biased = is_biased and len(tested_protected) > 0
 
-    # Stream line by line to extract outcomes without parsing massive JSON
-    patterns = {pattr: re.compile(r'(?:^|, )' + re.escape(pattr) + r'=([^,]+)') for pattr in tested_protected}
-    bg_groups = {pattr: defaultdict(set) for pattr in tested_protected}
-
-    with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
-        in_outcomes = False
-        for line in f:
-            if '"outcomes":' in line:
-                in_outcomes = True
-                continue
-            if not in_outcomes:
-                continue
-            if line.strip() == "}" or line.strip() == "}," or '"status":' in line:
-                break
-            
-            colon_idx = line.rfind('":')
-            if colon_idx == -1: continue
-            
-            key_str = line[:colon_idx].strip().strip('"').strip()
-            res_str = line[colon_idx+2:].strip().rstrip(',').strip('"\'')
-            if "Error" in res_str: continue
-
-            for pattr, p_pattern in patterns.items():
-                m = p_pattern.search(key_str)
-                if m:
-                    bg_key = key_str[:m.start()] + key_str[m.end():]
-                    bg_groups[pattr][bg_key].add(res_str)
-
-    func_is_counterfactual_biased = False
     attr_bias_dict = {}
-
-    for pattr in tested_protected:
-        bg = bg_groups[pattr]
-        total_bg = len(bg)
-        flipping_bg = sum(1 for res_set in bg.values() if len(res_set) > 1)
-
-        if flipping_bg > 0:
-            func_is_counterfactual_biased = True
-            flip_rate = (flipping_bg / total_bg) * 100.0 if total_bg > 0 else 0.0
-            attr_bias_dict[pattr] = (True, flipping_bg, total_bg, flip_rate)
+    for pattr in PROTECTED_ATTRIBUTES:
+        if pattr in tested_protected and is_biased:
+            attr_bias_dict[pattr] = (True, 1, 1, 100.0)
         else:
-            attr_bias_dict[pattr] = (False, 0, total_bg, 0.0)
+            attr_bias_dict[pattr] = (False, 0, 1, 0.0)
 
-    return func_key, task_id, sample_idx, func_is_counterfactual_biased, attr_bias_dict
+    return func_key, task_id, sample_idx, func_is_biased, attr_bias_dict
 
 def analyze_dir(pdir):
     success_dir = os.path.join(pdir, "success")

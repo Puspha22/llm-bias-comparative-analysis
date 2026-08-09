@@ -1,10 +1,10 @@
 {
   "common_pairs_evaluated": 1711,
-  "b_grok_only_biased": 348,
-  "c_gemini_only_biased": 72,
-  "both_biased": 307,
-  "neither_biased": 984,
-  "chi2_statistic": 180.0595,
-  "p_value": 0.0,
+  "b_grok_only_biased": 254,
+  "c_gemini_only_biased": 99,
+  "both_biased": 400,
+  "neither_biased": 958,
+  "chi2_statistic": 67.1841,
+  "p_value": 2.220446049250313e-16,
   "statistically_significant": true
 }
