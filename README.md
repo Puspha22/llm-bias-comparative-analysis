@@ -71,21 +71,50 @@ Docker Compose is the primary, zero-configuration reproduction method. Disabling
   ```bash
   docker compose run audit
   ```
+  * **Files Created:** Generates thousands of individual JSON task-run evaluation files under:
+    * `reports/partial_audit_results_gemini_legacy/success/`
+    * `reports/partial_audit_results_gemini_expanded/success/`
+    * `reports/partial_audit_results_gemini_unified/success/`
+    * `reports/partial_audit_results_grok_unified/success/`
+  * **What it contains:** Execution traces for each task run mapping mutated attribute combinations to program decisions.
 
-* **2. Compute Table 1 Metrics & Percentages**:
+* **2. Compute Table 1 Metrics & Sensitivity Summaries**:
   ```bash
   docker compose run metrics
   ```
+  * **Files Created:**
+    * `reports/summary/protected_attribute_sensitivity_summary.json`
+  * **What it contains:** Summarizes the overall Protected Attribute Sensitivity rates (Table 1 main results) for all four model configurations:
+    * **Gemini Legacy:** 475 / 1,688 biased functions (28.14%)
+    * **Gemini Expanded:** 427 / 1,627 biased functions (26.24%)
+    * **Gemini Unified:** 499 / 1,711 biased functions (29.16%)
+    * **Grok Unified:** 656 / 1,715 biased functions (38.25%)
+    * Also outputs attribute-specific flip frequencies and domain-level bias percentages.
 
 * **3. Run Paired McNemar Statistical Significance Tests**:
   ```bash
   docker compose run mcnemar
   ```
+  * **Files Created:**
+    * `reports/summary/mcnemar_significance_test_results.json`
+  * **What it contains:** Formats the paired hypothesis test results evaluating Grok Unified vs Gemini Unified (manuscript Section 3.2):
+    * **Both biased:** 400 functions
+    * **Both clean:** 958 functions
+    * **Grok Unified biased exclusively ($b$):** 254 functions
+    * **Gemini Unified biased exclusively ($c$):** 99 functions
+    * **Chi-square statistic ($\chi^2$):** 67.18 (exact p-value < 0.0001, confirming statistical significance).
 
 * **4. Generate All Paper Figures**:
   ```bash
   docker compose run figures
   ```
+  * **Files Created:** Generates high-res PNG and vector PDF charts under `reports/figures/`:
+    * `fig2_counterfactual_bias_rates.pdf/.png` (Overall sensitivity rates chart)
+    * `fig3_domain_breakdown.pdf/.png` (Domain Breakdown comparison bar chart)
+    * `fig4_behavioral_inconsistency.pdf/.png` (Stacked decision agreement tiers)
+    * `complexity_combined.pdf/.png` (Input variable density histogram)
+    * `attribute_frequency_combined.pdf/.png` (Top-10 utilized sensitive demographics distribution)
+  * **What it contains:** Ready-to-publish visual outputs matching figures included in your Overleaf LaTeX manuscript.
 
 ---
 
