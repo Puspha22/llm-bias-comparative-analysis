@@ -117,7 +117,7 @@ If running directly on your host machine without Docker (requires **Python 3.11+
    python src/statistical_analysis/domain_wise_bias_breakdown.py
 
    # Generate all figures
-   python src/visualization/generate_paper_figures.py
+   python src/visualization/plot_primary_paper_figures.py
    ```
 
 ---
@@ -153,9 +153,16 @@ If running directly on your host machine without Docker (requires **Python 3.11+
 │   │   ├── compute_rigorous_metrics.py
 │   │   ├── compute_mcnemar_exact.py
 │   │   └── domain_wise_bias_breakdown.py
-│   └── visualization/                  # Matplotlib paper plots & heatmaps
-│       ├── generate_paper_figures.py
-│       └── [Heatmap generation scripts]
+│   └── visualization/                  # Matplotlib paper plots, R charts, & heatmaps
+│       ├── plot_primary_paper_figures.py
+│       ├── plot_process_flowchart.py
+│       ├── plot_combinatorial_space_growth.py
+│       ├── plot_monte_carlo_velocity.py
+│       ├── plot_monte_carlo_velocity.R
+│       ├── plot_code_complexity_density.R
+│       ├── plot_attribute_frequency.R
+│       ├── plot_attribute_cooccurrence_heatmaps.py
+│       └── export_appendix_prompts_latex.py
 │
 ├── reports/                            # Summary reports, figures, and dumps
 │   ├── summary/                        # Published summary JSON results
