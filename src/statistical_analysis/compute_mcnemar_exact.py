@@ -2,7 +2,7 @@ import os, json
 from scipy.stats import chi2 as chi2_dist
 
 def main():
-    verified_file = os.path.join("reports", "summary", "verified_counterfactual_audit_summary.json")
+    verified_file = os.path.join("reports", "summary", "counterfactual_bias_rates_summary.json")
     if not os.path.exists(verified_file):
         print("Missing verified summary file.")
         return
@@ -48,7 +48,7 @@ def main():
         "statistically_significant": p_val < 0.05
     }
 
-    out_path = os.path.join("reports", "summary", "verified_mcnemar_test_results.json")
+    out_path = os.path.join("reports", "summary", "mcnemar_significance_test_results.json")
     with open(out_path, 'w', encoding='utf-8') as f:
         json.dump(mcnemar_results, f, indent=2)
 

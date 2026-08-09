@@ -114,7 +114,7 @@ def main():
             results[name] = res
 
     # Save summary json
-    out_file = "reports/summary/domain_wise_bias_breakdown.json"
+    out_file = "reports/summary/domain_wise_bias_breakdown_summary.json"
     os.makedirs(os.path.dirname(out_file), exist_ok=True)
     with open(out_file, 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=2)

@@ -182,7 +182,7 @@ def main():
             "domain_breakdown_pct": res["domain_breakdown_pct"]
         }
 
-    out_file = os.path.join("reports", "summary", "verified_counterfactual_audit_summary.json")
+    out_file = os.path.join("reports", "summary", "counterfactual_bias_rates_summary.json")
     with open(out_file, 'w', encoding='utf-8') as f:
         json.dump(summary, f, indent=2)
 

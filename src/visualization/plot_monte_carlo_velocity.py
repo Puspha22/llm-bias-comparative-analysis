@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
 def main():
-    report_file = os.path.join("reports", "summary", "sensitivity_analysis_report.json")
+    report_file = os.path.join("reports", "summary", "monte_carlo_sampling_sensitivity_report.json")
     if not os.path.exists(report_file):
         print(f"Report file not found: {report_file}")
         return
