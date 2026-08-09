@@ -10,7 +10,7 @@ This repository provides the complete dataset, source code, and statistical audi
 
 Key Methodology:
 - **Combinatorial Logic Auditing Framework**: Cartesian and Monte Carlo evaluation over function-utilized attributes (up to 100,000 combinations per function).
-- **Magic Number Threshold Hallucination Detection**: Dynamic checking of numeric thresholds against master prompt value ranges.
+- **Arbitrary Threshold Injections**: Dynamic checking of unprompted numeric thresholds injected into decision logic against master prompt value ranges.
 - **Behavioral Inconsistency Evaluation**: Uniform testing of generated function sets across shared applicant profiles (5 generated functions per prompt).
 - **Statistical Rigor**: Clustered bootstrap 95% Confidence Intervals and paired McNemar statistical significance tests ($p < 0.001$).
 - **Docker-First Containerization**: Zero-setup, isolated execution sandbox (`network_mode: none`).
@@ -139,7 +139,7 @@ If running directly on your host machine without Docker (requires **Python 3.11+
 ├── reports/                            # Summary reports, figures, and dumps
 │   ├── summary/                        # Published summary JSON results
 │   ├── figures/                        # Output PDF and PNG chart figures
-│   ├── feature_metrics/                # Complexity and magic number count statistics
+│   ├── feature_metrics/                # Complexity and injected threshold statistics
 │   ├── audit_details/                  # Detailed task evaluations
 │   └── raw_dumps/                      # raw json execution traces (git-ignored)
 │
