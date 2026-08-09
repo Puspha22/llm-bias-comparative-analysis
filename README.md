@@ -158,7 +158,6 @@ If running directly on your host machine without Docker (requires **Python 3.11+
 │       ├── plot_process_flowchart.py
 │       ├── plot_combinatorial_space_growth.py
 │       ├── plot_monte_carlo_velocity.py
-│       ├── plot_monte_carlo_velocity.R
 │       ├── plot_code_complexity_density.R
 │       ├── plot_attribute_frequency.R
 │       ├── plot_attribute_cooccurrence_heatmaps.py
