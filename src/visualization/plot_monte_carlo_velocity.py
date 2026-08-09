@@ -72,8 +72,10 @@ def main():
     out_dir = os.path.join("reports", "figures")
     os.makedirs(out_dir, exist_ok=True)
     out_img = os.path.join(out_dir, "discovery_velocity_plateau.png")
+    out_pdf = os.path.join(out_dir, "discovery_velocity_plateau.pdf")
     plt.savefig(out_img, dpi=300, bbox_inches='tight')
-    print(f"Discovery velocity plot saved to: {out_img}")
+    plt.savefig(out_pdf, bbox_inches='tight')
+    print(f"Discovery velocity plot saved to: {out_img} and {out_pdf}")
 
 if __name__ == "__main__":
     main()
