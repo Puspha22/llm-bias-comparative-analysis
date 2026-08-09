@@ -124,7 +124,7 @@ Docker Compose is the primary, zero-configuration reproduction method. Disabling
       * `magic_numbers_chart_*.pdf/.png` (Arbitrary injected numeric thresholds for All4, Gemini, Grok, and Legacy)
       * `protected_bias_chart_all4.pdf/.png` (Top protected demographic classes across 4 conditions)
       * `inconsistency_chart_combined.pdf/.png` (Internal structural logic variance across conditions)
-  * **What it contains:** 100% complete visual assets matching all figures published in the research paper manuscript.
+  * **What it contains:** Visual assets and plots corresponding to the figures in the manuscript.
 
 ---
 
