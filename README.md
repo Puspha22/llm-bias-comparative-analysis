@@ -155,6 +155,9 @@ If running directly on your host machine without Docker (requires **Python 3.11+
    # Run domain-wise breakdown analysis
    python src/statistical_analysis/domain_wise_bias_breakdown.py
 
+   # Run synthetic ground-truth validation benchmark (Review Round 2)
+   python src/statistical_analysis/verify_benchmark_accuracy.py
+
    # Generate all paper figures and diagrams
    python src/visualization/plot_primary_paper_figures.py
    python src/visualization/plot_process_flowchart.py
@@ -163,6 +166,23 @@ If running directly on your host machine without Docker (requires **Python 3.11+
    python src/visualization/plot_attribute_cooccurrence_heatmaps.py
    python src/visualization/plot_threshold_and_bias_distributions.py
    ```
+
+### Step 4: Synthetic Ground-Truth Benchmark Validation
+
+To independently verify the classification precision, recall, and F1-score of the auditing pipeline against known ground truth (as detailed in Section 3):
+
+```bash
+# 1. Execute dynamic auditing on the 20-function benchmark suite
+python src/logic_auditing/run_audit_dynamic.py \
+  --generated-dir data/generated_functions_test \
+  --partial-dir reports/partial_audit_results_test \
+  --audit-report reports/raw_dumps/audit_report_test.json \
+  --prompts-file data/dataset/prompts_unified_new.jsonl
+
+# 2. Evaluate performance against established ground truth
+python src/statistical_analysis/verify_benchmark_accuracy.py
+```
+* **Performance Result:** **100.00% Precision, 100.00% Recall, 1.0000 F1-Score (0 Errors)** across Output Variance, Sensitive Demographic Bias, and Unprompted Threshold Injections.
 
 ---
 
@@ -174,7 +194,9 @@ If running directly on your host machine without Docker (requires **Python 3.11+
 │   │   ├── prompts_old.jsonl           # Baseline legacy prompts
 │   │   ├── prompts_expanded_new.jsonl  # Expanded range prompts
 │   │   ├── prompts_unified_new.jsonl   # Standardized dataclass prompts
+│   │   ├── synthetic_benchmark_ground_truth.json # 20 ground-truth validation records
 │   │   └── unified_attributes.csv      # Master attribute dictionary (206 attributes)
+│   ├── generated_functions_test/       # 20 hand-crafted benchmark test tasks
 │   ├── generated_functions_gemini_legacy/ # Gemini Legacy code outputs
 │   ├── generated_functions_gemini_expanded/ # Gemini Expanded code outputs
 │   ├── generated_functions_gemini_unified/ # Gemini Unified code outputs
@@ -193,10 +215,11 @@ If running directly on your host machine without Docker (requires **Python 3.11+
 │   │   ├── helper_functions.py
 │   │   ├── audit_remaining_samples.py
 │   │   └── retry_failed_audits.py
-│   ├── statistical_analysis/           # Table 1 aggregator, McNemar test, domain breakdowns
+│   ├── statistical_analysis/           # Table 1 aggregator, McNemar test, benchmark verifier
 │   │   ├── compute_rigorous_metrics.py
 │   │   ├── compute_mcnemar_exact.py
-│   │   └── domain_wise_bias_breakdown.py
+│   │   ├── domain_wise_bias_breakdown.py
+│   │   └── verify_benchmark_accuracy.py # Synthetic benchmark precision/recall evaluation
 │   └── visualization/                  # Matplotlib paper plots, R charts, & heatmaps
 │       ├── plot_primary_paper_figures.py
 │       ├── plot_process_flowchart.py
@@ -244,4 +267,4 @@ To ensure controlled comparative conditions and reproducibility across API provi
 
 If using this dataset, benchmark suite, or auditing framework, please cite:
 * **AAAI 2025 Benchmark Base**: Ling et al., *"Bias Unveiled: Investigating Social Bias in LLM-Generated Code"*, AAAI 2025.
-* **Git Release Tag**: [`v1.1-revision`](https://github.com/Puspha22/llm-bias-comparative-analysis/tree/v1.1-revision).
+* **Git Release Tag**: [`v2.0.0`](https://github.com/Puspha22/llm-bias-comparative-analysis/releases/tag/v2.0.0).

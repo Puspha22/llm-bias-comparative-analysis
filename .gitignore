@@ -63,7 +63,8 @@ src/cluster_attributes.py
 !docker-compose.yml
 !requirements.txt
 !.dockerignore
-!.env
+.env
+!.env.example
 !auto_canonical_map.json
 !project_log.md
 
