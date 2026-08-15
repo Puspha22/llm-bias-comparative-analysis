@@ -126,7 +126,7 @@ Docker Compose is the primary, zero-configuration reproduction method. Disabling
       * `inconsistency_chart_combined.pdf/.png` (Internal structural logic variance across conditions)
   * **What it contains:** Visual assets and plots corresponding to the figures in the manuscript.
 
-* **5. Run Synthetic Ground-Truth Benchmark Validation (Review Round 2)**:
+* **5. Run Synthetic Ground-Truth Benchmark Validation**:
   ```bash
   docker compose run benchmark
   ```
@@ -162,7 +162,7 @@ If running directly on your host machine without Docker (requires **Python 3.11+
    # Run domain-wise breakdown analysis
    python src/statistical_analysis/domain_wise_bias_breakdown.py
 
-   # Run synthetic ground-truth validation benchmark (Review Round 2)
+   # Run synthetic ground-truth validation benchmark
    python src/statistical_analysis/verify_benchmark_accuracy.py
 
    # Generate all paper figures and diagrams
