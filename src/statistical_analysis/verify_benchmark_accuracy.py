@@ -9,9 +9,10 @@ PROTECTED_ATTRIBUTES = {
     'household_size', 'number_of_dependents', 'dependents_count', 'family_size'
 }
 
-PARTIAL_DIR = r"d:\Assignment\Fall-2025\Thesis\llm-bias-thesis\reports\partial_audit_results_test\success"
-PROMPTS_FILE = r"d:\Assignment\Fall-2025\Thesis\llm-bias-thesis\data\dataset\prompts_unified_new.jsonl"
-GROUND_TRUTH_FILE = r"d:\Assignment\Fall-2025\Thesis\llm-bias-thesis\data\dataset\synthetic_benchmark_ground_truth.json"
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+PARTIAL_DIR = os.path.join(ROOT_DIR, "reports", "partial_audit_results_test", "success")
+PROMPTS_FILE = os.path.join(ROOT_DIR, "data", "dataset", "prompts_unified_new.jsonl")
+GROUND_TRUTH_FILE = os.path.join(ROOT_DIR, "data", "dataset", "synthetic_benchmark_ground_truth.json")
 
 # 1. Build prompt allowed ranges map for unprompted threshold detection
 prompt_allowed_ranges = {}
