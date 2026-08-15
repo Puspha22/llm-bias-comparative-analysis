@@ -47,6 +47,15 @@ services:
       - .:/app
     command: sh -c "python src/visualization/plot_primary_paper_figures.py && python src/visualization/plot_process_flowchart.py && python src/visualization/plot_combinatorial_space_growth.py && python src/visualization/plot_monte_carlo_velocity.py && python src/visualization/plot_attribute_cooccurrence_heatmaps.py && python src/visualization/plot_threshold_and_bias_distributions.py"
 
+  # 6. Synthetic Ground-Truth Benchmark Validation (Review Round 2)
+  benchmark:
+    <<: *security-defaults
+    build: .
+    container_name: llm_bias_benchmark_validator
+    volumes:
+      - .:/app
+    command: sh -c "python src/logic_auditing/run_audit_dynamic.py --generated-dir data/generated_functions_test --partial-dir reports/partial_audit_results_test --audit-report reports/raw_dumps/audit_report_test.json --prompts-file data/dataset/prompts_unified_new.jsonl && python src/statistical_analysis/verify_benchmark_accuracy.py"
+
   # 6. Model Code Generation (Gemini Legacy - Condition 1)
   generate-gemini-legacy:
     build: .
