@@ -39,10 +39,10 @@ def generate_magic_numbers_charts():
     fig, axes = plt.subplots(2, 2, figsize=(12, 8), dpi=300)
     
     conditions = [
-        ("Gemini Legacy (Condition 1)", legacy_raw, "#9ecae1", axes[0, 0], 145),
-        ("Gemini Expanded (Condition 2)", expanded_raw, "#6baed6", axes[0, 1], 55),
-        ("Gemini Unified (Condition 3)", gemini_raw, "#2171b5", axes[1, 0], 33),
-        ("Grok Unified (Condition 4)", grok_raw, "#252525", axes[1, 1], 20.5)
+        ("Gemini Legacy", legacy_raw, "#9ecae1", axes[0, 0], 145),
+        ("Gemini Expanded", expanded_raw, "#6baed6", axes[0, 1], 55),
+        ("Gemini Unified", gemini_raw, "#2171b5", axes[1, 0], 33),
+        ("Grok Unified", grok_raw, "#252525", axes[1, 1], 20.5)
     ]
     
     for title, raw_data, color, ax, y_limit in conditions:
@@ -124,10 +124,10 @@ def generate_protected_bias_chart_all4():
     # 2x2 Vertical Bar Grid matching the exact paper layout with large, readable fonts
     fig, axes = plt.subplots(2, 2, figsize=(16, 12), dpi=300)
     conditions = [
-        ("Gemini Legacy (Condition 1)", legacy, "#9ecae1", axes[0, 0], 450),
-        ("Gemini Expanded (Condition 2)", expanded, "#6baed6", axes[0, 1], 400),
-        ("Gemini Unified (Condition 3)", gemini, "#2171b5", axes[1, 0], 450),
-        ("Grok Unified (Condition 4)", grok, "#252525", axes[1, 1], 650)
+        ("Gemini Legacy", legacy, "#9ecae1", axes[0, 0], 450),
+        ("Gemini Expanded", expanded, "#6baed6", axes[0, 1], 400),
+        ("Gemini Unified", gemini, "#2171b5", axes[1, 0], 450),
+        ("Grok Unified", grok, "#252525", axes[1, 1], 650)
     ]
     
     for title, data, color, ax, y_limit in conditions:
@@ -144,7 +144,7 @@ def generate_protected_bias_chart_all4():
         ax.set_title(title, fontweight='bold', fontsize=14, pad=12)
         ax.set_ylabel('Utilization Frequency', fontweight='bold', fontsize=12)
         ax.set_xticks(x)
-        ax.set_xticklabels(labels, rotation=45, ha='right', fontsize=11, fontweight='semibold')
+        ax.set_xticklabels(labels, rotation=45, ha='right', fontsize=12, fontweight='normal')
         ax.tick_params(axis='y', labelsize=11)
         ax.set_ylim(0, y_limit)
         ax.grid(True, linestyle='--', alpha=0.35, axis='y')
@@ -154,7 +154,7 @@ def generate_protected_bias_chart_all4():
         for bar, val in zip(bars, values):
             height = bar.get_height()
             ax.text(bar.get_x() + bar.get_width()/2., height + (y_limit * 0.015), str(val),
-                    ha='center', va='bottom', fontsize=11, fontweight='bold')
+                    ha='center', va='bottom', fontsize=11.5, fontweight='normal')
                     
     fig.tight_layout()
     fig.savefig(os.path.join(OUTPUT_DIR, "protected_bias_chart_all4.pdf"))
@@ -169,8 +169,8 @@ def generate_protected_bias_chart_all4():
     print("Generated vertical protected_bias_chart_all4 matching original paper layout.")
 
 def generate_inconsistency_chart_combined():
-    # Structural variance across conditions
-    models = ['Gemini Legacy\n(Condition 1)', 'Gemini Expanded\n(Condition 2)', 'Gemini Unified\n(Condition 3)', 'Grok Unified\n(Condition 4)']
+    # Structural variance across models
+    models = ['Gemini Legacy', 'Gemini Expanded', 'Gemini Unified', 'Grok Unified']
     structural_variance = [63.27, 64.14, 92.42, 95.63]
     
     fig, ax = plt.subplots(figsize=(8.5, 5), dpi=300)
