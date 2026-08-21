@@ -139,7 +139,9 @@ def generate_protected_bias_chart_all4():
         ax.set_xlim(0, max(values) * 1.2 if values else 10)
         ax.grid(True, linestyle=':', alpha=0.45, axis='x')
         ax.spines['top'].set_visible(False)
-        ax.spines['right'].set_visible(False)
+        if ax in (axes[1, 0], axes[1, 1]):
+            ax.set_xlabel('Utilization Frequency', fontweight='bold', fontsize=9.5)
+            
         for bar, val in zip(bars, values):
             ax.text(val + max(values)*0.015, bar.get_y() + bar.get_height()/2.0, str(val),
                     va='center', ha='left', fontsize=9, fontweight='bold')
@@ -147,6 +149,12 @@ def generate_protected_bias_chart_all4():
     fig.tight_layout()
     fig.savefig(os.path.join(OUTPUT_DIR, "protected_bias_chart_all4.pdf"))
     fig.savefig(os.path.join(OUTPUT_DIR, "protected_bias_chart_all4.png"), dpi=300)
+    
+    ms_assets = os.path.join("MDPI___A_Comparative_Analysis_of_Implicit_Bias_and_Logical_Inconsistency_in_General_Purpose_and_Code_Specialized_Large_Language_Models", "Assets")
+    if os.path.exists(ms_assets):
+        fig.savefig(os.path.join(ms_assets, "protected_bias_chart_all4.pdf"))
+        fig.savefig(os.path.join(ms_assets, "protected_bias_chart_all4.png"), dpi=300)
+        
     plt.close(fig)
     print("Generated protected demographic bias distribution figures.")
 
