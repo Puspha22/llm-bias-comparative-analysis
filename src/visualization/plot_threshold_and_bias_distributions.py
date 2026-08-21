@@ -121,8 +121,8 @@ def generate_protected_bias_chart_all4():
     with open(os.path.join(metrics_dir, "protected_bias_rates_grok_unified.json")) as f:
         grok = json.load(f)
 
-    # 2x2 Vertical Bar Grid matching the exact paper layout
-    fig, axes = plt.subplots(2, 2, figsize=(14, 10), dpi=300)
+    # 2x2 Vertical Bar Grid matching the exact paper layout with large, readable fonts
+    fig, axes = plt.subplots(2, 2, figsize=(16, 12), dpi=300)
     conditions = [
         ("Gemini Legacy (Condition 1)", legacy, "#9ecae1", axes[0, 0], 450),
         ("Gemini Expanded (Condition 2)", expanded, "#6baed6", axes[0, 1], 400),
@@ -139,12 +139,13 @@ def generate_protected_bias_chart_all4():
         values = [item[1] for item in filtered_items]
         
         x = np.arange(len(labels))
-        bars = ax.bar(x, values, color=color, alpha=0.9, edgecolor='black', linewidth=0.8, width=0.62)
+        bars = ax.bar(x, values, color=color, alpha=0.9, edgecolor='black', linewidth=1.0, width=0.62)
         
-        ax.set_title(title, fontweight='bold', fontsize=12, pad=10)
-        ax.set_ylabel('Utilization Frequency', fontweight='bold', fontsize=10)
+        ax.set_title(title, fontweight='bold', fontsize=14, pad=12)
+        ax.set_ylabel('Utilization Frequency', fontweight='bold', fontsize=12)
         ax.set_xticks(x)
-        ax.set_xticklabels(labels, rotation=45, ha='right', fontsize=8.5)
+        ax.set_xticklabels(labels, rotation=45, ha='right', fontsize=11, fontweight='semibold')
+        ax.tick_params(axis='y', labelsize=11)
         ax.set_ylim(0, y_limit)
         ax.grid(True, linestyle='--', alpha=0.35, axis='y')
         ax.spines['top'].set_visible(False)
@@ -153,7 +154,7 @@ def generate_protected_bias_chart_all4():
         for bar, val in zip(bars, values):
             height = bar.get_height()
             ax.text(bar.get_x() + bar.get_width()/2., height + (y_limit * 0.015), str(val),
-                    ha='center', va='bottom', fontsize=8.5, fontweight='bold')
+                    ha='center', va='bottom', fontsize=11, fontweight='bold')
                     
     fig.tight_layout()
     fig.savefig(os.path.join(OUTPUT_DIR, "protected_bias_chart_all4.pdf"))
