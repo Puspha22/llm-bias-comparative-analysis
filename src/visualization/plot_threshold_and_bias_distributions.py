@@ -178,10 +178,54 @@ def generate_inconsistency_chart_combined():
     plt.close(fig)
     print("Generated inconsistency_chart_combined figure.")
 
+def generate_domain_breakdown_figure():
+    summary_path = os.path.join("reports", "summary", "domain_wise_bias_breakdown_summary.json")
+    if not os.path.exists(summary_path):
+        return
+    with open(summary_path, 'r', encoding='utf-8') as f:
+        results = json.load(f)
+        
+    domains_list = [
+        "Social Benefits", "Employee Dev. & Benefits", "Licensing", 
+        "Hobbies", "University Admissions", "Health Exams", "Occupations"
+    ]
+    
+    gemini_domain = [results["Gemini Unified"][dom]["bias_pct"] for dom in domains_list]
+    grok_domain = [results["Grok Unified"][dom]["bias_pct"] for dom in domains_list]
+    
+    x = np.arange(len(domains_list))
+    width = 0.38
+    
+    fig, ax = plt.subplots(figsize=(10, 5.5), dpi=300)
+    rects1 = ax.bar(x - width/2, gemini_domain, width, label='Gemini 2.5 Flash (Unified)', color='#4682b4', edgecolor='black', alpha=0.85)
+    rects2 = ax.bar(x + width/2, grok_domain, width, label='Grok-Code-Fast-1 (Unified)', color='#d9534f', edgecolor='black', alpha=0.85)
+    
+    ax.set_ylabel('Protected Attribute Utilization Rate (%)', fontweight='bold', fontsize=11)
+    ax.set_title('Domain-Level Protected Attribute Utilization Comparison', fontweight='bold', pad=15, fontsize=13)
+    ax.set_xticks(x)
+    ax.set_xticklabels(domains_list, rotation=25, ha='right', fontsize=10)
+    ax.legend(frameon=True, facecolor='white', framealpha=0.9)
+    ax.set_ylim(0, 105)
+    ax.grid(True, linestyle='--', alpha=0.5, axis='y')
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    
+    fig.tight_layout()
+    fig.savefig(os.path.join(OUTPUT_DIR, "fig3_domain_breakdown.png"), dpi=300)
+    fig.savefig(os.path.join(OUTPUT_DIR, "fig3_domain_breakdown.pdf"))
+    
+    ms_assets = os.path.join("MDPI___A_Comparative_Analysis_of_Implicit_Bias_and_Logical_Inconsistency_in_General_Purpose_and_Code_Specialized_Large_Language_Models", "Assets")
+    if os.path.exists(ms_assets):
+        fig.savefig(os.path.join(ms_assets, "fig3_domain_breakdown.png"), dpi=300)
+        fig.savefig(os.path.join(ms_assets, "fig3_domain_breakdown.pdf"))
+    plt.close(fig)
+    print("Generated fig3_domain_breakdown with Protected Attribute Utilization Rate y-axis.")
+
 def main():
     generate_magic_numbers_charts()
     generate_protected_bias_chart_all4()
     generate_inconsistency_chart_combined()
+    generate_domain_breakdown_figure()
 
 if __name__ == "__main__":
     main()

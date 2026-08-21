@@ -149,8 +149,8 @@ def main():
         rects1 = ax.bar(x - width/2, gemini_domain, width, label='Gemini 2.5 Flash (Unified)', color='#4682b4', edgecolor='black', alpha=0.85)
         rects2 = ax.bar(x + width/2, grok_domain, width, label='Grok-Code-Fast-1 (Unified)', color='#d9534f', edgecolor='black', alpha=0.85)
         
-        ax.set_ylabel('Protected Attribute Bias Rate (%)', fontweight='bold')
-        ax.set_title('Domain-Level Protected Attribute Bias Comparison (Static Audit)', fontweight='bold', pad=15)
+        ax.set_ylabel('Protected Attribute Utilization Rate (%)', fontweight='bold')
+        ax.set_title('Domain-Level Protected Attribute Utilization Comparison', fontweight='bold', pad=15)
         ax.set_xticks(x)
         ax.set_xticklabels(domains_list, rotation=25, ha='right')
         ax.legend(frameon=True, facecolor='white', framealpha=0.9)
@@ -167,6 +167,12 @@ def main():
         fig.savefig(os.path.join(figures_dir, "fig3_domain_breakdown.png"), dpi=300)
         fig.savefig(os.path.join(figures_dir, "fig3_domain_breakdown.pdf"))
         print(f"Saved figure to {os.path.join(figures_dir, 'fig3_domain_breakdown.pdf')}")
+        
+        ms_assets = os.path.join("MDPI___A_Comparative_Analysis_of_Implicit_Bias_and_Logical_Inconsistency_in_General_Purpose_and_Code_Specialized_Large_Language_Models", "Assets")
+        if os.path.exists(ms_assets):
+            fig.savefig(os.path.join(ms_assets, "fig3_domain_breakdown.png"), dpi=300)
+            fig.savefig(os.path.join(ms_assets, "fig3_domain_breakdown.pdf"))
+            print(f"Saved figure to {os.path.join(ms_assets, 'fig3_domain_breakdown.pdf')}")
         
         plt.close()
 
