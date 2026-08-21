@@ -21,63 +21,76 @@ def generate_magic_numbers_charts():
     with open(os.path.join(metrics_dir, "injected_thresholds_grok_unified.json")) as f:
         grok_raw = json.load(f)
 
-    def extract_top(data_raw, top_k=10):
-        # Data format can be dict of counts or list
-        if isinstance(data_raw, dict):
-            # Sort by frequency
-            sorted_items = sorted(data_raw.items(), key=lambda x: int(x[1]) if isinstance(x[1], (int, str)) and str(x[1]).isdigit() else len(x[1]) if isinstance(x[1], list) else 1, reverse=True)
-            return sorted_items[:top_k]
-        elif isinstance(data_raw, list):
-            from collections import Counter
-            c = Counter()
+    def extract_top_attributes(data_raw, top_k=10):
+        from collections import Counter
+        c = Counter()
+        if isinstance(data_raw, list):
             for item in data_raw:
-                val = item.get("threshold") or item.get("value") or item.get("condition") or str(item)
-                c[str(val)] += 1
-            return c.most_common(top_k)
-        return []
+                attr = item.get("attribute", "")
+                if attr:
+                    c[attr] += 1
+        elif isinstance(data_raw, dict):
+            for k, v in data_raw.items():
+                count = int(v) if isinstance(v, (int, str)) and str(v).isdigit() else len(v) if isinstance(v, list) else 1
+                c[k] = count
+        return c.most_common(top_k)
 
-    # 1. 4-Condition Combined Magic Numbers
-    fig, axes = plt.subplots(2, 2, figsize=(13, 10), dpi=300)
+    # 2x2 Grid matching exact paper aesthetics and layout
+    fig, axes = plt.subplots(2, 2, figsize=(12, 8), dpi=300)
+    
     conditions = [
-        ("Gemini Legacy (Condition 1)", legacy_raw, "#bdd7e7", axes[0, 0]),
-        ("Gemini Expanded (Condition 2)", expanded_raw, "#6baed6", axes[0, 1]),
-        ("Gemini Unified (Condition 3)", gemini_raw, "#2171b5", axes[1, 0]),
-        ("Grok Unified (Condition 4)", grok_raw, "#1a1a1a", axes[1, 1])
+        ("Gemini Legacy (Condition 1)", legacy_raw, "#9ecae1", axes[0, 0], 145),
+        ("Gemini Expanded (Condition 2)", expanded_raw, "#6baed6", axes[0, 1], 55),
+        ("Gemini Unified (Condition 3)", gemini_raw, "#2171b5", axes[1, 0], 33),
+        ("Grok Unified (Condition 4)", grok_raw, "#252525", axes[1, 1], 20.5)
     ]
     
-    for title, raw_data, color, ax in conditions:
-        top_items = extract_top(raw_data, top_k=8)
+    for title, raw_data, color, ax, y_limit in conditions:
+        top_items = extract_top_attributes(raw_data, top_k=10)
         if not top_items:
             continue
-        labels = [str(item[0])[:20] for item in top_items][::-1]
-        counts = [item[1] if isinstance(item[1], int) else len(item[1]) if isinstance(item[1], list) else 1 for item in top_items][::-1]
         
-        bars = ax.barh(labels, counts, color=color, alpha=0.9, edgecolor='black', linewidth=0.5, height=0.65)
-        ax.set_title(title, fontweight='bold', fontsize=11, pad=8)
-        ax.set_xlim(0, max(counts) * 1.2 if counts else 10)
-        ax.grid(True, linestyle=':', alpha=0.45, axis='x')
+        labels = [item[0].replace('_', ' ').title() for item in top_items]
+        counts = [item[1] for item in top_items]
+        
+        x = np.arange(len(labels))
+        bars = ax.bar(x, counts, color=color, alpha=0.9, edgecolor='black', linewidth=0.8, width=0.58)
+        
+        ax.set_title(title, fontweight='bold', fontsize=12, pad=10)
+        ax.set_ylabel('Number of Unprompted Thresholds', fontweight='bold', fontsize=10)
+        ax.set_xticks(x)
+        ax.set_xticklabels(labels, rotation=45, ha='right', fontsize=9)
+        ax.set_ylim(0, y_limit)
+        ax.grid(True, linestyle='--', alpha=0.35, axis='y')
         ax.spines['top'].set_visible(False)
         ax.spines['right'].set_visible(False)
+        
         for bar, val in zip(bars, counts):
-            ax.text(val + max(counts)*0.015, bar.get_y() + bar.get_height()/2.0, str(val),
-                    va='center', ha='left', fontsize=9, fontweight='bold')
+            height = bar.get_height()
+            ax.text(bar.get_x() + bar.get_width()/2., height + (y_limit * 0.018), str(val),
+                    ha='center', va='bottom', fontsize=9.5, fontweight='bold')
                     
-    fig.tight_layout()
+    plt.tight_layout()
     fig.savefig(os.path.join(OUTPUT_DIR, "magic_numbers_chart_all4.pdf"))
     fig.savefig(os.path.join(OUTPUT_DIR, "magic_numbers_chart_all4.png"), dpi=300)
+    
+    # Also save to manuscript Assets directory
+    ms_assets = os.path.join("MDPI___A_Comparative_Analysis_of_Implicit_Bias_and_Logical_Inconsistency_in_General_Purpose_and_Code_Specialized_Large_Language_Models", "Assets")
+    if os.path.exists(ms_assets):
+        fig.savefig(os.path.join(ms_assets, "magic_numbers_chart_all4.pdf"))
+        fig.savefig(os.path.join(ms_assets, "magic_numbers_chart_all4.png"), dpi=300)
     plt.close(fig)
-
-    # 2. Standalone Charts for Gemini, Grok, Legacy
+    print("Generated magic_numbers_chart_all4 (Unprompted Thresholds) matching paper.")
     individual_maps = [
         ("magic_numbers_chart_gemini", "Gemini Unified Injected Thresholds", gemini_raw, "#2171b5"),
         ("magic_numbers_chart_grok", "Grok Unified Injected Thresholds", grok_raw, "#1a1a1a"),
         ("magic_numbers_chart_legacy", "Gemini Legacy Injected Thresholds", legacy_raw, "#bdd7e7")
     ]
     for filename, title, raw_data, color in individual_maps:
-        top_items = extract_top(raw_data, top_k=10)
+        top_items = extract_top_attributes(raw_data, top_k=10)
         if not top_items: continue
-        labels = [str(item[0])[:25] for item in top_items][::-1]
-        counts = [item[1] if isinstance(item[1], int) else len(item[1]) if isinstance(item[1], list) else 1 for item in top_items][::-1]
+        labels = [item[0].replace('_', ' ').title() for item in top_items][::-1]
+        counts = [item[1] for item in top_items][::-1]
         
         fig, ax = plt.subplots(figsize=(8, 5.5), dpi=300)
         bars = ax.barh(labels, counts, color=color, alpha=0.9, edgecolor='black', linewidth=0.5, height=0.65)

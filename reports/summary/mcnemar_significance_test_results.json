@@ -1,10 +1,26 @@
 {
-  "common_pairs_evaluated": 1711,
-  "b_grok_only_biased": 254,
-  "c_gemini_only_biased": 99,
-  "both_biased": 400,
-  "neither_biased": 958,
-  "chi2_statistic": 67.1841,
-  "p_value": 2.220446049250313e-16,
-  "statistically_significant": true
+  "function_level_test": {
+    "description": "Unclustered paired test across individual function generations",
+    "common_pairs_evaluated": 1711,
+    "b_grok_only_biased": 254,
+    "c_gemini_only_biased": 99,
+    "both_biased": 400,
+    "neither_biased": 958,
+    "chi2_statistic": 67.1841,
+    "p_value": 2.220446049250313e-16,
+    "statistically_significant": true
+  },
+  "prompt_level_test": {
+    "description": "Cluster-adjusted paired test across 343 base prompts (task flagged if >=1 generation exhibits bias)",
+    "common_prompts_evaluated": 343,
+    "gemini_total_biased_prompts": 157,
+    "grok_total_biased_prompts": 176,
+    "both_biased_prompts (a)": 139,
+    "b_grok_only_biased_prompts (b)": 37,
+    "c_gemini_only_biased_prompts (c)": 18,
+    "neither_biased_prompts (d)": 149,
+    "chi2_statistic": 5.8909,
+    "p_value": 0.015219241743104739,
+    "statistically_significant": true
+  }
 }
