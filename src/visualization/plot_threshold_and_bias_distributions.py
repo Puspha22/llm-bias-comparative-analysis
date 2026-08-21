@@ -121,30 +121,39 @@ def generate_protected_bias_chart_all4():
     with open(os.path.join(metrics_dir, "protected_bias_rates_grok_unified.json")) as f:
         grok = json.load(f)
 
-    fig, axes = plt.subplots(2, 2, figsize=(13, 10), dpi=300)
+    # 2x2 Vertical Bar Grid matching the exact paper layout
+    fig, axes = plt.subplots(2, 2, figsize=(14, 10), dpi=300)
     conditions = [
-        ("Gemini Legacy (Condition 1)", legacy, "#bdd7e7", axes[0, 0]),
-        ("Gemini Expanded (Condition 2)", expanded, "#6baed6", axes[0, 1]),
-        ("Gemini Unified (Condition 3)", gemini, "#2171b5", axes[1, 0]),
-        ("Grok Unified (Condition 4)", grok, "#1a1a1a", axes[1, 1])
+        ("Gemini Legacy (Condition 1)", legacy, "#9ecae1", axes[0, 0], 450),
+        ("Gemini Expanded (Condition 2)", expanded, "#6baed6", axes[0, 1], 400),
+        ("Gemini Unified (Condition 3)", gemini, "#2171b5", axes[1, 0], 450),
+        ("Grok Unified (Condition 4)", grok, "#252525", axes[1, 1], 650)
     ]
     
-    for title, data, color, ax in conditions:
-        items = list(data.items())[:8][::-1]
-        labels = [item[0].replace('_', ' ').title() for item in items]
-        values = [item[1] for item in items]
+    for title, data, color, ax, y_limit in conditions:
+        sorted_items = sorted(data.items(), key=lambda x: x[1], reverse=True)
+        # Filter out 0 counts
+        filtered_items = [item for item in sorted_items if item[1] > 0]
         
-        bars = ax.barh(labels, values, color=color, alpha=0.9, edgecolor='black', linewidth=0.5, height=0.65)
-        ax.set_title(title, fontweight='bold', fontsize=11, pad=8)
-        ax.set_xlim(0, max(values) * 1.2 if values else 10)
-        ax.grid(True, linestyle=':', alpha=0.45, axis='x')
+        labels = [item[0].replace('_', ' ').title() for item in filtered_items]
+        values = [item[1] for item in filtered_items]
+        
+        x = np.arange(len(labels))
+        bars = ax.bar(x, values, color=color, alpha=0.9, edgecolor='black', linewidth=0.8, width=0.62)
+        
+        ax.set_title(title, fontweight='bold', fontsize=12, pad=10)
+        ax.set_ylabel('Utilization Frequency', fontweight='bold', fontsize=10)
+        ax.set_xticks(x)
+        ax.set_xticklabels(labels, rotation=45, ha='right', fontsize=8.5)
+        ax.set_ylim(0, y_limit)
+        ax.grid(True, linestyle='--', alpha=0.35, axis='y')
         ax.spines['top'].set_visible(False)
-        if ax in (axes[1, 0], axes[1, 1]):
-            ax.set_xlabel('Utilization Frequency', fontweight='bold', fontsize=9.5)
-            
+        ax.spines['right'].set_visible(False)
+        
         for bar, val in zip(bars, values):
-            ax.text(val + max(values)*0.015, bar.get_y() + bar.get_height()/2.0, str(val),
-                    va='center', ha='left', fontsize=9, fontweight='bold')
+            height = bar.get_height()
+            ax.text(bar.get_x() + bar.get_width()/2., height + (y_limit * 0.015), str(val),
+                    ha='center', va='bottom', fontsize=8.5, fontweight='bold')
                     
     fig.tight_layout()
     fig.savefig(os.path.join(OUTPUT_DIR, "protected_bias_chart_all4.pdf"))
@@ -156,7 +165,7 @@ def generate_protected_bias_chart_all4():
         fig.savefig(os.path.join(ms_assets, "protected_bias_chart_all4.png"), dpi=300)
         
     plt.close(fig)
-    print("Generated protected demographic bias distribution figures.")
+    print("Generated vertical protected_bias_chart_all4 matching original paper layout.")
 
 def generate_inconsistency_chart_combined():
     # Structural variance across conditions
